@@ -1,0 +1,6 @@
+{
+  "name": "Alabanzas",
+  "description": "Cancionero de alabanzas offline con buscador súper rápido y exportación de cada alabanza individual en un PDF A4 perfecto de una página.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

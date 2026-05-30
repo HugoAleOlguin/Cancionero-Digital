@@ -1,0 +1,51 @@
+# Gradle & Kotlin caches/configs
+.gradle/
+.kotlin/
+/local.properties
+/gradle.properties.user
+
+# Android Studio / IntelliJ IDEA files
+.idea/
+*.iml
+*.ipr
+*.iws
+/captures/
+.externalNativeBuild/
+.cxx/
+
+# VS Code files
+.vscode/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Build outputs
+/build/
+/app/build/
+/bin/
+/gen/
+/out/
+
+# Keystores & Signing Keys (IMPORTANT: Do not commit keys!)
+*.jks
+*.keystore
+*.pepk
+*.pk8
+my-upload-key.jks
+debug.keystore
+
+# Local environment & Secrets
+.env
+.env.*
+!.env.example
+
+# Local scripts containing credentials / absolute paths
+build_release.bat
+gen_keystore.bat
+
+# Temporary files & reports
+test_out.txt
+app/app/
+*.log
