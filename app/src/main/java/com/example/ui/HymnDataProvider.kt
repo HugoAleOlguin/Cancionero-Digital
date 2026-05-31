@@ -4891,7 +4891,7 @@ galardón recibirás y allí cantarás triunfante"""
             id = 248,
             title = "¿Cómo debo orar?",
             link = "https://www.youtube.com/watch?v=kNY0Z2QB2Y4",
-            author = "",
+            author = "Tito Abarca",
             content = """¿Cómo debo orar para alcanzar lo imposible?
 Desprender virtud de Ti, hoy mi Fe fue suficiente
 Mi clamor llegó hasta tu altar.
@@ -5036,7 +5036,7 @@ Y aprender bien la lección que a su tiempo él nos dirá
             id = 254,
             title = "¿Quién se opone si Dios te ha elegido?",
             link = "https://www.youtube.com/watch?v=mqb-AOowoXo",
-            author = "",
+            author = "Tito Abarca",
             content = """Nehemías vivía en palacio, como copero del rey.
 Cada día oraba y gemía por su nación,
 La noticia llegó no era buena, porque su pueblo,
@@ -6030,7 +6030,7 @@ Y no mirar atrás//"""
             id = 288,
             title = "Job",
             link = "",
-            author = "",
+            author = "Tito Abarca",
             content = """¿Por qué de Dios recibiremos lo bueno y no lo malo?
 dijo aquel llamado Job. // Cuando todo lo perdió, cuando nada le quedó
 Pudo decir Dios me dio, Dios me quito//
@@ -6770,7 +6770,7 @@ Solo un sentir nos una, y entonces llenes mi ser."""
             id = 314,
             title = "¿Por qué temer?",
             link = "https://www.youtube.com/watch?v=r-hfsb7W-1g",
-            author = "",
+            author = "Tito Abarca",
             content = """I
 Por qué temer si no estamos solos,
 Si hay un Dios que camina conmigo en la tempestad.
@@ -11585,8 +11585,7 @@ Coro II:
 “Porque Yo Soy el que quita el temor cuando todo parece perdido,
 Yo abro el mar de problemas que impide que sigas andando;
 Yo Soy el que guía tus pasos, te llevo en mis brazos ya no te detengas,
-Yo Soy el que Soy, porque Yo Soy el que Soy”.
-"""
+Yo Soy el que Soy, porque Yo Soy el que Soy”."""
         ),
         Hymn(
             id = 459,
@@ -11674,6 +11673,907 @@ Hoy se mueve en este lugar,
 La Presencia de Jesús hecha fuera todo mal
 La Victoria en tu vida tendrás.
 La Presencia de mi Dios hoy se siente."""
+        ),
+        Hymn(
+            id = 462,
+            title = "Dios no olvida",
+            link = "",
+            author = "Tito Abarca",
+            content = """I
+
+“Te pido que me recuerdes cuando tú te encuentres libre
+Que yo estoy sufriendo aquí
+Yo era feliz cuando era libre y por cosas que no entiendo
+Encadenado yo me vi.
+Yo fui hurtado de mi tierra y vendido como esclavo
+Y a mi herencia la perdí
+//Ninguna falta cometí, yo solo quiero ser feliz
+Y ya no estar encarcelado”//
+
+Coro I:
+
+Pero el copero se olvidó, el es feliz en el palacio;
+Y yo aquí un preso más, espero la liberación
+Y el fin de todos mis fracasos.
+¿Podrá una madre olvidarse lo que ella tuvo en su ser?
+//“Aunque ella olvide” dice Dios
+“Jamás de ti me olvidaré, estas grabado en mis manos”//
+
+II
+
+Te ruego que nunca olvides al que sufre en una cárcel
+Y no entiendes su dolor,
+El día a día está esperando
+Que de los cielos venga un ángel y le de liberación.
+Hoy puede ser ese gran día si le recuerdas de rodillas,
+Si hoy elevas tu oración
+//Que hoy Dios puede responder
+Y una cárcel se abrirá Y un alma libre al fin será//
+
+Coro II:
+
+Porque Dios nunca se olvidó
+De aquel que sufre en una cárcel
+De ti el cielo se acordó, la noche triste terminó
+Y el fin de todos tus fracasos.
+¿Podrá una madre olvidarse lo que ella tuvo en su ser?
+//“Aunque ella olvide” dice Dios
+“Jamás de ti me olvidaré, estas grabado en mis manos”//"""
+        ),
+        Hymn(
+            id = 463,
+            title = "Fue por Ti",
+            link = "",
+            author = "Tito Abarca",
+            content = """I
+
+De rodillas Jesús ora al cielo
+En la noche cuando el silencio ha ganado el lugar,
+Una voz se oye en el huerto, es Jesús con dolor sin igual
+Que buscando el Rostro del Padre solo quiere agradar.
+Sus rodillas cansadas y el sudor en su frente
+Como grandes gotas de sangre sobre tierra caerán,
+Aparece un ángel del cielo porque en gran agonía él está
+Fortalece Su Espíritu y alma, se levantará.
+
+Coro:
+
+Y fue por ti que oró en la noche en el huerto
+Y fue por ti que no habló solo hizo silencio
+Solo por ti perdonó a los verdugos diciendo:
+“Padre perdónalos, no saben lo que hacen”.
+Y fue por ti que en la cruz sus brazos se abrieron
+Y fue por ti que en la cruz su costado fue abierto
+Solo por ti soportó el dolor más intenso
+Y aun así Jesús te sigue diciendo: “Lo hago por ti”.
+
+II
+
+En la nube Jesús sube al cielo
+Y en la noche cuando estés solo y no encuentres lugar
+Una voz se oye en el huerto, es Jesús con amor sin igual
+Te recuerda que el Gran sacrificio fue para limpiar.
+Ya tus manos cansadas y el sudor en tu frente
+Y tus lágrimas sobre tu rostro en tierra caerán;
+Aparece Jesús tiernamente: “hoy tus ojos Yo voy a enjugar,
+Fortalezco tu espíritu y alma, te levantarás”."""
+        ),
+        Hymn(
+            id = 464,
+            title = "El Sacrificio de la cruz",
+            link = "",
+            author = "Tito Abarca",
+            content = """I
+
+El hombre en el Huerto del Edén
+Disfrutaba Tu Gloria,
+La dicha que día tras día vinieras a él.
+Pero pecó olvidando el Mandato de Dios,
+Desechado de aquel Paraíso el hombre quedó.
+Aquello que hiciste a Tu imagen estaba perdido,
+Desobediencia y también el pecado lo han corrompido
+Pero Tu amor hacia el hombre perdido
+Decidiste enviar a Tu Hijo para Redención.
+
+Coro:
+
+El Sacrificio en la cruz del calvario te puede Salvar
+No en vano vertió Él Su Sangre fue para limpiar
+Si el pecado en tu vida causó una frustración
+Hoy la Sangre de Cristo te limpia y te otorga el perdón.
+
+II
+
+La Gracia que halló el penitente hoy es para ti
+Por más negro que sea el pecado depende de ti,
+Su Espíritu, alma y cuerpo al cielo ascendió
+Pero en tierra dejó él Su Sangre la que limpia hoy."""
+        ),
+        Hymn(
+            id = 465,
+            title = "El afán y la ansiedad",
+            link = "",
+            author = "Tito Abarca",
+            content = """I
+
+El afán y la ansiedad
+Son problemas que al hombre le impiden esperar en Dios;
+Lo que tengo, lo que tendré, si me falta, si me faltará
+La ansiedad por querer añadir un codo a mi altura.
+Si consigo, si conseguiré, si me esfuerzo tal vez llegaré,
+Si no tengo ese bien anhelado quizás no seguiré.
+
+Coro:
+
+“¿Por qué buscáis el tesoro en la tierra
+Donde hay ladrones y todo es incierto?
+Buscad Primero el Reino del cielo
+Que lo demás añadido será”.
+Este mensaje Jesús ya lo dijo:
+“Mirad las aves, los lirios del campo
+Si ellas comen, si ellos se visten
+A ti nada te faltará”.
+
+II
+
+Bendiciones nuevas por ti Yo crearé
+Para que no dudes que Yo te sustentaré
+¿Preocupado por lo que has de comer,
+Preocupado por lo que has de beber?
+Son las cosas que gente del mundo ansia en la tierra.
+No temáis manada pequeña
+Que del cielo enviaré providencias
+Pero donde este tu tesoro estará el corazón."""
+        ),
+        Hymn(
+            id = 466,
+            title = "Señor mi corazón te Canta",
+            link = "",
+            author = "Tito Abarca",
+            content = """I
+
+Señor mi corazón te Canta
+Agradecido tiene alegría por tanta bondad,
+Quiero anunciar cantando Tu amor derramado en mis días
+Yo sé que fue Gracia del cielo sobre mi vida.
+
+II
+
+Eres la fuente eterna inagotable
+Que brota y desprende de amor para los mortales
+//¿Por qué alma mía te llenas de angustia,
+Congojas, presión y tristeza?
+El Dios a quien sirves hoy vino a darte riquezas//
+
+III
+
+No olvidará el Divino Jardinero
+La flor más pequeña y hermosa de su jardín,
+Todo lo que Dios permite sabe llevarlo a Buen fin
+//El que gobierna tu vida//
+Las providencias del cielo te enviará.
+
+Final:
+
+//Será el tu paz, tu alegría,
+Tu herencia tendrás aquel día
+Y hasta Su Gloria eterna Él te guiará//"""
+        ),
+        Hymn(
+            id = 467,
+            title = "Este es el Rey",
+            link = "",
+            author = "Tito Abarca",
+            content = """I
+
+¿Este es el Rey de los judíos?
+El que levanta a los muertos parece vencido
+Muchos se burlan y dicen: “si Tu eres el Cristo,
+Si a otros salvó y no puede salvarse a sí mismo”.
+“Si tu eres el Rey de este pueblo, si eres Hijo de Dios el Escogido”
+Corona de espinas te quieren para coronar.
+Un malhechor le injuriaba: “si tienes poder para salvar
+Desciende de aquí a nosotros si puedes librar”.
+
+Coro I:
+
+“¿No temes a Dios aun estando pendiente de esa cruz?
+¿No ves que tu estas condenado
+Por tanto pecado que mal te causó?
+Más Él Inocente que viene se ha hecho
+Hoy puede otorgarte el perdón
+//El cielo te espera si hoy reconoces tu error”//
+
+II
+
+Este es el Rey el que ha Vencido,
+El que levanta a los muertos hoy ha venido
+Tu no debes pensar: “estoy perdido”
+Levanta tus ojos y mira, no estás vencido.
+Si tú eres un Hijo de Dios
+Y su muerte en la cruz te ha emblanquecido
+Corona en el cielo te espera, hay que llegar.
+Abre tus labios y eleva tu alma hacia el cielo que Triunfo vendrá
+Desciende Jesús que hoy mi alma te quiere alabar.
+
+Coro II:
+
+“¿No temes a Dios aun estando pendiente de esa cruz?
+¿No ves que tu estas condenado
+Por tanto pecado que mal te causó?
+Señor yo te pido:
+“Contigo en el cielo Por siempre quiero estar”
+//“De cierto te digo que hoy Conmigo estarás”//"""
+        ),
+        Hymn(
+            id = 468,
+            title = "Fue en una Cruz",
+            link = "",
+            author = "Tito Abarca",
+            content = """I
+
+El camino del calvario
+Fue regado con Su Sangre,
+Era el precio del pecado
+Que Jesús allí pagó.
+Una cruz tan dolorosa
+Lastimaba su espalda
+Y en el monte de la muerte
+Él su vida entregó.
+
+Coro:
+
+Fue en una cruz crucificado
+Donde Jesús allí murió;
+Por mi maldad desfigurado,
+Fue en una cruz
+Donde Él pagó mi libertad.
+
+II
+
+El milagro de los cielos
+Fue enviar a Su Hijo Amado
+Era el Padre revelando
+De su amor al pecador.
+Sus palabras no escucharon,
+El milagro no creyeron
+Y llevaronle a la muerte
+Y él la vida les brindó."""
+        ),
+        Hymn(
+            id = 469,
+            title = "Que terrible Dolor",
+            link = "",
+            author = "Tito Abarca",
+            content = """I
+
+Que terrible dolor que sufrió mi Maestro
+Cuando el látigo cruel a su espalda surcó
+El verdugo malvado que con ira y sin pausa
+Descargó todo su odio sobre él.
+Que terrible dolor cuando tejieron corona de espinas
+Que con odio y con fuerza en su sien traspasó,
+Fue vestido de burlas siendo el Rey de los cielos
+Pero nada detuvo a mi Cristo que al calvario ascendió.
+
+Coro:
+
+Como Cordero calló, hizo silencio, no habló
+Sigue avanzando el Gólgota espera,
+La cruz muy pesada que no soportó.
+Hasta la cima llegó, prueba de su gran amor
+Manos clavadas con clavo y martillo
+Lo sufre en silencio solo por amor.
+El Gran Triunfo está muy cerca para mi Redención
+Condenada estaba mi vida pero Él me Salvó.
+
+II
+
+Que terrible destino que tenía mi alma,
+Merecía el infierno pero el cielo me dio,
+Hoy disfruto Su Gloria y su grata Presencia
+De sentarme a la mesa y gozar de Su comunión.
+Hoy por Gracia de Él tengo un vestido nuevo,
+Soy un Hijo del Rey y al cielo yo voy
+Escalando a su encuentro sin demora y sin pausa
+Contemplar Su Rostro y Su Gloria ¡Que Redención!"""
+        ),
+        Hymn(
+            id = 470,
+            title = "Canta para Dios",
+            link = "",
+            author = "Tito Abarca",
+            content = """I
+
+Si puedes tú cantar cuando hay dolor,
+Si puedes tú cantar,
+La alabanza que nace del corazón
+Es la que llega a Dios.
+//Cantar como Pablo y Silas en la cárcel,
+Todo empezó a temblar por el Poder de Dios
+La alabanza con Unción es la que llega a Dios//
+
+Coro:
+
+//Canta para Dios aunque hay tristeza,
+Aunque azotes han herido tu pobre corazón
+Si cantas con unción habrá liberación//
+//Las cadenas se rompen y los muros se caen
+Y las puertas se abren porque el Poder de Dios
+Habita en la alabanza, si cantas para Dios//
+
+II
+
+Si puedes tú cantar cuando hay prisión,
+Si puedes tú cantar,
+La alabanza que nace del corazón
+Es la que llega a Dios.
+//Y aunque muros y cadenas hay en tu vida
+La alabanza que tú elevas a Dios en este día
+Traerá liberación, si cantas para Dios//"""
+        ),
+        Hymn(
+            id = 471,
+            title = "Un día Especial",
+            link = "",
+            author = "Tito Abarca",
+            content = """I
+
+Hoy es un día especial para mí
+Porque hoy te has parado junto a mí
+Y quiero como aquel que halló Gracia de Ti
+Que no pases sin antes venir a mí.
+Hoy he venido a tener un encuentro Contigo mi Señor
+Tus Palabras serán la respuesta de lo que he pedido
+Llenarás hoy mi ser de alegría
+Y Tu paz me darás día a día
+Porque tu oído inclinaste en dirección a mi vida.
+
+Coro:
+
+Porque quiero que mi vida sea ofrenda para Ti
+Ya no quiero más derrotas, ya no quiero más sufrir
+Porque quiero entregarte toda mi fuerza y mi voluntad,
+Porque hoy es un día especial para mí.
+
+II
+
+Hoy he venido a Tu Presencia
+Y estoy tratando de explicarte mis problemas
+Y aunque sé que Tú conoces
+Mi voz quieres escuchar,
+Y aunque mezclada con llanto no es clara
+Sé que la entenderás."""
+        ),
+        Hymn(
+            id = 472,
+            title = "Ven",
+            link = "",
+            author = "Tito Abarca",
+            content = """I
+
+Cuando Dios nos bendice
+Somos felices,
+Cuando Dios nos visita
+Siento de llorar.
+No es un llanto de pena
+Sino de alegría,
+La tristeza que había,
+Cuando llega Cristo
+Se debe marchar.
+
+Coro:
+
+//Y ahora digo ven, ven, ven
+Llena hoy mi vida,
+Y ahora digo ven, ven, ven
+Llena hoy mi hogar,
+Y ahora digo ven, ven, ven
+Llena de alegría
+De ese Gozo del cielo
+Que llega a mi vida
+Y me hace cantar//"""
+        ),
+        Hymn(
+            id = 473,
+            title = "Mirad Cuan Bueno",
+            link = "",
+            author = "Tito Abarca",
+            content = """I
+
+El otoño llegó, se avecina el invierno,
+Lo frondoso del árbol mutó su color.
+Solo habrá que esperar que llegue la primavera,
+Es un tiempo de espera
+Pero al fin llegará.
+
+Coro:
+
+Mirad cuan Bueno y hermoso
+Es habitar los hermanos,
+Poder llegar donde hay Vida eterna
+Y envía Dios Bendición.
+Anhelo llegue ese día
+Para poder alabarte
+Y juntos y en armonía
+Poder cantar que el invierno ya pasó
+Que ha llegado el tiempo de la canción
+Y en la tierra se han mostrado las flores
+Quiero estar siempre en Tu Presencia
+Y servirte mejor.
+
+II
+
+El invierno pasó, llega la primavera
+Y ese tiempo de espera a mi alma dejó
+El deseo de estar Siempre en Tu Presencia,
+Disfrutar Tu existencia
+Y recibir Bendición."""
+        ),
+        Hymn(
+            id = 474,
+            title = "Josué",
+            link = "",
+            author = "Tito Abarca",
+            content = """I
+
+Vino Palabra de Dios a Josué:
+“Mi Siervo Moisés ya no está
+Levántate porque contigo Yo quiero hablar,
+Yo te entregué como antes hablé
+Prepara para conquistar
+La tierra que tus pies pisaren será tu lugar”.
+“Nadie podrá hacerte frente en toda tu vida,
+Yo estoy contigo, nunca te dejaré;
+Nunca se aparte de tu boca lo que está escrito,
+Prosperará tu camino y todo te saldrá bien”.
+
+Coro:
+
+Esfuérzate y se Valiente, nunca desmayes ni tengas temor
+Porque a este pueblo daré vida eterna, daré Salvación.
+Sé que te esperan gigantes,
+En Mi palabra tú debes creer
+Porque hoy te mando que seas Valiente, no te dejaré.
+
+II
+
+Vine Palabra de Dios para ti,
+Contigo Él quiere hablar,
+Levántate porque tu vida él quiere usar
+“Yo te entregué como antes hablé
+Los dones para conquistar
+Y todo lo que tu pisares te voy a entregar”.
+“Nadie podrá detenerte en toda tu vida
+Porque contigo Yo voy a pelear,
+No apartarás de tu boca lo que está escrito
+Serás bendito en la tierra y todo prosperará”."""
+        ),
+        Hymn(
+            id = 475,
+            title = "Con Gran Amor",
+            link = "",
+            author = "Tito Abarca",
+            content = """I
+
+Aunque parezca que no se oye mas tu hablar
+Porque el silencio ha ganado ese lugar,
+Crece el temor mirando que vendrá
+Solo hay vacio en Tu casa mi Señor.
+Pero mi Fe se hace más fuerte y tiene valor
+Cuando Tu Espíritu trabaja en mí ser
+Y me abrazas con tu amor.
+
+Coro:
+
+Con Gran amor Yo te he amado
+Y en tu vida he prolongado mi misericordia,
+Bendito amor que me sostiene
+Y Tu Espíritu de Gracia a mi alma la sustenta.
+Si en debilidad me viere
+Tú renovarás mi fuerza para seguir avanzando
+//No hay temor por lo que viene,
+No hay temor por el mañana,
+Porque sé que allí estarás//
+
+II
+
+Mi gratitud será eterna mi Señor
+Al contemplar yo la Grandeza de tu amor
+Caigo rendido cuando siento Tu Presencia
+Bendito Don que me sostiene y me alienta.
+Mi vida entera si te sirve te la ofrezco hoy
+Haz lo que quieras yo te doy mi corazón
+En respuesta de tu amor."""
+        ),
+        Hymn(
+            id = 476,
+            title = "Lamento de los cautivos",
+            link = "",
+            author = "Tito Abarca",
+            content = """I
+
+Nos acordamos de Sion junto al rio de Babilonia
+Estando cautivos allí nos sentamos y juntos lloramos
+Haciendo memoria cuando allí en el templo mi alma sentía Tu Gloria,
+Recuerdo Tu casa Señor, allí quiero volver.
+Recuerdos que traen tristezas, ya no hay alegría
+Estamos en tierra de extraños Señor, ya no hay melodía,
+No salen ya notas de nuestro instrumento, parece que todo termina
+Yo quiero volver a Tu casa y alabarte Señor.
+
+Coro I:
+
+Si yo me olvidare y mi voz no alzare
+Mi lengua se seque y se pegue a mi paladar
+Y pierda destreza mi diestra si mis labios no quieren cantar.
+Alégrate hermano porque viene el día
+No habrá ya tristezas, tan solo alegría
+Estar con Jesús en el templo
+Y alabarle y cantar melodías.
+Alégrate hermano porque viene el día
+No habrá ya tristezas, tan solo alegría
+Estar con Jesús en el cielo
+Y alabarle a Él por toda la vida.
+
+II
+
+Poder volver al hogar y alabar Tu Santo Nombre,
+Mejor es un día en tu casa que mil fuera de Ti
+No quedan recuerdos de aquellos momentos,
+Tu Gloria ha llenado este templo
+Que dicha que tengo Señor de poderte sentir.
+Momentos que son de alegría, ya no quedan tristezas
+Tu Gloria llenando esta casa y mi vida no me quiero ir,
+El pueblo eleva su voz hacia el cielo, unidos al coro feliz
+Unirnos muy pronto a ellos, cuando estemos allí."""
+        ),
+        Hymn(
+            id = 477,
+            title = "Qué Gran Amor de Dios",
+            link = "",
+            author = "Tito Abarca",
+            content = """I
+
+Qué gran amor de Dios hacia su pueblo infiel
+Que escogió servir a los dioses y dejarlo a él
+Y que se fue tras amores pasados
+Creyendo que ellos darían su pan,
+“Rodearé su camino de espina no los alcanzarán”.
+Qué gran amor de Dios hacia su pueblo infiel
+Que no entendió quien le daba y multiplicaba el dinero y vestía su piel
+Y aunque sus pies se deslicen
+Y oídos no escuchen con vara Yo les cercaré
+Y dirán: “Con mi Amado es Mejor, a Él volveré”.
+
+Coro:
+
+Yo la atraeré y la llevaré
+Al desierto y allí hablaré a su corazón
+Y allí cantarás como aquella vez
+Que eras joven, libre y fuerte para Vencer.
+Y segura podrás tu dormir,
+No hay guerra ni espada, Conmigo tú estas
+Y la alianza Conmigo tendrás, por siempre será.
+
+II
+
+Qué gran amor de Dios hacia su esposa Fiel
+A quien lavó con Su Sangre, limpió sus pecados y anhela irse con él
+Y aunque manchó sus vestidos quedó en el olvido,
+Sus manchas con Sangre él lavó
+Y muy pronto por ella él viene, Él lo prometió.
+Qué gran amor de Dios hacia su esposa Fiel
+Que cambiará su tristeza en gozo y vestida de Gloria podrá ella ver
+Que ha llegado el momento esperado,
+Trompetas lo anuncian: la Boda empezó
+Y alianza en el cielo habrá, perpetua será."""
+        ),
+        Hymn(
+            id = 478,
+            title = "La reina de Sabá",
+            link = "",
+            author = "Tito Abarca",
+            content = """I
+
+“Prepara pronto mi viaje, mañana debo partir
+A un lugar que es muy bello, me contaron y quiero ir
+Prepara oro y madera, quiero llevarle riquezas
+A un rey que dicen que es sabio y su voz quiero oír”.
+“Llevo mucho equipaje dentro de mi carruaje
+Prepara ropas reales, una reina llegará
+Tengo preguntas que hacerle, quiero probar Su Grandeza,
+Quiero llegar cuanto antes, sé que me recibirá”.
+
+Coro:
+
+Lo que mis ojos hoy ven, lo que yo pude escuchar
+Cuando yo estaba en mi tierra, ni siquiera es la mitad;
+Feliz aquellos que están Siempre delante de Ti,
+Que pueden siempre mirar de Tu Gloria y aquí vivir;
+Es realidad lo que pude oír, ahora lo puedo mirar
+Poder estar junto a Ti Señor y junto a Ti caminar.
+
+II
+
+Al fin hoy pude llegar, vengo de tierras lejanas
+Para poder ver Tu Rostro y poderte contemplar
+Tuve que caminar y cruzar un desierto
+Pero Feliz yo me encuentro hoy porque pude llegar.
+Preparé mi equipaje para mi largo viaje
+Te traje muchas ofrendas por Tu amor y gran bondad
+Tengo preguntas que hacerte, hay cosas que yo no entiendo
+Te entrego todo mi corazón, yo sé que responderás.
+
+Final:
+
+“Tu Gloria es Sin igual”."""
+        ),
+        Hymn(
+            id = 479,
+            title = "El valle de los Huesos Secos",
+            link = "",
+            author = "Tito Abarca",
+            content = """I
+
+Un ejército vencido, la derrota fue muy grande,
+Fue el saldo que quedó
+Luego de una gran batalla donde el pueblo allí peleaba
+Pero todo se perdió;
+Cuerpos muertos y tendidos en el valle puede verse
+Huesos secos y esparcidos, es la casa de Israel.
+“Se secaron nuestros huesos,
+Pereció nuestra esperanza, solo hay separación”
+Viendo allí todo perdido, escuchando los lamentos pude oír la voz de Dios
+“Hijo de Hombre” me pregunta, “¿estos huesos vivirán?”
+Yo le dije: “Tú lo sabes” y todo allí empezó a temblar.
+
+Coro:
+
+“Hijo de Hombre profetiza
+Que no está todo perdido, estos huesos vivirán,
+Que Yo traigo vida nueva
+Que Yo envío de Mi Espíritu y esta casa temblará”.
+Hoy seremos un ejército que ya no será vencido
+Que está dispuesto a pelear
+//“Yo Soy Jehová que está hablando
+Y sé que te levantarás”//
+
+II
+
+Si crees estar vencido, la derrota fue muy grande,
+Solo hay resignación
+Pereció toda esperanza y la fuerza ya no alcanza para alzar aquí tu voz
+Muy golpeado y abatido, en tu rostro puede verse
+Y Jesús que hoy ha venido, te dice: “todo cambiará”."""
+        ),
+        Hymn(
+            id = 480,
+            title = "Pedro",
+            link = "",
+            author = "Tito Abarca",
+            content = """I
+
+Pedro fue un pescador elegido entre los doce
+Para anunciar el Reino de Jesús nuestro Señor,
+Era duro de carácter, era rudo y de vulgo
+Pero así lo quiso Dios.
+La mirada siempre en Pedro
+Porque pronto demostraba su hombría y su valor
+Y en el huerto del Olivo
+Cuando vio venir la turba una espada levantó;
+Y por un impulso humano, a un siervo llamado Malco
+La oreja le cortó.
+
+Coro:
+
+“Pedro guarda hoy tu espada,
+La copa que el Padre dio Yo la he de beber”
+“Deja morir el viejo hombre
+¿Por qué no entiendes que el Amor debe prevalecer?”
+Y extendiendo él su mano tocó la oreja y le sanó
+Y un error con un milagro al momento lo arregló,
+Yo también he cometido error,
+Un gran milagro espero hoy.
+
+II
+
+Siendo yo un pecador elegido entre los hombres
+Para anunciar el Reino, un Reino de Salvación
+Siendo duro de carácter, siendo rudo y de vulgo
+Pero así Dios me eligió.
+Nunca falta su mirada,
+Él conoce mis pisadas y mi falta de valor;
+Cuantas veces he fallado
+Por algún impulso humano, cometiendo mil error,
+Pero vuelvo a ver Su mano obrando en un milagro,
+Obra de restauración."""
+        ),
+        Hymn(
+            id = 481,
+            title = "Mi Hermano y mi Amigo",
+            link = "",
+            author = "Tito Abarca",
+            content = """I
+
+Eres mi Hermano y mi Amigo,
+Eres el regalo del cielo
+Porque a Dios le ha placido
+Que hoy estemos unidos.
+Juntos poder transitar
+En el camino hacia el cielo,
+Quiero que sepas mi Hermano
+Que puedes contar conmigo.
+
+Coro:
+
+Puedes contar conmigo
+Cuando te falten las fuerzas,
+Y cuando sientas que el mundo
+Golpea sin darnos tregua,
+Siempre serás un motivo
+En todas mis oraciones
+Siempre estarás tu presente
+Porque eres mi Hermano y mi Amigo.
+
+II
+
+Somos ovejas de un redil
+Donde el Pastor es mi Cristo
+Su Espíritu es quien nos guía
+Para que no haya caídas.
+Y después de los momentos vividos
+Hay un amor que nos liga,
+Es el Amor de mi Cristo
+Que grows y nunca termina."""
+        ),
+        Hymn(
+            id = 482,
+            title = "Señor quiero ser Limpio",
+            link = "",
+            author = "Tito Abarca",
+            content = """I
+
+Cuando llego a la Presencia de mi Dios
+El enemigo está allí para acusarme
+Buscando pruebas de las heridas que causé,
+De los errores, o cuantas veces traicioné;
+Queriéndome impedir que yo hable con mi Creador
+Diciéndome que no soy digno de su amor,
+Y aunque mis ropas viles son, ropas de gala yo tendré
+Hoy mi pecado es limpiado otra vez.
+
+Coro:
+
+Señor yo quiero ser limpio
+Y quiero que tú me vistas con tu amor
+Y ser cubierto con un manto de perdón.
+Señor reprende al maligno
+Para que sepa que escogido soy
+//Soy un tizón arrebatado del incendio//
+
+II
+
+Cuando llegas a la Presencia del Señor
+Hay una voice que te susurra en tu mente,
+Con mitra limpia tu cabeza ya cubrió,
+Recuerda que ella dice: SANTIDAD A DIOS.
+Ya nada puede impedir que hoy hables con tu Creador
+No des oído a aquel perverso acusador;
+Hoy tus vestidos Blancos son, Jesús con Sangre los lavó
+Ya no hay pecado y por Gracia limpio soy."""
+        ),
+        Hymn(
+            id = 483,
+            title = "Bendice alma mía a Jehová",
+            link = "",
+            author = "Tito Abarca",
+            content = """I
+
+Bendice alma mía a Jehová
+Y bendiga todo mi ser Su Santo Nombre
+¿Por qué olvidar beneficios que de él alcancé?
+Cuando enfermo su mano de amor de mi no apartó.
+Si mi maldad perdonó y mis dolencias sanó
+Estaba en un pozo y Él con ternura me rescató.
+
+Coro:
+
+Me coronó de favores y misericordia,
+Has saciado mi boca del bien
+Y es por eso que mi alma te alaba.
+//Me elevó hasta la peña y allí me cuidó
+Renovando mis alas para volar,
+Prolongando mi vida, el tiempo que sea le voy a alabar//
+
+II
+
+Alaba alma mía a Jehová
+Y eleva canciones a Él, a Su Santo Nombre,
+No olvidaré los momentos de Gracia y poder,
+Cuando el quebranto y el abatimiento de mi se adueño.
+Mas como el águila soy que eleva sus alas y ve
+El sol de justicia aunque haya en la tierra tristeza y dolor."""
+        ),
+        Hymn(
+            id = 484,
+            title = "La Gloria de Dios",
+            link = "",
+            author = "Tito Abarca",
+            content = """I
+
+Al monte los llevó y allí Su Gloria les mostró
+“Qué bueno es estar aquí, no quiero descender,
+Quedarme y contemplar lo Hermoso de Su Gloria
+Yo quiero hacer lugar para Ti”.
+Y una nube de Gloria con mis ojos vi,
+Todo el monte temblaba, Dios estaba allí
+Y una voz en el monte se escuchó decir:
+“Este es Mi Hijo, a él oíd”.
+
+Coro I:
+
+Si estas en el monte hoy siente Su Gloria,
+Jesús quien te trajo hoy quiere llenarte y cambiarte la historia
+Prepara un lugar para él, no lo dejes ir,
+El valle está lleno de sombra, de muerte,
+Puedes morir.
+
+II
+
+El valle donde estas, hay lagrimas, necesidad
+Luchar sin él tu no podrás, vencido caerás
+Si quieres hoy sentir Su Gran poder y Gloria,
+No dudes hoy el monte temblará.
+Y una nube de Gloria hoy siente aquí
+Mi alma, espíritu tiembla, Tu estas aquí
+Libertad has traído yo la siento en mí
+Puedo creerlo, no hay duda en mí.
+
+Coro II:
+
+Si estas en el monte hoy siente Su Gloria,
+Jesús quien te trajo hoy quiere llenarte y cambiarte la historia
+Prepara un lugar para él, no lo dejes ir,
+///Él quiere que vivas la Gloria del cielo
+Porque Él está aquí///"""
+        ),
+        Hymn(
+            id = 485,
+            title = "El Leproso",
+            link = "",
+            author = "Tito Abarca",
+            content = """I
+
+Mi Jesús por ciudades y aldeas va caminando
+No hay enfermos, no hay imposible que no pueda sanar
+Todo aquel que le busca le encuentra y recibe el milagro,
+El poder de Jesús no ha cambiado si le quieres buscar.
+El leproso encontró nueva vida en Jesús,
+Hoy tu vida puede cambiar
+Y el ciego vio luz que te impide mirar
+El camino que trazó mi Jesús.
+
+Coro:
+
+Búscale, encuéntrale, dile a él:
+“Si tu quieres limpiarme Jesús”
+Cuéntale que pudo en ti
+Que vencido tu estas
+Y que ya no se puede ocultar;
+Mírale, escucha bien su voz:
+“Quiero, se limpio”.
+
+II
+
+Mi Jesús hoy te espera si quieres darle las gracias
+¿O serás como aquellos que limpios no regresaron?
+Solo uno entendió el milagro de verse limpiado
+Regresó, le adoró y por la Fe pudo verse Salvado.
+Si en tu vida hay lepra como hubo en aquel,
+Hoy Jesús te puede limpiar
+Y verás la Paloma en el cielo volar,
+Hoy hay Triunfo porque limpio estás."""
         )
     )
 }
