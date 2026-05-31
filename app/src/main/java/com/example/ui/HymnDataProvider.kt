@@ -5,7 +5,8 @@ data class Hymn(
     val title: String,
     val content: String,
     val isFavorite: Boolean = false,
-    val link: String = ""
+    val link: String = "",
+    val author: String = ""
 )
 
 object HymnDataProvider {
@@ -14,6 +15,7 @@ object HymnDataProvider {
             id = 1,
             title = "Te he notado",
             link = "https://www.youtube.com/watch?v=W7KbOLba7MM",
+            author = "",
             content = """I
 Te he notado un tanto luchado,
 Como que adentro hay un gran vacío
@@ -46,6 +48,7 @@ Sólo confía, porque Él contigo está."""
             id = 2,
             title = "Señor Tú Eres",
             link = "https://www.youtube.com/watch?v=lx_PLqMDnaU",
+            author = "",
             content = """//Señor tú eres la persona
 Más importante de este lugar//
 //Rey de Reyes, Señor de Señores
@@ -59,6 +62,7 @@ Tú eres aquel que mi vida cambió//"""
             id = 3,
             title = "El Camino a Emaús",
             link = "https://www.youtube.com/watch?v=C1QkqMyNnKk",
+            author = "",
             content = """Dos de los suyos caminan con gran tristeza,
 Van camino a la aldea que está en Emaús,
 Un forastero a su lado con ellos camina,
@@ -81,6 +85,7 @@ Y llegaron a la aldea y se quiso marchar."""
             id = 4,
             title = "Yo quisiera comprender",
             link = "https://www.youtube.com/watch?v=oSVRINe3ffc",
+            author = "",
             content = """Yo quisiera comprender, lo que sufrió por mi Jesús
 Tanto desprecio, tanto dolor que en un madero padeció
 Aún herido en su costado, el perdonaba mis pecados
@@ -100,6 +105,7 @@ Ven, recíbele a mi Cristo y feliz con el serás."""
             id = 5,
             title = "Un milagro",
             link = "https://www.youtube.com/watch?v=H7I9P8VfrXg",
+            author = "Conjunto de Dorrego",
             content = """Si tan sólo tocare sus vestiduras,
 Dijo alguien que frustrada se sintió,
 Su problema era tan grande, pero en Jesús creyó,
@@ -124,6 +130,7 @@ Yo quisiera decirte: “Fui yo, que creí y te toque”."""
             id = 6,
             title = "Vaso Nuevo",
             link = "https://www.youtube.com/watch?v=a2aL9-0pwIg",
+            author = "",
             content = """Yo quiero ser Señor amado
 Como el barro en las manos del Alfarero
 Toma mi vida, hazla de nuevo
@@ -139,6 +146,7 @@ Un vaso nuevo"""
             id = 7,
             title = "¿Qué está pasando?",
             link = "https://www.youtube.com/watch?v=dxDvnus7e2g",
+            author = "",
             content = """I
 Que está pasando, hermano mío, cómo has llegado hoy ante Dios,
 Te noto triste y confundido, parece que las cosas van peor.
@@ -163,6 +171,7 @@ Anímate que su presencia en este día está aquí.
             id = 8,
             title = "Puro y Santo",
             link = "https://www.youtube.com/watch?v=bqS7J7UyDPc",
+            author = "",
             content = """I
 Puro y santo quiero ser
 Tu voluntad obedecer
@@ -183,6 +192,7 @@ Mi confianza la tengo en ti."""
             id = 9,
             title = "Encorvada y Prisionera",
             link = "https://www.youtube.com/watch?v=AYWOD7iRpPs",
+            author = "",
             content = """Encorvada y prisionera y de ninguna manera se podía enderezar
 Sola y triste y sin consuelo y con la vista hacia el suelo se la podía mirar.
 Hasta que la vio Jesús, y llamándola y con voz de autoridad,
@@ -204,6 +214,7 @@ Porque en ti hoy se fijó, y con sus manos te tocó su poder te libertó//"""
             id = 10,
             title = "El carpintero",
             link = "https://www.youtube.com/watch?v=1hRlIMQRkAY",
+            author = "",
             content = """Cargando va el carpintero, en medio de la multitud Una
 cruz muy pesada, en su espalda lastimada.
 Directo va el hacia el monte, que le llaman La Calavera,
@@ -223,6 +234,7 @@ Cristo vive para siempre y muy pronto volverá."""
             id = 11,
             title = "Has venido a la orilla",
             link = "https://www.youtube.com/watch?v=FU2kKSxKeAI",
+            author = "",
             content = """I
 Tú, has venido a la orilla, no has buscado, ni a sabios
 Ni a ricos, tan sólo quieres que yo te siga.
@@ -247,6 +259,7 @@ Que esperan, amigo bueno, que así te llaman."""
             id = 12,
             title = "Te alabaré",
             link = "https://www.youtube.com/watch?v=m4OMXyd-H_E",
+            author = "",
             content = """I
 Te alabaré, no importa cómo esté.
 Te alabaré, en ti yo tengo fe
@@ -269,6 +282,7 @@ Tú eres mi fortaleza y tú me harás andar//."""
             id = 13,
             title = "La Zarza",
             link = "https://www.youtube.com/watch?v=Opan5-q6bVw",
+            author = "",
             content = """I
 Quisiera comprender por qué Dios eligió para hablar a Moisés
 Aquella humilde zarza plantada en el desierto, habiendo tanta flor.
@@ -293,6 +307,7 @@ Pero si vales poco o si no vales nada el cielo no te olvidó,
             id = 14,
             title = "Hasta el enebro",
             link = "https://www.youtube.com/watch?v=lBEGDq0SSWE",
+            author = "",
             content = """I
 Hasta el enebro llegó Elías, estaba cansado, allí se acostó y se durmió;
 Pero el Señor lo despertó, largo camino aún te resta, levántate.
@@ -309,6 +324,7 @@ trabajar, mira a Jesús, él no se cansó, largo camino aún te resta levántate
             id = 15,
             title = "Tengo un abogado",
             link = "https://www.youtube.com/watch?v=1gWFbBYRA34",
+            author = "",
             content = """Yo tengo un abogado, que me defiende,
 Que nunca está ocupado, siempre me atiende
 Que nunca pierde un pleito, siempre lo gana
@@ -319,6 +335,7 @@ Jesús se llama//"""
             id = 16,
             title = "Hay Alboroto",
             link = "https://www.youtube.com/watch?v=G6QGgNPuxVI",
+            author = "",
             content = """Hay alboroto en las calles es que algo ha pasado,
 Veo a la gente corriendo y a muchos gritando.
 Padres que buscan sus hijos, tan desesperados,
@@ -347,6 +364,7 @@ Para cuando llegue ese día el cielo puedas /// conquistar///."""
             id = 17,
             title = "Pido perdón",
             link = "https://www.youtube.com/watch?v=tJKwrAy3I4A",
+            author = "",
             content = """I
 En aquella triste tarde mi maestro padecía,
 Por causa de mis pecados por amor a mi moría
@@ -379,6 +397,7 @@ Y con sus preciosas heridas de la muerte me libró"""
             id = 18,
             title = "Yo tengo una casa",
             link = "https://www.youtube.com/watch?v=cYqPbKG6EPQ",
+            author = "",
             content = """I
 En un pueblo humilde, que yo contemplé,
 Vi tanta pobreza que triste quedé,
@@ -401,6 +420,7 @@ Pensando en el cielo la misma canción."""
             id = 19,
             title = "No temas",
             link = "https://www.youtube.com/watch?v=3A1pOOwyP-E",
+            author = "",
             content = """Cuando me encuentro triste siento tu mano que me acaricia,
 Cuando me encuentro en pruebas y ya sin fuerzas escucho tu voz.
 
@@ -414,6 +434,7 @@ Toma hoy la mancera, porque hasta que él vuelva debes trabajar."""
             id = 20,
             title = "Por amor",
             link = "https://www.youtube.com/watch?v=FSOPOXqEn3A",
+            author = "",
             content = """I
 Más tierno que el amor de una madre
 Más fragante que las bellas flores
@@ -442,6 +463,7 @@ Es tu amor, es tu amor mi Señor."""
             id = 21,
             title = "Cristo rompe las cadenas",
             link = "https://www.youtube.com/watch?v=4IFKSYvEGSk",
+            author = "",
             content = """///Cristo rompe las cadenas///
 Y me da seguridad.
 ¿Cómo es posible yo vivir sin mi Jesús,
@@ -455,6 +477,7 @@ Y me da seguridad."""
             id = 22,
             title = "Un hombre leproso",
             link = "https://www.youtube.com/watch?v=J2ObP3frGW8",
+            author = "",
             content = """I
 Un hombre leproso se acerca a Jesús meditando,
 Es tanta la pena que lleva por su enfermedad,
@@ -481,6 +504,7 @@ Ten fe que mi Cristo está aquí y él te quiere sanar."""
             id = 23,
             title = "Un día orando",
             link = "https://www.youtube.com/watch?v=61AYhvQU2j4",
+            author = "",
             content = """Un día orando le dije a mi Señor
 Tú el alfarero y yo el barro soy
 Moldea mi vida a tu parecer
@@ -500,6 +524,7 @@ Y quiero que aprendas también a perdonar.//"""
             id = 24,
             title = "Te seguiré",
             link = "https://www.youtube.com/watch?v=zwPVkylXBes",
+            author = "",
             content = """I
 Aunque pruebas tentaren mi vida
 Entre luchas yo te voy a seguir.
@@ -524,6 +549,7 @@ Y así: conmigo siempre estarás"""
             id = 25,
             title = "Ya viene el Señor",
             link = "https://www.youtube.com/watch?v=jKGP55ju4u4",
+            author = "",
             content = """I
 Ya viene el Señor, todos lo sabemos,
 Pero no debemos olvidar la verdad,
@@ -552,6 +578,7 @@ Que la noche viene cuando nadie puede obrar."""
             id = 26,
             title = "Lo importante es cantar con el alma",
             link = "https://www.youtube.com/watch?v=VXno6E6VitE",
+            author = "",
             content = """I
 Si tú quieres alabar a Dios tendrás que saber que no basta la voz,
 La alabanza que brota de labios, no llega hasta el cielo, no honra al Señor.
@@ -572,6 +599,7 @@ Porque él es autor de tú vida si vives si cantas, es por el Señor."""
             id = 27,
             title = "Si te visita la tristeza",
             link = "https://www.youtube.com/watch?v=Ixm0EQ7GJ3I",
+            author = "",
             content = """I
 Si la tristeza hoy visita tu corazón
 Y la amargura inundó todo tu ser,
@@ -605,6 +633,7 @@ Desde hoy en adelante sedle fiel"""
             id = 28,
             title = "El me ama",
             link = "https://www.youtube.com/watch?v=Vhcnq86ujEE",
+            author = "",
             content = """Yo tengo un amigo que me ama, me ama, me ama,
 Yo tengo un amigo que me ama, su nombre es Jesús.
 Que me ama, que me ama, que me ama, sí con tierno amor
@@ -618,6 +647,7 @@ Que nos ama, que nos ama, su nombre es Jesús."""
             id = 29,
             title = "Yo sé que estás muy cansado",
             link = "https://www.youtube.com/watch?v=ujQFNtpcmeg",
+            author = "",
             content = """I
 Yo sé que estás muy cansado,
 Tus problemas te han vencido,
@@ -641,6 +671,7 @@ Una gota de su sangre hoy te puede libertar"""
             id = 30,
             title = "Lávame Señor",
             link = "https://www.youtube.com/watch?v=1THUKHQeXtc",
+            author = "",
             content = """I
 Aunque todos te dejaren, mi vida daré por ti
 Tú mis pies no lavarás Señor, eso me corresponde a mí.
@@ -665,6 +696,7 @@ Sólo por tu amor que es grande hoy estoy aquí Señor//."""
             id = 31,
             title = "Sigo de pie",
             link = "https://www.youtube.com/watch?v=MUKmawOmI78",
+            author = "Conjunto de Dorrego",
             content = """I
 El dolor que hay en mí, el que me hace llorar, Y
 hasta me hace creer que a mi lado no estas.
@@ -694,6 +726,7 @@ Y aunque vengan las pruebas lucharé hasta el final."""
             id = 32,
             title = "Si vivo",
             link = "https://www.youtube.com/watch?v=KNWz4Ie5dzw",
+            author = "Conjunto de Dorrego",
             content = """I
 Si vivo, porque tú vives, soy salvo, pues tú me salvaste.
 Si canto, tú me diste alegría y si ando, porque me levantaste.
@@ -714,6 +747,7 @@ Aquello que fue, en mi vida es historia, de tu fidelidad, sólo tengo memoria.""
             id = 33,
             title = "A veces en pesar",
             link = "https://www.youtube.com/watch?v=esNwU2EBDPw",
+            author = "",
             content = """I
 Asediado voy por el camino, en diversas pruebas y aflicción,
 Apartarme quieren de la senda que me lleva a estar con mi Señor.
@@ -737,6 +771,7 @@ Y me hará olvidar todas mis penas, que en la senda yo tuve que pasar."""
             id = 34,
             title = "Te preguntas ¿Por qué?",
             link = "https://www.youtube.com/watch?v=0qGxzgKDjr0",
+            author = "",
             content = """I
 Te preguntas ¿Por qué? Dios permite que a tu vida llegue la aflicción,
 Por qué, a tu alma la ha inundado la angustia y el dolor,
@@ -761,6 +796,7 @@ Si el de la muerte se levantó, te levantará a ti hoy."""
             id = 35,
             title = "Si en Esta Vida",
             link = "https://www.youtube.com/watch?v=gdCzkH5miDM",
+            author = "",
             content = """I
 Si en esta vida me ha tocado la pobreza
 Y si en el mundo un lugar no tuve yo
@@ -785,6 +821,7 @@ Si está conmigo hasta el final, eso me basta//."""
             id = 36,
             title = "Pertenecer a Cristo",
             link = "https://www.youtube.com/watch?v=zqVWZhL1ccQ",
+            author = "",
             content = """I
 En las noches largas o en el frío invierno,
 Hay un compañero que a tu lado está,
@@ -817,6 +854,7 @@ Y hasta el fin del mundo con nosotros Él está."""
             id = 37,
             title = "Sonríe que Jesús te Ama",
             link = "https://www.youtube.com/watch?v=KW5qTPkDoWg",
+            author = "",
             content = """//Sonríe que Jesús te ama, sonríe que Jesús te quiere,
 Sonríe que Jesús te da la vida, sonríe a Jesús de Nazaret//
 
@@ -827,6 +865,7 @@ Porque Él es Dios, Él es el Rey//"""
             id = 38,
             title = "Puedo Sentir",
             link = "https://www.youtube.com/watch?v=MJgBMQEBpXE",
+            author = "Conjunto de Dorrego",
             content = """//Cuando tú estás aquí, veo tu mano,
 Veo tu mano obrar en mí//
 
@@ -899,6 +938,7 @@ Como una zarza quiero arder con tu poder//"""
             id = 39,
             title = "Por Ti",
             link = "https://www.youtube.com/watch?v=gmirWSO5Brs",
+            author = "",
             content = """Cómo no cantarte a Ti?
 Cómo te voy a negar?
 Si en mis horas de dolor, siempre estuviste allí
@@ -920,6 +960,7 @@ Por Ti venceré//"""
             id = 40,
             title = "Dame Más Sabiduría",
             link = "https://www.youtube.com/watch?v=op9o20ZIGKY",
+            author = "",
             content = """I
 Señor manifiesta tu poder
 Haz que vuelva a renacer en mi corazón,
@@ -943,6 +984,7 @@ Para que yo postrado, adore ante tus pies."""
             id = 41,
             title = "Mi Razón de Cantar",
             link = "https://www.youtube.com/watch?v=uc3YiEmfpHs",
+            author = "",
             content = """I
 No existe palabra en el mundo
 Con la que yo pueda expresar
@@ -969,6 +1011,7 @@ Tendrá que saber que a Jesús solo quiero alabar."""
             id = 42,
             title = "Adelante Peregrino",
             link = "https://www.youtube.com/watch?v=VlT_cGUnDkQ",
+            author = "",
             content = """I
 No mires hacia atrás oh peregrino, avanza hacia delante
 Aunque el viento contrario te quiera detener,
@@ -1004,6 +1047,7 @@ Frente a Sodoma se convirtió en estatua de sal."""
             id = 43,
             title = "Un Paso de Fe",
             link = "",
+            author = "",
             content = """I
 Un paso de fe con determinación puede cambiar tu vida,
 Un paso de fe, una fiel decisión,
@@ -1034,6 +1078,7 @@ Por la fe vivirá."""
             id = 44,
             title = "No Preguntaré ¿Por Qué?",
             link = "https://www.youtube.com/watch?v=j5H4JQ-KUc0",
+            author = "",
             content = """I
 Hay muchas cosas que quizás aquí nunca sabré,
 Misterios hay que no podré tal vez nunca entender,
@@ -1061,6 +1106,7 @@ Vale la pena recordar que escrito está//"""
             id = 45,
             title = "La Palmera",
             link = "https://www.youtube.com/watch?v=5KdVGDe1CSc",
+            author = "",
             content = """Me parece increíble que aún no te hayas cansado,
 Has vuelto a levantarte con furia contra mí.
 Tienes mala memoria parece que no recuerdas
@@ -1087,6 +1133,7 @@ Y sobre la roca edifiqué mi hogar."""
             id = 46,
             title = "Su Gracia es Mayor",
             link = "",
+            author = "",
             content = """I
 Su gracia es mayor si las cargas aumentan,
 Su fuerza es mayor si la prueba es más cruel,
@@ -1109,6 +1156,7 @@ La hora ha llegado en que Dios obrará."""
             id = 47,
             title = "Un Día a la Vez",
             link = "https://www.youtube.com/watch?v=CT4h3nfnDuk",
+            author = "",
             content = """I
 Necesitado me encuentro Señor.
 Te ruego, Señor yo quiero saber lo que debo hacer,
@@ -1134,6 +1182,7 @@ Señor, en tu luz yo quiero vivir un día a la vez."""
             id = 48,
             title = "Calmó la Tempestad",
             link = "https://www.youtube.com/watch?v=V-uPAmM79Dg",
+            author = "",
             content = """I
 El mar está tranquilo y la barca esperando
 A un grupo muy antiguo, que sale a navegar,
@@ -1168,6 +1217,7 @@ Por más que haya tormenta nunca naufragarán."""
             id = 49,
             title = "Divino Compañero",
             link = "https://www.youtube.com/watch?v=OJQz5YOKr0w",
+            author = "",
             content = """I
 Divino compañero del camino,
 Tu presencia siento yo al transitar.
@@ -1190,6 +1240,7 @@ Ayúdame, ayúdame hasta llegar."""
             id = 50,
             title = "¿Has Perdido la Confianza?",
             link = "https://www.youtube.com/watch?v=36YaCTWQcy4",
+            author = "",
             content = """I
 ¿Has perdido la confianza que pusiste en el Señor?
 ¿Y las fuerzas ya te faltan porque es grande tu dolor?
@@ -1222,6 +1273,7 @@ Pues solo en Él encontrarás consolación//."""
             id = 51,
             title = "Esa Zarza",
             link = "",
+            author = "",
             content = """//Esa zarza que en el monte no cesaba de arder//
 Esa zarza era la gloria en la presencia de mi Dios
 
@@ -1248,6 +1300,7 @@ Fuego que purifica dentro de mi corazón//"""
             id = 52,
             title = "Bellas Mansiones",
             link = "https://www.youtube.com/watch?v=jKm5US0LQmY",
+            author = "",
             content = """I
 Mansión gloriosa tengo allá en el cielo
 Do las maldades nunca entrarán
@@ -1270,6 +1323,7 @@ Tendrás también, una bella mansión."""
             id = 53,
             title = "Siempre Estuviste Aquí",
             link = "https://www.youtube.com/watch?v=tfzsoRyZJ9E",
+            author = "",
             content = """I
 A tus plantas vengo hoy, anhelo que vengas a mí;
 Necesito solo un momento volverte a sentir, mi Señor.
@@ -1312,6 +1366,7 @@ Siempre has estado aquí, Señor."""
             id = 54,
             title = "Tu gracia en mí Señor",
             link = "https://www.youtube.com/watch?v=ZMydUsfv7jU",
+            author = "",
             content = """I
 Como poder alcanzar en un mundo
 Tan confuso en el cual nadie piensa en Dios,
@@ -1333,6 +1388,7 @@ Así también a tu siervo, alcánzale de tu poder."""
             id = 55,
             title = "La iglesia sigue caminando",
             link = "",
+            author = "",
             content = """//En la lucha y en la prueba la iglesia sigue caminando//
 Sólo se detiene para predicar.
 //Por los valles y montañas la iglesia sigue caminando//
@@ -1344,6 +1400,7 @@ Sólo se detiene para predicar."""
             id = 56,
             title = "Renuévame",
             link = "https://www.youtube.com/watch?v=_ltw2y1Y9Yo",
+            author = "",
             content = """//Renuévame, Señor Jesús, ya no quiero ser igual
 Renuévame, Señor Jesús, pon en mí tu corazón.
 Porque todo lo que hay dentro de mí, necesita ser cambiado Señor
@@ -1353,6 +1410,7 @@ Porque todo lo que hay dentro de mi corazón, necesita más de ti.//"""
             id = 57,
             title = "Venid, subamos",
             link = "https://www.youtube.com/watch?v=GlSylMPWbx0",
+            author = "",
             content = """Su camino nos enseñará, y andaremos en él
 Porque de Sion la ley saldrá y la palabra de Dios de Jerusalén.
 //Venid subamos al monte de Jehová, a la casa de nuestro Dios//"""
@@ -1361,6 +1419,7 @@ Porque de Sion la ley saldrá y la palabra de Dios de Jerusalén.
             id = 58,
             title = "Salvación",
             link = "",
+            author = "",
             content = """I
 Fui hecho justo sin merecerlo
 Mi culpa ya cubierta está
@@ -1387,6 +1446,7 @@ El enemigo ¡Ya está vencido! Y hoy damos gloria a Dios por que él triunfó"""
             id = 59,
             title = "Señor, ¿Quién entrará?",
             link = "https://www.youtube.com/watch?v=Th-85kBkr4s",
+            author = "",
             content = """I
 //Señor, ¿Quién entrará en tu santuario para adorar//
 //El de manos limpias y un corazón puro, Y sin vanidades, que sepa amar//
@@ -1403,6 +1463,7 @@ III
             id = 60,
             title = "Necesito de ti",
             link = "https://www.youtube.com/watch?v=Nuaq1vbn83U",
+            author = "Conjunto de Dorrego",
             content = """Muchas veces me pregunté qué quieres de mí Señor,
 Si estando en luchas y pruebas mi vida, quise seguir.
 But no pude Señor, soy muy débil, necesito de ti
@@ -1422,6 +1483,7 @@ Señor me has librado, también perdonado y hoy puedo seguir."""
             id = 61,
             title = "Hoy te quiero alabar",
             link = "https://www.youtube.com/watch?v=Rzk3PUoON_c",
+            author = "",
             content = """I
 Hoy te quiero alabar Señor
 Hoy te quiero adorar a Tí
@@ -1444,6 +1506,7 @@ Que te amo de corazón"""
             id = 62,
             title = "El Apóstol Pablo",
             link = "",
+            author = "Conjunto de Dorrego",
             content = """I
 El Apóstol Pablo tenía en su carne un aguijón,
 Éste afligía, llenaba de angustia su corazón,
@@ -1474,6 +1537,7 @@ Porque por la gracia en la debilidad, está la perfección."""
             id = 63,
             title = "Dicen que no existes",
             link = "https://www.youtube.com/watch?v=GBWT6JTnovI",
+            author = "",
             content = """//Dicen que no existes, que no eres realidad,
 Pero estás vibrando dentro mío una vez más,
 Obras en tu pueblo con amor y santidad
@@ -1483,6 +1547,7 @@ Y te muestras más y más//"""
             id = 64,
             title = "¿Quién me apartará?",
             link = "https://www.youtube.com/watch?v=aZx02gMwuss",
+            author = "Conjunto de Dorrego",
             content = """I
 Yo sé que debo aceptar aquello que has decidido
 Yo sé que debo seguir, yo sé que debo seguir.
@@ -1513,6 +1578,7 @@ Si Dios es conmigo ¿Quién contra a mí?"""
             id = 65,
             title = "Cantad al Señor",
             link = "https://www.youtube.com/watch?v=Fqo8g5b5AOE",
+            author = "",
             content = """///Cantad al Señor un cántico nuevo///
 Cantad al Señor, cantad al Señor
 ///Porque nos mostró grandes maravillas///
@@ -1526,6 +1592,7 @@ Cantad al Señor, cantad al Señor"""
             id = 66,
             title = "Él vive",
             link = "",
+            author = "Conjunto de Dorrego",
             content = """I
 Aunque solo lo dejaron, él vive.
 A pesar de la traición, él vive
@@ -1553,6 +1620,7 @@ El pecado limpiar y al perdido ganar, él vive."""
             id = 67,
             title = "Grandes son tus obras",
             link = "https://www.youtube.com/watch?v=yP6exbnOFIE",
+            author = "",
             content = """I
 Grandes, maravillosas son tus obras, Señor, Dios, todopoderoso,
 Justos y verdaderos tus caminos ///Rey de los santos///
@@ -1570,6 +1638,7 @@ Y las fuentes de las aguas //amén, amén, amén, amén//"""
             id = 68,
             title = "Todo cambió",
             link = "https://www.youtube.com/watch?v=G8jvmsqZlfU",
+            author = "Conjunto de Dorrego",
             content = """I
 Todo cambió, en ese día, yo derramé mi alma a Dios y mi corazón.
 Todo cambió cuando yo fui a Él, con amargura del alma lloré y le clamé,
@@ -1595,6 +1664,7 @@ Lo que a Dios pedí, Él me lo dio aquí, por eso canto así."""
             id = 69,
             title = "¿Sabes tú de Cristo?",
             link = "https://www.youtube.com/watch?v=oT26MWGJpyA",
+            author = "",
             content = """I
 Vives cansado y triste, es grande tu aflicción,
 Tu sed calmar quisiste, buscas feliz protección.
@@ -1615,6 +1685,7 @@ En rudas tentaciones, tu ruego contestará."""
             id = 70,
             title = "¿Cuál es tu enemigo?",
             link = "",
+            author = "Conjunto de Dorrego",
             content = """Cuál es la lucha que enfrenta tu vida,
 Y cual el enemigo que te hace sufrir,
 Escucha bien la historia que llevo en mi memoria y traigo para ti.
@@ -1652,6 +1723,7 @@ Sólo aumenta tu fe en ese Dios de poder, y así su gloria verás."""
             id = 71,
             title = "Hay un río",
             link = "https://www.youtube.com/watch?v=uHZSMBVPq-Y",
+            author = "",
             content = """//Hay un río que viene de ti//
 //Dame de beber de ese río Señor
 De ese río que viene de ti//"""
@@ -1660,6 +1732,7 @@ De ese río que viene de ti//"""
             id = 72,
             title = "Tiempo de prepararnos",
             link = "https://www.youtube.com/watch?v=c55TOhnjfxc",
+            author = "",
             content = """I
 Ya la gracia se termina, la biblia lo dice, los tiempos lo gritan.
 La medianoche ha llegado, se escucha el clamor, “El maestro retorna”.
@@ -1685,6 +1758,7 @@ Entonces lamentaran, los hombres que aquí nunca se arrepintieron.
             id = 73,
             title = "Toca mis labios Señor",
             link = "https://www.youtube.com/watch?v=aRs2jfGbY60",
+            author = "",
             content = """//Toca mis labios Señor con un carbón de tu altar
 Y si los tocas podré tus alabanzas cantar//
 Ya me has tocado Señor, Cristo me pudo limpiar,
@@ -1694,6 +1768,7 @@ Por eso ahora podré cantos de triunfo entonar."""
             id = 74,
             title = "Unidos",
             link = "https://www.youtube.com/watch?v=WlYFFztAzLQ",
+            author = "",
             content = """//Unidos, unidos en su nombre unidos//
 //La gloria del Señor en ti resplandecerá
 Y todo se llenará de amor y de paz//"""
@@ -1702,6 +1777,7 @@ Y todo se llenará de amor y de paz//"""
             id = 75,
             title = "¿Quién será esta?",
             link = "https://www.youtube.com/watch?v=WmDKZWMWWiY",
+            author = "",
             content = """I
 ¿Quién será esta? De traje blanco como una novia ataviada está,
 De lino fino son sus vestidos Mujer virtuosa ¿Quién te hallará?
@@ -1724,6 +1800,7 @@ A la gran boda del Rey celestial."""
             id = 76,
             title = "Jesús Nazareno",
             link = "",
+            author = "",
             content = """I
 Jesús Nazareno clavado en la cruz
 Un velo de sangre su rostro cubrió
@@ -1752,6 +1829,7 @@ Y sobre la capa la suerte se dio."""
             id = 77,
             title = "Yo sé que Él vive",
             link = "https://www.youtube.com/watch?v=H46q4Jiphyo",
+            author = "",
             content = """I
 Si los vientos te obedecen, si la mar por ti se calla,
 Porque hay hombres que dicen que tú no vives,
@@ -1781,6 +1859,7 @@ Que hizo toda la creación//."""
             id = 78,
             title = "Tú eres el alfarero",
             link = "https://www.youtube.com/watch?v=NjFgHBEYLCM",
+            author = "",
             content = """//Tú eres el alfarero que con tus manos me has transformado//
 Y mientras pasan los días, pasan los años más te venero
 //rompe mi cántaro, rompe mi copa, rompe mi vida y hazla de nuevo//."""
@@ -1789,6 +1868,7 @@ Y mientras pasan los días, pasan los años más te venero
             id = 79,
             title = "Él me levantará",
             link = "https://www.youtube.com/watch?v=ijDcB-KPpuw",
+            author = "",
             content = """//Él me levantará, Él me levantará, Él me levantará, así es el Señor//
 Él me levantará, Él me levantará en sus manos me sostendrá Él me levantará.
 Él me levantará, Él me levantará, en sus manos me sostendrá, así es el Señor
@@ -1800,6 +1880,7 @@ Me fortalecerá, me fortalecerá, en sus manos me sostendrá, así es el Señor"
             id = 80,
             title = "¡Qué gran amor!",
             link = "https://www.youtube.com/watch?v=jYpqpCtAlOA",
+            author = "",
             content = """Una frente ha sido coronada
 Y espinas han clavado en aquella hermosa sien.
 Una cruz sobre sus hombros ponen,
@@ -1843,6 +1924,7 @@ Nació para mi alma la salvación.
             id = 81,
             title = "Llena mi vida",
             link = "https://www.youtube.com/watch?v=35wFHoZwnpg",
+            author = "",
             content = """I
 Aunque se fue, morada allá en el cielo preparó
 Más volverá, así como una mañana se marchó
@@ -1869,6 +1951,7 @@ La gente de entonces pereció."""
             id = 82,
             title = "Dios está aquí - Tan cerca de mí",
             link = "https://www.youtube.com/watch?v=w53XHUrwCt4",
+            author = "",
             content = """Dios está aquí, tan cierto como el aire que respiro
 Tan cierto como en la mañana se levanta el sol
 Tan cierto que cuando le hablo él me puede oír.
@@ -1890,6 +1973,7 @@ Jesús está aquí."""
             id = 83,
             title = "Quémame con fuego Santo",
             link = "https://www.youtube.com/watch?v=sDvvzQ0aufM",
+            author = "",
             content = """I
 Hoy he llegado a tu casa, Señor sabiendo,
 Que si tu espíritu hoy no me asiste voy a perecer,
@@ -1913,6 +1997,7 @@ Afuera el mundo me espera y quiere tratarme muy mal."""
             id = 84,
             title = "Un hombre nuevo",
             link = "https://www.youtube.com/watch?v=TRZRrd_UGWg",
+            author = "",
             content = """I
 Una vez perdido vivía yo, lejos y vagante en error.
 Más la voz de Cristo me alcanzó, me llamó con tierno amor.
@@ -1935,6 +2020,7 @@ Y a por fe en su nombre a la gloria voy, desde que me rescató"""
             id = 85,
             title = "De rodillas es mejor",
             link = "https://www.youtube.com/watch?v=xmcdpBo2JX4",
+            author = "",
             content = """I
 Cierta vez un pastor, un camino tomó afloat al pensar,
 Que su iglesia era fría y su alma vacía, sin tener la piedad.
@@ -1968,6 +2054,7 @@ Y humillado a sus pies vencerás vez tras vez, de rodillas es mejor."""
             id = 86,
             title = "Cuando Cristo vino",
             link = "https://www.youtube.com/watch?v=Djvmb28auKA",
+            author = "",
             content = """Cuando Cristo vino a mi corazón, mi vida entera cambió
 Su paz y su amor alejaron de mí, las sombras, las dudas y el temor.
 
@@ -1980,6 +2067,7 @@ Oh ven a la cruz donde murió Jesús y ábrele tu corazón."""
             id = 87,
             title = "Peña de Horeb",
             link = "https://www.youtube.com/watch?v=-JGMPHVUGWs",
+            author = "",
             content = """I
 //Cristo es la peña de Horeb que está brotando,
 Agua de vida saludable para ti//
@@ -2000,6 +2088,7 @@ El es eterna fuente de salvación"""
             id = 88,
             title = "Pon aceite",
             link = "https://www.youtube.com/watch?v=CHhb25dXBqQ",
+            author = "",
             content = """//Pon aceite en mi lámpara Señor//
 Que yo quiero servirte con amor
 Pon aceite en mi lámpara Señor.
@@ -2014,6 +2103,7 @@ Con el corazón, con el corazón, con el corazón."""
             id = 89,
             title = "Ven en pos de mí",
             link = "https://www.youtube.com/watch?v=6DfD6EWOMus",
+            author = "",
             content = """I
 Viajaba en triste soledad y nadie me buscó
 La carga horrible de impiedad más grande se volvió
@@ -2038,6 +2128,7 @@ Tu cruz levanta y ven en pos de mí."""
             id = 90,
             title = "Oh, que amor",
             link = "https://www.youtube.com/watch?v=L8duglIm-Wk",
+            author = "",
             content = """I
 //Oh, que amor, qué inmenso amor, el de mi Salvador//
 Dios desde el cielo al Salvador, mandó a morir por mí,
@@ -2047,6 +2138,7 @@ Por ti murió, por mí murió, dio sangre carmesí."""
             id = 91,
             title = "Ven amigo a Jesús",
             link = "https://www.youtube.com/watch?v=L8duglIm-Wk",
+            author = "",
             content = """I
 Ven amigo a Jesús, pues él murió por ti,
 Recibirás la luz que quiere darte a ti,
@@ -2069,6 +2161,7 @@ Quitará tu pesar por su consolación."""
             id = 92,
             title = "Hay momentos",
             link = "https://www.youtube.com/watch?v=19Gv7n3KlSE",
+            author = "",
             content = """//Hay momentos que las palabras no alcanzan
 Para decirte lo que siento por ti mi buen Jesús//
 //Yo te agradezco por todo lo que hiciste,
@@ -2078,6 +2171,7 @@ Por todo lo que haces y todo lo que harás//"""
             id = 93,
             title = "Estar en tu presencia",
             link = "https://www.youtube.com/watch?v=pptBn7eZXnw",
+            author = "",
             content = """//Estar en tu presencia, Señor que grato es//
 Que grato es, que grato es,
 Es mejor que todos los momentos
@@ -2087,6 +2181,7 @@ Estar en tu presencia Señor que grato es."""
             id = 94,
             title = "A donde volveré",
             link = "https://www.youtube.com/watch?v=2Iosjd2VUbI",
+            author = "",
             content = """I
 A donde volveré mis ojos oh Señor, para encontrar ayuda
 De quién sino de ti, sustento me vendrá en horas de aflicción,
@@ -2115,6 +2210,7 @@ Porque eres tú mi rey y puedo serte fiel, por la eternidad."""
             id = 95,
             title = "El poder del cristiano",
             link = "https://www.youtube.com/watch?v=4BkWPK_yxIE",
+            author = "",
             content = """El poder del cristiano está en la oración
 El que ora constante, vencerá en todo tiempo la tentación,
 El poder del cristiano está en Jesús, y Cristo nos dijo:
@@ -2129,6 +2225,7 @@ Y tu fe herirte, pero no podrán//"""
             id = 96,
             title = "Pentecostés",
             link = "https://www.youtube.com/watch?v=V7Ra-OrWcZE",
+            author = "",
             content = """I
 Pentecostés, pentecostés, es el lema de la iglesia del Señor,
 Pentecostés, pentecostés, es el fuego celestial consumidor.
@@ -2149,6 +2246,7 @@ Acércate buen lidiador, no desprecies el bautismo del Señor."""
             id = 97,
             title = "Mi deseo",
             link = "https://www.youtube.com/watch?v=lADsmmVto1w",
+            author = "",
             content = """I
 Quiero dejarme guiar por tu Espíritu,
 Y que me arrastre la corriente de tu amor,
@@ -2171,6 +2269,7 @@ Estar contigo y tu gloria contemplar."""
             id = 98,
             title = "El buen pastor",
             link = "https://www.youtube.com/watch?v=M8JkInFTFJ4",
+            author = "",
             content = """I
 Cuidando está su rebaño el buen pastor,
 Más al contarlas una oveja le faltó,
@@ -2200,6 +2299,7 @@ Y tus desprecios fueron piedras que su cuerpo lastimó."""
             id = 99,
             title = "Alabaré",
             link = "https://www.youtube.com/watch?v=WW62Ga6EDvA",
+            author = "",
             content = """///Alabaré/// a mi Señor, ///Alabaré/// a mi Señor
 Juan vio el número de los redimidos
 Y todos alababan al Señor,
@@ -2211,6 +2311,7 @@ Pero todos alababan al Señor
             id = 100,
             title = "Vine a adorar a Dios",
             link = "https://www.youtube.com/watch?v=6CgYSWe1n3U",
+            author = "",
             content = """//Vine a adorar a Dios// vine a adorar su nombre, sólo vine para adorar.
 //Vine a adorar a Dios// vine a adorar su nombre, sólo vine para adorar.
 El vino a mi vida un día muy especial, cambió mi corazón,
@@ -2221,6 +2322,7 @@ En un nuevo corazón y esa es la razón por la que digo que
             id = 101,
             title = "El ciervo",
             link = "https://www.youtube.com/watch?v=ZVhwnTsDU3M",
+            author = "",
             content = """//Brama como el ciervo por las corrientes de las aguas, mi alma Señor//
 
 Coro
@@ -2233,6 +2335,7 @@ Nada de este mundo puede igualarse a ti, tu paz, tu gozo, tu amor."""
             id = 102,
             title = "Saliendo del pretorio",
             link = "https://www.youtube.com/watch?v=JUgXqiJmXec",
+            author = "",
             content = """I
 Saliendo del pretorio, marcha una procesión,
 Con rumbo al Calvario, sufriendo va un varón
@@ -2262,6 +2365,7 @@ No puede avanzar, se escucha sólo un grito: “Levántate maldito”"""
             id = 103,
             title = "El Hijo se va",
             link = "https://www.youtube.com/watch?v=wg2OGe7x69M",
+            author = "",
             content = """I
 El hijo se va alegre del hogar, llevando los bienes que al padre pidió,
 Juntándolo todo ansioso se va, a tierras lejanas detrás de su afán.
@@ -2286,6 +2390,7 @@ Recuerda entonces al padre en su hogar y volviendo en sí decide regresar."""
             id = 104,
             title = "Cartas a Dios",
             link = "https://www.youtube.com/watch?v=_HDcPtNWQ2M",
+            author = "",
             content = """I
 Si el mundo y sus afanes tu vida ha abatido
 Te sientes perseguido por un terrible mal
@@ -2308,6 +2413,7 @@ Y a Ana un hijo le dio."""
             id = 105,
             title = "No hay Dios como tú",
             link = "https://www.youtube.com/watch?v=0duStzgt28k",
+            author = "",
             content = """No hay Dios tan grande como tú //No lo hay//
 No hay Dios tan grande como tú //No lo hay//
 //No hay Dios que pueda hacer las obras como las que haces tú//
@@ -2319,6 +2425,7 @@ Por su Santo Espíritu."""
             id = 106,
             title = "Jesús me da su libertad",
             link = "https://www.youtube.com/watch?v=OfYsWf_M68A",
+            author = "",
             content = """Jesús me da su libertad //su libertad//
 Jesús me da su libertad y ya ninguno me la quitará
 No hay más cadenas, ni ataduras, ni opresiones, hay libertad.
@@ -2328,6 +2435,7 @@ Jesús me da su libertad y ya ninguno me la quitará"""
             id = 107,
             title = "Tierra Bendita",
             link = "https://www.youtube.com/watch?v=xv1An1wx7Lc",
+            author = "",
             content = """I
 Tierra bendita y divina es la de Palestina donde nació Jesús,
 Eres de las naciones cumbres, bañadas por la lumbre que derramó su luz
@@ -2348,6 +2456,7 @@ Viejas paredes destruidas que si tuvieran vida nos hablarían también."""
             id = 108,
             title = "Santo es el Señor",
             link = "https://www.youtube.com/watch?v=63Qk30qWeM4",
+            author = "",
             content = """//Santo, santo es el Señor, de los ejércitos Rey//
 Su gloria llena la tierra, su gloria llena la iglesia,
 Su gloria llena mi vida, Santo es el Señor."""
@@ -2356,6 +2465,7 @@ Su gloria llena mi vida, Santo es el Señor."""
             id = 109,
             title = "En Cristo tengo todo",
             link = "https://www.youtube.com/watch?v=5_a0qJWcC1g",
+            author = "",
             content = """I
 No tengo nada, nada que esconder, mi vida transparente es,
 Ya Cristo ha quitado en su morir las cosas malas del ayer,
@@ -2386,6 +2496,7 @@ No hay nada que me pueda avergonzar si a Él lo quiero honrar."""
             id = 110,
             title = "Usa mi vida",
             link = "https://www.youtube.com/watch?v=CDPIOBHCse4",
+            author = "",
             content = """Usa mi vida, Señor, usa mi vida
 Yo quiero servirte, con todas las fuerzas de mi corazón.
 Usa mi vida, Señor, usa mi vida,
@@ -2400,6 +2511,7 @@ Con todas las fuerzas de mi corazón//"""
             id = 111,
             title = "Soy la triste oveja",
             link = "https://www.youtube.com/watch?v=Sy27Plk4um0",
+            author = "",
             content = """I
 Soy la triste oveja que dejó al pastor,
 Yo andaba perdido cuando Él me encontró,
@@ -2427,6 +2539,7 @@ Conmigo por siempre tú vas a vivir."""
             id = 112,
             title = "Hay victoria",
             link = "https://www.youtube.com/watch?v=Xl_JqTDhOE4",
+            author = "",
             content = """//Hay victoria, hay victoria, hay victoria en el nombre de Jesús//
 No podrá el enemigo dañar a nuestras almas
 //Porque hay victoria, si hay victoria,
@@ -2436,6 +2549,7 @@ Hay victoria en el nombre de Jesús//"""
             id = 113,
             title = "Quédate Señor",
             link = "https://www.youtube.com/watch?v=1QnVhR02n3Y",
+            author = "",
             content = """///Quédate Señor/// en cada corazón
 ///Quédate Señor/// en mí
 Oh Cristo mío haz de mi alma un altar para adorarte con devoción,
@@ -2445,6 +2559,7 @@ Para beber del agua de la vida y así saciar la sed del corazón."""
             id = 114,
             title = "Cuando el pueblo alaba a Dios",
             link = "https://www.youtube.com/watch?v=G9CzGsvB9B8",
+            author = "",
             content = """//Cuando el pueblo del Señor alaba a Dios suceden cosas maravillosas//
 //Hay sanidad, poder, liberation y se siente la presencia del Señor//
 //Aquí se siente la presencia del Señor//
@@ -2456,6 +2571,7 @@ Para beber del agua de la vida y así saciar la sed del corazón."""
             id = 115,
             title = "Hay victoria en mi Jesús",
             link = "https://www.youtube.com/watch?v=2ERAiiLjXXA",
+            author = "",
             content = """//Hay victoria en mi Jesús, en mi Jesús//
 //Las cadenas que me ataban rotas son por el Señor//
 //Y mi copa llena está, llena está//
@@ -2465,6 +2581,7 @@ Del aceite que desciende desde el trono celestial"""
             id = 116,
             title = "Ebenezer",
             link = "https://www.youtube.com/watch?v=iJk6Lfqm1ic",
+            author = "",
             content = """Ebenezer, hasta aquí nos ayudó el Señor
 Con su poder y su mano nos guiará,
 Esta canción por los siglos durará
@@ -2474,6 +2591,7 @@ Ebenezer, hasta aquí nos ayudó el Señor."""
             id = 117,
             title = "Hoy venimos a sus pies",
             link = "https://www.youtube.com/watch?v=xEHaI4pZv-8",
+            author = "",
             content = """I
 //Hoy venimos a sus pies a invocar su nombre y a adorar//
 Hoy venimos a sus pies a invocar su nombre y adorarle a Él,
@@ -2493,6 +2611,7 @@ Adorad a Jesús Señor."""
             id = 118,
             title = "Evangelista",
             link = "https://www.youtube.com/watch?v=5-kQ959eARI",
+            author = "",
             content = """I
 Cuando un profeta llamado Balaam,
 Se dirigía camino hacia Moab,
@@ -2515,6 +2634,7 @@ Hoy me lo impide el ángel de Jehová”"""
             id = 119,
             title = "Hay una vida",
             link = "https://www.youtube.com/watch?v=KN4okXp5kl4",
+            author = "",
             content = """Yo vine a buscar lo de arriba, yo vine a buscar al Señor,
 Yo vine a buscar esa vida escondida en Cristo mi Salvador
 Yo vine a buscar lo de arriba, yo vine a buscar al Señor,
@@ -2526,6 +2646,7 @@ Yo vine a buscar esa vida escondida en Cristo que quiero yo.
             id = 120,
             title = "Quiero más de Cristo",
             link = "https://www.youtube.com/watch?v=KAxg-SXkDUE",
+            author = "",
             content = """Por la fe yo he conocido, de su gracia pude recibir,
 Su presencia inundó mis ojos sin luz, ya no quiero más vivir sin él.
 Es la fuente que emana vida, de esas aguas he bebido yo
@@ -2539,6 +2660,7 @@ Acude más a su presencia, y más y más tendrás de Él."""
             id = 121,
             title = "Te vengo a decir",
             link = "https://www.youtube.com/watch?v=MCEpzJlyQU8",
+            author = "",
             content = """I
 //Te vengo a decir// Oh, mi Salvador
 //Que yo te amo a ti// con el corazón
@@ -2562,6 +2684,7 @@ Recíbelo Oh Dios"""
             id = 122,
             title = "De pronto una nube",
             link = "https://www.youtube.com/watch?v=8C4dd8x1zDA",
+            author = "",
             content = """I
 De pronto una nube me puse a mirar,
 De pronto la misma comienza a agrandar,
@@ -2584,6 +2707,7 @@ No esperes más tiempo, que tarde será//"""
             id = 123,
             title = "Mi Dios dondequiera está",
             link = "https://www.youtube.com/watch?v=bgLlySctX7A",
+            author = "",
             content = """///Mi Dios dondequiera está/// Aleluya a Jehová
 //Si lo buscas en el cielo, si lo buscas en el mar,
 Si lo buscas en mi vida, allí lo encontrarás//"""
@@ -2592,6 +2716,7 @@ Si lo buscas en mi vida, allí lo encontrarás//"""
             id = 124,
             title = "Quita la piedra",
             link = "https://www.youtube.com/watch?v=kTkH17tPIyc",
+            author = "",
             content = """//Quita la piedra, deja el agua correr,
 Mira que las almas se van a perder,
 Háblales de Cristo, ese es tu deber,
@@ -2601,6 +2726,7 @@ Agua que se estanca no podrá correr//"""
             id = 125,
             title = "La sangre de Cristo",
             link = "https://www.youtube.com/watch?v=WxXFDBtQ38A",
+            author = "",
             content = """//La sangre de Cristo tiene poder para deshacer lo malo de mi ser//
 //La sangre de Cristo Jesús, preciosa sangre carmesí,
 Que derramó allá en la cruz, suficiente ha sido para mí//"""
@@ -2609,6 +2735,7 @@ Que derramó allá en la cruz, suficiente ha sido para mí//"""
             id = 126,
             title = "Hay un poder",
             link = "https://www.youtube.com/watch?v=fKuoVuLvQIc",
+            author = "",
             content = """//Hay un poder, poder, poder, hay un poder que necesito yo//
 //Ese poder de Dios, es celestial, ese poder lo necesito yo//"""
         ),
@@ -2616,6 +2743,7 @@ Que derramó allá en la cruz, suficiente ha sido para mí//"""
             id = 127,
             title = "Por todo el mundo",
             link = "https://www.youtube.com/watch?v=8LYjl3s_C8s",
+            author = "",
             content = """I
 Por todo el mundo el espíritu de Dios se mueve,
 Por todo el mundo como Joel profetizó,
@@ -2632,6 +2760,7 @@ Es la gloria del Señor como las aguas cubren el mar."""
             id = 128,
             title = "¿Qué pueblo será mi pueblo?",
             link = "https://www.youtube.com/watch?v=Yfoz6xViyyc",
+            author = "",
             content = """I
 De caminos errantes yo me alejé,
 De senderos oscuros, cubiertos de hiel.
@@ -2653,6 +2782,7 @@ Si tu cielo es mi cielo, ¿Adónde yo iré?"""
             id = 129,
             title = "Ven Espíritu divino",
             link = "https://www.youtube.com/watch?v=AOnX_zdHzlw",
+            author = "",
             content = """//Ven, ven, ven Espíritu Divino,
 Ven, ven, ven, acércate a mí//
 ///Apodérate/// de todo mi ser
@@ -2662,6 +2792,7 @@ Ven, ven, ven, acércate a mí//
             id = 130,
             title = "Majestad",
             link = "https://www.youtube.com/watch?v=RvwG3EezKN0",
+            author = "",
             content = """Majestad, gloria a su majestad,
 Doy a Cristo, toda gloria, alabanza y honor
 Majestad, reino y autoridad, suyo el honor, suyo el poder, gloria a Él
@@ -2674,6 +2805,7 @@ Cristo murió, resucitó, hoy es Señor"""
             id = 131,
             title = "Todo lo puedo en Cristo",
             link = "https://www.youtube.com/watch?v=VMw_h0vinAc",
+            author = "",
             content = """I
 Cuando todo parece oscuro, cuando difícil es decidir,
 Y la vida parece absurda sin una luz para alumbrar,
@@ -2703,6 +2835,7 @@ Pues nuestra fe y victoria crece diciendo"""
             id = 132,
             title = "Demos gracias al Señor",
             link = "https://www.youtube.com/watch?v=EIg2zsBLk6s",
+            author = "",
             content = """//Demos gracias al Señor, demos gracias, demos gracias por su amor//
 Por la mañana las aves cantan las alabanzas a Cristo el Salvador,
 Y tú mi hermano ¿Por qué no cantas las alabanzas a Cristo el Salvador?"""
@@ -2711,6 +2844,7 @@ Y tú mi hermano ¿Por qué no cantas las alabanzas a Cristo el Salvador?"""
             id = 133,
             title = "Hay una unción",
             link = "",
+            author = "",
             content = """//Hay una unción aquí, cayendo sobre mí,
 Mudándome, cambiando mi ser//
 //mi espíritu y mi alma se están llenando
@@ -2721,6 +2855,7 @@ Mi vida nunca más será igual//"""
             id = 134,
             title = "La Samaritana",
             link = "https://www.youtube.com/watch?v=kfgld9jUczM",
+            author = "",
             content = """I
 Después de muchos días de camino el Salvador,
 Llegó hasta Samaria junto al pozo de Jacob,
@@ -2751,6 +2886,7 @@ Y sediento cual entonces también te suplicará:"""
             id = 135,
             title = "Dios está aquí, que precioso es",
             link = "https://www.youtube.com/watch?v=61AWJuXZD1o",
+            author = "",
             content = """Coro
 Dios está aquí, que precioso es
 Él lo prometió donde hay dos o tres
@@ -2769,6 +2905,7 @@ Oh hermano deja que se mueva dentro de tu corazón"""
             id = 136,
             title = "Frente a una flor",
             link = "https://www.youtube.com/watch?v=7vh2pFa5O_A",
+            author = "",
             content = """I
 Frente a una flor yo me detuve a ver un día,
 Lo singular de la belleza que hizo Dios,
@@ -2803,6 +2940,7 @@ Son pinceladas de alguien que sabe pintar."""
             id = 137,
             title = "Toda la gloria a Jesús",
             link = "https://www.youtube.com/watch?v=Xq-9P-ZUwR8",
+            author = "",
             content = """//Toda la gloria a Jesús
 Toda la honra a Jesús
 Todas las loas a Jesús
@@ -2813,6 +2951,7 @@ Siempre a Jesús//"""
             id = 138,
             title = "Él llevó mis cargas",
             link = "https://www.youtube.com/watch?v=M7tIo5ALNr0",
+            author = "",
             content = """I
 No hay problema muy grande que Dios no resuelva,
 No hay montaña muy alta que Dios no la mueva,
@@ -2835,6 +2974,7 @@ Que yo os haré descansar."""
             id = 139,
             title = "No dejes de luchar",
             link = "https://www.youtube.com/watch?v=hRv7jDICKdU",
+            author = "Conjunto Amigo Fiel",
             content = """I
 Ya sin fuerzas, cansado, te sientes desmayar,
 La adversidad asedia tu vida sin cesar,
@@ -2857,6 +2997,7 @@ Tu ministerio cumple y permanece fiel."""
             id = 140,
             title = "Tú eres Santo",
             link = "https://www.youtube.com/watch?v=V25WKWx6U9Q",
+            author = "",
             content = """Sólo tú eres Santo, sólo tú eres digno
 Tú eres hermoso y maravilloso
 Derrama tu Espíritu aquí dentro mío,
@@ -2866,6 +3007,7 @@ Que tu gloria llene ahora mismo este lugar"""
             id = 141,
             title = "No sé por qué Señor",
             link = "https://www.youtube.com/watch?v=lDRcfDaMpYE",
+            author = "",
             content = """No sé por qué Señor, será tu voluntad
 Que sufra yo tantas angustias y dolor,
 No sé por qué Señor, será tu voluntad
@@ -2891,6 +3033,7 @@ Porque hoy yo sé cuál es la causa de este mal"""
             id = 142,
             title = "Bendición vengo a buscar",
             link = "https://www.youtube.com/watch?v=6kh_kfHwbW4",
+            author = "",
             content = """//Bendición vengo a buscar y sin ella no me iré//
 //Y dame más Señor de tu gran poder//
 //Jacob luchó con un ángel, fue por una bendición//
@@ -2900,6 +3043,7 @@ Porque hoy yo sé cuál es la causa de este mal"""
             id = 143,
             title = "¡Cuán bello es el Señor!",
             link = "https://www.youtube.com/watch?v=GFBgK7unj8E",
+            author = "",
             content = """//¡Cuán bello es el Señor, cuán hermoso es el Señor!
 ¡Cuán bello es el Señor, hoy le quiero adorar!//
 
@@ -2910,6 +3054,7 @@ La hermosura de mi Señor, siempre resplandecerá//"""
             id = 144,
             title = "Fuera la tristeza",
             link = "https://www.youtube.com/watch?v=ANcfQiZit-E",
+            author = "",
             content = """Unas veces llora el corazón mío,
 Otras veces gime, sin hallar la paz
 Pues estando triste y muy abatido
@@ -2929,6 +3074,7 @@ Y canta conmigo esta simple canción:"""
             id = 145,
             title = "Aunque tenga que cruzar",
             link = "https://www.youtube.com/watch?v=l8N9n84t-Mg",
+            author = "",
             content = """Aunque tenga que cruzar montes y valles
 Predicando tu palabra mi Señor,
 Aunque guerra me declare el enemigo,
@@ -2943,6 +3089,7 @@ Porque el ángel del Señor irá conmigo//"""
             id = 146,
             title = "Tu amor por mí",
             link = "https://www.youtube.com/watch?v=3eWnYiluPk0",
+            author = "",
             content = """Tu amor por mí es más dulce que la miel,
 Y tu misericordia es nueva cada día.
 
@@ -2953,6 +3100,7 @@ Es por eso que te doy todo mi amor//"""
             id = 147,
             title = "La Biblia",
             link = "https://www.youtube.com/watch?v=1nbYyRCuSZM",
+            author = "",
             content = """La luz del día está entrando ya por la ventana,
 Los pajaritos afuera se oyen cantar,
 El viejo libro derrama su fresca enseñanza,
@@ -2977,6 +3125,7 @@ Y el antiguo testamento es el fondo ideal."""
             id = 148,
             title = "Que se deje sentir tu presencia",
             link = "https://www.youtube.com/watch?v=Z7wfI_NTDYI",
+            author = "",
             content = """Que se deje sentir tu presencia y que llene nuestro corazón,
 Que se deje sentir tu presencia, te pedimos Señor.
 
@@ -2987,6 +3136,7 @@ Que se deje sentir tu presencia, te pedimos Señor.
             id = 149,
             title = "Mi pensamiento eres tú",
             link = "https://www.youtube.com/watch?v=IRa2lmY6a78",
+            author = "",
             content = """///Mi pensamiento eres tú Señor/// Mi pensamiento eres tú.
 
 //Porque tú me has dado la vida, porque tú me has dado el existir,
@@ -2996,6 +3146,7 @@ Porque tú me has dado cariño, me has dado amor//"""
             id = 150,
             title = "Amigo fiel",
             link = "https://www.youtube.com/watch?v=w6T7dkkmC9s",
+            author = "Conjunto Amigo Fiel",
             content = """Cuando en luchas se encuentra mi alma,
 Yo acudo a Él, pronto a Él,
 Y le pido ¡Oh Jesús, ayúdame!
@@ -3026,6 +3177,7 @@ Porque tú estás conmigo, me ayudarás."""
             id = 151,
             title = "Él es mi paz",
             link = "https://www.youtube.com/watch?v=FCd4o1ICN-4",
+            author = "",
             content = """//Él es mi paz, se ha llevado todos mis temores,
 Él es mi paz, él es mi paz//
 
@@ -3036,6 +3188,7 @@ Porque tú estás conmigo, me ayudarás."""
             id = 152,
             title = "Llénanos de ti",
             link = "https://www.youtube.com/watch?v=QUDIujMcwLY",
+            author = "",
             content = """¡Oh deja que el Señor te envuelva en su Espíritu de amor,
 Satisfaga hoy tu alma y corazón!
 Entrégale lo que Él te pide y su Espíritu vendrá,
@@ -3052,6 +3205,7 @@ Y abundante vida hoy tendrás en Él."""
             id = 153,
             title = "Clama a mí",
             link = "https://www.youtube.com/watch?v=Ok5gHq52xss",
+            author = "Conjunto Amigo Fiel",
             content = """Hay momentos en la vida donde todo oscuro está
 No encuentras la salida a tu triste condición,
 Más hoy debes recordar que la llave tienes ya
@@ -3071,6 +3225,7 @@ Para abrir puertas de gracia, sólo tienes que orar."""
             id = 154,
             title = "Jehová está en su templo",
             link = "https://www.youtube.com/watch?v=CxzmOwTTK2U",
+            author = "",
             content = """Jehová está en su templo, alábale al que vive
 
 //Alábale, alábale, alábale al que vive//"""
@@ -3079,6 +3234,7 @@ Para abrir puertas de gracia, sólo tienes que orar."""
             id = 155,
             title = "Tendrás consuelo",
             link = "https://www.youtube.com/watch?v=xvNlZsym-Vs",
+            author = "",
             content = """Elías pedía and Dios respondía, fuego y lluvia del cielo, cayó,
 Y cuando estuvo triste, Dios le consoló,
 Y en un torbellino de carros de fuego al cielo voló.
@@ -3109,6 +3265,7 @@ Que largo camino de luchas tendrás, más el cielo te espera."""
             id = 156,
             title = "Estamos reunidos",
             link = "https://www.youtube.com/watch?v=WbyM5Mm7z2o",
+            author = "",
             content = """//Estamos reunidos aquí Señor,
 Porque hemos conocido tu amor,
 Traemos en nuestros labios un nuevo cántico de loor,
@@ -3120,6 +3277,7 @@ Aleluya, pues tu gloria ha llenado este lugar."""
             id = 157,
             title = "Ahora levántate",
             link = "https://www.youtube.com/watch?v=A6dU01q08Zo",
+            author = "",
             content = """Señor hoy me doy cuenta que ya no soy tan fuerte,
 Como ayer yo creía que todo lo podía,
 El fuego en gran escala que vino contra mí,
@@ -3149,6 +3307,7 @@ No te he dejado sola tu fe triunfó."""
             id = 158,
             title = "Dame un nuevo corazón",
             link = "https://www.youtube.com/watch?v=tfY4Se7ZRwU",
+            author = "",
             content = """//Dame un nuevo corazón, Señor,
 un corazón para alabarte más,
 Un corazón para adorarte,
@@ -3162,6 +3321,7 @@ Mi corazón será como el tuyo//"""
             id = 159,
             title = "Eutico",
             link = "https://www.youtube.com/watch?v=Og_VYH0oR7U",
+            author = "",
             content = """Un joven llamado Eutico, que sentado en una ventana,
 Rendido en un sueño profundo cuando Pablo allí predicaba,
 //Y vencido por el mismo sueño, se cayó del tercer piso abajo,
@@ -3182,6 +3342,7 @@ Perdido y sin ver el peligro de morir yo me encontraba,
             id = 160,
             title = "No me va a fallar",
             link = "https://www.youtube.com/watch?v=n3_64WIzvmw",
+            author = "",
             content = """//Puedo confiar en el Señor, no me va a fallar//
 Si el sol llegase a oscurecer y no brille más,
 Puedo confiar en el Señor, no me va a fallar.
@@ -3194,6 +3355,7 @@ Puedo confiar en el Señor, no me va a fallar."""
             id = 161,
             title = "En el hogar",
             link = "https://www.youtube.com/watch?v=1oEM4Rdq9OA",
+            author = "",
             content = """//En el hogar, en el hogar,
 Tú necesitas a Jesús//
 
@@ -3204,6 +3366,7 @@ Con Jesús en el hogar."""
             id = 162,
             title = "Un palacio tengo",
             link = "https://www.youtube.com/watch?v=7ClMBK9mD9A",
+            author = "",
             content = """Un palacio tengo más lindo que el sol
 Un palacio tengo más lindo que el sol
 Un palacio tengo más lindo que el sol
@@ -3223,6 +3386,7 @@ Ven sin demorar"""
             id = 163,
             title = "Unos brazos se abrieron",
             link = "https://www.youtube.com/watch?v=aM9lx9Aqru4",
+            author = "",
             content = """Unos brazos humildes se abrieron,
 En la trágica cruz del Calvario,
 El dolor de los clavos sufrieron,
@@ -3235,6 +3399,7 @@ Y librarlo del mal que vendrá//"""
             id = 164,
             title = "Somos un pequeño pueblo",
             link = "https://www.youtube.com/watch?v=nSaF6_jItNU",
+            author = "",
             content = """Somos un pequeño pueblo muy feliz
 Somos un pequeño pueblo muy feliz
 El Señor es nuestro guía y nos colma de alegría
@@ -3244,6 +3409,7 @@ Somos un pequeño pueblo muy feliz."""
             id = 165,
             title = "Sé que Jesús vendrá",
             link = "https://www.youtube.com/watch?v=sasjAWyP1aY",
+            author = "Conjunto de Dorrego",
             content = """Sé que Jesús vendrá, a buscarme y preparado quiero estar,
 Sé que muy pronto veré a su Gloria descender con poder,
 Sé que mi llanto terminará,
@@ -3274,6 +3440,7 @@ Preparada por ti para mí, para mí."""
             id = 166,
             title = "El alfarero",
             link = "https://www.youtube.com/watch?v=t3MNv0XqOwo",
+            author = "",
             content = """//Señor yo quiero abandonarme
 Como el barro en las manos del alfarero
 Toma mi vida y hazla de nuevo,
@@ -3283,6 +3450,7 @@ Yo quiero ser, yo quiero ser un vaso nuevo//"""
             id = 167,
             title = "Quiero cantar una linda canción",
             link = "https://www.youtube.com/watch?v=zNTf0cG1x_A",
+            author = "",
             content = """Quiero cantar una linda canción
 De aquel que mi vida cambió,
 Quiero cantar una linda canción
@@ -3300,6 +3468,7 @@ Sólo en él encontré la felicidad"""
             id = 168,
             title = "Jesús es fiel",
             link = "https://www.youtube.com/watch?v=iZBXnQUGbpg",
+            author = "",
             content = """Espéralo aunque tardare vendrá y no tardará,
 Jesús es fiel y el cumplirá, sus maravillas pronto verás.
 
@@ -3323,6 +3492,7 @@ Jesús es fiel y el cumplirá, sus maravillas pronto verás."""
             id = 169,
             title = "El hombre de Galilea",
             link = "https://www.youtube.com/watch?v=xdI-sTOEhnU",
+            author = "",
             content = """////El hombre de Galilea va pasando va////
 
 ///déjalo que te toque/// y recibe su bendición
@@ -3332,6 +3502,7 @@ Jesús es fiel y el cumplirá, sus maravillas pronto verás."""
             id = 170,
             title = "Más allá del sol",
             link = "https://www.youtube.com/watch?v=vPrAzFrdXgc",
+            author = "",
             content = """Aunque en esta vida no tengo riquezas
 Sé que allá en la gloria tengo mi mansión.
 Cual alma perdida entre las pobrezas,
@@ -3356,6 +3527,7 @@ Fue a prepararnos a la Santa Sion."""
             id = 171,
             title = "He peleado la batalla",
             link = "https://www.youtube.com/watch?v=QZx1rhGbFx4",
+            author = "",
             content = """Al Señor yo le quiero servir porque sé que él me puede salvar
 Y promete llevarme a vivir donde siempre le puede mirar.
 
@@ -3374,6 +3546,7 @@ El Señor pronto viene a buscar a los que aman la venida de Jesús."""
             id = 172,
             title = "No temáis",
             link = "https://www.youtube.com/watch?v=geRWBny4NNE",
+            author = "",
             content = """Con la barca en alta mar, los discípulos estaban,
 Y las olas azotaban con furia sin igual,
 El viento era contrario y el mar un remolino,
@@ -3399,6 +3572,7 @@ Es por eso que ha venido caminando sobre el mar."""
             id = 173,
             title = "Vaso de Honra",
             link = "https://www.youtube.com/watch?v=Az4SY10F88M",
+            author = "",
             content = """Hazme un vaso de honra,
 Padre hazme un vaso de fe,
 Lléname con tu luz y gracia, y honra,
@@ -3413,6 +3587,7 @@ Y de día en día seré mensajero llevando amor y paz."""
             id = 174,
             title = "Grandes cosas hizo Dios",
             link = "https://www.youtube.com/watch?v=6FR32elSknI",
+            author = "",
             content = """//Grandes cosas hizo Dios, todas hermosas para mí//
 Maravilloso es, sentir amor, ama, ama, como te ama Dios.
 
@@ -3424,6 +3599,7 @@ Maravilloso es sentir amor, ama, ama, //como te ama Dios//"""
             id = 175,
             title = "Alcancé Salvación",
             link = "https://www.youtube.com/watch?v=WHqif23mKlA",
+            author = "",
             content = """De paz inundada mi senda ya esté,
 O cúbrala un mar de aflicción,
 Mi suerte cualquiera que sea diré:
@@ -3441,6 +3617,7 @@ Aleluya estoy bien con mi Dios."""
             id = 176,
             title = "Tu presencia está aquí",
             link = "https://www.youtube.com/watch?v=tLMTInNCGiw",
+            author = "",
             content = """El brillo de este mundo se opaca ante ti,
 La gloria de esta tierra nada es,
 Todo cae in tu presencia ¡Oh Rey!
@@ -3455,6 +3632,7 @@ Qué hermosa es tu presencia Señor//"""
             id = 177,
             title = "Vamos escalando peldaños",
             link = "https://www.youtube.com/watch?v=bc4n19i0b6o",
+            author = "",
             content = """//Vamos escalando peldaños, vamos llevando la cruz
 Sigamos el camino angosto, con Cristo es mucho mejor//
 
@@ -3471,6 +3649,7 @@ Tengo a Cristo en mi vida, por eso puedo escalar.//"""
             id = 178,
             title = "Junto al arroyo de Querit",
             link = "https://www.youtube.com/watch?v=pRZMzjCjBZA",
+            author = "",
             content = """Cuando hay sombras, cuando hay dudas en tu andar,
 Cuando hay pruebas que no puedes afrontar,
 Cuando tu ánimo comienza a menguar,
@@ -3502,6 +3681,7 @@ Todavía hay un refugio para ti,
             id = 179,
             title = "Renuncié a la miseria",
             link = "https://www.youtube.com/watch?v=MdkjtTMCpaE",
+            author = "",
             content = """Hoy renuncié a la miseria,
 Al pecado que había en mí, para servir a mi rey
 Hoy quedó atrás mi pasado, mi vieja vida,
@@ -3525,6 +3705,7 @@ Y el que anhela verte vencido tendrá que huir."""
             id = 180,
             title = "Cristo ha tomado mi vida",
             link = "https://www.youtube.com/watch?v=8ZuyDgZwTz0",
+            author = "",
             content = """//Cristo ha tomado mi vida,
 Ha tomado mi vida y no la quiere dejar//
 Perdido estaba yo, más Cristo me encontró,
@@ -3538,6 +3719,7 @@ Cristo ha tomado mi vida y no la quiere dejar."""
             id = 181,
             title = "Como el agua cubre la mar",
             link = "https://www.youtube.com/watch?v=R6Qx0UVvyGQ",
+            author = "",
             content = """//Como el agua cubre el mar,
 Todo el mundo se ha de llenar,
 Del amor de Dios y la gloria del Señor,
@@ -3547,6 +3729,7 @@ Como el agua cubre el mar.//"""
             id = 182,
             title = "La Gloria de Jehová",
             link = "https://www.youtube.com/watch?v=WzWK83-4NeA",
+            author = "",
             content = """La Gloria de Jehová, bajó al Sinaí
 Y aquel monte temblaba porque Dios estaba allí
 
@@ -3563,6 +3746,7 @@ Por eso canto alegre porque Dios está aquí//"""
             id = 183,
             title = "Ten confianza",
             link = "https://www.youtube.com/watch?v=J1fOyOoh0zI",
+            author = "",
             content = """No descansa, el diablo no duerme,
 Está intentando intimidarte, para que te sueltes,
 Pero aquella zarza no deja de arder.
@@ -3587,6 +3771,7 @@ Pero aquella zarza no deja de arder."""
             id = 184,
             title = "Te alabo",
             link = "https://www.youtube.com/watch?v=kUadWiX0U4w",
+            author = "",
             content = """Hasta en mis lágrimas hay alabanzas
 Porque mis ojos te alaban así,
 Tú me salvaste, me perdonaste,
@@ -3596,6 +3781,7 @@ Me diste vida cuando creí."""
             id = 185,
             title = "Hijo pródigo (Villanueva)",
             link = "https://www.youtube.com/watch?v=FuLeMPU4ZpE",
+            author = "",
             content = """I
 El hijo se va alegre del hogar, llevando los bienes que al padre pidió,
 Juntándolo todo ansioso se va, a tierras lejanas detrás de su afán.
@@ -3620,6 +3806,7 @@ Recuerda entonces al padre en su hogar y volviendo en sí decide regresar."""
             id = 186,
             title = "Quiero alabarte",
             link = "https://www.youtube.com/watch?v=WDvUV5joiKU",
+            author = "",
             content = """//Quiero alabarte más y más aún//
 Seguir tu voluntad,
 Tu gracia conocer,
@@ -3633,6 +3820,7 @@ Quiero cantar, quiero levantar mis manos a Ti//"""
             id = 187,
             title = "Este es el día",
             link = "https://www.youtube.com/watch?v=3ddYhwppVFs",
+            author = "",
             content = """//Este es el día//, //que hizo el Señor//
 
 //Me alegraré// y //me gozaré//
@@ -3646,6 +3834,7 @@ Me alegraré y me gozaré
             id = 188,
             title = "Mi cruz no es tan pesada",
             link = "https://www.youtube.com/watch?v=OmIe5aruAUU",
+            author = "",
             content = """Me pregunté mil veces sin poder comprender,
 Por qué mi cruz doblaba siempre mi sufrido caminar,
 Y hablé con Dios mirando al cielo y con angustia exclamé:
@@ -3676,6 +3865,7 @@ Por vida eterna y por corona, nuestra cruz se cambiará."""
             id = 189,
             title = "Yo vivo Señor porque Tú vives",
             link = "https://www.youtube.com/watch?v=kEPnWr3Y6dY",
+            author = "",
             content = """Yo vivo Señor porque tú vives,
 Porque tú vives, Señor es que yo vivo,
 
@@ -3692,6 +3882,7 @@ Porque Señor tú me diste la victoria//"""
             id = 190,
             title = "Auméntame la fe",
             link = "https://www.youtube.com/watch?v=IMlt4Nwx_sQ",
+            author = "Conjunto Amigo Fiel",
             content = """Es pues la fe, la certeza de lo que se espera,
 La convicción de lo que no se ve,
 Sin fe es imposible agradar a Dios,
@@ -3717,6 +3908,7 @@ Auméntame la fe."""
             id = 191,
             title = "Cristo me ama",
             link = "https://www.youtube.com/watch?v=WD3WkpjpHVA",
+            author = "",
             content = """Cristo me ama bien lo sé,
 Su palabra dice así:
 “Que los niños son de aquel,
@@ -3733,6 +3925,7 @@ Me dará la entrada allá"""
             id = 192,
             title = "Te mando que te esfuerces",
             link = "https://www.youtube.com/watch?v=QpD1QfF_yk8",
+            author = "",
             content = """//Mira que te mando que te esfuerces
 Y que seas valiente y que seas valiente//
 
@@ -3743,6 +3936,7 @@ Estará contigo dondequiera que tú vayas//"""
             id = 193,
             title = "Si te sientes tan cansado",
             link = "https://www.youtube.com/watch?v=A0kEjfpTbdw",
+            author = "",
             content = """Si te sientes tan cansado, y tu cruz está pesada,
 Y si piensas que no puedes proseguir esta jornada,
 Alza tus ojos a los cielos y contempla a mi Jesús,
@@ -3767,6 +3961,7 @@ Su ayuda él te dará."""
             id = 194,
             title = "Me bautizó",
             link = "https://www.youtube.com/watch?v=MssQCtBi2vY",
+            author = "",
             content = """Una noche estaba orando, el Señor me visitó,
 Y con su Espíritu Santo de su gloria me invadió,
 Y sentí que derramaba como un fuego celestial,
@@ -3786,6 +3981,7 @@ Y ese mismo viento recio comenzara aquí a soplar
             id = 195,
             title = "Mujer virtuosa",
             link = "https://www.youtube.com/watch?v=E8bVIB_oq4s",
+            author = "",
             content = """Mujer virtuosa, quién la hallará,
 El corazón de su esposo confiado está,
 Es la mujer que da siempre el bien y no el mal,
@@ -3813,6 +4009,7 @@ Sus hijos se gozan, su esposo la llama “feliz”"""
             id = 196,
             title = "Santo es el Señor",
             link = "https://www.youtube.com/watch?v=0MlGVTRhhMs",
+            author = "",
             content = """Oh Señor en tu presencia, hoy venimos a cantar
 Y con nuestro nuevo cántico tu nombre a ensalzar,
 Porque sólo tú eres digno de la gloria y el poder,
@@ -3831,6 +4028,7 @@ Todopoderoso Dios de salvación//"""
             id = 197,
             title = "No dejes de luchar (Medina)",
             link = "https://www.youtube.com/watch?v=XrUHuwH9TTc",
+            author = "",
             content = """I
 Ya sin fuerzas, cansado, te sientes desmayar,
 La adversidad asedia tu vida sin cesar,
@@ -3853,6 +4051,7 @@ Tu ministerio cumple y permanece fiel."""
             id = 198,
             title = "No bajes tus brazos",
             link = "https://www.youtube.com/watch?v=nlUsxf9S-OI",
+            author = "Conjunto Amigo Fiel",
             content = """Los tiempos se van cumpliendo, ya Cristo a la puerta está,
 Por eso es que tantas pruebas hay que pasar,
 El enemigo astuto nos quiere hacer desmayar,
@@ -3876,6 +4075,7 @@ Porque a Cristo no querían ellos negar."""
             id = 199,
             title = "Me llena de poder",
             link = "https://www.youtube.com/watch?v=HyXh2GUZBGA",
+            author = "",
             content = """Cristo está junto a mí y me llena de poder
 me llena de poder, me llena de poder
 Cristo está junto a mí y me llena de poder,
@@ -3890,6 +4090,7 @@ Cristo me guarda de poder."""
             id = 200,
             title = "Oraré por ti",
             link = "https://www.youtube.com/watch?v=gpGA2kRMsVo",
+            author = "",
             content = """¿Cuál es tu tristeza, hermano querido, cuál es tu dolor,
 Andas abatido, de brazos caídos, cuál es la razón?
 Si es dura la lucha y pesada es tu carga, yo te quiero ayudar,
@@ -3907,6 +4108,7 @@ Que el Señor del cielo, hoy, sane tus heridas///"""
             id = 201,
             title = "Sigue trabajando",
             link = "https://www.youtube.com/watch?v=kK5d-dpAnGw",
+            author = "",
             content = """Tú sigue trabajando, no escuches esas cosas
 Que sólo te hacen daño, y puedes decaer,
 Siempre habrá quién hable mal de ti, si trabajas para Cristo,
@@ -3926,6 +4128,7 @@ Y vivas con los santos para la eternidad."""
             id = 202,
             title = "Rayo fugaz",
             link = "https://www.youtube.com/watch?v=MkD80d21nZQ",
+            author = "",
             content = """Como un rayo fugaz, que se pierde entre la oscuridad,
 Como un gran manantial calma completamente mi sed,
 Así es el amor de mi hermoso Señor.
@@ -3954,6 +4157,7 @@ El amor de mi Dios//"""
             id = 203,
             title = "Hemos creído",
             link = "https://www.youtube.com/watch?v=DBDRWkrDA5E",
+            author = "",
             content = """Hemos creído en un poder que no se toca,
 Hemos creído en un poder que no se ve,
 
@@ -3971,6 +4175,7 @@ Señor querido queremos tu poder//"""
             id = 204,
             title = "Qué lindo es su mirar",
             link = "https://www.youtube.com/watch?v=SyCTP9UfWX4",
+            author = "",
             content = """Solo al pensar que hay un Dios, mi alma se regocija;
 porque ha llenado a mi alma de esa paz y esa calma,
 que el mundo no me da
@@ -3989,6 +4194,7 @@ de Cristo, el Salvador."""
             id = 205,
             title = "Las cosas más absurdas",
             link = "https://www.youtube.com/watch?v=7NUEZPsBldA",
+            author = "",
             content = """//Las cosas más absurdas de este mundo,
 Son las más cuerdas que me ha enseñado Dios//
 
@@ -4015,6 +4221,7 @@ Procediendo todos al arrepentimiento,
             id = 206,
             title = "Pasa por aquí",
             link = "https://www.youtube.com/watch?v=FLLSH74iDkY",
+            author = "",
             content = """//Pasa por aquí Señor, pasa por aquí//
 //Oh, Señor, pasa por aquí//
 
@@ -4028,6 +4235,7 @@ Procediendo todos al arrepentimiento,
             id = 207,
             title = "Despiértame Señor",
             link = "https://www.youtube.com/watch?v=WC0q9sonUO4",
+            author = "",
             content = """Despiértame Señor si estoy durmiendo
 Que yo como Samuel responderé:
 “Si útil puedo serte hasta la muerte
@@ -4047,6 +4255,7 @@ Ordena lo que quieras yo lo haré”"""
             id = 208,
             title = "A Dios sea la gloria",
             link = "https://www.youtube.com/watch?v=zMPvFIHuZ3w",
+            author = "",
             content = """///A Dios sea la gloria/// por su gran salvación
 Su sangre me ha limpiado, su poder me ha levantado
 A Dios sea la gloria, por su gran salvación."""
@@ -4055,6 +4264,7 @@ A Dios sea la gloria, por su gran salvación."""
             id = 209,
             title = "Nada me apartará",
             link = "https://www.youtube.com/watch?v=x_s1fiio7ls",
+            author = "",
             content = """Quién podrá apartarnos de su amor,
 Angustia, desnudez, persecución,
 Hambre, peligro o espada,
@@ -4074,6 +4284,7 @@ Es el mismo por la eternidad."""
             id = 210,
             title = "Mi nombre en gloria",
             link = "https://www.youtube.com/watch?v=eHrucyQJYRQ",
+            author = "",
             content = """Mucho he pecado, más con fe Imploré perdón al Señor,
 Derramó su gracia y hallé que él es fiel perdonador.
 
@@ -4089,6 +4300,7 @@ Y por el misterio de la cruz tengo vida eternal."""
             id = 211,
             title = "En este día feliz",
             link = "https://www.youtube.com/watch?v=xExKaR3vS4I",
+            author = "",
             content = """En este día feliz, en este Santo lugar, quiero tener un encuentro con Dios,
 Su amor es real y su paz gozaré, quiero tener un encuentro con Dios.
 
@@ -4099,6 +4311,7 @@ Su amor es real y su paz gozaré, quiero tener un encuentro con Dios."""
             id = 212,
             title = "Cristo, Gracias te doy",
             link = "https://www.youtube.com/watch?v=IOFwl4Bo3k4",
+            author = "",
             content = """Cristo, gracias te doy, con espinas te coronan, Oh Señor,
 Cristo, gloria a ti, en humildad tú la vida das por mí,
 Cristo, Cordero de Dios, por mi culpa te llevaron a la cruz,
@@ -4116,6 +4329,7 @@ Rey de la eternidad//"""
             id = 213,
             title = "Tú, esfuérzate",
             link = "https://www.youtube.com/watch?v=sJ0yBlN83Fg",
+            author = "",
             content = """Tú, esfuérzate en la gracia del Señor Jesús,
 Enarbolando la bandera de la cruz,
 Sé fiel soldado y agrada a tu Señor,
@@ -4138,6 +4352,7 @@ Que oscuridad podrá la luz encadenar."""
             id = 214,
             title = "Te alabo Señor",
             link = "https://www.youtube.com/watch?v=PUWjwFfY6a4",
+            author = "",
             content = """Con mis labios y mi vida, //te alabo Señor//
 Con mis labios y mi vida, te alabo bendito Señor
 ////te alabo Señor////
@@ -4149,6 +4364,7 @@ Porque tú has sido precioso para mí, te alabo bendito Señor."""
             id = 215,
             title = "En momentos así",
             link = "https://www.youtube.com/watch?v=uB16vLmWs9I",
+            author = "",
             content = """En momentos así, levanto mi voz
 Levanto mi alma a Cristo,
 En momentos así, levanto mi ser,
@@ -4160,6 +4376,7 @@ Levanto mis manos a él.
             id = 216,
             title = "Al amparo de la roca",
             link = "https://www.youtube.com/watch?v=-BAMRYIS1bA",
+            author = "",
             content = """Aunque ruja la tormenta, de mi vida en derredor
 Al amparo de la roca salvo estoy
 Si la tempestad aumenta no tendré ningún temor
@@ -4181,6 +4398,7 @@ Al amparo de la roca salvo estoy"""
             id = 217,
             title = "Una mirada de fe",
             link = "https://www.youtube.com/watch?v=RkCTIrxKtaM",
+            author = "",
             content = """//Una mirada de fe, una mirada al Señor,
 Es la que puede salvar al pecador//
 
@@ -4191,6 +4409,7 @@ Porque una mirada de fe es la que te puede salvar//"""
             id = 218,
             title = "Sólo Dios hace al hombre feliz",
             link = "https://www.youtube.com/watch?v=FSJkFsSsv9A",
+            author = "",
             content = """//Sólo Dios hace al hombre feliz//
 La vida es nada todo se acaba
 Sólo Dios hace al hombre feliz"""
@@ -4199,6 +4418,7 @@ Sólo Dios hace al hombre feliz"""
             id = 219,
             title = "Paz en la tormenta",
             link = "https://www.youtube.com/watch?v=5Jku7mDleEw",
+            author = "",
             content = """Cuánto lloras por las veces que intentaste
 Y tratas de olvidar las lágrimas que lloraste,
 Sólo tienes pena y tristeza, el futuro incierto esperas,
@@ -4219,6 +4439,7 @@ En paz en medio de la tormenta"""
             id = 220,
             title = "Si me preguntan",
             link = "https://www.youtube.com/watch?v=5fypkAekZUg",
+            author = "",
             content = """//Si me preguntan por qué estoy contento,
 Si me preguntan por qué canto así,
 Es porque Cristo me ha lavado con su sangre
@@ -4230,6 +4451,7 @@ Y en una nube blanca volverá por mí//"""
             id = 221,
             title = "Si fui motivo de dolor",
             link = "https://www.youtube.com/watch?v=jjexMrqHVsY",
+            author = "",
             content = """Si fui motivo de dolor, oh Cristo,
 Si por mi causa el débil tropezó,
 Si en tus pisadas caminar no quise,
@@ -4249,6 +4471,7 @@ Perdón te ruego mi Señor y Dios"""
             id = 222,
             title = "Ardiendo el fuego",
             link = "https://www.youtube.com/watch?v=zASO7uyGQzM",
+            author = "",
             content = """//Ardiendo el fuego en mi alma está//
 Gloriosa llama me limpiará
 Oh Aleluya mi alma ardiendo está.
@@ -4267,6 +4490,7 @@ Como una zarza quiero arder con tu poder."""
             id = 223,
             title = "Es exaltado",
             link = "https://www.youtube.com/watch?v=yYMiwQnADJk",
+            author = "",
             content = """Es exaltado, por siempre ';exaltado es el rey, le alabaré
 Es exaltado, por siempre ';exaltado y yo le alabaré
 
@@ -4280,6 +4504,7 @@ Es exaltado, en lo alto ';exaltado es el rey"""
             id = 224,
             title = "Yo sé que estás aquí",
             link = "https://www.youtube.com/watch?v=_Cc1VYdcfL8",
+            author = "",
             content = """//Yo sé que estás aquí, siento tu caminar,
 Te mueves en el pueblo trayendo sanidad//
 
@@ -4292,6 +4517,7 @@ Y sé que transformado yo seré//"""
             id = 225,
             title = "Jesús está aquí, pide lo que quieras",
             link = "https://www.youtube.com/watch?v=djjR1Ti0Q78",
+            author = "",
             content = """//Jesús está aquí, pide lo que quieras//
 Él tiene poder, Él te lo dará,
 Jesús está aquí, Aleluya, pide lo que quieras.
@@ -4307,6 +4533,7 @@ Jesús está aquí, hermano, pide lo que quieras."""
             id = 226,
             title = "Amémonos de corazón",
             link = "https://www.youtube.com/watch?v=TsLAa2Zh3l0",
+            author = "",
             content = """//Amémonos de corazón y no con amor fingido//
 //Para cuando Cristo venga, para cuando Cristo venga,
 Nos encuentre preparados//
@@ -4319,6 +4546,7 @@ Si no estás reconciliado//"""
             id = 227,
             title = "Hemos orado",
             link = "https://www.youtube.com/watch?v=H57Np5P8x-A",
+            author = "",
             content = """//Hemos orado y ha bajado el poder de Dios//
 //Oh gloria a Dios//
 Hemos orado y ha bajado el poder de Dios"""
@@ -4327,6 +4555,7 @@ Hemos orado y ha bajado el poder de Dios"""
             id = 228,
             title = "Es que Dios es así",
             link = "https://www.youtube.com/watch?v=ByDThKUfeOU",
+            author = "",
             content = """Cuántas veces corriste cuando Dios te estaba llamando,
 Cuántas veces dijiste, ocupado estoy,
 Fueron los días, los meses y también los años,
@@ -4351,6 +4580,7 @@ Esperando cuidarte, deseando cuidarte."""
             id = 229,
             title = "Solamente en Cristo",
             link = "https://www.youtube.com/watch?v=o58AgGeB7cY",
+            author = "",
             content = """//Solamente en Cristo, solamente en Él
 La salvación se encuentra en Él
 No hay otro nombre dado a los hombres
@@ -4360,6 +4590,7 @@ Solamente en Cristo, solamente en Él//"""
             id = 230,
             title = "Si tú hablas con Dios",
             link = "https://www.youtube.com/watch?v=jYTkzIUUj0o",
+            author = "",
             content = """//Si tú hablas con Dios, las cosas cambiarán orando,
 Cualquier necesidad Dios la responderá orando,
 Descansar en el Señor, las pruebas cambiarán orando,
@@ -4369,6 +4600,7 @@ Bendita oración yo puedo hablar con Dios, orando//"""
             id = 231,
             title = "Yo te busco",
             link = "https://www.youtube.com/watch?v=tioyFWQ5W9Y",
+            author = "",
             content = """//Yo te busco// con fuego en mi corazón,
 //Yo te busco// recibe mi adoración.
 
@@ -4378,6 +4610,7 @@ Bendita oración yo puedo hablar con Dios, orando//"""
             id = 232,
             title = "Su gloria cubrió los cielos",
             link = "https://www.youtube.com/watch?v=EgW1SoBY-yU",
+            author = "",
             content = """//Su gloria cubrió los cielos,
 y la tierra se llenó de su alabanza//
 
@@ -4391,6 +4624,7 @@ y allí estaba escondido su poder."""
             id = 233,
             title = "Quién dijo que no habría victoria",
             link = "https://www.youtube.com/watch?v=21cVOdFW4zk",
+            author = "",
             content = """//Quién dijo que no, que no habría victoria
 Habiendo conocido al Cristo de la gloria
 Yo digo que sí, que sí venceremos,
@@ -4400,6 +4634,7 @@ Aunque satán no quiera, victoria tendremos//"""
             id = 234,
             title = "Yo quiero más de ti",
             link = "https://www.youtube.com/watch?v=FbJzEm3jbTg",
+            author = "",
             content = """//Yo quiero más de ti,
 Y habitar en tu presencia,
 Menguar para que crezcas tú,
@@ -4417,6 +4652,7 @@ Todo lo que tengo es tuyo,
             id = 235,
             title = "Los que esperan en Jesús",
             link = "https://www.youtube.com/watch?v=wAB_wcf3INU",
+            author = "",
             content = """////Los que esperan en Jesús////
 
 //Como las águilas, como las águilas sus alas levantarán//
@@ -4432,6 +4668,7 @@ Los que esperan en Jesús//"""
             id = 236,
             title = "Muévete en mí",
             link = "https://www.youtube.com/watch?v=hTQVD6JJ6jA",
+            author = "",
             content = """//El Espíritu de Dios está en este lugar,
 El Espíritu de Dios se mueve en este lugar,
 Está aquí para consolar, está aquí para liberar,
@@ -4446,6 +4683,7 @@ Muévete en mí, Santo Espíritu, muévete en mí//"""
             id = 237,
             title = "Me voy con Él",
             link = "https://www.youtube.com/watch?v=MsiUgKU7idY",
+            author = "",
             content = """Ya viene Cristo, señales hay,
 Almas salvadas viene a buscar,
 Los que durmieren se quedarán,
@@ -4459,6 +4697,7 @@ Yo no me quedo, me voy con Él//"""
             id = 238,
             title = "Enamorado de Jesús",
             link = "https://www.youtube.com/watch?v=nayne0A2kBk",
+            author = "",
             content = """//Enamorado de Jesús, enamorado,
 Enamorado de Jesús//
 
@@ -4470,6 +4709,7 @@ Jesucristo de Nazaret//"""
             id = 239,
             title = "Cielo y tierra pasarán",
             link = "https://www.youtube.com/watch?v=MZowLl8Typc",
+            author = "",
             content = """//Santo, santo, santo, santo es el Señor//
 Santo, santo, santo, dicen los querubines,
 //Because mi Dios es santo y la tierra llena de su gloria está//
@@ -4489,6 +4729,7 @@ Santo, santo, santo, dicen los querubines,
             id = 240,
             title = "Como el viento sobre el mar",
             link = "https://www.youtube.com/watch?v=prSD9-rDQwU",
+            author = "",
             content = """Como el viento sobre el mar, como el rayo tan veloz,
 Como el fuego que consume y que nada lo destruye,
 Es así el poder de Dios.
@@ -4513,6 +4754,7 @@ Que en mí permanecerá."""
             id = 241,
             title = "Conozco que todo lo puedes",
             link = "https://www.youtube.com/watch?v=2obTgDlUE1k",
+            author = "",
             content = """//Conozco que todo lo puedes
 Que mi pensamiento no lo puedo esconder
 Hablaba lo que no entendía
@@ -4527,6 +4769,7 @@ Me rindo a tus pies y me arrepiento Señor."""
             id = 242,
             title = "Más que vencedor",
             link = "https://www.youtube.com/watch?v=emFj_dx8Q7U",
+            author = "",
             content = """Luchas hay en tu vivir, que causan gran dolor,
 Has pensado en desistir, no quieres más luchar,
 Para qué desesperar, basta apenas confiar,
@@ -4549,6 +4792,7 @@ Con su sangre allá en la cruz,
             id = 243,
             title = "Digno eres de Gloria y Alabanza",
             link = "https://www.youtube.com/watch?v=6lxnd7KJonI",
+            author = "",
             content = """//Digno eres de gloria y alabanza
 Levantamos nuestras manos
 Adorándote Señor//
@@ -4560,6 +4804,7 @@ No hay otro como tú, No hay otro como tú//"""
             id = 244,
             title = "Dios manda lluvia",
             link = "https://www.youtube.com/watch?v=UOYwvMeFdMg",
+            author = "",
             content = """//Dios manda lluvia, derrama de tu espíritu,
 Enciende hoy tu fuego, sana mis heridas
 Restáurame Señor//
@@ -4573,6 +4818,7 @@ Visita hoy mi vida, cámbiame Señor"""
             id = 245,
             title = "Invoqué tu nombre",
             link = "https://www.youtube.com/watch?v=eFchuIJL-hE",
+            author = "",
             content = """Invoqué tu nombre, pues mi alma moría,
 En mi gran angustia me acordé de ti,
 Con brazos abiertos imploré tu ayuda
@@ -4594,6 +4840,7 @@ y en tu amor eterno habré de vivir."""
             id = 246,
             title = "Seguiré cantando",
             link = "https://www.youtube.com/watch?v=ZVm4dLUD8Rk",
+            author = "",
             content = """Mi corazón puede cantar si pienso
 Que cada prueba es un peldaño más
 En la empinada cuesta hacia el cielo,
@@ -4614,6 +4861,7 @@ At recordar cuán poco durará"""
             id = 247,
             title = "No desanimes",
             link = "https://www.youtube.com/watch?v=ngLbVyVqEOA",
+            author = "",
             content = """Por la vida va el creyente caminando,
 Cargando su cruz con valentía
 Trabajando para el reino de los cielos,
@@ -4643,6 +4891,7 @@ galardón recibirás y allí cantarás triunfante"""
             id = 248,
             title = "¿Cómo debo orar?",
             link = "https://www.youtube.com/watch?v=kNY0Z2QB2Y4",
+            author = "",
             content = """¿Cómo debo orar para alcanzar lo imposible?
 Desprender virtud de Ti, hoy mi Fe fue suficiente
 Mi clamor llegó hasta tu altar.
@@ -4675,6 +4924,7 @@ Tu alma llena quedará y verás lo que se siente//"""
             id = 249,
             title = "El gran amor del Señor",
             link = "https://www.youtube.com/watch?v=ZvUwK4cur24",
+            author = "",
             content = """//El gran amor del Señor nunca cesa,
 Su misericordia jamás tiene fin,
 Nuevas cada mañana, cada mañana
@@ -4689,6 +4939,7 @@ Tu gran fidelidad"""
             id = 250,
             title = "Seguiré adelante",
             link = "https://www.youtube.com/watch?v=UUYMiyv0mdw",
+            author = "",
             content = """Seguiré adelante puesta mi mirada
 En Aquel que pudo rescatar mi alma,
 Seguiré adelante, aunque el diablo trate
@@ -4732,6 +4983,7 @@ Su bendito amor, me guiará hasta el fin."""
             id = 251,
             title = "Es solo un poco más",
             link = "https://www.youtube.com/watch?v=MiQlMkrBPwU",
+            author = "",
             content = """Una vez más, oscureció
 Y el sol se fue del corazón,
 Yo ya no puedo soportar,
@@ -4757,6 +5009,7 @@ Jesús me llama y dice así."""
             id = 252,
             title = "Quién te amará",
             link = "https://www.youtube.com/watch?v=fKDtsS0GTEg",
+            author = "",
             content = """Quién te amará como lo hizo Jesús
 Quién morirá como él por ti en la cruz
 Quién te dará en tus horas de tristeza y soledad,
@@ -4766,6 +5019,7 @@ amor y paz solo Jesús te puede dar"""
             id = 253,
             title = "Esperar en el Señor",
             link = "https://www.youtube.com/watch?v=Ue_LOQeETAg",
+            author = "",
             content = """//Esperar, esperar, esperar en el Señor//
 Y aprender bien la lección que a su tiempo él me dirá
 ¿Qué hacer?, ¿Dónde ir?, ¿Qué decir?
@@ -4782,6 +5036,7 @@ Y aprender bien la lección que a su tiempo él nos dirá
             id = 254,
             title = "¿Quién se opone si Dios te ha elegido?",
             link = "https://www.youtube.com/watch?v=mqb-AOowoXo",
+            author = "",
             content = """Nehemías vivía en palacio, como copero del rey.
 Cada día oraba y gemía por su nación,
 La noticia llegó no era buena, porque su pueblo,
@@ -4812,6 +5067,7 @@ Sigue avanzando, un trecho nos queda vas a llegar."""
             id = 255,
             title = "Necesito de Ti",
             link = "https://www.youtube.com/watch?v=UIiP6IMzc10",
+            author = "",
             content = """Necesito de ti, como la flor del agua
 Necesito de ti, como el sol la mañana
 Necesito tu dulce paz y tu voz escuchar
@@ -4832,6 +5088,7 @@ Es por eso Señor que a mi lado tú estás"""
             id = 256,
             title = "Sólo creé",
             link = "https://www.youtube.com/watch?v=CxP8eJZE1EQ",
+            author = "",
             content = """Creer, es más que una simple palabra,
 Creer, es más que una declaración,
 Creer, es declarar lo que tus ojos aún no han visto,
@@ -4874,6 +5131,7 @@ Dale gloria al Rey."""
             id = 257,
             title = "Es la fe",
             link = "https://www.youtube.com/watch?v=Y2eMxaGRqpA",
+            author = "",
             content = """Dicen que la fe,
 es más preciosa que el oro,
 Y que vivir por fe es agradable al Señor,
@@ -4914,6 +5172,7 @@ Señor auméntanos la fe."""
             id = 258,
             title = "Puedo confiar en Dios",
             link = "https://www.youtube.com/watch?v=gcDxulABRIs",
+            author = "",
             content = """Hay momentos de esta vida que es difícil comprender,
 Hay momentos de dolor y oscuridad,
 Pero Cristo es la respuesta que da paz al corazón,
@@ -4939,6 +5198,7 @@ Sólo Cristo permanece junto a ti hasta el final."""
             id = 259,
             title = "Mi amigo aquí estoy",
             link = "https://www.youtube.com/watch?v=EpGo22qE3_8",
+            author = "",
             content = """Si la tristeza de este mundo embarga tu ser
 No tiene sentido tu vida y no sabes qué hacer
 Recuerda que hay un Dios bendito que está a tu lado y ofrece ayudar
@@ -4959,6 +5219,7 @@ Entonces podrás conocer a un Dios de potestad."""
             id = 260,
             title = "No existe tristeza",
             link = "https://www.youtube.com/watch?v=k-7WAK_objA",
+            author = "",
             content = """Hay algo muy simple, que todo cristiano
 No debe olvidarse al peregrinar,
 Que en todo momento sus labios se abran
@@ -4983,6 +5244,7 @@ Están impidiendo una gran bendición."""
             id = 261,
             title = "Alborada Eterna",
             link = "https://www.youtube.com/watch?v=ULG54QZ4BFw",
+            author = "",
             content = """Cuando llegue la alborada, de un nuevo amanecer,
 Cuando llegue a la ribera de la Patria Celestial,
 En aquel azul eterno do jamás se dice adiós,
@@ -5005,6 +5267,7 @@ Con el coro de millones que, de todas las naciones, al Cordero entonarán."""
             id = 262,
             title = "Viuda y sin nada",
             link = "https://www.youtube.com/watch?v=Q1PxMZQc2Ms",
+            author = "",
             content = """Faltaba todo, sólo tenía un poco de aceite.
 En una vasija dentro de la casa,
 Faltaba pan, y quien miraba en la cocina
@@ -5048,6 +5311,7 @@ a nuestro Dios obrando, ahora, ahora//"""
             id = 263,
             title = "Mi Dios es diferente",
             link = "https://www.youtube.com/watch?v=o63j0gFuLL4",
+            author = "",
             content = """Yo tengo un amigo que quiero presentarte
 No es un amigo más.
 Percibe la tristeza, entiende decepciones,
@@ -5093,6 +5357,7 @@ Mi Dios es diferente, te dije y ya se siente
             id = 264,
             title = "Confío en Dios",
             link = "https://www.youtube.com/watch?v=F5_PvowZGX8",
+            author = "",
             content = """Confío en Dios, muy cerca siempre está
 En tierra o mar su protección me da
 Tan sólo sé, doquiera esté
@@ -5118,6 +5383,7 @@ Mi Padre amante cuidará de mí."""
             id = 265,
             title = "Hay un cuarto varón",
             link = "https://www.youtube.com/watch?v=wLziEabrlJ8",
+            author = "",
             content = """Sé que saldré adelante en el nombre de Jesús
 Sé que saldré adelante porque Él fue quien me llamo
 No todo es color de rosas en el camino del Señor
@@ -5138,6 +5404,7 @@ Pero fuimos llamados a vencer, si a vencer."""
             id = 266,
             title = "Viviendo por la fe",
             link = "https://www.youtube.com/watch?v=uv_yAdXA7Sw",
+            author = "Conjunto Amigo Fiel",
             content = """En tribulación, en angustia, en necesidad,
 En azotes, en cárcel, apremiados sin piedad,
 Como falsos, mas Siempre veraces.
@@ -5168,6 +5435,7 @@ Tiene paz y consuelo en el dolor."""
             id = 267,
             title = "Deja que hablen",
             link = "https://www.youtube.com/watch?v=YZata6WsjA4",
+            author = "",
             content = """¿Por qué te abates mi siervo así de esa manera?
 Si te mostré que estoy contigo, ya no temas
 Quita la angustia, la tristeza de tu pecho
@@ -5189,6 +5457,7 @@ Pues llegará la vez que sonreirás//"""
             id = 268,
             title = "Dios dio, Dios quitó",
             link = "https://www.youtube.com/watch?v=mm3agiaxXbk",
+            author = "Conjunto Amigo Fiel",
             content = """Era Job un varón temeroso de su Dios,
 Justo y recto, agradable al Creador;
 Mas la prueba le llegó como plan de perfección,
@@ -5209,6 +5478,7 @@ En dolor adora hoy y espera en el Señor"""
             id = 269,
             title = "Hoy quiero adorarte a Ti",
             link = "https://www.youtube.com/watch?v=k90gQb0yca0",
+            author = "Conjunto Amigo Fiel",
             content = """Hoy quiero adorarte a Ti, humillarme y bendecir
 Tu Nombre y entregar te todo mi ser;
 Ya el mundo dejo atrás para poder vivir
@@ -5238,6 +5508,7 @@ Eres Tú mi Salvador, mi Buen Redentor."""
             id = 270,
             title = "Padre Mío",
             link = "https://www.youtube.com/watch?v=za8mHbkOya4",
+            author = "",
             content = """Padre mío hoy he llegado ante tus pies,
 Padre mío vengo cansado y tengo sed,
 Vengo buscando hoy de la fuente, quiero beber
@@ -5266,6 +5537,7 @@ Hoy yo te llevo como un tesoro dentro de mi"""
             id = 271,
             title = "Bajo del Torrente de la Cruz",
             link = "https://www.youtube.com/watch?v=WSDBgyHZ-oQ",
+            author = "",
             content = """Por la cuesta del calvario cruel una huella de sangre se ve
 Grandes gotas vertidas de Aquel que inocente castigado es.
 Y tras ellas me fui y caminé conmovido al pensar en Él
@@ -5289,6 +5561,7 @@ Hoy yo quiero llevarte Señor."""
             id = 272,
             title = "Canta hermano, canta",
             link = "https://www.youtube.com/watch?v=RqROpN7cqds",
+            author = "",
             content = """Si te sientes muy cansado, triste, enfermo o confundido
 El mal te tiene atado y no encuentras el camino.
 Pero Dios tiene un remedio para todo ese mal:
@@ -5315,6 +5588,7 @@ Y Su Espíritu Bendito llenará tu corazón"""
             id = 273,
             title = "Te quiero agradar",
             link = "https://www.youtube.com/watch?v=XW1zjgiXr7Y",
+            author = "",
             content = """//Hay cosas en mi vida
 Que quiero sacar//
 //Quizás sean pequeñas
@@ -5334,6 +5608,7 @@ Te quiero Agradar"//"""
             id = 274,
             title = "Como el ciervo ansioso brama",
             link = "https://www.youtube.com/watch?v=L6qYZrAVwVI",
+            author = "",
             content = """Como el ciervo ansioso brama buscando que beber,
 Buscando el agua fresca donde pueda saciar su sed
 Así mi alma te busca y quiere beber.
@@ -5358,6 +5633,7 @@ Que me dice: "hoy sigue adelante, ve al frente y camina"""
             id = 275,
             title = "La Sunamita",
             link = "https://www.youtube.com/watch?v=DwkNMQGDkds",
+            author = "",
             content = """Es la Iglesia la sunamita fiel que espera el día
 Que pueda ver a su amado viniendo en una nube.
 Espera el día aquel pueda oír la voz tan dulce y tierna
@@ -5384,6 +5660,7 @@ Hermosa mía, perfecta mía, Levántate y ven"""
             id = 276,
             title = "La Trompeta",
             link = "https://www.youtube.com/watch?v=O2IYLKgcr6s",
+            author = "",
             content = """Yo sé que pronto volverá
 Si, ese día esperaré
 Cuando en los cielos se unirán
@@ -5424,6 +5701,7 @@ Gloria demos al Señor// Al Señor"""
             id = 277,
             title = "Si hoy llegara Jesús",
             link = "https://www.youtube.com/watch?v=C6qvbRokEzw",
+            author = "",
             content = """Si hoy llegara Jesús a tu hogar y te pidiera un poco de pan,
 Si por las calles le vieras vagar ¿Qué le darías a El?
 ¿Qué le darías a El si le vieras llorar, un abrigo, una caricia,
@@ -5450,6 +5728,7 @@ Final
             id = 278,
             title = "Déjame que te alabe",
             link = "https://www.youtube.com/watch?v=Oj-LJCAi514",
+            author = "",
             content = """Déjame encontrar tu mano, tu mano, oh Jehová,
 Como el siervo que pidió el manto, tu manto dame hoy.
 Vengo este día a traerte Señor mi canción,
@@ -5474,6 +5753,7 @@ Déjame que te alabe otra vez"""
             id = 279,
             title = "El Amor de Dios",
             link = "https://www.youtube.com/watch?v=JyJQGUw36AM",
+            author = "",
             content = """Cuan sublime es el amor
 El que no mide distancia.
 Como suave brisa llega
@@ -5516,6 +5796,7 @@ Siempre a tu lado él estará"""
             id = 280,
             title = "Gracia Bendita",
             link = "https://www.youtube.com/watch?v=df3TpDCtJ8E",
+            author = "",
             content = """Hay una Gracia Bendita que un día del cielo me vino a encontrar,
 Perdonando mis pecados, quito mi tristeza y mi enfermedad.
 Cuando yo estaba perdido, era el más perdido de los pecadores;
@@ -5536,6 +5817,7 @@ No me ha dejado un instante, que dicha que siento de ser redimido;
             id = 281,
             title = "La senda estrecha",
             link = "https://www.youtube.com/watch?v=JTzjV3IbsH4",
+            author = "",
             content = """Tal vez estás cansado de luchar, decepcionado y te sientes derrotado;
 La angustia te oprime el corazón, no encuentras la razón para seguir viviendo
 La senda es estrecha y escabrosa con cardos y espinas que te rozan,
@@ -5561,6 +5843,7 @@ Final
             id = 282,
             title = "Estoy aquí",
             link = "https://www.youtube.com/watch?v=k1XK1gLaYFw",
+            author = "",
             content = """Eres la llama, que no se apaga, bendita nube de Bendición
 Cuando la fuente que llena el alma
 Limpia mis culpas, quita las penas del corazón.
@@ -5585,6 +5868,7 @@ Por eso hoy día quiero ofrecerte, como una ofrenda mi corazón."""
             id = 283,
             title = "Alfarero",
             link = "https://www.youtube.com/watch?v=gb6jxsaSwSs",
+            author = "",
             content = """Alfarero, que das forma a la vasija con tus manos
 Como el hombre del Edén que fue formado
 Lo hiciste perfecto, él era tu imagen, por ti fue creado
@@ -5612,6 +5896,7 @@ De aceite del cielo en este lugar//"""
             id = 284,
             title = "Siervo",
             link = "https://www.youtube.com/watch?v=wuENf2oLmiU",
+            author = "",
             content = """Siervo que llegaste a la Gloria,
 Lugar anhelado por ti
 //Cuando fuerzas te faltaban
@@ -5656,6 +5941,7 @@ Allí colgarás//"""
             id = 285,
             title = "Llena hoy mi vida",
             link = "https://www.youtube.com/watch?v=s9BGZuFud6w",
+            author = "",
             content = """Eres agua que sacia la sed del peregrino
 Que camina por el desierto
 Procurando llegar hasta el final
@@ -5696,6 +5982,7 @@ Oh Señor yo moriré"""
             id = 286,
             title = "Mefi-boset",
             link = "https://www.youtube.com/watch?v=RWwOUsVhI-s",
+            author = "",
             content = """Allá en el olvido se vea Mefi-Boset,
 Lugar de refugio y sustento, es joven y ve
 Que solo se encuentra esperando que alguien le dé,
@@ -5728,6 +6015,7 @@ Sentarte a la mesa y que vivas, siempre con él."""
             id = 287,
             title = "Mirarte sólo a Ti",
             link = "https://www.youtube.com/watch?v=6pezWdMkHNU",
+            author = "",
             content = """Mirarte sólo a Ti, Señor
 Mirarte sólo a Ti, Señor
 Mirarte sólo a Ti, Señor
@@ -5742,6 +6030,7 @@ Y no mirar atrás//"""
             id = 288,
             title = "Job",
             link = "",
+            author = "",
             content = """¿Por qué de Dios recibiremos lo bueno y no lo malo?
 dijo aquel llamado Job. // Cuando todo lo perdió, cuando nada le quedó
 Pudo decir Dios me dio, Dios me quito//
@@ -5765,6 +6054,7 @@ Solo bendice al Señor que del cielo dará bendición//"""
             id = 289,
             title = "El Pastor",
             link = "https://www.youtube.com/watch?v=GssXw1ubi2A",
+            author = "",
             content = """I
 Estaba a punto de caer, en abismo infernal,
 Un arbusto sostenía a la ovejita,
@@ -5788,6 +6078,7 @@ Nunca mas yo huiré, de su amor"""
             id = 290,
             title = "Bástate mi gracia",
             link = "https://www.youtube.com/watch?v=MiHs1JD3fBI",
+            author = "",
             content = """"Ya tres veces he orado al Señor por mi aguijón,
 Ya tres veces he pedido que lo quite el Señor
 Es que no debo gloriarme ni exaltarme en lo que soy, pues la Gloria eterna es
@@ -5813,6 +6104,7 @@ Pues la Gloria y Gracia son de Dios."""
             id = 291,
             title = "Ora mi hermano",
             link = "https://www.youtube.com/watch?v=WdKfe3CQLdU",
+            author = "",
             content = """I
 Pedro en la cárcel espera aquella sentencia de su hora final,
 Ya a Jacobo han matado, a otros golpeado y de él ¿qué será?
@@ -5835,6 +6127,7 @@ Porque la iglesia oraba y Dios la escuchó."""
             id = 292,
             title = "Mi abogado",
             link = "",
+            author = "",
             content = """I
 Un día en los cielos estará mi alma frente al Tribunal,
 El juez será el Dios Eterno, el Rey de los cielos quien todo creó.
@@ -5861,6 +6154,7 @@ Por ese sacrificio que hizo mi Hijo por ti pecador"""
             id = 293,
             title = "Ponte de Pie",
             link = "https://www.youtube.com/watch?v=G78l2cTG2ck",
+            author = "",
             content = """I
 En el templo de la Hermosa diariamente y de hace tiempo
 Han traído nuevamente al cojo de nacimiento
@@ -5889,6 +6183,7 @@ Pero algo sí tenemos
             id = 294,
             title = "El Aposento",
             link = "https://www.youtube.com/watch?v=mQhsKgPNCI4",
+            author = "",
             content = """I
 El Maestro te dice "¿Dónde está el aposento
 Donde esta noche entraré a cenar?
@@ -5916,6 +6211,7 @@ para que en mi mesa tu puedas estar”"""
             id = 295,
             title = "La Senda",
             link = "https://www.youtube.com/watch?v=17AV5jZQ5Uk",
+            author = "",
             content = """I
 Asediado voy por el camino
 En diversas pruebas y aflicción,
@@ -5945,6 +6241,7 @@ Que en la senda tuve que pasar."""
             id = 296,
             title = "No te vayas sin Él",
             link = "https://www.youtube.com/watch?v=LHiXN0K2Q6Q",
+            author = "",
             content = """No te vayas sin él, no te dejes vencer
 Pues vivir sin Jesús no tendría razón;
 Deja todo por él, ven y ríndete a él
@@ -5966,6 +6263,7 @@ Pues con él llegarás a su gloria sin par."""
             id = 297,
             title = "Va a Pasar",
             link = "https://www.youtube.com/watch?v=t900EIhXmyo",
+            author = "",
             content = """Sé que todo se perdió, que todo ya murió, alguien te vino a hablar,
 más ese alguien que te está hablando
 no está sabiendo que Dios te va a ayudar.
@@ -5988,6 +6286,7 @@ te va a ver sonreír.//
             id = 298,
             title = "Bartimeo",
             link = "https://www.youtube.com/watch?v=xZaSwjGG-iU",
+            author = "",
             content = """I
 Otra vez me encuentro mendigando
 a la orilla de un camino olvidado
@@ -6030,6 +6329,7 @@ Ten misericordia de mi"."""
             id = 299,
             title = "¿Qué viste en mí?",
             link = "",
+            author = "",
             content = """I
 ¿Qué viste en mí, Señor? ¿Qué viste en mí.
 Para ser un siervo lleno de tu amor?
@@ -6058,6 +6358,7 @@ Para decir a todos de tu amor."""
             id = 300,
             title = "Al caminar de tu mano",
             link = "https://www.youtube.com/watch?v=gqeevAoc6EM",
+            author = "",
             content = """I
 Al caminar de tu mano Señor
 El mal no me puede alcanzar,
@@ -6086,6 +6387,7 @@ Como soy Tú me amas Señor."""
             id = 301,
             title = "Hablar con Dios",
             link = "https://www.youtube.com/watch?v=ac0M1e1JZt8",
+            author = "",
             content = """En la oración encuentro calma, En la oración encuentro paz,
 Orar a Dios refresca el alma, Hablar con Dios me da solaz
 Hablar con Dios, que privilegio, Abrir mi alma al Creador.
@@ -6101,6 +6403,7 @@ La vida en él tiene sentido, Pues sé que Él me puede oír."""
             id = 302,
             title = "Dios tiene poder",
             link = "https://www.youtube.com/watch?v=4oxeg5OI_Yc",
+            author = "",
             content = """Estaba el Señor enseñando a fariseos,
 Parecía un día más que a Jesús iban a escuchar
 Pero con Jesús estaba el poder para sanar
@@ -6128,6 +6431,7 @@ Hoy tú podrás ver Quien tiene la potestad."""
             id = 303,
             title = "Preciosa Sangre",
             link = "",
+            author = "",
             content = """I
 Hay un poder que no resiste el enemigo,
 Hay un poder que hecha fuera todo mal;
@@ -6163,6 +6467,7 @@ Los que con sangre comprados ya están."""
             id = 304,
             title = "Dios no fallará",
             link = "https://www.youtube.com/watch?v=BMVU_khGZ1M",
+            author = "",
             content = """I
 ¿Qué está pasando con tu vida que se encuentra confundida
 Y que no sabe a dónde va?
@@ -6210,6 +6515,7 @@ Siempre trae bendición//"""
             id = 305,
             title = "Dios me ha hecho reír",
             link = "https://www.youtube.com/watch?v=SIrU1upkZAY",
+            author = "",
             content = """I
 La acompañó la angustia por muchos años,
 Largas fueron las noches que Sara lloró,
@@ -6249,6 +6555,7 @@ He aprendido que ya no debo llorar.
             id = 306,
             title = "Despierta",
             link = "",
+            author = "",
             content = """I
 Despierta, la mañana que esperabas
 Va llegando apresurada, esta vez será,
@@ -6279,6 +6586,7 @@ Pues vuelve con las nubes del cielo el que te redimió."""
             id = 307,
             title = "Amor tan grande",
             link = "https://www.youtube.com/watch?v=rTNB5XXZZj0",
+            author = "",
             content = """I
 Amor tan Grande, profundo y sublime
 Es el amor de mi Creador,
@@ -6301,6 +6609,7 @@ Because me ha dado Jesús dulce calma."""
             id = 308,
             title = "Señor ayúdame",
             link = "https://www.youtube.com/watch?v=wlPIWHeKa5E",
+            author = "",
             content = """I
 Señor Ayúdame por Ti a vivir,
 porque sin ti no puedo aquí seguir,
@@ -6322,6 +6631,7 @@ Mas hasta que tu reino venga oh Dios, dame sostén y protección."""
             id = 309,
             title = "Busca a Dios",
             link = "https://www.youtube.com/watch?v=nBP1XV-Gz24",
+            author = "",
             content = """I
 Busca a Dios mientras puede ser hallado,
 Busca a Dios mientras tan cercano está
@@ -6351,6 +6661,7 @@ Las demás cosas añadidas serán."""
             id = 310,
             title = "Tengo motivo",
             link = "",
+            author = "",
             content = """I
 Tengo motivo de cantar a Dios,
 Tengo motivo de vivir para él,
@@ -6382,6 +6693,7 @@ Que aunque yo tenga que esperar veré a Dios."""
             id = 311,
             title = "Que lindo es mi Cristo",
             link = "https://www.youtube.com/watch?v=uO-rR32YHh8",
+            author = "",
             content = """I
 Que lindo es mi Cristo, cuán grato es su amor
 Yo andaba perdido Él vino y me halló
@@ -6404,6 +6716,7 @@ Buscando al perdido, me encontraste a mi"""
             id = 312,
             title = "Socórreme Señor",
             link = "https://www.youtube.com/watch?v=ggpEvvUskso",
+            author = "",
             content = """I
 Te sientes débil confundido ya
 Creyendo que haz de perecer
@@ -6435,6 +6748,7 @@ Y clamarás ansioso ¡Sálvame Señor!"""
             id = 313,
             title = "Espíritu de Dios",
             link = "https://www.youtube.com/watch?v=R6mYMSHaFwA",
+            author = "",
             content = """I
 Espíritu de Dios te agradezco que en mí estés,
 Que hayas tú entrado en mi corazón
@@ -6456,6 +6770,7 @@ Solo un sentir nos una, y entonces llenes mi ser."""
             id = 314,
             title = "¿Por qué temer?",
             link = "https://www.youtube.com/watch?v=r-hfsb7W-1g",
+            author = "",
             content = """I
 Por qué temer si no estamos solos,
 Si hay un Dios que camina conmigo en la tempestad.
@@ -6482,6 +6797,7 @@ Una corona me espera, si llego a la meta Jesús me dará"""
             id = 315,
             title = "El Señor es mi luz",
             link = "",
+            author = "",
             content = """I
 El Señor es mi luz y mi salvación, ¿De quién temeré?
 Él es la fortaleza de mi vida, Roca de salvación.
@@ -6508,6 +6824,7 @@ alabanzas a su nombre cantaré."""
             id = 316,
             title = "No te rindas",
             link = "https://www.youtube.com/watch?v=LedgmhNpIPo",
+            author = "",
             content = """I
 Cuanto tiempo llevas con tu sufrimiento,
 no hay remedio que te sirva de consuelo,
@@ -6541,6 +6858,7 @@ Dios ha sido fiel y siempre fiel será."""
             id = 317,
             title = "Mi Dios es Real",
             link = "https://www.youtube.com/watch?v=5vk872jjUGw",
+            author = "",
             content = """I
 Hay cosas que yo no comprendo
 lugares hay do yo no iré.
@@ -6563,6 +6881,7 @@ Mi Dios es real, porque lo siento en mi ser."""
             id = 318,
             title = "¿Dónde estabas Tú?",
             link = "https://www.youtube.com/watch?v=f_VvfdH9A2w",
+            author = "",
             content = """I
 Dónde estabas Tú? Marta preguntó
 Lázaro se fue, Lázaro murió
@@ -6604,6 +6923,7 @@ Confieso Cristo sólo creo en Ti"""
             id = 319,
             title = "Escucho tu voz",
             link = "https://www.youtube.com/watch?v=jPzvJNEwSNc",
+            author = "Cantores Unidos del Noa",
             content = """I
 Escucho tu voz como una suave brisa,
 Me ha inundado tu amor ha llegado a mi vida,
@@ -6626,6 +6946,7 @@ el camino para conseguir, la vida eterna."""
             id = 320,
             title = "Siempre caminé",
             link = "https://www.youtube.com/watch?v=How6JsGqkEI",
+            author = "",
             content = """I
 Siempre caminé en el mundo sin saber que había un Dios.
 Siempre caminé, por caminos de tinieblas y maldad.
@@ -6655,6 +6976,7 @@ y que me amara, como nadie más amo."""
             id = 321,
             title = "Al final del Camino",
             link = "https://www.youtube.com/watch?v=9D4xl2lVguM",
+            author = "",
             content = """I
 Cuanto tengo que esperarle no lo sé, solo sé
 que una mañana el maestro volverá.
@@ -6682,6 +7004,7 @@ Cristo pronto ha de volver"""
             id = 322,
             title = "Libre seré",
             link = "https://www.youtube.com/watch?v=5hadEEwD7xo",
+            author = "",
             content = """I
 Vengo a Ti mi Señor para contarte lo que quizás
 nadie podía entenderme, ni siquiera podía escuchar.
@@ -6705,6 +7028,7 @@ dame Señor de tu gracia y aumenta mi fe."""
             id = 323,
             title = "Una angustia más",
             link = "https://www.youtube.com/watch?v=p-RQcLxEFe0",
+            author = "",
             content = """I
 Una angustia más me viene a embargar,
 no es la primer vez, ni es la última.
@@ -6727,6 +7051,7 @@ de lo que llamamos felicidad."""
             id = 324,
             title = "Creo en Dios",
             link = "https://www.youtube.com/watch?v=4ZELidlfT7I",
+            author = "",
             content = """I
 ¿Cómo puedes no creer en Dios?
 ¿Cómo intentas ignorar su voz?
@@ -6759,6 +7084,7 @@ cerca está, porque Él es Dios"""
             id = 325,
             title = "Está aquí, Su gloria está aquí",
             link = "https://www.youtube.com/watch?v=VipZlggLfaE",
+            author = "",
             content = """El Dios que abrió el Mar Rojo,
 El Dios que levantó a Lázaro,
 Ese Dios que calmó la tempestad está aquí.
@@ -6779,6 +7105,7 @@ Está aquí restaurando y levantando, hoy abre //tu corazón//"""
             id = 326,
             title = "Dios sabe lo que hace",
             link = "https://www.youtube.com/watch?v=a18797sITO0",
+            author = "",
             content = """I
 Dios sabe lo que hace, Él no llega tarde,
 Él no se equivoca, Él está en control.
@@ -6808,6 +7135,7 @@ No peleo, no cuestiono, no pregunto, porque…"""
             id = 327,
             title = "Tú estás aquí",
             link = "https://www.youtube.com/watch?v=Wzr-KHV0DvQ",
+            author = "",
             content = """Aunque mis ojos no te puedan ver,
 Te puedo sentir, se que estas aquí
 Aunque mis manos no pueden tocar tu rostro Señor,
@@ -6825,6 +7153,7 @@ Tu estás aquí, Tu estás aquí"""
             id = 328,
             title = "Tu presencia es más hermosa",
             link = "https://www.youtube.com/watch?v=vvgwTpNmmv8",
+            author = "",
             content = """I
 No sé por qué, Señor tu me tocaste, no sé por qué,
 En mi tu te fijaste, pero sí sé que es grande tu amor por mi.
@@ -6851,6 +7180,7 @@ Cristo mi Señor, a ti cantaré, te alabaré gloria mía."""
             id = 329,
             title = "Yo he creído",
             link = "https://www.youtube.com/watch?v=LP3z-oDmjH0",
+            author = "",
             content = """I
 Yo he creído con toda mi alma en un Dios poderoso
 He confiado en aquel que salvo mi alma en la cruz
@@ -6879,6 +7209,7 @@ Tus promesas se cumplen en mi y te doy las gracias"""
             id = 330,
             title = "He visto",
             link = "https://www.youtube.com/watch?v=CBJFurvCnMQ",
+            author = "",
             content = """I
 He visto cadenas romperse, montañas moverse
 He visto las enfermedades desaparecerse,
@@ -6903,6 +7234,1377 @@ Yo he visto a Dios decir presente, cuando con fe sus hijos claman.
 
 Coda
 Cuando adora"""
+        ),
+        Hymn(
+            id = 331,
+            title = "Job",
+            link = "",
+            author = "Conjunto Amigo Fiel",
+            content = """Presentación:
+Y respondió Job y dijo: “yo sé que mi Redentor Vive y al fin se levantará
+sobre el polvo, y después de deshecha esta mi piel, en mi carne he de ver
+a Dios, al Cual veré por mí mismo y mis ojos lo verán y no otro, aunque mi
+corazón desfallece dentro de mí”.
+
+//Yo sé que mi Redentor Vive
+Y mis ojos le verán//
+En prueba o en dolor
+Confió en ti,
+En angustia o aflicción
+A tu lado está//
+Yo sé que mi Redentor Vive
+Y mis ojos le verán."""
+        ),
+        Hymn(
+            id = 332,
+            title = "Joven a ti te dice",
+            link = "",
+            author = "Conjunto Amigo Fiel",
+            content = """I
+Una viuda de Naín
+Llora sin consolación
+Pues su único hijo perdió.
+Al llegar a la ciudad
+A Jesús encontró
+Y un milagro potente él obró.
+
+Coro I:
+Joven a ti te digo: “levántate”
+Con estas Palabras Jesús vida le dio.
+Milagro de amor, no hay más dolor
+La muerte en vida cambió.
+
+II
+Cuanto tiempo llevas ya
+Alejado del Señor,
+Has perdido todo lo que él te dio.
+Ya no hay paz, sincero amor
+No hay Fe, no hay Salvación;
+Escucha el mensaje de amor:
+
+Coro II:
+//Joven a ti te dice: “levántate”
+Una iglesia llora por tu restauración;
+Da un paso de Fe, ríndete a él,
+Vida y perdón te dará//"""
+        ),
+        Hymn(
+            id = 333,
+            title = "Más que Vencedores",
+            link = "",
+            author = "Trio Acuña",
+            content = """I
+Somos más que Vencedores en Jesús
+Cantamos Gloria, alabando al Salvador,
+Saldando cuenta que era nuestra en la cruz
+Nos hizo libre para ser un Vencedor.
+Dice la Biblia: “a los que aman a Dios
+Todas las cosas les ayudaran a bien”,
+Aun las pruebas al Cristiano es bendición
+Porque en Jesús se siente Mas que un Vencedor.
+
+Coro:
+Más que Vencedores somos en Jesús
+Mas que Vencedores somos de la luz;
+Nuestro Padre es Rey, Señor de señores
+Somos en Su Nombre Más que Vencedores.
+
+II
+Somos más que Vencedores en Jesús,
+No hay derrota para los Hijos de Dios
+El Padre Santo como muestra de su amor
+Nos hizo libre para ser un Vencedor.
+Su Santo Espíritu nos llena de poder
+Para Vencer lo imposible por la Fe,
+Ya nada puede separarnos de su amor
+Cantando alegre la canción del Vencedor."""
+        ),
+        Hymn(
+            id = 334,
+            title = "El día ya viene",
+            link = "",
+            author = "Trio Acuña",
+            content = """I
+Cristo es mi refugio ¿de quién temeré?
+Si él ha prometido: “contigo Estaré”,
+Si él es mi confianza ¿de quién temeré?
+Si él va conmigo al cielo llegaré.
+
+Coro:
+El día ya viene, ya viene en las nubes
+Con ángeles santos su iglesia a llevar;
+Valor pues Cristianos ya vamos a llegar
+Con Cristo al cielo por siempre a reinar.
+
+II
+En mis noches tristes consuelo él me da
+Porque él ha prometido: “por siempre Estaré”,
+Hermanos y amigos, todos me dejaren
+“No temas, contigo por siempre Estaré”.
+
+III
+Qué triste es la vida de los que ignoran
+De mi Refugio que es Cristo Jesús,
+Apúrate hermano, encuentra el refugio,
+Encuentra el refugio que es Cristo Jesús."""
+        ),
+        Hymn(
+            id = 335,
+            title = "Soy la Resurrección",
+            link = "",
+            author = "Trio Acuña",
+            content = """Presentación:
+Había un hombre enfermo llamado Lázaro, natural de Betania, del pueblo de María y de Marta, hermanas de Lázaro; esta María fue la que derramó perfume sobre los pies de Jesús y los secó con sus cabellos. Así pues, las dos hermanas mandaron llamar a Jesús, sin embargo el Maestro todavía debía de visitar la ciudad de Judea. Cuando al fin llegó a Betania se encontró con que Lázaro hacia cuatro días había sido sepultado; Marta recibió a Jesús con estas palabras:
+
+I
+“Oh Señor si hubieras estado mi hermano no hubiera muerto
+Tanto tiempo esperé, pero tú no llegaste,
+Ahora es tarde, el ha partido de este mundo y ya no regresará”
+“Oh mujer, tu hermano volverá a vivir, créelo, el resucitará”.
+
+Coro:
+“Soy la resurrección, Yo Soy la vida
+El que cree en mí aunque estuviere muerto
+Volverá a la vida”.
+“Y todo aquel que vive y cree en mi
+//No morirá eternamente, ¿puedes creerlo?”//
+
+Recitado:
+Jesús al ver llorar a María y a los judíos que habían llegado con ella, se estremeció profundamente, se conmovió en el Espíritu; les preguntó: “¿Dónde lo sepultaron?” le dijeron: “ven a verlo Señor”. Jesús lloró. Muy conmovido se acercó a la tumba, era una cueva muy centrada y estaba cubierta con una piedra. Jesús entonces les dijo: “quiten la piedra”. Pero Marta, hermana del muerto dijo:
+
+II
+“Si Señor yo en ti he creído, que tu eres, que eres el Cristo
+El Fiel Hijo de Dios que ha venido al mundo,
+Mas ahora su cuerpo ya hiede, es de cuatro días”.
+“¿No te he dicho que si creyeres verás en tu vida la Gloria de Dios?”"""
+        ),
+        Hymn(
+            id = 336,
+            title = "Palabra de Dios",
+            link = "",
+            author = "Trio Acuña",
+            content = """I
+El hombre que no comprende
+El misterio de la piedad
+Camina por este mundo
+Y no piensa en la eternidad.
+
+Pero hay una voz de alerta
+Que llama a la realidad,
+Es el Verbo hecho carne,
+Es Jesús, es la verdad.
+
+Coro:
+No te hagas el distraído
+Ya oye Palabra de Dios,
+//Los que aceptan van al cielo
+Y los que no van a sufrir su error//
+
+II
+Hay un camino al infierno
+Por toda la eternidad
+Para el pecador sin Cristo,
+Hermanos de la maldad.
+
+Hay un camino al cielo
+Por toda la eternidad
+Para el que acepte a Cristo
+Con toda sinceridad."""
+        ),
+        Hymn(
+            id = 337,
+            title = "Ha Resucitado",
+            link = "",
+            author = "Trio Acuña",
+            content = """I
+Muy de mañana vinieron al sepulcro
+Y hallaron la piedra removida
+Y no hallaron el cuerpo de Jesús
+Porque ¡Ha Resucitado!
+
+Coro:
+No, no está aquí, sino ha resucitado
+//Y a la Diestra del Padre
+Intercede por ti y por mi//
+
+II
+En una peña pusieron el cuerpo de Jesús
+Y todo ha terminado,
+Unas mujeres llorando están
+Sin consolación.
+
+III
+No, no dudemos hermanos
+Que Cristo un día él vendrá,
+El si vendrá y Reinará
+Por siglos de los siglos."""
+        ),
+        Hymn(
+            id = 338,
+            title = "Marta y María",
+            link = "",
+            author = "Trio Acuña",
+            content = """I
+Yendo de camino, pasando por Betania
+Entró en aquella aldea,
+Marta lo recibe en su humilde hogar,
+Una casa muy sencilla.
+
+Sentándose María a los pies del Señor
+Escuchaba sus palabras
+Y Marta preocupada por cosas que hacer
+Ese gran momento descuidaba.
+“Pero solo una cosa es necesaria,
+La Buena parte ha escogido María
+La cual no le será quitada”.
+
+Coro I:
+María quiero ser, sentarme a tus pies,
+Oír de Tus Palabras, sentir tu amor.
+Postrarme a tus pies, recibir tu bendición
+Y la gracia que tu Espíritu me da.
+
+II
+Tú tienes la dicha de tener a Jesús
+En tu casa en este momento,
+Si afanes te turban o preocupaciones
+Repite como en aquel tiempo:
+“Que solo una cosa es necesaria”
+La Buena parte escoge en este día
+La cual no te será quitada.
+
+Coro II:
+María quieres ser, sentarte a sus pies,
+Oír de sus Palabras, sentir su amor.
+Postrarte a sus pies, recibir su bendición
+Y la gracia que su Espíritu te da."""
+        ),
+        Hymn(
+            id = 339,
+            title = "El Borde del Manto",
+            link = "",
+            author = "Trio Acuña",
+            content = """I
+“Si tan solo pudiera tocar el borde de su manto”
+Decía aquella mujer al sufrir su enfermedad;
+A los médicos acudió y nada resolvió,
+Todo lo que tenia lo había gastado.
+
+Cierto día el Rey de reyes pasando por allí,
+Ella se le acerca y toca su manto.
+
+Coro I:
+Virtud salió de él y ella sanó
+Y el Señor pregunta allí: “¿Quién me ha tocado?”
+Más ella no pudiendo ocultarse
+Vino hacia él y allí se postró.
+
+Si tan solo yo pudiera tocar tu manto,
+Esa es mi Fe Divino Señor,
+Muchas cosas en mi vida hoy cambiarían
+Con Tu Gran poder que viene de ti.
+
+II
+Y después allí humillada le cuenta a aquel pueblo
+Porque le había tocado el borde de su manto
+Entonces Jesús le dice: “tu Fe te ha sanado”,
+Desde aquella hora la mujer fue salva.
+
+Coro II:
+Señor, Señor yo quiero tu manto tocar
+Y postrarme ante ti y contar la verdad
+Y decirle a este mundo lo que es tu poder;
+Que Tú sanas, que Tu Salvas y renuevas las fuerzas,
+Que Tú sanas, que Tu Salvas en este día."""
+        ),
+        Hymn(
+            id = 340,
+            title = "Oh Jehová",
+            link = "",
+            author = "Trio Acuña",
+            content = """I
+Solo en Dios mi alma espera y depende mi salud,
+Pues en el encuentro gloria y hasta es mi Salvación,
+Y aun me consuela si me encuentro en aflicción
+Y yo sé que es mi refugio y en tinieblas no andaré.
+
+Coro:
+Oh Jehová, de mañana oirás mi oración,
+De mañana me presentaré ante ti
+Porque tú eres la razón de mi existir.
+
+Y yo sé que no eres Dios que acepta la maldad
+Pues lo malo junto a ti no habitará
+Y tus ojo mirarán la inmensidad.
+
+II
+Aquí estoy, de rodillas suplicando en mi oración
+De esa Unción y de la Gracia que Tu Espíritu nos da
+Para que pueda vivir en este mundo de maldad
+Y seguir Tu ejemplo Santo que me ayudará hasta el fin.
+
+Final:
+“Así eres Tu”."""
+        ),
+        Hymn(
+            id = 341,
+            title = "Fieras del Camino",
+            link = "",
+            author = "Trio Acuña",
+            content = """I
+Voy caminando por un desierto,
+Caminando a la Celeste ciudad,
+Es difícil distinguir entre lo falso y lo cierto
+Pero en Cristo Victorioso voy contento.
+
+Coro:
+Fieras por doquiera se presentan
+Con sus garras afiladas, a todo el mundo amedrentan;
+Mas no temas amado hermano
+Porque en Cristo Venceremos
+A esta fiera que en el camino se nos presenta.
+
+II
+Voy por este medio advirtiendo
+Que una de esas fieras es el descontento,
+Hay otra que se llama desaliento
+La que se Vence orando,
+Ayunando y asistiendo al templo.
+
+III
+Una enfermedad que da tormento,
+Vicio y lamento en el camino encontraremos
+Más Cristo en su amor nos da consuelo,
+Paz, bondad y allá en el cielo
+Vida eterna por siempre tendremos."""
+        ),
+        Hymn(
+            id = 342,
+            title = "Lléname de Tu Poder",
+            link = "",
+            author = "Trio Acuña",
+            content = """I
+¿Por qué te sientes triste y abatido
+Si has conocido la Presencia del Señor?
+//¿Por qué al llegar las pruebas tú te alejas?
+Siguiendo a Cristo recibirás consolación//
+
+Coro:
+Contemplarás su amor sublime
+Y escuchará de su boca nuestra alma
+//En horas de dolor y de tristeza,
+Señor te pido me llenes de tu poder//
+
+II
+Recibirás consuelo en tu alma
+Y tu confianza solo en él depositarás
+//Y caminando tras las pisadas del Señor,
+Tu corazón de bendiciones llenarás//"""
+        ),
+        Hymn(
+            id = 343,
+            title = "Apocalipsis",
+            link = "",
+            author = "Trio Acuña",
+            content = """I
+Muy pronto Jesús vendrá
+A llevar los Suyos para siempre
+//A los que aguardaron su Palabra
+Y han esperado en su venida//
+
+Coro:
+“He aquí Yo vengo muy pronto,
+Reten todo lo que tienes
+//Para que ninguno la arrebate”
+Y para siempre con Él Reinarás//
+
+II
+“El que venciere será vestido,
+Vestido de Ropas Blancas
+//Y su nombre no borraré,
+No borraré del Libro de la Vida”//
+
+III
+“Yo conozco tu obra y tu trabajo,
+Yo conozco tu prueba y tu dolor
+//Pero tengo una cosa que decirte:
+‘Que has dejado tu Primer Amor”//"""
+        ),
+        Hymn(
+            id = 344,
+            title = "El Amor de Dios",
+            link = "",
+            author = "Trio Acuña",
+            content = """I
+El amor de Dios podrás oírlo en cada amanecer
+Mira las aves que con su trinar alaban a Dios.
+
+El amor de Dios podrás buscarlo en cada mañana
+Junto al sol que da su calor y nunca se acaba.
+
+Coro:
+Este es el amor de Dios
+Que dio a Su Hijo a cambio de nosotros
+Y que pagamos enviándolo a la cruz
+Y que elegimos a un ladrón en vez de Jesús.
+
+II
+El amor de Dios podrás sentirlo
+Cuando en tu corazón
+Mantengas el Gozo
+De vivir para Dios con todo tu ser."""
+        ),
+        Hymn(
+            id = 345,
+            title = "La Samaritana",
+            link = "",
+            author = "Trio Acuña",
+            content = """I
+Si tú quieres saber de tu vida la verdad
+En él solo hallarás eterna salvación.
+
+Jesús cansado del camino allí se puso a descansar
+Sediento de tanto caminar, buscando agua de beber,
+Una mujer de Samaria se acercó
+Con su cántaro vacio al pozo de Jacob,
+Jesús le dice: “dame de beber
+Que Yo te daré aguas de Vida”.
+
+Coro:
+//Si tú probares de este dulce manantial
+Aguas de Vida correrán por tu interior
+Y su dulce Presencia inundará tu ser
+De gozo, amor y paz//
+
+II
+Corrió hacia la ciudad
+Anunciando las nuevas del Maestro
+“He hallado a un Hombre
+Y me dijo de mi vida la verdad”."""
+        ),
+        Hymn(
+            id = 346,
+            title = "El día de Redención",
+            link = "",
+            author = "Trio Acuña",
+            content = """I
+Cristo en las nubes volverá
+Y a todo su pueblo llevará,
+Hacia el cielo nos levantará
+Junto a nuestro Padre Celestial.
+
+Coro:
+//Hermanos todos oremos juntos,
+No desmayemos, siempre adelante
+Y esperando aquel Gran día de Redención//
+
+II
+Ángeles a coro cantarán:
+“Bendito Jesús el Salvador”
+Él murió por cada pecador
+Para que tengas la Salvación.
+
+III
+En el cielo no habrá dolor
+Because todo será bendición
+Y la luz de Dios alumbrará
+Para siempre a nuestro corazón."""
+        ),
+        Hymn(
+            id = 347,
+            title = "Bueno es Alabarte Señor",
+            link = "",
+            author = "Trio Acuña",
+            content = """I
+Bueno es alabarte Señor
+Y cantar Salmos a Tu Nombre
+Anunciar por las mañanas
+Tu misericordia infinita.
+
+Coro:
+Porque Tú habitas en la alabanza,
+Porque tú recibes este canto,
+Porque sé que levantas al cansado que viene a ti,
+Porque sé que llenas mi alma.
+
+II
+Pablo y Silas encerrados en prisión,
+Azotados y castigados por Tu Nombre,
+Ellos llenos de ti
+Elevaban alabanzas a los cielos.
+
+III
+En mi mente quedó una huella
+De aquellos que dieron sus vidas,
+No les importaba morir de cualquier manera
+Con gran gozo esperaban la Corona.
+
+Final:
+“Bueno es alabarte Señor”."""
+        ),
+        Hymn(
+            id = 348,
+            title = "Salmo ciento veintiuno",
+            link = "",
+            author = "Trio Acuña",
+            content = """I
+Alzaré mis ojos a los montes
+¿De dónde vendrá mi socorro?
+Mi socorro viene de Jehová
+Que hizo los cielos y la tierra.
+
+Coro:
+Jehová es tu guardador,
+Jehová es tu mano derecha,
+El sol no te fatigará
+Ni de día ni de noche.
+
+II
+Quizás te sientas solo
+Pero él es tu mano derecha,
+No pierdas la mirada en Dios
+Que hizo los cielos y la tierra.
+
+III
+Jehová te guardará de todo mal
+Él guardará tu alma,
+Él es tu salida y tu entrada
+Desde ahora y para siempre."""
+        ),
+        Hymn(
+            id = 349,
+            title = "Un Hombre Galileo",
+            link = "",
+            author = "Trio Acuña",
+            content = """I
+Hace dos mil años un hombre galileo
+Vino trayendo Salvación para este mundo,
+//Sanaba, limpiaba, curaba las heridas
+Del pobre pecador//
+
+II
+Hoy el vino a tu vida trayendo salvación
+No importa como estés, ven a él,
+//Pondrá él en tu vida un nuevo corazón
+Lleno de puro amor//
+
+III
+Él llama a la puerta del corazón
+Espera con paciencia y oirás su voz
+//Si abres hoy tu puerta renovará las fuerzas,
+Hoy cenarás con él//
+
+IV
+Así como un día él vino, así él vendrá
+Con poder y Gloria su iglesia a llevar;
+//A la eterna morada que él fue a preparar
+Yo iré pronto a morar//"""
+        ),
+        Hymn(
+            id = 350,
+            title = "Has Sentido",
+            link = "",
+            author = "Trio Acuña",
+            content = """I
+Hermano dime por favor si has escuchado al viento,
+Al viento de Pentecostés soplando allá en el huerto,
+Dime si acaso en tu interior se desplazan los ríos,
+Los ríos de Agua Viva.
+
+Coro:
+Si has sentido su mano en dolor y aflicción
+Cuando a solas llorabas,
+Y su paz y su amor tú alma consolaban;
+Déjame que te diga que no fue un sentimiento,
+Él, en Verdad estaba.
+
+II
+Hermano vuelve a frecuentar el camino del huerto
+Y el monte de la oración donde está tu alegría,
+Ven al bienestar si no tienes de Cristo,
+Tu vida en abundancia."""
+        ),
+        Hymn(
+            id = 351,
+            title = "Te doy las Gracias",
+            link = "",
+            author = "Trio Acuña",
+            content = """I
+En este día hoy te recuerdo
+Tu Gran amor que diste por mí
+Y que al dejar tu lugar de morada
+Me rescataste de este mundo cruel.
+
+Coro:
+Por esto Jesús te doy las gracias
+Por tu gran amor que diste por mí
+Y te entregaste en mi lugar,
+Me diste paz, me diste amor.
+
+II
+Tú que me escuchas en este día
+Mi Buen Jesús que a mí me Salvó,
+Si le recibes él te salvará,
+Te libertará y te sanará.
+
+III
+Pues no desprecies hoy de su luz,
+Te está llamando con tierna pasión;
+Venid y acéptalo como tu salvador
+Y vida eterna de él tendrás."""
+        ),
+        Hymn(
+            id = 352,
+            title = "El Profeta Eliseo y la viuda de Serepta",
+            link = "",
+            author = "Trio Acuña",
+            content = """I
+Una mujer de las de los hijos de los profetas
+Al profeta Eliseo un día dijo así:
+“Tu siervo mi marido era un hombre temeroso
+Pero ha muerto y ha dejado cuenta y tengo que pagar;
+Han llegado los cobradores y quieren llevar mis hijos
+Sé que eres un profeta y me tienes que ayudar”.
+
+Coro I:
+“¿Qué tienes en tu casa?” el varón preguntó
+“Solo un poquito de aceite para mis hijos y yo”.
+“Consigue muchas vasijas y comienza a cargar,
+Luego paga tus cuentas y el aceite pon en venta
+Y con el resto vivirás”.
+
+II
+Cierto día a Serepta el profeta Elías llegó,
+Hambriento y cansado a la puerta se acercó,
+Una mujer que recogía leña para fuego hacer
+Y le dijo “dame agua y un pedazo de pan”.
+“Vive Jehová tu Dios que no tengo pan cocido,
+Lo que tengo es muy poco y yo no te puedo dar”.
+
+Coro II:
+“Has para mi primero” Elías contestó
+“Después para tu hijo, eso te dice Dios;
+No temas, ten confianza, nada te faltará
+//Porque el Dios que yo sirvo
+El aceite en la vasija nunca dejará faltar”//"""
+        ),
+        Hymn(
+            id = 353,
+            title = "Casa de Dios",
+            link = "",
+            author = "Cantores Unidos del Noa",
+            content = """I
+Sobre una piedra junto al camino Jacob cansado se ha dormido
+Pero del cielo una escalera junto a él ha descendido,
+Ángeles suben, ángeles bajan desde la Gloria del Dios Divino
+Que de lo alto de esa escalera dice a Jacob: “Yo estoy contigo”.
+
+Coro I:
+//Casa de Dios, puerta del cielo
+“No es otra cosa” dijo el patriarca
+Y tuvo miedo//
+
+II
+Aquella piedra que el patriarca puso debajo de su cabeza
+Es Jesucristo la Piedra Viva, el fundamento de la iglesia,
+Él da descanso y nuevas fuerzas, él da consuelo y fortaleza,
+Por eso hermano ten confianza, pon sobre él hoy tu tristeza.
+
+Recitado:
+Y despertó Jacob de su sueño y dijo: “ciertamente Jehová esta en este lugar y yo no lo sabía” y tuvo miedo y dijo: “cuan terrible es este lugar, no es otra cosa que Casa de Dios y puerta del cielo”.
+
+III
+Yo no sabía, no imaginaba que en este sitio mi Dios estaba
+Pero hoy comprendo cómo Jacob que la iglesia es Casa de Dios;
+Ella es la puerta, puerta del cielo, es la escalera para mis sueños,
+Por ella me habla Jesús mi dueño, me da su amor, paz y consuelo.
+
+Coro II:
+Casa de Dios, puerta del cielo,
+Hoy es la iglesia porque por ella
+Vamos al cielo."""
+        ),
+        Hymn(
+            id = 354,
+            title = "Cada Vez",
+            link = "",
+            author = "Cantores Unidos del Noa",
+            content = """I
+Cada vez que estoy afligido
+Me acuerdo de Cristo mi Jesús
+Y hay veces que me encuentro muy contento,
+Me olvido de ti mi Señor.
+Ayúdame a serte siempre Fiel,
+En la tristeza y en la felicidad,
+Perdóname Señor con tu amor,
+Que Siempre me acuerde Dios de Ti.
+
+II
+Jesús este mundo está perdido,
+Te tienen colgado en una cruz
+Y en dolor no quieren ver la muerte,
+Se olvidan que hay Dios de Poder.
+Perdónalos Señor con tu amor,
+Hipocresía en ellos solo hay;
+Yo me encontraba como ellos mi Señor
+Hasta que regresé a Ti.
+
+III
+Al mirar al cielo me doy cuenta
+Que Siempre te acuerdes Dios de mí
+¿Qué será si tus ojos se apartaran
+De mi vida, Señor que será?
+
+//Y mientras yo a veces soy infiel
+En la alegría la espalda Dios te doy,
+Hipocresía no quiero tener,
+Que Siempre me acuerde Dios de Ti//"""
+        ),
+        Hymn(
+            id = 355,
+            title = "El Amor del Señor",
+            link = "",
+            author = "Cantores Unidos del Noa",
+            content = """I
+Llega con tu amor oh mi Señor
+Y derrámalo en mi corazón
+//Para que en el resto del camino
+Que me queda en esta vida
+Te siga con amor//
+
+II
+Si yo no camino con amor,
+Lo que haga en vano es Señor
+//Si tú en la cruz fuiste clavado
+Y por mi todo lo has dado
+Pues lo hiciste por amor//
+
+III
+Y si mi hermano me ha ofendido mi Señor
+Que lo pueda perdonar por tu amor
+//Y si a mi hermano he perdonado
+Y yo sé que lo he ganado
+Y tendré Tu Bendición//
+
+IV
+Con grandes expresiones oh mi Dios
+El apóstol habla de tu dulce amor
+//Y hoy vemos que es cierto
+Porque en tu misericordia
+Nos diste de ese amor//
+
+V
+Estando en el camino del error,
+No miraste nuestra pobre condición
+//Y hacia nosotros te acercaste
+Y así nos abrasaste
+Y nos diste tu perdón//"""
+        ),
+        Hymn(
+            id = 356,
+            title = "Oh que Amor tan Grande",
+            link = "",
+            author = "Cantores Unidos del Noa",
+            content = """I
+Oh que amor tan grande
+Mostró Dios al mundo
+Que envió a Jesucristo por su Salvación;
+Para todo aquel
+Que cree en Su Nombre
+Tenga vida eterna allí juntó con Él.
+
+Coro:
+Oh que amor tan grande
+Mostró el Dios eterno
+Que ha dado a Su Hijo
+A morir in la cruz.
+Es tan grande y fuerte
+Que aun ni la misma muerte
+Pudo detener a este Gran Amor.
+
+II
+Y hoy yo pertenezco
+A este amor Divino
+Que tuvo de mí
+Un día compasión.
+Borró mis pecados,
+Mis iniquidades
+Y todo lo hizo por Su Gran Amor."""
+        ),
+        Hymn(
+            id = 357,
+            title = "Tu Sacrificio",
+            link = "",
+            author = "Cantores Unidos del Noa",
+            content = """I
+Oh Jesús amado mio
+Hoy elevo a ti mi voz
+Because soy agradecido
+De tan grande bendición.
+En los cielos tú dejaste
+Tu Gran Gloria por venir
+A sufrir en esta tierra
+Para darme Salvación.
+
+Coro:
+Oh Jesús tu sacrificio
+En Tus Palabras puedo ver
+//Y yo sin haberte visto
+Hoy de ti me enamore//
+
+II
+Las Sagradas Escrituras
+Nos revelan de tu amor
+Y cuan precio te costamos
+Oh Jesús mi Salvador.
+En la cruz fuiste inmolado
+Por Salvar al pecador,
+Y Tu Sangre por limpiarnos
+Derramaste mi Señor."""
+        ),
+        Hymn(
+            id = 358,
+            title = "Qué gran coincidencia",
+            link = "",
+            author = "Cantores Unidos del Noa",
+            content = """I
+Una tarde como otras tantas una madre caminando va
+Afligida y llena de tristeza rumbo al templo por su hijo a orar,
+Hace tiempo que no está con ella, hace tiempo se fue del hogar
+Es por eso que hoy llora su ausencia pero a Dios por el pide clemencia
+Pues le ama y con él quiere estar.
+
+Coro:
+Pero miren que gran coincidencia si aquel hijo ingrato yo fui
+Que dejando a mí madre en la iglesia hacia el mundo me fui a sufrir;
+Y hoy por ese clamor y esas lágrimas al hogar nuevamente volví,
+Hoy por eso me siento dichoso, hoy por eso me siento feliz.
+
+II
+Muchas veces como Ana en el templo, su alma entera ante Dios derramó,
+En silencio, quebrada en llanto por mí vida a Jesús le clamó;
+Solo él comprendió su amargura, solo él comprendió su dolor
+Y ese hijo perdido y errante, él lo trajo a sus brazos amantes
+A su seno de Gracia y amor.
+
+III
+Thanks madre, querida iglesia por tus ruegos, paciencia y amor
+No te sientas ya sola ni triste, tu clamor lo escucha Jesús,
+Memoriza aquellas palabras cuando él iba llevando la cruz:
+
+Recitado:
+“Hijas de Jerusalén, no lloréis por Mi, sino llorad por vosotras mismas y por vuestros hijos”."""
+        ),
+        Hymn(
+            id = 359,
+            title = "La Resurrección",
+            link = "",
+            author = "Cantores Unidos del Noa",
+            content = """I
+Era el primer día en la semana
+Cuando unas mujeres muy temprano
+Fueron al sepulcro del Señor
+Que tres días antes fue inmolado,
+Azotado y maltratado el Salvador.
+
+II
+Que sorpresa grande para ellas
+Al ver la piedra removida
+Y no estaba el cuerpo del Señor;
+Cuando se aparecen dos varones
+Para darles la noticia angelical:
+
+Coro I:
+No está aquí, ha resucitado,
+Como habló en Galilea,
+El Hijo del Hombre
+Ha de ser crucificado.
+
+Recitado:
+Hubo un gran terremoto porque el ángel del Señor descendió del cielo, removió la piedra y se sentó sobre ella. Su aspecto era como un relámpago y su vestido blanco como la nieve.
+Todos tuvieron miedo, mas el ángel del Señor dijo a las mujeres: “no temáis vosotras ¿buscáis a Jesús? no está aquí ¡Ha Resucitado!”
+
+Coro II:
+Como lo anunció, esto se cumplió,
+Se levantó entre los muertos
+Y a la diestra del Padre
+Por mi esta clamando."""
+        ),
+        Hymn(
+            id = 360,
+            title = "El fin ha Llegado",
+            link = "",
+            author = "Cantores Unidos del Noa",
+            content = """I
+Qué triste destino del mundo perdido,\nVagando sin rumbo en la oscuridad,\nDe densas tinieblas están rodeados\nLlevando el pecado, su única verdad.\n\nCoro:\nYa todo termina, el fin ha llegado\nY el mundo en pecado se condenó,\nMiserias y llantos es lo que le esperan\nPor causa del pecado que en ellos está.\n\nII\nQué triste de aquellos que hoy rechazaron\nLa Gracia Bendita del Hijo de Dios,\nEternos tormentos lo están esperando,\nSu llanto amargo nunca tendrá fin.\n\nIII\nDichosa es el alma que a Cristo recibe\nPues nunca la muerte vendrá sobre él,\nPues él ha pasado de muerte a vida,\nCorona de vida el recibirá."""
+        ),
+        Hymn(
+            id = 361,
+            title = "Lo hizo por Amor",
+            link = "",
+            author = "Cantores Unidos del Noa",
+            content = """I
+Rumbo a la calavera
+Va sin especulación,
+Va a cumplir la condena
+Que el pueblo le aplicó,
+//Sin resistencia lo hace,
+Todo hizo por amor//
+
+Coro:
+Hombres, verdugos con palos,
+Espadas y antorchas
+Fueron de noche a buscar al Señor siendo que
+Todos los días estaba en el templo enseñando,
+Mas ahora lo llevan así.
+//Sin resistencia lo hace,
+Todo hizo por amor//
+
+II
+Vistieron de escarlata
+Corona insertan en su sien,
+Odios, insultos soporta
+Mientras camina el Señor.
+//Sin resistencia lo hace,
+Todo hizo por amor//"""
+        ),
+        Hymn(
+            id = 362,
+            title = "Viene Ya",
+            link = "",
+            author = "Cantores Unidos del Noa",
+            content = """I
+Diez vírgenes esperaban
+El regreso del Esposo que vendrá,
+Cinco de ellas eran prudentes
+Que esperaban sin vacilar.
+Otras cinco, eran insensatas,
+Desprevenidas a la hora en que llegó
+Y se escuchaba el clamor:
+“El Esposo viene ya”.
+
+Coro I:
+//Viene ya, viene ya,
+El Esposo viene ya//
+
+II
+Aguarda que en el momento
+No esperado se escuchará
+De la trompeta con voz de mando
+Que Jesucristo viene ya.
+Alístate en las filas
+De los que temen al Salvador,
+Procura con más diligencia
+Estar más cerca que Él viene ya.
+
+Coro II:
+//Viene ya, viene ya,
+Jesucristo viene ya//
+
+Recitado:
+Dijo el Señor: “por tanto también vosotros estad preparados porque el Hijo del Hombre vendrá a la hora que no pensáis”."""
+        ),
+        Hymn(
+            id = 363,
+            title = "En las Moradas",
+            link = "",
+            author = "Cantores Unidos del Noa",
+            content = """I
+Oh Jesús en este día
+A ti te entrego mi corazón,
+Yo quiero que sea tuyo
+Para siempre poder gozar
+De las moradas que tú te fuiste a preparar.
+
+Coro:
+Hoy yo con los santos quiero morar,
+Hoy con Jesucristo quiero vivir
+En las moradas que tú te fuiste
+A preparar.
+
+Recitado:
+Cuan amables son Tus Moradas oh Jehová de los ejércitos, anhela mi alma y aun ardientemente desea los atrios del Señor; mi corazón y mi voz cantan al Dios Vivo y Verdadero.
+
+II
+Mi Jesús en el calvario
+Dio su vida por nuestras almas,
+Hoy hermano, ama a la iglesia
+Como Cristo nos enseñó;
+Él viene pronto para llevarte
+A las moradas que prometió."""
+        ),
+        Hymn(
+            id = 364,
+            title = "Pescador de Hombres",
+            link = "",
+            author = "Cantores Unidos del Noa",
+            content = """I
+//Va caminando//
+Sobre la arena se ve,
+//Son las pisadas del nazareno
+Que junto al mar se lo ve//
+
+Coro:
+“Pedro, tira la red
+//¿No ves el pueblo
+Que ya espera?
+Pescador de hombres te haré”//
+
+II
+//Allá en el muelle//
+Juntas dos barcas están,
+//Lavan sus redes,
+Van muy deprisa
+Porque el Maestro vendrá//
+
+Recitado:
+Para esto fuisteis llamados, porque también Cristo padeció por nosotros, dejándonos ejemplo para que sigáis sus pisadas.
+
+III
+Oh Cristo Amado, en Tus Palabras
+Yo confiado estoy
+//Y he prometido
+Que Tus pisadas
+Siempre las he de seguir//"""
+        ),
+        Hymn(
+            id = 365,
+            title = "Inmensa Bondad",
+            link = "",
+            author = "Cantores Unidos del Noa",
+            content = """I
+//Es mi cantar Señor a tu Divina Presencia
+Con toda reverencia
+Por tu inmensa bondad//
+Si mi buen Dios por tu bondad.
+
+II
+//Te alaben oh Gran Dios
+Todas tus obras, tu pueblo,
+La Gloria de Tu Reino
+Por tu inmensa bondad//
+Si mi buen Dios por tu bondad
+
+Recitado:
+Por tu inmensa bondad, por tus muchas misericordias, hoy canto para ti Señor.
+
+III
+Cercano esta el Señor a todos los que le invocan,
+A todos los que lo invocan de veras corazón;
+//Justo es el Señor en todos sus caminos,
+Cumplirá el deseo de los que le aman a él//
+Si mi buen Dios por tu inmensa bondad."""
+        ),
+        Hymn(
+            id = 366,
+            title = "Fuente de Vida",
+            link = "",
+            author = "Cantores Unidos del Noa",
+            content = """I
+Aunque perdiera mi vida por servir a Dios
+Sé que he ganado ante sus ojos de amor
+//Porque ha llegado cambiando el corazón
+Que se encontraba triste y lleno de dolor//
+
+Coro:
+Fuente de vida Cristo es para mí,
+Saciar mi alma quiero de ti,
+Amarte con el alma, es entregarse
+Al servicio y a su voluntad.
+
+II
+Me ha demostrado cuan profundo es su amor
+Que en una cruz por mis pecados se entregó,
+//Que dicha inmensa la que siento en mí ser,
+Cambiar las vidas puedes con tu gran poder//"""
+        ),
+        Hymn(
+            id = 367,
+            title = "El Pan de Vida",
+            link = "",
+            author = "Cantores Unidos del Noa",
+            content = """I
+La gente busca a Jesús, a Jesús,
+La gente quiere comer el pan otra vez
+//Que allá en el desierto él multiplicó
+Y a cinco mil hombres él alimentó//
+
+II
+La gente busca a Jesús, a Jesús
+Pero no saben que el pan de vida es él
+//Que vino del cielo enviado por Dios
+Para darle vida al mundo pecador//
+
+Coro:
+Cristo es el pan Celestial, Celestial
+Y el que come de él vida eterna tendrá;
+//Ni hambre ni sed, no tendrá jamás
+Porque el vivo pan su alma saciará//
+
+III
+Señor hoy danos tu pan, tu pan
+Para poder caminar y trabajar
+//Llevando a las almas que hambrientas están
+Tu Santa palabra de Vida y verdad//
+
+Final:
+///Señor danos siempre éste pan///"""
+        ),
+        Hymn(
+            id = 368,
+            title = "Enseñanza del Maestro",
+            link = "",
+            author = "Cantores Unidos del Noa",
+            content = """I
+Enseñando Cristo dijo:
+“De la higuera aprended”
+//Comparando su renuevo,
+Es porque el verano está cerca//
+
+Muchas señales hay ya,
+Todo cumpliéndose está
+Cristo Jesús lo anunció,
+Afirma bien tu corazón.
+
+Sed pues prudente y Fiel
+A lo que él te confió;
+//No retrocedas jamás,
+Cristo recompensará//
+
+II
+Cielo y tierra pasarán
+Sus palabras cumplirán,
+//Pero el día nadie sabe
+Ni los antes solo Dios//
+
+Como en los días de Noé,
+Fiestas nupciales serán,
+No entendieron a él
+Y el diluvio los arrasó.
+
+Cuando regrese el Señor
+Sin advertencia será
+//Se Fiel a quien te tomó,
+Bienaventurado serás//"""
+        ),
+        Hymn(
+            id = 369,
+            title = "La Fe del centurión",
+            link = "",
+            author = "Cantores Unidos del Noa",
+            content = """I
+“Muy de lejos he llegado Señor
+Buscando tu inmenso poder
+//Porque allí en mi casa ha quedado
+Un criado a quien quiero a punto de morir”//
+
+“Yo iré y lo sanaré” se oye decir al Señor
+//Pero aquel centurión le responde:
+“No soy digno que entres en mi techo Señor”//
+
+“Yo soy hombre de autoridad”
+Contesta aquel centurión
+“Y tengo soldado a mi cargo,
+A este le digo que vaya y se va;
+Y a este otro le digo que venga
+Y así obediente a mi voz siempre está”.
+
+II
+“Tu siervo también oh Señor
+Obediente a mi voz siempre está
+//Pero tú solo di la palabra,
+Yo sé que mi criado sanado será”//
+
+“Os digo que ni en Israel
+He hallado tantísima Fe;
+//Y así como tú has creído
+Ve, porque tu criado ya sano es”//
+
+Danos también oh Señor
+Esta Fe como el centurión
+//Porque sin Fe es imposible
+Poder agradarte oh Divino Señor//"""
+        ),
+        Hymn(
+            id = 370,
+            title = "Ven a mi Casa",
+            link = "",
+            author = "Cantores Unidos del Noa",
+            content = """I
+De camino iba Jesús y a una aldea el entró
+Allá en Betania
+Y al pasar por el lugar a su casa le invitó
+Una mujer llamada Marta.
+
+El Señor no rehusó y contento aceptó
+La invitación de acompañarla,
+Pero ella descuido esa grande bendición,
+En otras cosas preocupada.
+
+Coro:
+Ven a mi casa, yo quiero estar Contigo
+Y escuchar de tu palabra,
+Ven a mi casa, te entrego a ti mi vida
+Cual María se humillaba;
+Ven a mi casa, ven a mi casa,
+Ven a mi corazón Señor y hazlo tu morada.
+
+II
+Jesús pasa por aquí y en la Iglesia él entró
+Como en Betania
+Hoy le puedes invitar y llevarlo hasta tu hogar
+Dentro de tu ser, dentro de tu alma.
+
+Pero tienes que dejar el afán y la ansiedad
+Que hay en tu corazón y mente
+Y entregarle todo a él,
+Y en espíritu y verdad adorarle, para Siempre.
+
+Final:
+Ven a mi casa, ven a mi casa hoy,
+Ven a mi corazón Señor y hazlo tu morada."""
+        ),
+        Hymn(
+            id = 371,
+            title = "Oración de Jesús",
+            link = "",
+            author = "Cantores Unidos del Noa",
+            content = """I
+“Pasa esta copa de mí
+Que no sea como yo quiera,
+Pasa esta copa Señor,
+Que se haga tu voluntad”.
+
+Dolores, quebrantos tenía que pasar,
+Y así intensamente oraba el Hijo de Dios.
+
+Coro:
+“Pasa este cáliz de amargura”
+Era el clamor del Salvador
+“Porque la hora se aproxima,
+Y el Cordero inmolado será”.
+
+II
+Dios el Padre escuchó la oración
+Que Su Hijo elevó con dolor
+Y un ángel del cielo envió
+Que le diera confortación.
+
+Dolores, quebrantos tenía que pasar
+Y así intensamente oraba el Hijo de Dios."""
+        ),
+        Hymn(
+            id = 372,
+            title = "Camino al Calvario",
+            link = "",
+            author = "Cantores Unidos del Noa",
+            content = """I
+Camino al calvario, camina el Señor
+Llevando el pecado del mundo traidor;
+Su hermosa cabeza espina le hirió
+Sus labios fragantes suplican perdón
+Rogándole al Padre por el pecador.
+
+Coro:
+Con Precio de Sangre él te rescató
+Tu vida entrégale, él te rescató.
+//No sigas esperando ven pronto a él,
+Que triunfo te espera si vas a Emmanuel//
+
+II
+Sus manos preciosas el clavo la hirió,
+Su cuerpo tan Santo castigo sufrió,
+Sus pies horadados dolores sintió
+//Pagando mis culpas, él lo soportó//
+
+III
+Camino al calvario se fue mi Señor
+Con gran sufrimiento, por ti y por mí;
+Con grito de Triunfo él ya expiró
+//En el cielo escucha, victoria nos dio//"""
+        ),
+        Hymn(
+            id = 373,
+            title = "Inmolado",
+            link = "",
+            author = "Cantores Unidos del Noa",
+            content = """I
+//Ciertamente llevó nuestras enfermedades,
+Sufrió nuestros dolores Cristo el Redentor//
+Se asombraron de él cuando desfiguraron
+Su parecer y hermosura, fue con tanta crueldad.
+
+Coro:
+//Inmolado fue el Cordero que Redimió
+Con su Sangre linaje que alabe a Dios.
+Es aquel león de la tribu de Judá,
+La raíz de David, dueño de la potestad//
+
+II
+Por sentencia jurídica fue su muerte en la cruz,
+Era imprescindible para nuestra Redención;
+Fue el gran sacrificio aceptado por Dios,
+Se sentó a la diestra del trono de Dios.
+
+Recitado:
+Ciertamente llevó nuestras enfermedades, sufrió nuestros dolores, Cristo el Redentor. Se asombraron de él cuando desfiguraron su parecer y hermosura, fue con tanta crueltad."""
+        ),
+        Hymn(
+            id = 374,
+            title = "Una Iglesia comprada con Sangre",
+            link = "",
+            author = "Cantores Unidos del Noa",
+            content = """I
+Una iglesia comprada con Sangre
+Es la que Cristo vino a salvar,
+Una iglesia que no tenga arrugas
+Y ni una mancha se pueda encontrar.
+
+Coro:
+Jerusalén se llama
+Aquella Hermosa y Santa Ciudad;
+Y tú, iglesia de Cristo
+Por sus calles de oro andarás.
+
+II
+Un soldado quedó frente a él
+Cuando Cristo en la cruz expiró
+Para que se cumpla la Escritura,
+Con su lanza a Jesús traspasó.
+
+III
+Y de esa herida es que nace
+Esta iglesia que él quiere llevar,
+Para ser allí presentada
+Como esposa del Rey Celestial."""
+        ),
+        Hymn(
+            id = 375,
+            title = "Busca el Reino de los Cielos",
+            link = "",
+            author = "Cantores Unidos del Noa",
+            content = """I
+Muy pronto viene en las nubes
+Cristo de los cielos a buscar
+Al que aquí se ha preparado
+Y con él al cielo se irá.
+
+No pierdas aquí el tiempo
+Porque aquí todo es vanidad,
+Los placeres de esta vida
+Y sus glorias pasarán.
+
+Coro:
+Busca el Reino de los cielos
+Y Feliz por siempre serás,
+Porque lo que Dios promete
+Es por la eternidad.
+
+II
+El que busque aquí su vida
+Seguro que la perderá,
+Más aquel que la perdiere
+Por Cristo la encontrará."""
         )
     )
 }
