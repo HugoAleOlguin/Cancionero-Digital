@@ -4009,7 +4009,7 @@ Sus hijos se gozan, su esposo la llama “feliz”"""
             id = 196,
             title = "Santo es el Señor",
             link = "https://www.youtube.com/watch?v=0MlGVTRhhMs",
-            author = "",
+            author = "Conjunto Central de Tucumán",
             content = """Oh Señor en tu presencia, hoy venimos a cantar
 Y con nuestro nuevo cántico tu nombre a ensalzar,
 Porque sólo tú eres digno de la gloria y el poder,
@@ -5435,7 +5435,7 @@ Tiene paz y consuelo en el dolor."""
             id = 267,
             title = "Deja que hablen",
             link = "https://www.youtube.com/watch?v=YZata6WsjA4",
-            author = "",
+            author = "Conjunto Jerusalén",
             content = """¿Por qué te abates mi siervo así de esa manera?
 Si te mostré que estoy contigo, ya no temas
 Quita la angustia, la tristeza de tu pecho
@@ -5508,7 +5508,7 @@ Eres Tú mi Salvador, mi Buen Redentor."""
             id = 270,
             title = "Padre Mío",
             link = "https://www.youtube.com/watch?v=za8mHbkOya4",
-            author = "",
+            author = "Conjunto Jerusalén",
             content = """Padre mío hoy he llegado ante tus pies,
 Padre mío vengo cansado y tengo sed,
 Vengo buscando hoy de la fuente, quiero beber
@@ -5537,7 +5537,7 @@ Hoy yo te llevo como un tesoro dentro de mi"""
             id = 271,
             title = "Bajo del Torrente de la Cruz",
             link = "https://www.youtube.com/watch?v=WSDBgyHZ-oQ",
-            author = "",
+            author = "Conjunto Central de Tucumán",
             content = """Por la cuesta del calvario cruel una huella de sangre se ve
 Grandes gotas vertidas de Aquel que inocente castigado es.
 Y tras ellas me fui y caminé conmovido al pensar en Él
@@ -5588,7 +5588,7 @@ Y Su Espíritu Bendito llenará tu corazón"""
             id = 273,
             title = "Te quiero agradar",
             link = "https://www.youtube.com/watch?v=XW1zjgiXr7Y",
-            author = "",
+            author = "Conjunto Central de Tucumán",
             content = """//Hay cosas en mi vida
 Que quiero sacar//
 //Quizás sean pequeñas
@@ -8605,6 +8605,1647 @@ El que busque aquí su vida
 Seguro que la perderá,
 Más aquel que la perdiere
 Por Cristo la encontrará."""
+        ),
+        Hymn(
+            id = 376,
+            title = "Heme Aquí",
+            link = "",
+            author = "Conjunto Jerusalén",
+            content = """I
+Mero, vil me escogiste siendo yo un pecador
+Aunque entre pueblo inmundo he habitado Señor.
+Tú escogiste mi vida, me salvaste Señor
+Y a tu dulce llamado hoy contesto Señor.
+
+Coro:
+//Heme aquí, envíame a mí,
+Donde pueda ser útil
+Yo te quiero servir//
+
+II
+“¿Quién irá por Nosotros?” Señor te oigo decir
+“¿Quién irá por nosotros donde hay enfermedad?
+¿Quién irá por Nosotros donde hay aflicción?
+¿Por las almas perdidas, quien irá, quien irá?”"""
+        ),
+        Hymn(
+            id = 377,
+            title = "Ven Señor Jesús",
+            link = "",
+            author = "Conjunto Jerusalén",
+            content = """Jesús vendrá otra vez
+Como él lo prometió
+Su pueblo llevará al cielo con poder;
+Por eso es que el bajó
+Del Reino Celestial
+Pues él quiere que allí
+Vivamos junto a él.
+
+//Es hora de volver el rostro hacia Jesús
+Y buscar de su luz para alcanzar perdón;
+Poniendo nuestra Fe logramos salvación
+Viviéremos así, oh ven Señor Jesús.
+
+//Ven Señor Jesús y habita aquí en mi ser,
+Si, ven hoy a mi vida oh Salvador;
+Ven y acércanos a aquel lugar de luz
+Donde no habrá mas noche ni más dolor//"""
+        ),
+        Hymn(
+            id = 378,
+            title = "Hace ya tiempo",
+            link = "",
+            author = "Conjunto Jerusalén",
+            content = """I
+Estoy sintiendo que mis fuerzas ya se acaban,
+Siento un vacio que no lo puedo llenar,
+Que mi alma esta sedienta y necesita
+Llenarse de Su Gloria una vez más.
+
+Hace ya tiempo que no siento Su Presencia,
+Estoy pensando que ya se alejó de mí
+Es que he dejado que me lleve la tormenta
+Que el enemigo hoy pesa sobre mí.
+
+Coro:
+//Pero yo se que Cristo es Justo y Verdadero
+Y con su mano de poder me sostendrá,
+No dejará que yo me quede en el camino
+Y nuevas fuerzas Jesucristo me dará//
+
+II
+Creía yo que Dios me había abandonado,
+Creía yo que no servía mi clamor
+Pero el Señor esta a mi lado y hoy me dice:
+“No temas hijo, que a tu lado siempre estoy”."""
+        ),
+        Hymn(
+            id = 379,
+            title = "En Todo está Jesús",
+            link = "",
+            author = "Conjunto Jerusalén",
+            content = """I
+Cuando despierto en la mañana esta Jesús,
+Cuando yo doblo mis rodillas esta Jesús
+En mis quehaceres cotidianos esta Jesús
+El es mi Amigo Soberano, el me da luz.
+
+En el colegio, en el trabajo esta Jesús,
+Si tú le sirves al Señor de corazón
+Y verás que bien se vive cuando a Jesús lo sigues
+Te guiara, te guardara, te bendecirá.
+
+El tiene potestad, te librara del mal
+No busques más afán en cosas terrenal
+Si somos hijos Fiel a nuestro Padre Dios
+Una morada en el cielo él nos dará.
+
+II
+En la sonrisa de mi hermano esta Jesús,
+En el amor de mi Anciano esta Jesús
+Cuando no soy un buen Cristiano esta Jesús
+El sabe todo, el lo ve todo en prontitud.
+
+En este día tengo tiempo de cambiar
+Si yo a Jesús le entrego hoy todo mi ser
+Y verás que bien se vive cuando a Jesús lo sigues
+Nos guiará, nos guardará, nos bendecirá.
+
+Todo cumplido está, Jesús regresará
+Si yo soy Fiel a él pronto me llevará,
+En este día Dios yo te entrego mi ser
+//Oh ven Señor, tu pueblo espera con fervor//"""
+        ),
+        Hymn(
+            id = 380,
+            title = "Mi Cristo ya vendrá",
+            link = "",
+            author = "Conjunto Jerusalén",
+            content = """I
+Esperando yo estoy con grande devoción la vuelta de mi Cristo
+Con gran consagración, ayuno y oración para irme con él,
+Pronto regresara, cumplido todo esta y ya no queda tiempo
+Yo quiero irme con él para estar en la Gloria con Cristo mi Señor.
+
+Coro:
+Mi Cristo ya vendrá
+Su iglesia a buscar,
+Muy pronto llegara ese día final.
+
+Prepárate mi hermano
+Porque él te llevará,
+Prepárate mi hermano
+Because si estas durmiendo aquí te quedarás.
+
+II
+El Señor ha prometido que con su pueblo unido el siempre Reinara
+Pero mi Cristo quiere un pueblo redimido con toda Santidad;
+Pronto regresara, cumplido todo esta y ya no queda tiempo
+Yo quiero irme con él para estar en la Gloria con Cristo mi Señor."""
+        ),
+        Hymn(
+            id = 381,
+            title = "Si no fuera por Ti",
+            link = "",
+            author = "Conjunto Jerusalén",
+            content = """I
+Si no fuera por ti, Cristo mi Salvador
+¿Qué seria yo en la vida?
+Si no fuera por ti esta vida feliz seria desconocida;
+Si no fuera por ti no sería lo que soy,
+No estaría yo en la iglesia
+Si no fuera por ti no sería lo que soy, no sería feliz.
+
+II
+Si no fuera por ti Cristo mi Salvador,
+Hoy seria de este mundo
+Si no fuera por ti yo sería uno más que se iría al infierno;
+Si no fuera por ti no tendría razón de vivir o morir
+Si no fuera por ti no sería lo que soy, no sería feliz.
+
+III
+Si no fuera por ti Cristo mi Salvador
+No conocería el gozo
+Si no fuera por ti oh Divino Señor no tendría reposo
+Si no fuera por ti no podría seguir alabando Tu Nombre
+//Si no fuera por ti no sería lo que soy, no sería feliz//"""
+        ),
+        Hymn(
+            id = 382,
+            title = "Que Gozo sin igual",
+            link = "",
+            author = "Conjunto Jerusalén",
+            content = """I
+El tiempo pasa y Jesucristo volverá,
+Vendrá en las nubes como él lo prometió
+Dentro de poco una trompeta sonara
+Y en el espacio Su Presencia se verá.
+
+A los Salvados con su voz el llamará
+Y cada uno con sus ojos le verá,
+Nos reuniremos junto a él
+Y con Su Gloria y esplendor
+A los Salvados con su amor recibirá.
+
+Coro:
+Que gozo sin igual poder participar
+Of aquel encuentro con el Rey de reyes
+//Aquel que nos amó y hasta su vida dio
+Por darnos vida eterna y Salvación//
+
+II
+Con el fulgor de Su Presencia alumbrará
+Y toda lagrima el Señor enjugará,
+Cada creyente con gran gozo encontrará
+Los que partieron de este mundo de dolor.
+
+Más todo aquel que ha persistido in la maldad
+No tendrá parte con Jesús en Su Mansión
+Pues la condena del Gran Juez
+Recibirá por no aceptar el sacrificio de Jesús en una cruz."""
+        ),
+        Hymn(
+            id = 383,
+            title = "El Valor de un Alma",
+            link = "",
+            author = "Conjunto Jerusalén",
+            content = """I
+Hermano ¿tú sabes el Valor que tiene un alma?
+Jamás los recursos humanos podrían pagar;
+El oro, el dinero y la plata del mundo entero
+No alcanzaría el Valor de un alma poder comparar.
+
+Coro:
+Hermano el Valor de un alma costo un precio caro,
+Es necesario sentir por ella inmenso amor.
+Cuidando, enseñando, orando y a veces llorando,
+Debemos buscar todas las almas que Jesús compró.
+
+II
+Hermano ¿Cuántas veces tienes almas a tu lado llorando?
+Sufriendo con cargas pesadas y llenas de dolor;
+Si no las atiendes y perece, tú eres el culpable,
+Ten cuidado porque un alma es de mucho Valor.
+
+III
+Hermano recuerda el “id” del Maestro Amado,
+No fue un pedido, fue una orden que nos dejó.
+¿Cómo podemos quedarnos de brazos cruzados
+Si él de brazos abiertos por nosotros murió?"""
+        ),
+        Hymn(
+            id = 384,
+            title = "Lléname Señor",
+            link = "",
+            author = "Conjunto Central de Tucumán",
+            content = """I
+Mi vaso hoy quiere rebosar
+De gozo, de amor y dulce paz
+Inundado ser, por ese rio Santo
+Que hoy siento correr por todo mi interior.
+Si tengo algo en mi corazón
+Que impide sentir la comunión
+Con el gran poder de Tu Preciosa Sangre,
+Hoy límpiame Señor, Señor hoy límpiame.
+
+Coro:
+Y lléname, si lléname,
+Hoy lléname con el calor de Tu Presencia;
+Y Cólmame, si cólmame,
+Hoy cólmame de tu eterna bendición.
+Y lléname, y cólmame
+De Tu Presencia y bendición.
+
+II
+Tus manos buen alfarero
+Bien pueden mi vida trabajar
+Y hacer de mí una vasija nueva
+Que tú puedas usar según tu voluntad.
+
+Final:
+De Ti Bendito Salvador."""
+        ),
+        Hymn(
+            id = 385,
+            title = "Tu Sabes que te Amo Señor",
+            link = "",
+            author = "Conjunto Central de Tucumán",
+            content = """I
+Herido fue el Pastor, muerto y sepultado
+Pero ha resucitado
+Y aquellas ovejitas que con amor cuidaba
+Estaban dispersadas.
+Pero una madrugada las encontró muy tristes,
+Hambrientas y cansadas
+Allí cerca en la playa alzando su voz tierna
+“Hijitos” les llamaba.
+
+Coro:
+Oh que Feliz momento aquel,
+Encontrar al Señor otra vez,
+Amanecer con Él frente al mar
+Y compartir los peces y el pan.
+Preguntas y respuestas de Amor,
+Consejos que llenan de emoción,
+“¿Me amas más que estos Simon?”
+///“Tu sabes que te amo Señor///
+También lo sabes todo Señor”;
+“Apacienta el rebaño de Dios”.
+
+II
+Su manada pequeña tenía que dejarla,
+Al cielo escalaba
+Dejando la Promesa que el Espíritu Santo
+Vendría sobre ellos.
+Alzado en una nube, Glorioso ascendía
+Frente a sus miradas;
+“Varones galileos, así como le vieron
+Regresará de nuevo”.
+
+Recitado:
+“Simon, hijo de Jonás ¿me amas más que estos?”"""
+        ),
+        Hymn(
+            id = 386,
+            title = "Fuente de Vida",
+            link = "",
+            author = "Conjunto Central de Tucumán",
+            content = """I
+Jesús es la fuente de Vida,
+Jesús es la fuente de amor
+Y todo cansado y sediento
+En él puede saciar su sed.
+No debes pagar ningún precio
+Si quieres de ella probar,
+Su puerta abierta espera,
+Amigo no pierdas el tiempo
+Acércate a Él sin tardar.
+
+Coro:
+Él es la fuente de vida y amor,
+Es manantial de agua Viva y poder
+Al alma triste consuela y renueva
+Si de Su agua acepta beber.
+En este mundo no busques amigo
+En los placeres no lo encontrarás
+Y si de ella hoy mismo tomares,
+Serás saciado y descanso tendrás.
+
+Recitado:
+Porque le era necesario a Jesús pasar por Samaria, allí junto al pozo de
+Jacob tenía que ofrecerle el Agua de Vida a aquella mujer que adoraba lo
+que no sabía. Hoy te damos Gracias Señor porque aquellas Palabras
+llegaron hasta lo más profundo de nuestro corazón, porque por Tus
+Palabras somos Bienaventurados, porque aun, sin haberte visto hemos
+creído en Ti, fuente de Vida y Amor.
+
+II
+Él mismo dejó Su enseñanza,
+Sus bellas palabras que habló
+Allí al pasar por Samaria
+Con una mujer platicó.
+Habló de esta agua de vida
+Que Él tiene para el pecador
+Que vive agobiado en los vicios
+Y busca tener paz y calma,
+Jesús es la fuente de amor."""
+        ),
+        Hymn(
+            id = 387,
+            title = "Señor dame de Beber",
+            link = "",
+            author = "Conjunto Central de Tucumán",
+            content = """I
+De Samaria una mujer
+Vino al pozo de Jacob,
+Preocupada por sacar
+Agua y su sed calmar.
+//Pero fue la última vez
+Porque el mediodía aquel
+El Señor Jesús le dio
+Agua Viva de beber//
+
+Coro:
+Señor dame de beber
+De Tu dulce manantial,
+Hoy saciado quiero ser
+Con Tu agua Celestial.
+//Hazme de nuevo sentir
+Dentro de mi corazón
+La experiencia sin igual
+De Aquel Primer Amor//
+
+Recitado:
+¡Gracias Jesús! Gracias por esta agua Viva que tú tienes para con
+nuestras vidas.
+
+II
+Ella el cántaro dejó
+Y corrió a la ciudad
+Muy deprisa a contar
+Estas nuevas de Verdad.
+//A todos testificó
+De Jesús el Salvador
+Y las almas al Señor
+Acudieron con amor//"""
+        ),
+        Hymn(
+            id = 388,
+            title = "El Hijo Prodigo",
+            link = "",
+            author = "Conjunto Central de Tucumán",
+            content = """I
+Cuando el hijo prodigo volvió
+Desde la distancia a su hogar
+//Todo había gastado en el placer
+Pasajero de este mundo infiel//
+Al mirar su triste condición
+El volviendo en si se preguntó:
+//“¿Por qué sufro hambre y soledad
+Y los jornaleros tienen pan?”//
+
+Coro:
+Me levantaré y volveré,
+El Perdón al Padre rogaré:
+//“No me llames Hijo por favor,
+Solo un jornalero quiero ser”//
+
+II
+Con mi Padre yo también viví
+But sus Bondades no entendí
+//Hasta que un día lo olvidé
+Y muchos pesares yo sufrí//
+Pero he podido regresar
+Al oír Su dulce y tierna voz
+//Él me recibió con Gran amor
+Y también me dio de Su perdón//
+
+Recitado:
+Padre mio, no soy digno de estar en Tu Presencia, pero te quiero dar
+gracias, Gracias por Tu amor, por Tu perdón, por Tu grande compasión,
+por Todo lo que me das cada día que estoy en Tu casa. A Ti sea toda la
+Glory, el Honor, la Alabanza por Siempre. Amén."""
+        ),
+        Hymn(
+            id = 389,
+            title = "La Visión de Daniel",
+            link = "",
+            author = "Conjunto Central de Tucumán",
+            content = """I
+Daniel junto al rio Hidekel
+Contempló al Señor en su Gloria
+//Sus fuerzas flaquearon
+Al son de Sus Palabras
+Más le tocó su mano
+Y en pie se levantó//
+
+Coro:
+Tócame como a Daniel, dame las fuerzas también
+Hoy estoy en Tu Presencia, también Tu siervo yo soy.
+Háblame como a Daniel, dime lo que debo hacer
+Hoy estoy en Tu Presencia, tócame y háblame.
+
+II
+Vestido de lino un Varón
+Con sus lomos ceñidos de oro
+//Sus ojos como fuego,
+Su Rostro cual relámpago,
+Su voz como un estruendo
+De grande multitud/
+
+Recitado:
+Y Aquel que tenia semejanza de hombre, me tocó otra vez, me fortaleció y
+me dijo: “Muy amado, no temas, la paz sea contigo, esfuérzate y
+aliéntate”. Y mientras Él me hablaba, recobre las fuerzas y dije: “Hable mi
+Señor, porque me has fortalecido”.
+
+III
+La Omnipresencia del Señor
+Al Profeta dejo sin aliento
+//Su rostro puesto en tierra
+Quedó enmudecido
+But Él tocó sus labios
+Y así él pudo hablar//"""
+        ),
+        Hymn(
+            id = 390,
+            title = "Camino del Mar",
+            link = "",
+            author = "Conjunto Central de Tucumán",
+            content = """I
+Camino del mar por la otra ribera,
+Antigua ciudad, un puerto de barcas de humildes pesqueros
+De triste mirar, de ojos cargados de sueño,
+De rostros curtidos por el viento frio,
+De hombres sencillos como Andrés y Pedro.
+La brisa invernal sopla suave en la playa
+Y por el arenal muy lento camina Jesús el Maestro
+Y en la soledad contempla a aquellos obreros
+Que arreglan sus redes gastadas del tiempo,
+Son Juan y Jacobo hijos de Zebedeo.
+
+Coro:
+El Hijo de Dios, el Verbo hecho carne,
+Sandalias en sus pies transitó Galilea.
+Su luz alumbró al pueblo asentado en tinieblas
+Como lo anunciaba de antaño el Profeta:
+“Al fin llenará de Su Gloria la tierra”.
+
+Recitado:
+Así comenzó su ministerio Jesús, el hijo del carpintero; tan humilde, pero
+en Él estaba la vida, en Él estaba el amor y en Él estaba el perdón.
+
+II
+Venid pues a Él pescadores de hombres,
+Se escucha Su voz, retumba Su eco por toda la costa,
+En ella también el corazón de Andrés y Pedro,
+De Juan y Jacobo que allí le siguieron,
+Que dejaron todo por ser mensajeros.
+Grande multitud de afligidos y enfermos,
+Acuden a Él en busca de auxilio en malos problemas,
+Mas con Su poder liberta y transforma las vidas,
+Llevando del pueblo todas las dolencias,
+Predicando el Santo Evangelio del Reino."""
+        ),
+        Hymn(
+            id = 391,
+            title = "Por desiertos sin Caminos",
+            link = "",
+            author = "Conjunto Central de Tucumán",
+            content = """I
+Por desiertos sin caminos,
+Sin saber donde vivir,
+Hambriento y sediento
+Yo viví en soledad.
+But un día alcé mis ojos
+Y un camino encontré
+Y a lo lejos vi un madero
+Y en las piedras vi la Sangre
+Derramada por Jesús.
+
+Coro:
+Vi Su cuerpo maltratado, vi los clavos en Sus manos,
+Vi los clavos en Sus pies, Su costado traspasado.
+Vi Su Sangre derramada y mi alma allí lavé
+Y en aquel mismo momento comprendí aquel sufrimiento
+Y humillado ante la cruz a Jesús yo me entregué.
+
+II
+Y allí nació en mi alma
+La esperanza de vivir
+“una fuente he hallado
+Do mi ser poder calmar”.
+Y hoy yo vivo muy Gozoso
+Y camino junto a Él,
+Mi esperanza es Vida Eterna
+De llegar hacia los cielos
+Y vivir ya junto a Él."""
+        ),
+        Hymn(
+            id = 392,
+            title = "Quiero ser un Trigo Bueno",
+            link = "",
+            author = "Conjunto Central de Tucumán",
+            content = """I
+Ya se acerca el tiempo de la siega
+Pues el frio invierno ya pasó,
+Preparad los graneros para el trigo
+Que del cielo el Segador descenderá.
+Él vendrá con Poder y con Gran Gloria
+Y Consigo la cosecha llevará,
+La cizaña desechada del Buen trigo
+Consumida por el fuego quedará.
+
+Coro:
+//Quiero ser un trigo bueno en Tu granero
+Escogido por Tu Gracia y por Tu amor;
+//Quiero estar en la cosecha más Gloriosa,
+Quiero ir Contigo Amado Salvador//
+
+II
+Este mundo de maldad hoy nos acecha
+No nos deja crecer en la Verdad
+Jesucristo es la simiente poderosa
+Todo aquel que está en Él no caerá.
+Él vendrá con Poder y con Gran Gloria
+Y Consigo la cosecha llevará,
+La cizaña desechada del Buen trigo
+Consumida por el fuego quedará."""
+        ),
+        Hymn(
+            id = 393,
+            title = "Veremos al Rey",
+            link = "",
+            author = "Conjunto Central de Tucumán",
+            content = """I
+Mi alma te alaba
+Y Bendice Tu Nombre oh Rey Salvador
+Y anhela ferviente
+Tu Gloria Imponente poder contemplar.
+Mi Ser te proclama, mi voz se hace llanto
+Por Ti Amado Rey
+Y ansiosa espera ese día sublime
+Que pronto se acerca y veremos al Rey.
+
+Coro:
+Veremos al Rey, al Rey Jesucristo,
+Veremos al Rey, al Rey Victorioso.
+Que fue inmolado por mi vil pecado
+Allá en la cruz,
+Más viene Glorioso y al son de Trompetas
+En nubes del cielo veremos al Rey.
+
+II
+Yo espero ese día
+De Jubilo y Gozo, de Gloria sin par
+Y quiero estar listo
+Velando y orando yo quiero esperar.
+Él viene a llevarnos, pues Él ha dejado
+Esta Promesa Fiel:
+“Voy a preparar moradas Celestes,
+Descanso eterno junto al Padre Dios”."""
+        ),
+        Hymn(
+            id = 394,
+            title = "El Ensueño de la Iglesia",
+            link = "",
+            author = "Conjunto Central de Tucumán",
+            content = """I
+Ha llegado la mañana pero aun oscuro es
+Y al sepulcro va deprisa solitaria una mujer,
+But amarga es la sorpresa que le espera al llegar
+Pues quitada ve la piedra y el Maestro ya no está.
+Ella vuelve a los suyos la noticia a contar
+Mas regresa tras de ellos y comienza a llorar
+“¿Por qué lloras y a Quien buscas?” le pregunta una voz
+Que recuerda haberla oído, pues siente consolación.
+
+Coro I:
+“María”, “Raboni”; “oh Maestro no pensaba encontrarte otra vez”.
+“María”, “Raboni”; “no me toques,
+Porque al Padre no he subido pues aun,
+Pero ve a mis hermanos y todo esto cuéntales
+Y que luego en Galilea Yo con ellos estaré”.
+
+Recitado I:
+Abrí yo a mi Amado, pero mi Amado se había ido, había ya pasado; y tras su
+hablar salió mi alma, lo busqué y no lo hallé, lo llamé y no me respondió.
+
+II
+En Cantar de los Cantares Salomón da una visión
+De la esposa enamorada que va en busca de su amor,
+Caminando por las calles una noche en la ciudad
+Afanosa preguntando a su Amado puede hallar.
+En su búsqueda constante así María lo encontró,
+Más no pudo asir de Él pero su alma consoló;
+Hoy la Iglesia también busca y espera al Señor
+Elevando sus montañas aromadas de canción.
+
+Coro II:
+Iglesia de Cristo, hoy llora en la Presencia de Tu Amado Salvador,
+Iglesia de Cristo, Él Vive, Él te ama, reconoce hoy Su voz.
+Búscale ha resucitado para darte Salvación,
+Ve corriendo cual María y no calles del Señor.
+
+Recitado II:
+“Yo Soy el Buen Pastor, el Buen Pastor su vida da por las ovejas”. 
+“Yo Soy el Buen Pastor, conozco a mis ovejas y las mías me conocen”."""
+        ),
+        Hymn(
+            id = 395,
+            title = "Recíbeme Tal como Soy",
+            link = "",
+            author = "Conjunto Central de Tucumán",
+            content = """I
+Quiero Señor como María a tus pies hoy humillarme
+Y escuchar esas palabras de amor que me conmueven,
+Todo deje por encontrarme junto a Ti este momento
+//Deje mi hogar, y el afán por adorarte
+Recíbeme tal como soy en Tu Presencia//
+
+Coro:
+Quiero romper mi corazón en alabanza
+De gratitud y de amor para Tu Gloria
+Dulce expresión que va naciendo en mi alma
+Mientras el llanto me inunda las palabras.
+María fue y te perfumó con su fragancia
+Ungió Tus pies y de ese olor llenó la casa,
+Yo nada tengo solo mira estas lágrimas
+//Jesús te amo, de mi lado no te vayas//
+
+II
+Yo te busqué muy afligido como Marta te buscaba
+Y te encontré y Tú me diste el consuelo, paz y calma;
+Lázaro fui, pues del pecado y su muerte me has librado
+//Oh cuanto me amas, oh Señor Tu eres mi Amigo
+Toda mi vida solo a Ti yo quiero darte//"""
+        ),
+        Hymn(
+            id = 396,
+            title = "Mi Testimonio",
+            link = "",
+            author = "Conjunto Central de Tucumán",
+            content = """Presentación:
+Querido amigo, quisiera compartir contigo una de las tantas obras que
+Dios hizo en mi vida: “vivía confundido y sin esperanza y a causa de esto
+todo me iba peor, hasta el momento en que llegue a apostar en juegos del
+azar y muchas veces, aposté hasta lo que no tenia, ignorando que Su
+Palabra dice: ‘Jehová es la porción de mi herencia, Tú sustentas mi suerte’.
+Pero hoy puedo asegurar que la luz de Su Palabra me alumbró y Dios
+limpio de mi corazón todo esto y solo espero en Él. Por eso te invito que
+medites esta canción, y ‘apuestes’ a Jesucristo ya que en Él hallarás la 
+Vida Eterna”.
+
+I
+Ayer yo he visto mucha gente,
+Cuantos rostros diferentes
+Con angustia y desazón.
+Gentes, que ignorando al Dios Viviente
+Van en busca de dinero
+En los juegos del azar.
+Vidas extraviadas, confundidas
+Que caminan en tinieblas
+De este mundo en perdición.
+
+Coro:
+//Señor, Señor porque la gente triste va
+Quizás todo han perdido por ganar,
+Mañana no tendrán para el pan
+Sus hijos sufren hambre y mucho más.
+Yo estaba confundido por igual
+Más Tú me has libertado de ese mal,
+La luz de Tu Palabra me alumbró,
+Mi mente y corazón ella limpió
+Gracias te doy Señor por Tu Gran compasión;
+Hoy solo espero en Ti y en Tu amor
+Y en Tu bondad//"""
+        ),
+        Hymn(
+            id = 397,
+            title = "Sembrador",
+            link = "",
+            author = "Conjunto Central de Tucumán",
+            content = """I
+Dejó Su taller de carpintero
+Allí en Nazaret su humilde pueblo,
+La alforja tomó y salió al campo
+Dispuesto a empezar con su trabajo.
+Su mano agarró a la mansera
+Y el surco empezó allá en la arena
+A orillas del mar de Galilea
+Sembró con poder y vida eterna.
+
+Coro:
+Al Gran sembrador de mis recuerdos 
+Le quiero cantar y en estos versos
+Contar que Él anduvo en este suelo
+Sembrando el poder de Su Evangelio.
+Un día murió en un madero
+Más Resucitó y fue al cielo,
+De allí volverá con su granero 
+Para cosechar el fruto bueno.
+
+II
+Fue de sol a sol, de pueblo en pueblo
+Sembrando Su amor, paz y consuelo
+Con Fe y oración y con desvelo
+El grano esparció con gran esmero.
+Y tu sembrador, de Cristo obrero
+Tendrás que llorar muchos pañuelos
+Como Él lloró solo en el huerto
+Regando el sudor sobre el terreno.
+
+Recitado:
+Oh infatigable sembrador, Jesucristo Divino que caminaste en este suelo
+sembrando amor, paz y consuelo; el hombre vil y pecador te clavó en un
+madero, ignorando que esa semilla cayó en buena tierra y en Tu Iglesia se
+formó. Y hoy por esa infinita misericordia, hay obreros que siguen
+pregonando Tu Evangelio, cumpliéndose así Tu Palabra cuando dice:
+“Mirad, andando y llorando el que lleva la Preciosa semilla, mas volverá a
+venir con Regocijo, trayendo sus gavillas”."""
+        ),
+        Hymn(
+            id = 398,
+            title = "Elías y Eliseo",
+            link = "",
+            author = "Conjunto Central de Tucumán",
+            content = """Presentación:
+Y Elías le dijo: “Te ruego que te quedes aquí, porque Jehová me ha
+enviado al Jordán”, y él le dijo: “Vive Jehová y vive tu alma que no te
+dejaré”.
+
+I
+Junto al rio Jordán dos hombres van,
+Platicando sin cesar al caminar
+//Uno es siervo de Dios, el otro es servidor
+Que ferviente sirvió a su señor//
+Uno al cielo se irá con esplendor
+But el otro seguirá Fiel su misión
+//Una gran bendición para el dejará
+Por seguirle hasta allí sin dudar//
+
+Coro I:
+Es Elías Profeta de Dios, Eliseo un Fiel servidor,
+//Un ejemplo a seguir,
+La Palabra cumplir y el Señor nos dará Galardón//
+
+Recitado:
+Y cuando habían pasado Elías dijo a Eliseo: “pide lo que quieras que haga
+por ti, antes que yo sea quitado de ti”. Y dijo Eliseo: “te ruego que una
+doble porción de tu espíritu sea sobre mi”.
+
+II
+El Profeta le habló con gran amor:
+“Eliseo aquí quédate yo me voy”
+//Mas siguió tras de él y al cruzar el Jordán
+Un humilde favor le pidió//
+Una doble porción quiero Señor 
+De Tu Espíritu Santo sobre mí
+//Mas la Gloria de Dios al instante bajó
+Y al Profeta al cielo llevó//
+
+Coro II:
+Fue un carro de fuego que allí
+Desde el cielo bajó con Poder
+//Pero el manto quedó y las aguas golpeó
+Y el Jordán dividido quedó//
+"""
+        ),
+        Hymn(
+            id = 399,
+            title = "Joven Rico",
+            link = "",
+            author = "Conjunto Central de Tucumán",
+            content = """Presentación:
+“Maestro Bueno ¿qué haré para heredar la vida eterna?” Jesús le dijo:
+“¿por qué me llamas bueno? ninguno hay bueno sino Solo Dios ¿los
+mandamientos sabes?” “todo lo he guardado desde mi juventud”. Jesús
+oyendo esto le dijo: “aun te falta una cosa: ‘vende todo lo que tienes y
+dalo a los pobres y tendrás tesoros en el cielo y ven, sígueme”.
+
+I
+Hermanos hoy yo les quiero contar una historia notable y singular
+//De un joven que quería heredar la vida eterna y Celestial//
+Este hombre era rico, y leal a Dios en sus dichos al hablar
+//Mas Cristo descubrió su falsedad, su egolatría y vanidad//
+
+Coro:
+Jesús dame un nuevo corazón, 
+Humilde, bondadoso y con amor,
+Sincero, sin orgullo ni acepción,
+Amante, compasivo y sin rencor.
+Yo quiero obtener la Salvación
+Tesoro escondido en un rincón 
+Del cielo donde solo puede entrar 
+El Limpio de manos y Puro de Corazón.
+
+Recitado:
+Y al ver Jesús que se había entristecido mucho le dijo: “cuan difícilmente
+entraran en el Reino de Dios los que tienen riquezas”. Y los que oyeron
+esto le dijeron: “Señor ¿quién pues podrá ser Salvo?” Jesús les dijo: “lo
+que es imposible para los hombres es posible para Dios”.
+
+II
+Muy triste este hombre se marchó por la vileza de su corazón
+//Pues la sabia respuesta del Señor tocó en el centro de su ambición//
+Hermano, no te vayas por favor entrégate a Jesús sin restricción
+//Hoy vende tu altiva posesión, toma tu cruz y síguele al Señor//"""
+        ),
+        Hymn(
+            id = 400,
+            title = "Vi la Salvación",
+            link = "",
+            author = "Conjunto Central de Tucumán",
+            content = """I
+María y José llevaron a Jesús cuando niño era él
+Al templo allá en Jerusalén,
+Simeón le recibió y en brazos lo tomó
+Y dando Gloria a Dios bendijo al Señor.
+
+Coro:
+//Mis ojos han visto tu salvación//
+Bendigo Tu Nombre, Tu Nombre mi Dios,
+Bendigo Tu Nombre Señor.
+
+II
+Fue uno de los diez leprosos que limpio
+Que ante Cristo se postro y vio la Salvación;
+Un ciego en Jericó la vista le clamó
+Jesús le devolvió y vio la Salvación.
+
+III
+También aquel ladrón que estaba en la cruz
+Al lado de Jesús miró la Salvación,
+Esteban al morir sus ojos levantó
+Al cielo y contempló también la Salvación.
+
+Recitado:
+Bendito sea Dios, bendito sea el Señor, bendito sea aquel día en que Tu
+también has llegado hasta mi vida; por eso hoy Señor desde el altar de mi
+corazón levanto mi voz en alabanza y digo como Simeón: “mis ojos, han
+visto tu Salvación”."""
+        ),
+        Hymn(
+            id = 401,
+            title = "La Oración de Jesús",
+            link = "",
+            author = "Conjunto Central de Tucumán",
+            content = """I
+Sus rodillas clavadas en la tierra 
+Y sus ojos mirando hacia el cielo
+Y un clamor incesante en sus labios,
+Conmovido con tristeza y gran dolor.
+“Padre Mio la hora ha llegado,
+Glorifica a Tu Hijo, Glorifícame,
+Glorifícame a Tu lado por la Gloria
+Que Yo tuve antes de la creación”.
+
+Coro:
+//Maestro// con tus lágrimas regaste aquel huerto
+En humillación de espíritu, alma y cuerpo,
+Aquel llanto derramaste Tú por mí.
+//Maestro// en Tu oración llevaste mi recuerdo,
+Por mi vida y por el conocimiento 
+De creer en Tu Palabra de Verdad;
+//Maestro// Santifícame Señor en Tu Verdad.
+
+II
+Su agonía intensa y amarga
+Y su rostro mojado por el gran sudor
+Grandes gotas que caían hasta el suelo
+En la noche fría del Getsemaní.
+“En Tu Nombre guárdalos Dios Mio,
+En el mundo hoy están pero no son de él,
+Padre Justo, aquellos que me Has dado,
+Donde estoy Yo quiero que Conmigo estén”."""
+        ),
+        Hymn(
+            id = 402,
+            title = "¿Dónde está el Niño?",
+            link = "",
+            author = "Conjunto Central de Tucumán",
+            content = """I
+¿Dónde está el Niño, el Niño donde está?
+Lo están buscando sus padres sin cesar,
+Hace tres días que con ellos no está
+Todo es tristeza, angustia y gran pesar.
+
+Coro I:
+¿Dónde está, el Niño donde está?
+Quiero encontrarlo y llevarlo hasta mi hogar.
+¿Dónde está, el Niño donde está?
+Quiero sentir esas caricias de bondad;
+Quiero escuchar esa voz tierna,
+Quiero sentir de Su Presencia,
+Quiero encontrarlo y no dejarlo Nunca más.
+
+II
+¿Dónde está el Niño, el Niño donde está?
+En los Negocios del Padre Celestial,
+Allá en el Templo lo pueden encontrar
+Y nuevamente todo es felicidad.
+¿Dónde está el Niño, el Niño donde está?
+Hermano mio te quiero preguntar,
+Si lo has perdido y triste tú estás,
+Hoy nuevamente lo puedes encontrar.
+
+Recitado:
+Querido hermano ¿crees que has perdido al Señor Jesús? pues hoy, has
+como María, vuelve al Templo y allí en la oración, en la alabanza,
+escuchando Su Palabra o a través de un hermano lo encontrarás, ya que el
+mismo Jesús nos dijo: “He aquí, Yo estoy con vosotros todos los días y
+hasta el fin”.
+
+Coro II:
+¿Dónde estás, mi Cristo dónde estás?
+Quiero encontrarte y llevarte hasta mi hogar,
+¿Dónde estás, mi Cristo dónde estás?
+Quiero sentir esas caricias de bondad;
+//Quiero escuchar esa voz tierna,
+Quiero sentir de Tu Presencia,
+Quiero encontrarlo y no dejarte Nunca más//"""
+        ),
+        Hymn(
+            id = 403,
+            title = "Canta por tu Libertad",
+            link = "",
+            author = "Conjunto Central de Tucumán",
+            content = """I
+Ayer escuché un suave y dulce cantar
+Que un ave pequeña podía entonar,
+Ella estaba presa sin su libertad
+Pero aun cantaba en su soledad.
+Al verla sentí yo tristeza sin par
+But en el momento pensé sin dudar
+Que hasta los cielos quería llegar
+Y a Dios con su trino pedir libertad.
+
+Coro:
+Como Pablo y Silas pudieron cantar 
+Cuando estaban presos por predicar
+Y Dios desde el cielo les dio libertad.
+Hoy canta mi hermano, canta sin dudar,
+Canta porque Cristo te escuchará,
+Canta a Jesucristo por tu libertad.
+
+II
+En esta enseñanza pude recordar 
+Que estando en pecado solía cantar
+Estaba muy triste y quería encontrar
+En Dios el consuelo, el amor y la paz.
+Y Cristo Bendito me pudo escuchar
+El clamor de mi alma y me vino a Salvar,
+Extendió Su mano y me dio libertad
+Y hoy puedo con gozo Su Nombre alabar.
+
+III
+Si por este mundo hoy preso tú estás,
+Placeres y vicios que te hacen pecar,
+Y triste te encuentras sin amor, sin paz
+Hoy canta mi amigo por tu libertad."""
+        ),
+        Hymn(
+            id = 404,
+            title = "Bautízame Juan",
+            link = "",
+            author = "Conjunto Central de Tucumán",
+            content = """Presentación:
+El siguiente día vio Juan a Jesús que venía a él y dijo: “He aquí el Cordero
+de Dios que quita el pecado del mundo, este es Aquel de quien yo dije:
+‘después de mi viene un Varón el cual es antes de mí, porque era primero
+que yo y yo no le conocía pero el que me envió a bautizar con agua, Aquel
+me dijo: ‘sobre quien veas descender el Espíritu y permanece sobre Él,
+Éste es el que bautiza con el Espíritu Santo”.
+
+I
+Allí esta Él, se lo ve venir, 
+Entre la gente camina el Señor
+Distinto es al hombre mortal, 
+A la distancia se puede notar;
+¿Sera uno más el Hijo de Dios 
+Que en el Jordán se bautizará?
+Él va a cumplir con un Gran deber 
+Para dejar Su ejemplo Fiel.
+
+Coro:
+“Bautízame Juan” clamaba el Señor 
+“esto es menester, debemos cumplir”
+Juan obedeció y le sumergió,
+El cielo se abrió y allí descendió:
+Cual Blanca Paloma el Espíritu Santo
+Sobre Su cabeza vino a reposar
+Y una voz del cielo clamaba diciendo:
+“Este es Mi Hijo Amado, Complacido Estoy”.
+
+II
+Profetizado fue por Isaías 
+Y el mismo Juan lo vino a anunciar:
+“Yo no soy digno de desatarle 
+Esos calzados que lleva en Sus pies”.
+Y también dijo: “yo bautizo en agua 
+But el que viene tiene Gran Poder:
+‘Bautiza en Fuego y Espíritu Santo 
+Y está en Su mano Su Aventador”."""
+        ),
+        Hymn(
+            id = 405,
+            title = "Ríos de Agua Viva",
+            link = "",
+            author = "Conjunto Central de Tucumán",
+            content = """I
+Vengo a Tu casa esta noche
+A escuchar Tu Palabra
+Rendido ante Tus pies
+Como María en Betania.
+Espíritu, alma y cuerpo
+Hoy quiero Señor entregarte
+Y libre de mis afanes,
+Quiero en verdad adorarte.
+
+Coro:
+Señor que Hermoso es estar Contigo
+Y sentir que esos ríos de Agua Viva
+Corren por mí ser.
+Señor que Hermoso es estar Contigo
+Y sentir que Tu Espíritu Santo
+Va llenando nuestro ser.
+
+II
+Sobre Tu Cuerpo la Iglesia
+Mi corazón te derrama
+Este alabastro quebrado,
+Perfume de alabanza.
+
+Recitado:
+¡Gracias Señor! porque cuando llegue a Tu Casa vine cansado y trabajado
+por el afán y la ansiedad. Pero al oír Tus Palabras pude sentir que por mi
+interior corrieron esos Ríos de Agua Viva llenando mi vida de gozo, de
+amor y de paz."""
+        ),
+        Hymn(
+            id = 406,
+            title = "Vuelve Señor",
+            link = "",
+            author = "Conjunto Central de Tucumán",
+            content = """I
+El tiempo hoy pasa veloz
+No puedo notar cada instante,
+Un año que llega y se va
+Los días son cortos y se acaban.
+La noche no tarda en llegar
+Y pronto habrá un nuevo día
+Y al ver otro amanecer
+Yo espero Señor Tu Venida.
+
+Coro:
+Vuelve Señor, regresa ya
+Escucha el clamor con llanto y dolor
+De un pueblo que espera por Ti.
+Vuelve Señor sin demorar,
+Ya no tardes mas, desciende a llevar
+Tu Pueblo te espera Señor.
+
+II
+Más pienso y vuelvo a meditar
+Leyendo Tú Libro Sagrado
+En esas promesas de amor
+Que Tú al andar has dejado:
+
+Recitado:
+“No se turbe vuestro corazón, creed en Dios, creed también en Mi, en la
+Casa de Mi Padre muchas moradas hay, si así no fuere Yo os lo hubiera
+dicho; Voy pues a preparar lugar para vosotros y si me fuere y os
+preparare lugar, vendré otra vez y os tomaré a Mi mismo para que donde
+Yo estoy vosotros también estéis."""
+        ),
+        Hymn(
+            id = 407,
+            title = "La Siembra",
+            link = "",
+            author = "Conjunto Central de Tucumán",
+            content = """I
+Alzad vuestros ojos y mirad los campos
+Because ya están blancos para ir a la siega
+Y el que siega recibe su salario
+Y recoge frutos para vida eterna
+Y el que siembra gozará junto con él.
+
+Coro:
+//Uno es el que siembra,
+Otro es el que siega
+Mas la recompensa 
+Dará el Señor//
+
+II
+Allí junto al pozo de Jacob, sentado
+Jesús a los discípulos habló enseñando
+“A segar a vosotros He mandado
+No labrasteis, otros trabajaron
+Mas vosotros habéis entrado en su labor”.
+
+III
+Obreros necesita el Salvador, hay campos
+Que esperan para ir a trabajar, Él te llama 
+Como a Pedro, Jacobo y Juan llamosle
+Tan humildes y por Él todo dejaron
+Pero fueron llenos del Poder de Dios."""
+        ),
+        Hymn(
+            id = 408,
+            title = "Carta al Hijo Prodigo",
+            link = "",
+            author = "Conjunto Central de Tucumán",
+            content = """I
+Te has marchado del hogar
+Sin motivo y sin razón
+Te has dejado un vacio inmenso,
+Tu partida nos dejó tristeza y desazón
+Tu ausencia nos causa dolor.
+
+Coro I:
+Nuestro Padre siempre está
+Contemplando desde aquí
+Aquel camino por donde Él te vio marchar
+Con tu herencia total que el Amante te otorgó.
+Pero anhela sin cesar
+Mirarte regresar de nuevo aquí;
+Nadie ocupa tu lugar, nada lo podrá llenar
+//Si no estás tú//
+
+II
+Cuanto tiempo ya pasó
+Sin saber nada de ti,
+Nos angustia, nos causa aflicción;
+Pues quisiera yo saber si has podido encontrar
+Conformismo y felicidad.
+
+Coro II:
+Si tal vez se terminó 
+Tu herencia y bienestar
+Y estas tú triste y hoy quieres regresar
+But dudas si quizás el Perdón Dios te dará.
+Su amor no cambiará
+Él te ama más y más, vuelve al hogar;
+Nadie ocupa tu lugar, nada lo podrá llenar
+//Si no estás Tu// 
+
+Final:
+“Ven”."""
+        ),
+        Hymn(
+            id = 409,
+            title = "Cantar de los Cantares",
+            link = "",
+            author = "Conjunto Central de Tucumán",
+            content = """I
+“Hermana, Amiga, Paloma, ven”.
+La voz de Mi Amado despertó mi corazón,
+Dormido en el invierno aterido estaba yo
+“Levántate” me dijo “oh amiga Mía, ven,
+El frio se ha mudado y la lluvia ya se fue”.
+La voz de mí Amado a mí ser estremeció
+Y hoy vivo enamorado prisionero de Su amor,
+Lo gris de mi tristeza y mi llanto transformó
+En una primavera de alegría y Bendición.
+
+Coro:
+Las flores en la tierra han mostrado su color,
+La higuera dio su fruto y las vides dan su olor.
+//Despiértate y levántate Iglesia del Señor
+Porque ha venido el tiempo de la canción//
+
+II
+Mi Amado es blanco y rubio distinguido entre diez mil,
+Es manso, es humilde, noble y sabio Rabí;
+Su voz como trompeta que me dice: “Ven a Mi
+Que tengo una morada en el cielo para ti”.
+“Paloma Mía que en la peña escondida estas
+Desciende hasta mi huerto hoy contigo quiero hablar;
+Muéstrame tu rostro, tu voz quiero escuchar,
+Porque tu voz es Dulce y tu aspecto sin igual”.
+"""
+        ),
+        Hymn(
+            id = 410,
+            title = "Bienvenido a Casa",
+            link = "",
+            author = "Conjunto Central de Tucumán",
+            content = """I
+Bienvenido a Casa hermano querido,
+“Bienvenido a Casa” te dice el Señor,
+Olvida el pasado y acude a Sus brazos
+Él te está esperando, te dará el perdón.
+Limpia Él tu vida, no pierdas el tiempo
+Porque ya mañana tarde puede ser 
+//Siéntate a la mesa, sírvete la cena
+Cristo te convida no le seas infiel//
+
+Coro:
+Grande es la alegría al verte de nuevo,
+Grande es el gozo de nuestro corazón,
+Grande es la fiesta que hay en el cielo
+Cuando arrepentido vuelve un pecador;
+Grande es la fiesta que hay en el cielo
+Cuando un Hijo Prodigo vuelve al Señor.
+
+II
+Toma del vestido y ponte de nuevo
+Toma el calzado y ciñe tus pies,
+También el anillo sellado con Fuego,
+Ponte en tu mano el pan otra vez.
+Vístete ahora, vístete de Bodas,
+Viste hoy tu vida con la Santidad
+//Para que un día entres a las Bodas
+De Cristo el Cordero que preparada está//"""
+        ),
+        Hymn(
+            id = 411,
+            title = "La Fe",
+            link = "",
+            author = "Conjunto Central de Tucumán",
+            content = """I
+Dicen que la Fe es más preciosa que el oro
+Y que vivir por Fe es agradable al Señor
+Y que es un Don de Dios y por la Fe seremos Salvos.
+Y que por la Fe buen testimonio alcanzaron los antiguos por la Fe,
+Podemos entender que el universo fue creado por Él.
+
+Coro:
+Es la Fe la convicción de lo que no se ve,
+Es la certeza de lo que se espera obtener
+Señor auméntame la Fe, Señor auméntanos la Fe.
+Es la Fe la convicción de lo que no se ve,
+Es la certeza de lo que se espera obtener
+Señor auméntame la Fe, quiero vivir yo por la Fe,
+Quiero ser Salvo por la Fe, Señor auméntanos la Fe.
+
+II
+Por la Fe Abel ofreció a Dios buen sacrificio
+Y por la Fe traspuesto fue Enoc sin ver la muerte,
+Por la Fe también Noé construyó el arca y fue Salvo.
+Por la Fe Abraham dejó su tierra y vivió como extranjero por la Fe,
+El esperaba la ciudad cuyo arquitecto y constructor en nuestro Dios.
+
+Recitado:
+¿Y que mas digo? porque el tiempo me faltaría contando de Gedeón, de
+Barac, de Sansón, de Jefté, de David, así como de Samuel y de los profetas;
+que por Fe conquistaron reinos, hicieron justicia, alcanzaron promesa,
+taparon boca de leones, apagaron fuegos impetuosos, evitaron filo de
+espada, sacaron fuerzas de debilidad, se hicieron fuertes en batalla,
+pusieron en fuga ejércitos extranjeros.
+Otros, experimentaron vituperios y azotes, y a mas de esto, prisiones y
+cárceles. Fueron apedreados, aserrados, puestos a prueba, muertos a filo
+de espada, anduvieron de acá para alla cubiertos de pieles, pobres,
+angustiados, maltratados."""
+        ),
+        Hymn(
+            id = 412,
+            title = "La Unidad",
+            link = "",
+            author = "Conjunto Central de Tucumán",
+            content = """I
+//Uno es Jesús con el Padre,
+Uno es el Espíritu Santo
+Que hoy habla y ordena buscar
+Y guardar la unidad, el amor y paz//
+
+Coro:
+Jesús el Buen Maestro oró por sus discípulos
+Y también por nosotros que hoy creemos en Él,
+//Para que seamos uno como Él es con el Padre,
+Para que seamos Perfectos viviendo en unidad//
+
+Recitado:
+“Mas no ruego solamente por estos, sino también por los que han de
+creer en Mi por la palabra de ellos, para que todos sean Uno, como Tú oh
+Padre en Mi y Yo en Ti, que también ellos sean uno en Nosotros, para que
+el mundo crea que Tu me enviaste, la Gloria que me diste Yo les he dado,
+para que sean uno así como Nosotros somos Uno”.
+
+II
+Uno es el cuerpo de Cristo,
+Una es la Iglesia Su Cuerpo
+Sus huesos no pudieron quebrar
+Para que hoy pueda estar Su Iglesia en Unidad."""
+        ),
+        Hymn(
+            id = 413,
+            title = "Más que Vencedores",
+            link = "",
+            author = "Conjunto Central de Tucumán",
+            content = """I
+Si amamos a Dios, también Él nos ama
+Por él es amor, Dios es Amor,
+Él nos escogió desde el principio
+Que a Su Hijo dio por justificar nuestros pecados.
+
+Coro I:
+//Nada, nada nos separará del Amor de Dios//
+Dios es con nosotros no hay que temer
+Más que Vencedores hoy somos por Él.
+Nada, nada nos separará del Amor de Dios.
+
+II
+Si amamos a Dios, también Él nos ama
+Por él es amor, Dios es Amor,
+Si en mi esta Dios, ya nada temo
+El Perfecto amor no tiene temor, yo amo a Cristo.
+
+Coro II:
+//Nada, nada nos separará del Amor de Dios//
+Ni espada, ni muerte, hambre o desnudez,
+Angustia, peligro ni persecución.
+Nada, nada nos separará del Amor de Dios.
+Dios es amor, Dios es amor, Dios es amor, Dios es Amor.
+
+Recitado:
+Como está escrito: “por causa de Ti somos muertos todo el tiempo, somos
+contados como ovejas de matadero. Antes, en todas estas cosas somos
+Mas que Vencedores por medio de Aquel que nos amó; por lo cual estoy
+Seguro, de que ni la muerte, ni la vida, ni ángeles, ni principados, ni
+potestades, ni lo presente, ni lo porvenir, ni lo alto, ni lo profundo y
+ninguna otra cosa creada nos podrá separar del Amor de Dios que es en
+Cristo Jesús, Señor nuestro”."""
+        ),
+        Hymn(
+            id = 414,
+            title = "Pedro",
+            link = "",
+            author = "Conjunto Central de Tucumán",
+            content = """I
+Hubo un hombre en Galilea que tenía barca y redes y de oficio pescador,
+Con fatiga trabajaba, día y noche traficaba hasta que vino el Señor,
+Fue tan solo una mirada muy tierna y animada con final de invitación:
+“Yo te cambiaré el oficio, desde hoy en delante de hombres serás pescador”.
+
+II
+Quiero ser como aquel hombre, Pedro era su sobrenombre y tenía poca Fe,
+Con Jesús el siempre andaba, casi siempre fracasaba, pero el tenia Fe
+Caminó sobre las aguas, le siguió a Jesús al huerto
+Y con su espada defendió,
+Ya en el patio junto al fuego, acosado y perturbado por tres veces le negó.
+
+Coro:
+“Pedro ¿me amas esta vez?” “Pedro ¿me amas más que al pez?”
+“Oh Señor yo siempre te amaré, si Tu sabes que te amo,
+Tu sabes todas las cosas más yo siempre te amaré”.
+
+III
+Luego el hombre fracasado con gran voz e inspirado, predicó en Pentecostés
+Tres mil almas convertidas, todas fueron bautizadas solo con tirar la red,
+Ya en el templo de La Hermosa,
+Junto a Juan miran al cojo quien les pide una merced;
+“Yo no tengo plata ni oro, mas te ordeno que camines por Jesús de Nazaret”.
+
+IV
+Cuando el cojo fue sanado gobernantes resentidos, a Pedro van a prender
+Les pusieron en la cárcel, le intimaron que no hablasen de Jesús de Nazaret
+Y aunque Pedro encarcelado,
+El mensaje lo había dado y no había más que hacer
+Alguien le cambió el oficio
+Y esta vez cinco mil hombres estaban dentro de la red.
+
+V
+Luego siguió trabajando aquel hombre que pescando el Señor lo habilitó
+La Palabra fue el anzuelo, el poder fueron las redes mas la Gracia es de Dios,
+Cuando en casa de Cornelio predicando a los gentiles, con denuedo les habló,
+Hombres, mujeres y niños todos fueron bautizados con el Fuego del Señor."""
+        ),
+        Hymn(
+            id = 415,
+            title = "El Dulce Cantor",
+            link = "",
+            author = "Conjunto Central de Tucumán",
+            content = """I
+Era un humilde muchacho
+Que tocaba el arpa y cantaba muy bien
+Era pastor de ovejas, David se llamaba y vivía en Belén.
+El a Dios siempre oraba
+En las tardes y mañanas elevaba su clamor,
+El a Dios siempre alababa, en integridad andaba
+Los caminos del Señor.
+
+Coro:
+“Jehová es mi Pastor, nada me faltará”,
+Así cantaba al Señor con su arpa David,
+David el pastor.
+“Te Exaltaré mi Dios, te Exaltaré mi Rey”
+Así cantaba al Señor con su arpa David,
+El dulce cantor.
+
+II
+Era un humilde muchacho
+Prudente en palabras, obediente a Dios
+Lleno del Espíritu Santo,
+Unción que Dios del cielo sobre él derramó,
+Cuando a Saúl atormentaba
+El espíritu malo que venía sobre él,
+David con su arpa tocaba,
+Melodías que aliviaban la tribulación del rey."""
+        ),
+        Hymn(
+            id = 416,
+            title = "Zorobabel",
+            link = "",
+            author = "Conjunto Central de Tucumán",
+            content = """Presentación:
+Así ha hablado Jehová de los ejércitos diciendo: “este pueblo dice: ‘no ha
+llegado aun el tiempo, el tiempo de que la casa de Jehová sea
+reedificada”. Entonces vino palabra de Jehová por medio del Profeta
+Hageo diciendo:
+
+I
+Zorobabel, mira Mi casa desierta está
+Y este pueblo vacila al pensar,
+Dice: “no es tiempo de reedificar”.
+Mucho sembráis pero es poco lo que recogéis
+No os saciáis al comer ni al beber
+Y en saco roto va vuestro jornal.
+
+Coro:
+Esfuérzate Zorobabel,
+Pueblo de Dios cobrad animo y trabajad.
+Esfuérzate Zorobabel
+“Porque Yo estoy con vosotros”
+Dice Jehová.
+
+II
+Mucho buscáis, poco halláis y en casa encerráis,
+Pero de un soplo lo dispersaré
+Porque a Mi casa como nada veis.
+“Mas” dice Dios “Mio es el oro y la plata también,
+Si me probáis en esto abriré
+Mis ventanas y os Bendeciré”.
+
+III
+“¿Alguien quedó entre vosotros?”
+Pregunta el Señor
+“¿Que haya visto la gloria anterior
+Cuando este Templo se reedificó?”"""
+        ),
+        Hymn(
+            id = 417,
+            title = "El Maná",
+            link = "",
+            author = "Conjunto Central de Tucumán",
+            content = """I
+De mañana junto al amanecer
+Iba el pueblo de Israel a recoger
+El Maná que Dios hacia descender,
+Pan del cielo que les daba de comer.
+
+Coro:
+Y gustando de este incomparable bien
+Día a día iba el pueblo a recoger
+Cada uno la medida de un gomel
+Sin faltarle ni sobrarle al comer.
+//Mañana tras mañana yo también
+De rodillas quiero ir a recoger
+Sus misericordias nuevas y beber
+Del pozo del Viviente que me ve//
+
+Recitado:
+Jesucristo dijo: “Yo Soy el Pan Vivo que descendió del cielo, el que a Mi
+viene no tendrá hambre y el que en Mi Cree, no tendrá sed jamás.
+
+II
+Pan del cielo para mi alma Cristo es,
+Mi sustento y ayuda de mi ser
+Él despierta mi oído al hablar con Él
+Sus Palabras me infunden Fuerza y Fe."""
+        ),
+        Hymn(
+            id = 418,
+            title = "El Leproso",
+            link = "",
+            author = "Conjunto Central de Tucumán",
+            content = """I
+En un leprosario allá en la montaña
+Un hombre leproso la muerte esperaba,
+No había remedio y alguien que curara
+El mal que en su cuerpo ya no soportaba.
+Muy triste, aislado de aquellos que amaba
+No había en su vida ninguna esperanza
+Mas una noticia conmueve su alma:
+“Allá va Jesús y dicen que sana”.
+
+Coro:
+“Yo iré a buscarlo” dijo aquel leproso,
+Corrió entre la gente y llegó donde estaba,
+“Señor si quieres puedes limpiarme”
+Postrado ante Él así le rogaba.
+Then movido a misericordia
+Su mano extendiendo Jesús le contesta:
+“Quiero, se limpio”, y en aquel instante
+Fue sano y limpio de toda su lepra.
+
+Recitado:
+Jesucristo es el Mismo ayer, hoy y por los siglos; Jesucristo me Salvó,
+Jesucristo me limpió y Jesucristo me sanó.
+
+II
+Feliz aquel hombre regresa a su casa
+Abraza a los suyos que tanto extrañaba
+“no cuentes a nadie” le encargó el Maestro
+Pero él del Señor a todos hablaba.
+En este milagro está reflejada
+Mi vida en el mundo antes que llegara
+A los pies de Cristo, el cual con Su Sangre
+Limpio mis pecados, la lepra de mi alma.
+
+Final:
+Si hoy quieres hermano a Cristo acercarte
+Y como el leproso ante el humillarte
+//Jesús tus pecados puede perdonarte
+Su Sangre Preciosa hoy puede limpiarte//"""
+        ),
+        Hymn(
+            id = 419,
+            title = "A la casa de Tres Amigos",
+            link = "",
+            author = "Conjunto Central de Tucumán",
+            content = """I
+A la casa de tres amigos, una noche el Maestro fue a cenar
+Compartiendo allí con ellos palabras de vida, de amor y paz.
+Marta era la que servía, Lázaro escuchaba con atención
+//Mas María tomó una libra de perfume de nardo puro
+Y los pies de Jesús ungió//
+
+Coro:
+La fragancia de aquel perfume
+A toda la casa llenó
+Y por esa grata ofrenda el Señor se regocijó.
+“Déjenla, porque buena obra
+Ha hecho Conmigo” dijo el Señor;
+//Mas yo quiero hacer lo mismo
+Hoy con esta humilde alabanza,
+Entregarle mi adoración//
+
+Recitado:
+Mi Amado descendió a Su huerto, a la era de las especias, para apacentar
+a los huertos y para recoger los lirios.
+
+II
+Marta es la que representa el servicio en la Casa del Señor,
+El silencio y la paz de Lázaro significa en la Iglesia la comunión,
+Es María la entrega plena de la Iglesia a Cristo en adoración
+//El perfume es la alabanza con un corazón quebrantado,
+Humillado ante el Señor//"""
+        ),
+        Hymn(
+            id = 420,
+            title = "Belén de Judá",
+            link = "",
+            author = "Conjunto Central de Tucumán",
+            content = """I
+Belén, Belén de Judá
+Ya no eres más pequeña,
+Pequeña no eres más.
+Belén, Belén de Judá
+De ti saldrá Un Guiador
+Que estará en Mi pueblo, lo apacentará.
+
+Coro:
+Pudiste ver a Su estrella brillar
+Y escuchar el anuncio angelical,
+Pudiste oír a la gran multitud
+De las huestes del cielo que alababan a Dios,
+Que decían: “Gloria a Dios”.
+Belén, Belén de Judá
+Ya no eres más pequeña,
+Pequeña no eres más
+//Porque en ti ha nacido
+Jesús el Rey del cielo,
+El Príncipe de Paz//
+
+II
+Belén, Belén de Judá
+En humilde pesebre
+Pudiste acunar a Cristo el Salvador,
+Al Niño Admirable,
+Dios Fuerte y Consejero, al Príncipe de Paz."""
+        ),
+        Hymn(
+            id = 421,
+            title = "Alabad a Dios",
+            link = "",
+            author = "Conjunto Central de Tucumán",
+            content = """Alabad a Dios en su santuario,
+Alabadle en la Magnificencia de Su firmamento,
+Alabadle por Sus proezas,
+//Alabadle conforme a la muchedumbre
+De Su Grandeza//
+//Alabadle a son de bocina,
+Alabadle con salterio y arpa,
+Alabadle con pandero y danza,
+Alabadle con cuerdas y flautas,
+Alabadle con címbalos resonantes,
+Alabadle con címbalos de júbilo,
+//Alabadle, Alabadle a Dios//
+Todo lo que respira Alabe a Dios,
+Todo lo que respira Alabe al Señor.
+//Alabadle, Alabadle a Dios//
+Aleluya, Aleluya, Amén."""
         )
     )
 }
