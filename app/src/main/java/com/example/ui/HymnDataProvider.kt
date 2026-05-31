@@ -146,7 +146,7 @@ Un vaso nuevo"""
             id = 7,
             title = "¿Qué está pasando?",
             link = "https://www.youtube.com/watch?v=dxDvnus7e2g",
-            author = "",
+            author = "Conjunto Villanueva",
             content = """I
 Que está pasando, hermano mío, cómo has llegado hoy ante Dios,
 Te noto triste y confundido, parece que las cosas van peor.
@@ -307,7 +307,7 @@ Pero si vales poco o si no vales nada el cielo no te olvidó,
             id = 14,
             title = "Hasta el enebro",
             link = "https://www.youtube.com/watch?v=lBEGDq0SSWE",
-            author = "",
+            author = "Conjunto Villanueva",
             content = """I
 Hasta el enebro llegó Elías, estaba cansado, allí se acostó y se durmió;
 Pero el Señor lo despertó, largo camino aún te resta, levántate.
@@ -647,7 +647,7 @@ Que nos ama, que nos ama, su nombre es Jesús."""
             id = 29,
             title = "Yo sé que estás muy cansado",
             link = "https://www.youtube.com/watch?v=ujQFNtpcmeg",
-            author = "",
+            author = "Conjunto Villanueva",
             content = """I
 Yo sé que estás muy cansado,
 Tus problemas te han vencido,
@@ -671,7 +671,7 @@ Una gota de su sangre hoy te puede libertar"""
             id = 30,
             title = "Lávame Señor",
             link = "https://www.youtube.com/watch?v=1THUKHQeXtc",
-            author = "",
+            author = "Conjunto Villanueva",
             content = """I
 Aunque todos te dejaren, mi vida daré por ti
 Tú mis pies no lavarás Señor, eso me corresponde a mí.
@@ -771,7 +771,7 @@ Y me hará olvidar todas mis penas, que en la senda yo tuve que pasar."""
             id = 34,
             title = "Te preguntas ¿Por qué?",
             link = "https://www.youtube.com/watch?v=0qGxzgKDjr0",
-            author = "",
+            author = "Conjunto Villanueva",
             content = """I
 Te preguntas ¿Por qué? Dios permite que a tu vida llegue la aflicción,
 Por qué, a tu alma la ha inundado la angustia y el dolor,
@@ -796,7 +796,7 @@ Si el de la muerte se levantó, te levantará a ti hoy."""
             id = 35,
             title = "Si en Esta Vida",
             link = "https://www.youtube.com/watch?v=gdCzkH5miDM",
-            author = "",
+            author = "Conjunto Villanueva",
             content = """I
 Si en esta vida me ha tocado la pobreza
 Y si en el mundo un lugar no tuve yo
@@ -3321,7 +3321,7 @@ Mi corazón será como el tuyo//"""
             id = 159,
             title = "Eutico",
             link = "https://www.youtube.com/watch?v=Og_VYH0oR7U",
-            author = "",
+            author = "Conjunto Villanueva",
             content = """Un joven llamado Eutico, que sentado en una ventana,
 Rendido en un sueño profundo cuando Pablo allí predicaba,
 //Y vencido por el mismo sueño, se cayó del tercer piso abajo,
@@ -3981,7 +3981,7 @@ Y ese mismo viento recio comenzara aquí a soplar
             id = 195,
             title = "Mujer virtuosa",
             link = "https://www.youtube.com/watch?v=E8bVIB_oq4s",
-            author = "",
+            author = "Conjunto Villanueva",
             content = """Mujer virtuosa, quién la hallará,
 El corazón de su esposo confiado está,
 Es la mujer que da siempre el bien y no el mal,
@@ -5561,7 +5561,7 @@ Hoy yo quiero llevarte Señor."""
             id = 272,
             title = "Canta hermano, canta",
             link = "https://www.youtube.com/watch?v=RqROpN7cqds",
-            author = "",
+            author = "Conjunto Villanueva",
             content = """Si te sientes muy cansado, triste, enfermo o confundido
 El mal te tiene atado y no encuentras el camino.
 Pero Dios tiene un remedio para todo ese mal:
@@ -5608,7 +5608,7 @@ Te quiero Agradar"//"""
             id = 274,
             title = "Como el ciervo ansioso brama",
             link = "https://www.youtube.com/watch?v=L6qYZrAVwVI",
-            author = "",
+            author = "Conjunto Villanueva",
             content = """Como el ciervo ansioso brama buscando que beber,
 Buscando el agua fresca donde pueda saciar su sed
 Así mi alma te busca y quiere beber.
@@ -5633,7 +5633,7 @@ Que me dice: "hoy sigue adelante, ve al frente y camina"""
             id = 275,
             title = "La Sunamita",
             link = "https://www.youtube.com/watch?v=DwkNMQGDkds",
-            author = "",
+            author = "Conjunto Villanueva",
             content = """Es la Iglesia la sunamita fiel que espera el día
 Que pueda ver a su amado viniendo en una nube.
 Espera el día aquel pueda oír la voz tan dulce y tierna
@@ -5660,7 +5660,7 @@ Hermosa mía, perfecta mía, Levántate y ven"""
             id = 276,
             title = "La Trompeta",
             link = "https://www.youtube.com/watch?v=O2IYLKgcr6s",
-            author = "",
+            author = "Conjunto Villanueva",
             content = """Yo sé que pronto volverá
 Si, ese día esperaré
 Cuando en los cielos se unirán
@@ -5701,7 +5701,7 @@ Gloria demos al Señor// Al Señor"""
             id = 277,
             title = "Si hoy llegara Jesús",
             link = "https://www.youtube.com/watch?v=C6qvbRokEzw",
-            author = "",
+            author = "Conjunto Villanueva",
             content = """Si hoy llegara Jesús a tu hogar y te pidiera un poco de pan,
 Si por las calles le vieras vagar ¿Qué le darías a El?
 ¿Qué le darías a El si le vieras llorar, un abrigo, una caricia,
@@ -5728,7 +5728,7 @@ Final
             id = 278,
             title = "Déjame que te alabe",
             link = "https://www.youtube.com/watch?v=Oj-LJCAi514",
-            author = "",
+            author = "Conjunto Villanueva",
             content = """Déjame encontrar tu mano, tu mano, oh Jehová,
 Como el siervo que pidió el manto, tu manto dame hoy.
 Vengo este día a traerte Señor mi canción,
@@ -5753,7 +5753,7 @@ Déjame que te alabe otra vez"""
             id = 279,
             title = "El Amor de Dios",
             link = "https://www.youtube.com/watch?v=JyJQGUw36AM",
-            author = "",
+            author = "Conjunto Villanueva",
             content = """Cuan sublime es el amor
 El que no mide distancia.
 Como suave brisa llega
@@ -5796,7 +5796,7 @@ Siempre a tu lado él estará"""
             id = 280,
             title = "Gracia Bendita",
             link = "https://www.youtube.com/watch?v=df3TpDCtJ8E",
-            author = "",
+            author = "Conjunto Villanueva",
             content = """Hay una Gracia Bendita que un día del cielo me vino a encontrar,
 Perdonando mis pecados, quito mi tristeza y mi enfermedad.
 Cuando yo estaba perdido, era el más perdido de los pecadores;
@@ -5817,7 +5817,7 @@ No me ha dejado un instante, que dicha que siento de ser redimido;
             id = 281,
             title = "La senda estrecha",
             link = "https://www.youtube.com/watch?v=JTzjV3IbsH4",
-            author = "",
+            author = "Conjunto Villanueva",
             content = """Tal vez estás cansado de luchar, decepcionado y te sientes derrotado;
 La angustia te oprime el corazón, no encuentras la razón para seguir viviendo
 La senda es estrecha y escabrosa con cardos y espinas que te rozan,
@@ -5843,7 +5843,7 @@ Final
             id = 282,
             title = "Estoy aquí",
             link = "https://www.youtube.com/watch?v=k1XK1gLaYFw",
-            author = "",
+            author = "Conjunto Villanueva",
             content = """Eres la llama, que no se apaga, bendita nube de Bendición
 Cuando la fuente que llena el alma
 Limpia mis culpas, quita las penas del corazón.
@@ -5868,7 +5868,7 @@ Por eso hoy día quiero ofrecerte, como una ofrenda mi corazón."""
             id = 283,
             title = "Alfarero",
             link = "https://www.youtube.com/watch?v=gb6jxsaSwSs",
-            author = "",
+            author = "Conjunto Villanueva",
             content = """Alfarero, que das forma a la vasija con tus manos
 Como el hombre del Edén que fue formado
 Lo hiciste perfecto, él era tu imagen, por ti fue creado
@@ -5896,7 +5896,7 @@ De aceite del cielo en este lugar//"""
             id = 284,
             title = "Siervo",
             link = "https://www.youtube.com/watch?v=wuENf2oLmiU",
-            author = "",
+            author = "Conjunto Villanueva",
             content = """Siervo que llegaste a la Gloria,
 Lugar anhelado por ti
 //Cuando fuerzas te faltaban
@@ -10227,7 +10227,7 @@ Dios Fuerte y Consejero, al Príncipe de Paz."""
             id = 421,
             title = "Alabad a Dios",
             link = "",
-            author = "Conjunto Central de Tucumán",
+            author = "Conjunto Villanueva",
             content = """Alabad a Dios en su santuario,
 Alabadle en la Magnificencia de Su firmamento,
 Alabadle por Sus proezas,
@@ -10499,6 +10499,276 @@ Coro II:
 ¡Resucitó, Resucitó!
 //Y a la diestra del Padre se sentó//
 ¡Resucitó, Aleluya!"""
+        ),
+        Hymn(
+            id = 430,
+            title = "Salmos",
+            link = "",
+            author = "Conjunto Villanueva",
+            content = """I
+//Bueno es alabarte Señor y cantar
+Salmos a Tu Nombre//
+//Anunciar por la mañana tu misericordia,
+Anunciar por la noche tu grande fidelidad;
+Bueno es alabarte Señor y cantar
+Salmos a Tu Nombre,
+Bueno es alabarte oh Señor//
+
+II
+El que habita al abrigo del Altísimo
+Morará bajo la sombra del Omnipotente Dios;
+//Caerán a su lado mil y diez mil
+Más a él no le tocarán,
+El que habita al abrigo de Dios seguro estará//
+
+III
+//Fui joven y he envejecido más en la casa del Señor
+No he visto ni un solo justo mendigando pan.
+Fui joven y he envejecido más en la casa de mi Dios
+No he visto desamparado ni a sus hijos mendigando pan//
+
+IV
+Porque el Señor es mi Pastor y nada me faltará,
+El Señor es mi Pastor, yo soy su oveja y él me cuidará;
+El Señor es mi Pastor y nada me faltará,
+El Señor es mi Pastor, yo soy su oveja y él me cuidará.
+Y aunque ande en valle de sombra y de muerte
+mal ninguno yo temeré
+Porque mi pastor va conmigo, yo soy su oveja y no he de temer,
+Y su vara y su cayado aliento me infundirá
+Y si me pelea el enemigo yo soy su oveja y él me cuidará.
+El Señor es mi Pastor y nada me faltará,
+El Señor es mi Pastor, yo soy su oveja y él me cuidará."""
+        ),
+        Hymn(
+            id = 431,
+            title = "A Ti",
+            link = "",
+            author = "Conjunto Villanueva",
+            content = """I
+A ti que buscas cada día ese cielo,
+A ti, qué lloras en silencio
+Y nadie sabe de tus penas;
+Que no escondes la mano,
+Qué lloras por tu hermano
+A ti, si a ti te espera un Galardón.
+
+Coro:
+Ha de venir el Rey desde los cielos
+Y una Corona en tu frente te pondrá;
+Y te dirá: “ven y entra oh mi buen siervo
+Que a las Bodas invitado tú estás”.
+
+II
+A ti qué esperas a que él vuelva por tu vida,
+A ti que has puesto en él tu Fe
+Y en sus manos tú destino;
+Que no te han detenido
+Las piedras del camino;
+A ti, si a ti te espera un Galardón."""
+        ),
+        Hymn(
+            id = 432,
+            title = "El Hijo Prodigo",
+            link = "",
+            author = "Conjunto Villanueva",
+            content = """I
+Me alejaba de mi hogar
+Con el fin de disfrutar
+Lo que el mundo me ofrecía,
+Buscando felicidad.
+Pero aquello terminó,
+Pude ver mi condición
+Y el recuerdo de mi Padre,
+Me llevó a la reflexión.
+
+Coro:
+Yo me levantaré,
+Iré a mi Padre y diré: “he pecado
+Ya no merezco un lugar en la mesa,
+Ya no merezco ser llamado tu Hijo.
+Solo te pido me recibas
+Sabes bien como he venido,
+Recíbeme, Recíbeme”.
+
+II
+Retornaba a mi hogar,
+Vio de lejos mi llegar
+Y corriendo a mi encuentro
+Perdonó mi iniquidad.
+Me vistió y me hizo libre,
+En la mesa me sentó
+Y hubo fiesta porque un hijo
+A su casa retornó."""
+        ),
+        Hymn(
+            id = 433,
+            title = "Misionero",
+            link = "",
+            author = "Conjunto Villanueva",
+            content = """I
+Hoy vengo a despedirte Misionero,
+Hoy traigo el corazón entristecido
+Y vengo a rogarle al Dios del cielo
+Que siempre te acompañe en tu camino.
+Sé que no es nada fácil despedirse
+Pero en mi oración yo iré contigo
+Para que no decaigas en tus fuerzas
+Hasta volver a vernos, Misionero.
+
+Coro:
+Cuando te sientas triste y no tengas el consuelo
+No te olvides que te espera una Corona, allá en los cielos;
+Ve y siembra la Palabra, habla al mundo de lo eterno
+Y que Dios cuide tu alma, no te calles Misionero.
+
+II
+Muy largo es el camino Misionero
+Pero la Unción de Dios será tu guía,
+No olvides que hay un pueblo que te espera
+Que lleves el mensaje de la Vida.
+Aquí estaré esperando tu regreso
+Para escuchar de Dios las maravillas,
+Dirás que la palabra fue sembrada,
+Que ha sido germinada la semilla.
+
+Final:
+Cuando te sientas triste y no tengas el consuelo
+No te olvides que te espera una Corona, Misionero."""
+        ),
+        Hymn(
+            id = 434,
+            title = "Aquella Luz",
+            link = "",
+            author = "Conjunto Villanueva",
+            content = """I
+De andar cansado con mi vida sin destino,
+Tanto buscar lo que este mundo no me dio
+//Era una sombra, nada más, sin un camino por andar
+El alma triste y en mis espaldas el pecado//
+Pero un buen día oí una voz que me hablaba:
+“Yo Soy Jesús que tanto tiempo te esperó,
+No llores mas, Yo Soy la luz que tú buscabas”,
+Bellas palabras que llenó mi corazón.
+
+Coro:
+Y aquella luz que a este mundo descendió
+Llegó a mí enterrando mi pasado;
+Lo más Sublime del cielo está aquí,
+Él Vive en mí, su poder me levantó.
+
+II
+Oh ven amigo si tú quieres, ven conmigo
+Que un Gran amigo yo te quiero presentar
+//El es Jesús mi hermano fiel, no hay otro amigo como él
+Te da su mano, no te deja en el camino//
+Y si le quieres escuchar hoy Él te llama,
+Ven a Jesús, toda tu vida cambiará
+No tardes más que pronto llega la mañana
+Dentro de tu alma vivirás con la verdad.
+
+Final:
+//Él Vive en mi, su poder me levantó//
+Él Vive en mi, su poder me Perdonó."""
+        ),
+        Hymn(
+            id = 435,
+            title = "Caleb",
+            link = "",
+            author = "Conjunto Villanueva",
+            content = """I
+Joven valiente era Caleb,
+Puesto los ojos en Dios pudo ver
+La tierra que Dios prometió al gran Moisés,
+Tierra de fruto y riquezas para Israel.
+Y aunque vio los gigantes allí
+El creyó que el poder de Dios iba a Vencer,
+Recordó que el mar Rojo se abrió por orden de Él;
+De regreso y el fruto en sus manos
+Irrumpe en el pueblo y habla a gran voz:
+“No temáis, que Jehová es con nosotros y la tierra nos dio”.
+
+Coro I:
+Esto es para ti, tierra de bendición
+Porque cumpliste y confiaste en Aquel que te libertó;
+Y aunque el tiempo pasó, su palabra él le dio
+Y aunque ya viejo su fuerza está intacta
+Porque Él es su Dios, es nuestro Dios.
+
+II
+¿Quieres también tus gigantes vencer?
+Puesto los ojos en Dios podrás ver
+Que años pasaron y digan no sé,
+Se terminó tu carrera, ya no eres aquel.
+Y aunque sé que hay gigantes allí
+Tengo fuerzas del cielo y quiero seguir,
+Confiaré en mi Dios que de una roca agua hizo fluir;
+Que al final Él me espera y el fruto en mis manos,
+A mi Dios yo le entregaré
+Y el dirá: “lo que ves con Mi Sangre, por ti lo compré”.
+
+Coro II:
+El cielo es para ti y es de Valientes seguir,
+Nada te impida abrazar tu Corona y el rostro mirar
+De Quien por ti en la cruz tu vida quiso salvar,
+Y de escuchar: “Benditos del Padre, aquí hay lugar;
+///Venid y entrad”///"""
+        ),
+        Hymn(
+            id = 436,
+            title = "Yo en Ellos",
+            link = "",
+            author = "Conjunto Villanueva",
+            content = """I
+Ora Jesús con sus ojos al cielo por ellos:
+“Eran del mundo y Tú me los diste a Mí,
+Toda verdad que me diste Yo les he dado
+Quiero mi Dios que sean uno, como Tú y Yo”.
+“Yo ruego mi Dios por los que me diste
+Quiero que ellos se amen como Yo los amé,
+Ellos están en el mundo porque Yo los he enviado,
+Uno en los otros que sean como Tú y Yo”.
+
+Coro:
+“Yo, Yo en ellos, Tú, Tú en Mí,
+Que perfecta unidad y este mundo sabrá
+Que me enviaste y a ellos amaste”.
+“Yo, Yo en ellos, Tú, Tú en Mí
+Porque donde yo estoy quiero que ellos estén
+Y Mi Gloria, todos puedan ver”.
+
+II
+Somos el fruto de siervos que fueron Valientes
+Porque se amaron, se unieron, ellos triunfaron
+Para ver una Iglesia encendida hay que unirse hermanos
+Y el mundo verá el gran amor que Jesús nos ha dado.
+Ama, perdona y olvida que hemos sido llamados
+A integrar este ejército en orden que Jesús ha formado,
+Si logramos tener la unidad ya hemos ganado
+Y aquello que el Padre pidió, hoy se ha logrado.
+
+Final:
+“Yo, Yo en ellos, Tú, Tú en Mí,
+///La perfecta unidad”///"""
+        ),
+        Hymn(
+            id = 437,
+            title = "De Tal Manera",
+            link = "",
+            author = "Conjunto Villanueva",
+            content = """Dios de tal manera
+Al mundo lo amó
+Que a Su Hijo Amado
+A morir lo entregó.
+Dios de tal manera
+Al mundo lo amó
+Que a Su Hijo Amado
+A morir lo entregó.
+//Para que los que crean
+Jamás se pierdan,
+Salvación y perdón,
+Vida eterna tendrán//
+//Vida eterna tendrán//"""
         )
     )
 }
