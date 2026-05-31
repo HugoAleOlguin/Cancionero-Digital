@@ -9408,8 +9408,7 @@ Coro II:
 Fue un carro de fuego que allí
 Desde el cielo bajó con Poder
 //Pero el manto quedó y las aguas golpeó
-Y el Jordán dividido quedó//
-"""
+Y el Jordán dividido quedó//"""
         ),
         Hymn(
             id = 399,
@@ -9822,8 +9821,7 @@ Que tengo una morada en el cielo para ti”.
 “Paloma Mía que en la peña escondida estas
 Desciende hasta mi huerto hoy contigo quiero hablar;
 Muéstrame tu rostro, tu voz quiero escuchar,
-Porque tu voz es Dulce y tu aspecto sin igual”.
-"""
+Porque tu voz es Dulce y tu aspecto sin igual”."""
         ),
         Hymn(
             id = 410,
@@ -10246,6 +10244,261 @@ Todo lo que respira Alabe a Dios,
 Todo lo que respira Alabe al Señor.
 //Alabadle, Alabadle a Dios//
 Aleluya, Aleluya, Amén."""
+        ),
+        Hymn(
+            id = 422,
+            title = "Yo te Pido",
+            link = "",
+            author = "Conjunto de Salta",
+            content = """I
+Yo te pido Señor de los cielos
+Que bendigas a todos aquellos
+Que llevando van por este mundo
+//El mensaje de la Salvación//
+Tu Palabra lo dice bien claro
+Que todos aquellos de limpio corazón
+Recompensa tendrán en los cielos
+//Si luchando por Tu causa van//
+
+Coro:
+Ya los tiempos están avisando
+Que Tu venida se acerca Señor,
+Por favor mi Señor yo te pido
+//Que los guardes por siempre del mal//
+
+II
+Fortalece Señor a los fieles
+Que limpiaron su vida con Tu Sangre,
+Yo los amo con amor eterno
+//Ellos son mis hermanos Señor//"""
+        ),
+        Hymn(
+            id = 423,
+            title = "Yo Quiero estar Allá",
+            link = "",
+            author = "Conjunto de Salta",
+            content = """I
+Cuando venga el Señor de los cielos
+A la tierra Su iglesia a buscar
+//Los que aquí siempre le fueron fieles
+Por los siglos irán a gozar//
+
+Coro:
+Yo quiero estar allá,
+Quiero con Cristo Reinar
+Y para siempre gozar
+//De su inmenso amor sin igual//
+
+II
+Ya se cumplen las Santas Palabras
+Que el Señor Jesucristo dejo
+//Se escuchan rumores de guerra
+Y el hambre y la ciencia aumento//
+
+III
+Se levantan hoy falsos profetas,
+La maldad ya se multiplicó
+//Mas el que hasta el fin persevere
+Vida eterna in los cielos tendrá//"""
+        ),
+        Hymn(
+            id = 424,
+            title = "Oh Gloria Aleluya",
+            link = "",
+            author = "Conjunto de Salta",
+            content = """I
+//Inmaculado es el Cordero,
+Es el Cordero, el Cordero de Dios//
+El es el Santo, Él es sin manchas,
+Él es el Cristo por eso es el Señor.
+
+Coro:
+///Oh Gloria Aleluya///
+Al Bendito Cordero de Dios
+Que Dios el Padre Jehová nos lego.
+
+Recitado:
+A Ti, a ti Señor, el Santo de Israel. Admirable, Consejero, y Príncipe,
+Príncipe de paz.
+
+II
+//Coronas de oro luce su frente blanca
+Si su mano el levanta, la tierra es un temblor//
+El es el Santo, Él es sin manchas,
+Él es el Cristo por eso es el Señor."""
+        ),
+        Hymn(
+            id = 425,
+            title = "Yo contigo Estoy",
+            link = "",
+            author = "Conjunto de Salta",
+            content = """I
+Salió Jacob de Beerseba y fue camino hacia Canaán,
+Cuando el día declinaba en un lugar quiso descansar
+Entonces muy fatigado se acostó y allí durmió
+Y soñó, he aquí:
+Entre el cielo y la tierra una escalera estaba en pie
+Y en lo alto estaba Dios
+El Cual le hablo y le dijo así:
+
+Coro I:
+“Yo Soy el Dios de Abraham,
+De tu padre Isaac,
+La tierra donde estas te la daré a ti”.
+“Yo contigo estoy, nunca te dejaré
+Donde quiera que vas
+Siempre te guardaré”.
+
+Recitado:
+Y despertando, despertando Jacob de su sueño, se levanto de mañana y
+tomo la piedra que había puesto de cabecera y la alzo por señal diciendo:
+“Ciertamente Jehová esta en este lugar y yo no lo sabía; cuan terrible es
+ete lugar, no es otra cosa que Casa de Dios y puerta, puerta del cielo”.
+
+II
+Hermano si muy cansado en el camino te encuentras tu
+El día va declinando y ya la noche llegando esta
+Y ha llegado a tu vida un profundo sueño espiritual.
+He aquí el Señor espera con brazos tiernos
+Y su descanso te quiere dar;
+Escucha su voz de amor
+Que en la dura prueba te dice así:
+
+Coro II:
+//“Yo contigo estoy, nunca te dejaré
+Donde quiera que vas
+Siempre te guardaré”//"""
+        ),
+        Hymn(
+            id = 426,
+            title = "Yo te Canto mi Jesús",
+            link = "",
+            author = "Conjunto de Salta",
+            content = """I
+Hoy muy triste y agobiado he llegado oh Señor
+Con dolor en mi corazón.
+Pero tú con amor me esperabas al entrar
+Fue tu paz que quitó mi aflicción
+Y alegre yo te canto y elevo mi canción
+Hasta el trono donde estas oh Señor.
+
+Coro:
+Solo hay en mi alma una inmensa felicidad
+Y un deseo de alabarte oh Señor.
+Yo te canto mi Jesús con todo mi corazón
+La canción que en tu amor me diste hoy.
+
+II
+Si muy triste y agobiado has llegado ante Dios
+Con dolor en tu corazón;
+Deja hoy tus tristezas y pesares a sus pies
+Y escucha Su Palabra de amor;
+El te dice: “Ven a Mi si cargado tu estas”
+Solo en él dulce paz hallarás."""
+        ),
+        Hymn(
+            id = 427,
+            title = "Hosanna",
+            link = "",
+            author = "Conjunto de Salta",
+            content = """Presentación:
+Cuando llegaban ya cerca de la bajada del monte de los Olivos, toda la
+multitud de los discípulos gozándose comenzó a alabar a Dios a grandes
+voces por todas las maravillas que habían visto diciendo: “Bendito el Rey
+que viene en el Nombre del Señor, paz en el cielo y Gloria, Gloria en las
+alturas”.
+
+I
+Mantos y palmas desplegando van
+Alegre el pueblo de Jerusalén
+Ya a lo lejos se comienza a ver
+A Jesucristo que llegando esta.
+
+Coro:
+Y mientras mil voces resuenan por allí
+“Hosanna al que viene en el Nombre del Señor”
+Y como un estruendo de grata aclamación
+Prorrumpen en voz Triunfal:
+//“Hosanna, Hosanna al Rey//
+
+II
+Como a la entrada de Jerusalén
+Un día nosotros vamos a cantar
+A Jesucristo que vendrá otra vez
+Para llevarnos a Su eterno hogar."""
+        ),
+        Hymn(
+            id = 428,
+            title = "Debería ser yo",
+            link = "",
+            author = "Conjunto de Salta",
+            content = """I
+A veces paro a pensar en la cruz,
+In lo que hizo mi amado Jesús,
+En cuantas veces me detuve en el camino
+Y hasta pensé en abandonar mi cruz.
+Y olvido la corona de espinas
+Y la esponja con vinagre que le dieron a beber
+Que siendo injustamente acusado
+Podría haber renunciado más lo hizo por mí.
+
+Coro:
+Debería ser yo mas Jesús lo prefirió
+Y al calvario subió, el culpable soy yo
+Pero él lo asumió.
+Debería ser yo mas él no claudicó
+Y paso a paso la llevó, mi cruz él sufrió,
+Por mí allí murió.
+
+II
+Yo suelo oír a aquel soldado diciendo:
+“¿Sera que es el Rey de los judíos?”
+Él le responde así: “tu lo has dicho”,
+La tierra entonces se estremeció.
+A veces, cuando estoy atribulado
+Olvido los latigazos que le dieron a Jesús,
+No, yo no soportaría sufrir tanto así
+Más él lo resistió."""
+        ),
+        Hymn(
+            id = 429,
+            title = "Por un Camino",
+            link = "",
+            author = "Conjunto de Salta",
+            content = """I
+Por un camino de inmenso dolor
+Muy maltratado va el Hijo de Dios
+Sobre sus hombros cargando una cruz
+Siendo Inocente sus labios no abrió;
+Gotas de Sangre su rostro cubrió
+Por las espinas que el hombre tejió
+Burlas, desprecio y golpes sufrió
+Más de sus ojos fluía el amor.
+
+Coro I:
+¡Oh que dolor, oh que dolor!
+//Cuando sufría por mí el Salvador//
+
+Recitado:
+Solo, solo y triste a la cumbre llegó, allí, allí crucificaron al Hijo de Dios en
+sus vestidos, en sus vestidos suertes se hecho, la profecía así se cumplió
+entre ladrones colgado quedó; “Rey de los judíos” allí se escribió, el sol
+radiante perdió su esplendor y densas tinieblas la tierra, la tierra cubrió.
+
+II
+Muy de mañana vinieron a ver
+Unas mujeres la tumba del Rey
+Mas ese día la tierra tembló
+Porque del cielo un ángel llegó;
+Con vestiduras de gran resplandor
+Habló y les dijo: “no tengan temor”
+“Sé que buscáis a Jesús el Señor
+El no está aquí pues la muerte Venció”.
+
+Coro II:
+¡Resucitó, Resucitó!
+//Y a la diestra del Padre se sentó//
+¡Resucitó, Aleluya!"""
         )
     )
 }
