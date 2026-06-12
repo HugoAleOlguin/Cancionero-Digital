@@ -156,43 +156,21 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         return 0
     }
 
-    private val _recentSearches = MutableStateFlow<List<String>>(emptyList())
-    val recentSearches = _recentSearches.asStateFlow()
 
-
-
-    private fun loadRecentSearches() {
-        val raw = sharedPreferences.getString("recent_searches", "") ?: ""
-        if (raw.isNotEmpty()) {
-            _recentSearches.value = raw.split("|").filter { it.isNotEmpty() }
-        } else {
-            _recentSearches.value = emptyList()
-        }
-    }
-
-    fun addRecentSearch(query: String) {
-        val trimmed = query.trim()
-        if (trimmed.isEmpty()) return
-        val current = _recentSearches.value.toMutableList()
-        current.remove(trimmed)
-        current.add(0, trimmed)
-        if (current.size > 5) {
-            current.removeAt(current.size - 1)
-        }
-        _recentSearches.value = current
-        sharedPreferences.edit().putString("recent_searches", current.joinToString("|")).apply()
-    }
-
-    fun clearRecentSearches() {
-        _recentSearches.value = emptyList()
-        sharedPreferences.edit().remove("recent_searches").apply()
-    }
 
     private val _searchQuery = MutableStateFlow("")
     val searchQuery = _searchQuery.asStateFlow()
 
     private val _readerFontSize = MutableStateFlow(18f)
     val readerFontSize = _readerFontSize.asStateFlow()
+
+    private val _fontFamilyType = MutableStateFlow("Serif")
+    val fontFamilyType = _fontFamilyType.asStateFlow()
+
+    fun setFontFamilyType(type: String) {
+        _fontFamilyType.value = type
+        sharedPreferences.edit().putString("font_family_type", type).apply()
+    }
 
     private val _currentScreen = MutableStateFlow(ScreenType.ALL)
     val currentScreen = _currentScreen.asStateFlow()
@@ -224,25 +202,12 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     val scrollToItemEvent = _scrollToItemEvent.asStateFlow()
 
     init {
-        loadRecentSearches()
-        
+        _fontFamilyType.value = sharedPreferences.getString("font_family_type", "Serif") ?: "Serif"
         viewModelScope.launch {
             favoriteRepository.favoriteHymnIds.collect { ids ->
                 _favoriteHymnIds.value = ids.toSet()
                 recalculateFilteredHymns()
             }
-        }
-
-        viewModelScope.launch {
-            _searchQuery
-                .debounce(1500)
-                .map { it.trim().normalize() }
-                .distinctUntilChanged()
-                .collect { query ->
-                    if (query.length >= 3 && _filteredHymns.value.isNotEmpty()) {
-                        addRecentSearch(query)
-                    }
-                }
         }
     }
 
@@ -460,6 +425,12 @@ fun HymnApp(viewModel: MainViewModel = viewModel()) {
 fun HymnFeedScreen(viewModel: MainViewModel) {
     val searchQuery by viewModel.searchQuery.collectAsState()
     val readerFontSize by viewModel.readerFontSize.collectAsState()
+    val fontFamilyType by viewModel.fontFamilyType.collectAsState()
+    val readerFontFamily = when (fontFamilyType) {
+        "SansSerif" -> FontFamily.SansSerif
+        "Monospace" -> FontFamily.Monospace
+        else -> FontFamily.Serif
+    }
     val hymns by viewModel.filteredHymns.collectAsState()
     val globalMatches by viewModel.globalMatches.collectAsState()
     val currentMatchIndex by viewModel.currentMatchIndex.collectAsState()
@@ -727,6 +698,29 @@ fun HymnFeedScreen(viewModel: MainViewModel) {
                                     color = textPrimaryColor
                                 )
                             }
+                            TextButton(
+                                onClick = {
+                                    val nextFont = when (fontFamilyType) {
+                                        "Serif" -> "SansSerif"
+                                        "SansSerif" -> "Monospace"
+                                        else -> "Serif"
+                                    }
+                                    viewModel.setFontFamilyType(nextFont)
+                                },
+                                modifier = Modifier.height(28.dp),
+                                contentPadding = PaddingValues(horizontal = 4.dp)
+                            ) {
+                                Text(
+                                    text = when (fontFamilyType) {
+                                        "SansSerif" -> "Sans"
+                                        "Monospace" -> "Mono"
+                                        else -> "Serif"
+                                    },
+                                    fontSize = 11.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = textPrimaryColor
+                                )
+                            }
                         }
                     }
                     
@@ -855,57 +849,7 @@ fun HymnFeedScreen(viewModel: MainViewModel) {
                         }
                     }
 
-                    // Recent Searches Chips
-                    val recentSearches by viewModel.recentSearches.collectAsState()
-                    if (searchQuery.isEmpty() && recentSearches.isNotEmpty()) {
-                        Spacer(modifier = Modifier.height(8.dp))
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(horizontal = 4.dp),
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.spacedBy(6.dp)
-                        ) {
-                            Text(
-                                text = "Recientes:",
-                                fontSize = 11.sp,
-                                color = textSecondaryColor,
-                                fontWeight = FontWeight.Bold
-                            )
-                            LazyRow(
-                                horizontalArrangement = Arrangement.spacedBy(6.dp),
-                                modifier = Modifier.weight(1f)
-                            ) {
-                                items(recentSearches.size) { idx ->
-                                    val term = recentSearches[idx]
-                                    Box(
-                                        modifier = Modifier
-                                            .background(searchBarBackground, shape = RoundedCornerShape(12.dp))
-                                            .clickable { viewModel.updateSearchQuery(term) }
-                                            .padding(horizontal = 10.dp, vertical = 4.dp)
-                                    ) {
-                                        Text(
-                                            text = term,
-                                            fontSize = 10.sp,
-                                            color = textPrimaryColor,
-                                            fontWeight = FontWeight.Medium
-                                        )
-                                    }
-                                }
-                            }
-                            IconButton(
-                                onClick = { viewModel.clearRecentSearches() },
-                                modifier = Modifier.size(18.dp)
-                            ) {
-                                Icon(
-                                    imageVector = Icons.Default.Delete,
-                                    contentDescription = "Borrar historial",
-                                    tint = textSecondaryColor.copy(alpha = 0.6f),
-                                    modifier = Modifier.size(12.dp)
-                                )
-                            }
-                        }
-                    }
+
                 }
             }
 
@@ -966,6 +910,7 @@ fun HymnFeedScreen(viewModel: MainViewModel) {
                         FeedHymnCard(
                             searchableHymn = item,
                             fontSize = readerFontSize,
+                            fontFamily = readerFontFamily,
                             searchQuery = searchQuery,
                             globalMatches = globalMatches,
                             currentMatchIndex = currentMatchIndex,
@@ -1124,6 +1069,7 @@ fun buildHighlightedText(
 fun FeedHymnCard(
     searchableHymn: SearchableHymn,
     fontSize: Float,
+    fontFamily: FontFamily = FontFamily.Serif,
     searchQuery: String,
     globalMatches: List<MatchOccurrence>,
     currentMatchIndex: Int,
@@ -1181,15 +1127,15 @@ fun FeedHymnCard(
                         color = textPrimary,
                         fontWeight = FontWeight.Bold,
                         fontSize = 14.sp,
-                        fontFamily = FontFamily.Serif
+                        fontFamily = fontFamily
                     )
                     if (hymn.author.isNotEmpty()) {
                         Text(
-                            text = "Autor: ${hymn.author}",
+                            text = hymn.author,
                             color = textSecondary,
                             fontSize = 11.sp,
                             fontWeight = FontWeight.Normal,
-                            fontFamily = FontFamily.Serif,
+                            fontFamily = fontFamily,
                             modifier = Modifier.padding(top = 2.dp)
                         )
                     }
@@ -1341,7 +1287,7 @@ fun FeedHymnCard(
                             fontSize = fontSize.sp,
                             textAlign = TextAlign.Center,
                             lineHeight = (fontSize * 1.55f).sp,
-                            fontFamily = FontFamily.Serif,
+                            fontFamily = fontFamily,
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(vertical = 4.dp)

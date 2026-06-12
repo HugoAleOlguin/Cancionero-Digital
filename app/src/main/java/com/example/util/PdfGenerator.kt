@@ -172,7 +172,7 @@ object PdfGenerator {
                 val displayTitle = "${hymn.id} - ${hymn.title.uppercase()}"
                 if (hymn.author.isNotEmpty()) {
                     canvas.drawText(displayTitle, pageWidth / 2f, marginY + 20f, paintTitle)
-                    canvas.drawText("Autor: ${hymn.author}", pageWidth / 2f, marginY + 38f, paintAuthor)
+                    canvas.drawText(hymn.author, pageWidth / 2f, marginY + 38f, paintAuthor)
                 } else {
                     canvas.drawText(displayTitle, pageWidth / 2f, marginY + 25f, paintTitle)
                 }
@@ -217,7 +217,7 @@ object PdfGenerator {
             
             // Pie de Página - Separador y Numeración real "X de Y"
             canvas.drawLine(marginX, pageHeight - 54f, pageWidth - marginX, pageHeight - 54f, paintDivider)
-            canvas.drawText("$pageIndex de $totalPages", pageWidth / 2f, pageHeight - 38f, paintHeaderFooter)
+            canvas.drawText("cuadernillo digital  |  $pageIndex de $totalPages", pageWidth / 2f, pageHeight - 38f, paintHeaderFooter)
             
             pdfDocument.finishPage(page)
         }
