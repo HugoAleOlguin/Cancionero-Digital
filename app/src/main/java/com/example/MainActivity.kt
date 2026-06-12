@@ -54,6 +54,8 @@ import kotlinx.coroutines.launch
 import android.content.Context
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.geometry.Offset
@@ -94,7 +96,8 @@ data class SearchableHymn(
     val hymn: com.example.data.Hymn,
     val normalizedTitle: String,
     val normalizedContent: String,
-    val splitStanzas: List<String>
+    val splitStanzas: List<String>,
+    val normalizedAuthor: String
 )
 
 // Represents a unique occurrence of a searched term
@@ -185,8 +188,23 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             hymn = hymn,
             normalizedTitle = displayTitle.normalize(),
             normalizedContent = hymn.content.normalize(),
-            splitStanzas = hymn.content.split("\n\n")
+            splitStanzas = hymn.content.split("\n\n"),
+            normalizedAuthor = hymn.author.normalize()
         )
+    }
+
+    val availableAuthors: List<String> = HymnDataProvider.hymns
+        .map { it.author }
+        .filter { it.isNotEmpty() }
+        .distinct()
+        .sorted()
+
+    private val _selectedAuthor = MutableStateFlow<String?>(null)
+    val selectedAuthor = _selectedAuthor.asStateFlow()
+
+    fun setSelectedAuthor(author: String?) {
+        _selectedAuthor.value = author
+        recalculateFilteredHymns()
     }
 
     private val _filteredHymns = MutableStateFlow<List<SearchableHymn>>(searchableHymns)
@@ -236,6 +254,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         val query = _searchQuery.value
         val screen = _currentScreen.value
         val favorites = _favoriteHymnIds.value
+        val author = _selectedAuthor.value
 
         val trimmedQuery = query.trim().normalize()
         
@@ -256,13 +275,21 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             hymnsSource
         }
 
+        // Apply author filter
+        val authorFiltered = if (author != null) {
+            screenFiltered.filter { it.hymn.author == author }
+        } else {
+            screenFiltered
+        }
+
         // Apply search query filter
         val finalFiltered = if (trimmedQuery.isEmpty()) {
-            screenFiltered
+            authorFiltered
         } else {
-            screenFiltered.filter { item ->
+            authorFiltered.filter { item ->
                 item.hymn.id.toString() == trimmedQuery ||
                         item.normalizedTitle.contains(trimmedQuery) ||
+                        item.normalizedAuthor.contains(trimmedQuery) ||
                         item.normalizedContent.contains(trimmedQuery)
             }
         }
@@ -438,6 +465,8 @@ fun HymnFeedScreen(viewModel: MainViewModel) {
     val isDarkMode by viewModel.isDarkMode.collectAsState()
     val currentScreen by viewModel.currentScreen.collectAsState()
     val favoritesSet by viewModel.favoriteHymnIds.collectAsState()
+    val selectedAuthor by viewModel.selectedAuthor.collectAsState()
+    val availableAuthors = viewModel.availableAuthors
     
     val initialIndex = remember { viewModel.getLastViewedHymnIndex() }
     val lazyListState = rememberLazyListState(initialFirstVisibleItemIndex = initialIndex)
@@ -485,118 +514,283 @@ fun HymnFeedScreen(viewModel: MainViewModel) {
                 drawerContentColor = textPrimaryColor,
                 modifier = Modifier.width(280.dp).testTag("navigation_drawer")
             ) {
-                Spacer(modifier = Modifier.height(16.dp))
-                // Header with Logo and Name
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 20.dp, vertical = 16.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(12.dp)
-                ) {
-                    AppLogo(
-                        isDarkMode = isDarkMode,
-                        modifier = Modifier.size(44.dp)
-                    )
-                    Text(
-                        text = "Cuadernillo\nDigital",
-                        fontSize = 18.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = textPrimaryColor,
-                        fontFamily = FontFamily.Serif,
-                        lineHeight = 22.sp
-                    )
-                }
-                
-                Spacer(modifier = Modifier.height(12.dp))
-                HorizontalDivider(color = dividerColor, thickness = 0.5.dp, modifier = Modifier.padding(horizontal = 16.dp))
-                Spacer(modifier = Modifier.height(12.dp))
-                
-                // Navigation Tiles
-                NavigationDrawerItem(
-                    icon = { LibraryBooksIcon(tint = if (currentScreen == ScreenType.ALL) GoldenMain else textSecondaryColor) },
-                    label = { Text("Todas las Alabanzas", fontWeight = FontWeight.Bold) },
-                    selected = currentScreen == ScreenType.ALL,
-                    colors = NavigationDrawerItemDefaults.colors(
-                        selectedContainerColor = if (isDarkMode) Color(0xFF2E2D2A) else Color(0xFFFBF8EE),
-                        selectedTextColor = if (isDarkMode) Color.White else JetCarbon,
-                        unselectedTextColor = textSecondaryColor,
-                        selectedIconColor = GoldenMain,
-                        unselectedIconColor = textSecondaryColor
-                    ),
-                    onClick = {
-                        scope.launch { drawerState.close() }
-                        viewModel.updateSearchQuery("")
-                        viewModel.setScreen(ScreenType.ALL)
-                    },
-                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 4.dp).testTag("drawer_menu_all")
-                )
+                Column(modifier = Modifier.fillMaxSize()) {
+                    // --- 1. FIXED HEADER ---
+                    Spacer(modifier = Modifier.height(16.dp))
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = 20.dp, vertical = 16.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(12.dp)
+                    ) {
+                        AppLogo(
+                            isDarkMode = isDarkMode,
+                            modifier = Modifier.size(44.dp)
+                        )
+                        Text(
+                            text = "Cuadernillo\nDigital",
+                            fontSize = 18.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = textPrimaryColor,
+                            fontFamily = FontFamily.Serif,
+                            lineHeight = 22.sp
+                        )
+                    }
+                    
+                    Spacer(modifier = Modifier.height(4.dp))
+                    HorizontalDivider(color = dividerColor, thickness = 0.5.dp, modifier = Modifier.padding(horizontal = 16.dp))
+                    Spacer(modifier = Modifier.height(8.dp))
+                    
+                    // --- 2. SCROLLABLE MIDDLE CONTENT ---
+                    Column(
+                        modifier = Modifier
+                            .weight(1f)
+                            .verticalScroll(rememberScrollState())
+                    ) {
+                        // Main Navigation Items
+                        NavigationDrawerItem(
+                            icon = { LibraryBooksIcon(tint = if (currentScreen == ScreenType.ALL && selectedAuthor == null) GoldenMain else textSecondaryColor) },
+                            label = { Text("Todas las Alabanzas", fontWeight = FontWeight.Bold) },
+                            selected = currentScreen == ScreenType.ALL && selectedAuthor == null,
+                            colors = NavigationDrawerItemDefaults.colors(
+                                selectedContainerColor = if (isDarkMode) Color(0xFF2E2D2A) else Color(0xFFFBF8EE),
+                                selectedTextColor = if (isDarkMode) Color.White else JetCarbon,
+                                unselectedTextColor = textSecondaryColor,
+                                selectedIconColor = GoldenMain,
+                                unselectedIconColor = textSecondaryColor
+                            ),
+                            onClick = {
+                                scope.launch { drawerState.close() }
+                                viewModel.updateSearchQuery("")
+                                viewModel.setSelectedAuthor(null)
+                                viewModel.setScreen(ScreenType.ALL)
+                            },
+                            modifier = Modifier.padding(horizontal = 12.dp, vertical = 4.dp).testTag("drawer_menu_all")
+                        )
 
-                NavigationDrawerItem(
-                    icon = { 
-                        Icon(
-                            imageVector = Icons.Default.Star, 
-                            contentDescription = "Mis Favoritos",
-                            tint = if (currentScreen == ScreenType.FAVORITES) GoldenMain else textSecondaryColor,
-                            modifier = Modifier.size(24.dp)
-                        ) 
-                    },
-                    label = { 
-                        Row(
-                            horizontalArrangement = Arrangement.SpaceBetween,
-                            verticalAlignment = Alignment.CenterVertically,
-                            modifier = Modifier.fillMaxWidth()
-                        ) {
-                            Text("Mis Favoritos", fontWeight = FontWeight.Bold)
-                            // Badge with count of favorites
-                            Surface(
-                                shape = CircleShape,
-                                color = if (currentScreen == ScreenType.FAVORITES) GoldenMain else dividerColor,
-                                contentColor = if (currentScreen == ScreenType.FAVORITES) Color.White else textSecondaryColor,
-                                modifier = Modifier.size(24.dp)
+                        NavigationDrawerItem(
+                            icon = { 
+                                Icon(
+                                    imageVector = Icons.Default.Star, 
+                                    contentDescription = "Mis Favoritos",
+                                    tint = if (currentScreen == ScreenType.FAVORITES) GoldenMain else textSecondaryColor,
+                                    modifier = Modifier.size(24.dp)
+                                ) 
+                            },
+                            label = { 
+                                Row(
+                                    horizontalArrangement = Arrangement.SpaceBetween,
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    modifier = Modifier.fillMaxWidth()
+                                ) {
+                                    Text("Mis Favoritos", fontWeight = FontWeight.Bold)
+                                    Surface(
+                                        shape = CircleShape,
+                                        color = if (currentScreen == ScreenType.FAVORITES) GoldenMain else dividerColor,
+                                        contentColor = if (currentScreen == ScreenType.FAVORITES) Color.White else textSecondaryColor,
+                                        modifier = Modifier.size(24.dp)
+                                    ) {
+                                        Box(
+                                            contentAlignment = Alignment.Center,
+                                            modifier = Modifier.fillMaxSize()
+                                        ) {
+                                            Text(
+                                                text = favoritesSet.size.toString(),
+                                                fontSize = 10.sp,
+                                                fontWeight = FontWeight.Bold
+                                            )
+                                        }
+                                    }
+                                }
+                            },
+                            selected = currentScreen == ScreenType.FAVORITES,
+                            colors = NavigationDrawerItemDefaults.colors(
+                                selectedContainerColor = if (isDarkMode) Color(0xFF2E2D2A) else Color(0xFFFBF8EE),
+                                selectedTextColor = if (isDarkMode) Color.White else JetCarbon,
+                                unselectedTextColor = textSecondaryColor,
+                                selectedIconColor = GoldenMain,
+                                unselectedIconColor = textSecondaryColor
+                            ),
+                            onClick = {
+                                scope.launch { drawerState.close() }
+                                viewModel.updateSearchQuery("")
+                                viewModel.setSelectedAuthor(null)
+                                viewModel.setScreen(ScreenType.FAVORITES)
+                            },
+                            modifier = Modifier.padding(horizontal = 12.dp, vertical = 4.dp).testTag("drawer_menu_favorites")
+                        )
+
+                        Spacer(modifier = Modifier.height(16.dp))
+                        HorizontalDivider(color = dividerColor, thickness = 0.5.dp, modifier = Modifier.padding(horizontal = 16.dp))
+                        Spacer(modifier = Modifier.height(12.dp))
+
+                        // SECTION: CANTOS POR AUTOR
+                        Text(
+                            text = "CANTOS POR AUTOR",
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = textSecondaryColor.copy(alpha = 0.8f),
+                            modifier = Modifier.padding(horizontal = 24.dp, vertical = 4.dp),
+                            letterSpacing = 0.8.sp
+                        )
+
+                        availableAuthors.forEach { author ->
+                            val isSelected = selectedAuthor == author
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(horizontal = 16.dp, vertical = 2.dp)
+                                    .background(
+                                        color = if (isSelected) {
+                                            if (isDarkMode) Color(0xFF2E2D2A) else Color(0xFFFBF8EE)
+                                        } else {
+                                            Color.Transparent
+                                        },
+                                        shape = RoundedCornerShape(8.dp)
+                                    )
+                                    .clickable {
+                                        scope.launch { drawerState.close() }
+                                        viewModel.updateSearchQuery("")
+                                        viewModel.setSelectedAuthor(author)
+                                        viewModel.setScreen(ScreenType.ALL)
+                                    }
+                                    .padding(horizontal = 16.dp, vertical = 10.dp),
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.spacedBy(10.dp)
                             ) {
-                                Box(
-                                    contentAlignment = Alignment.Center,
-                                    modifier = Modifier.fillMaxSize()
+                                Icon(
+                                    imageVector = Icons.Default.Person,
+                                    contentDescription = null,
+                                    tint = if (isSelected) GoldenMain else textSecondaryColor.copy(alpha = 0.6f),
+                                    modifier = Modifier.size(18.dp)
+                                )
+                                Text(
+                                    text = author,
+                                    fontSize = 13.sp,
+                                    fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Medium,
+                                    color = if (isSelected) {
+                                        if (isDarkMode) Color.White else JetCarbon
+                                    } else {
+                                        textPrimaryColor.copy(alpha = 0.9f)
+                                    }
+                                )
+                            }
+                        }
+
+                        Spacer(modifier = Modifier.height(16.dp))
+                        HorizontalDivider(color = dividerColor, thickness = 0.5.dp, modifier = Modifier.padding(horizontal = 16.dp))
+                        Spacer(modifier = Modifier.height(12.dp))
+
+                        // SECTION: AJUSTES DE LECTURA (Dropdown selector de tipografía)
+                        Text(
+                            text = "AJUSTES DE LECTURA",
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = textSecondaryColor.copy(alpha = 0.8f),
+                            modifier = Modifier.padding(horizontal = 24.dp, vertical = 4.dp),
+                            letterSpacing = 0.8.sp
+                        )
+
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(horizontal = 24.dp, vertical = 10.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.SpaceBetween
+                        ) {
+                            Text(
+                                text = "Tipo de letra:",
+                                fontSize = 13.sp,
+                                fontWeight = FontWeight.Medium,
+                                color = textPrimaryColor.copy(alpha = 0.9f)
+                            )
+
+                            var fontDropdownExpanded by remember { mutableStateOf(false) }
+
+                            Box {
+                                Row(
+                                    modifier = Modifier
+                                        .background(
+                                            color = if (isDarkMode) Color(0xFF2E2D2A) else Color(0xFFFBF8EE),
+                                            shape = RoundedCornerShape(8.dp)
+                                        )
+                                        .border(
+                                            width = 1.dp,
+                                            color = if (isDarkMode) Color(0xFF424242) else Color(0xFFE2E8F0),
+                                            shape = RoundedCornerShape(8.dp)
+                                        )
+                                        .clickable { fontDropdownExpanded = true }
+                                        .padding(horizontal = 12.dp, vertical = 6.dp),
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.spacedBy(4.dp)
                                 ) {
                                     Text(
-                                        text = favoritesSet.size.toString(),
-                                        fontSize = 10.sp,
-                                        fontWeight = FontWeight.Bold
+                                        text = when (fontFamilyType) {
+                                            "SansSerif" -> "Sans"
+                                            "Monospace" -> "Mono"
+                                            else -> "Serif"
+                                        },
+                                        fontSize = 13.sp,
+                                        fontWeight = FontWeight.Bold,
+                                        color = if (isDarkMode) Color.White else JetCarbon
+                                    )
+                                    Icon(
+                                        imageVector = Icons.Default.ArrowDropDown,
+                                        contentDescription = "Cambiar fuente",
+                                        tint = GoldenMain,
+                                        modifier = Modifier.size(18.dp)
+                                    )
+                                }
+
+                                DropdownMenu(
+                                    expanded = fontDropdownExpanded,
+                                    onDismissRequest = { fontDropdownExpanded = false }
+                                ) {
+                                    DropdownMenuItem(
+                                        text = { Text("Serif", fontFamily = FontFamily.Serif, fontWeight = FontWeight.Bold) },
+                                        onClick = {
+                                            viewModel.setFontFamilyType("Serif")
+                                            fontDropdownExpanded = false
+                                        }
+                                    )
+                                    DropdownMenuItem(
+                                        text = { Text("Sans", fontFamily = FontFamily.SansSerif, fontWeight = FontWeight.Bold) },
+                                        onClick = {
+                                            viewModel.setFontFamilyType("SansSerif")
+                                            fontDropdownExpanded = false
+                                        }
+                                    )
+                                    DropdownMenuItem(
+                                        text = { Text("Mono", fontFamily = FontFamily.Monospace, fontWeight = FontWeight.Bold) },
+                                        onClick = {
+                                            viewModel.setFontFamilyType("Monospace")
+                                            fontDropdownExpanded = false
+                                        }
                                     )
                                 }
                             }
                         }
-                    },
-                    selected = currentScreen == ScreenType.FAVORITES,
-                    colors = NavigationDrawerItemDefaults.colors(
-                        selectedContainerColor = if (isDarkMode) Color(0xFF2E2D2A) else Color(0xFFFBF8EE),
-                        selectedTextColor = if (isDarkMode) Color.White else JetCarbon,
-                        unselectedTextColor = textSecondaryColor,
-                        selectedIconColor = GoldenMain,
-                        unselectedIconColor = textSecondaryColor
-                    ),
-                    onClick = {
-                        scope.launch { drawerState.close() }
-                        viewModel.setScreen(ScreenType.FAVORITES)
-                    },
-                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 4.dp).testTag("drawer_menu_favorites")
-                )
-
-                // Footer centered at the absolute bottom of the drawer sheet
-                Spacer(modifier = Modifier.weight(1f))
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(bottom = 20.dp),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Text(
-                        text = "Versión 2.0",
-                        fontSize = 11.sp,
-                        color = textSecondaryColor.copy(alpha = 0.6f),
-                        textAlign = TextAlign.Center
-                    )
+                        
+                        Spacer(modifier = Modifier.height(16.dp))
+                    }
+                    
+                    HorizontalDivider(color = dividerColor, thickness = 0.5.dp, modifier = Modifier.padding(horizontal = 16.dp))
+                    
+                    // --- 3. FIXED FOOTER ---
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(vertical = 14.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = "Versión 2.5",
+                            fontSize = 11.sp,
+                            color = textSecondaryColor.copy(alpha = 0.6f),
+                            textAlign = TextAlign.Center
+                        )
+                    }
                 }
             }
         }
@@ -694,29 +888,6 @@ fun HymnFeedScreen(viewModel: MainViewModel) {
                                 Text(
                                     "A+",
                                     fontSize = 13.sp,
-                                    fontWeight = FontWeight.Bold,
-                                    color = textPrimaryColor
-                                )
-                            }
-                            TextButton(
-                                onClick = {
-                                    val nextFont = when (fontFamilyType) {
-                                        "Serif" -> "SansSerif"
-                                        "SansSerif" -> "Monospace"
-                                        else -> "Serif"
-                                    }
-                                    viewModel.setFontFamilyType(nextFont)
-                                },
-                                modifier = Modifier.height(28.dp),
-                                contentPadding = PaddingValues(horizontal = 4.dp)
-                            ) {
-                                Text(
-                                    text = when (fontFamilyType) {
-                                        "SansSerif" -> "Sans"
-                                        "Monospace" -> "Mono"
-                                        else -> "Serif"
-                                    },
-                                    fontSize = 11.sp,
                                     fontWeight = FontWeight.Bold,
                                     color = textPrimaryColor
                                 )
