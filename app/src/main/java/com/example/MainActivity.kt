@@ -159,28 +159,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val _recentSearches = MutableStateFlow<List<String>>(emptyList())
     val recentSearches = _recentSearches.asStateFlow()
 
-    init {
-        loadRecentSearches()
-        
-        viewModelScope.launch {
-            favoriteRepository.favoriteHymnIds.collect { ids ->
-                _favoriteHymnIds.value = ids.toSet()
-                recalculateFilteredHymns()
-            }
-        }
 
-        viewModelScope.launch {
-            _searchQuery
-                .debounce(1500)
-                .map { it.trim().normalize() }
-                .distinctUntilChanged()
-                .collect { query ->
-                    if (query.length >= 3 && _filteredHymns.value.isNotEmpty()) {
-                        addRecentSearch(query)
-                    }
-                }
-        }
-    }
 
     private fun loadRecentSearches() {
         val raw = sharedPreferences.getString("recent_searches", "") ?: ""
@@ -245,11 +224,25 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     val scrollToItemEvent = _scrollToItemEvent.asStateFlow()
 
     init {
+        loadRecentSearches()
+        
         viewModelScope.launch {
             favoriteRepository.favoriteHymnIds.collect { ids ->
                 _favoriteHymnIds.value = ids.toSet()
                 recalculateFilteredHymns()
             }
+        }
+
+        viewModelScope.launch {
+            _searchQuery
+                .debounce(1500)
+                .map { it.trim().normalize() }
+                .distinctUntilChanged()
+                .collect { query ->
+                    if (query.length >= 3 && _filteredHymns.value.isNotEmpty()) {
+                        addRecentSearch(query)
+                    }
+                }
         }
     }
 
@@ -424,9 +417,7 @@ val DarkHeaderGradient = listOf(Color(0xFF2C394B), Color(0xFF1B2430)) // Azul no
 
 @Composable
 fun AppLogo(modifier: Modifier = Modifier, isDarkMode: Boolean) {
-    val pageFill = if (isDarkMode) Color.White.copy(alpha = 0.15f) else Color.Black.copy(alpha = 0.05f)
-    val pageOutline = if (isDarkMode) Color.White.copy(alpha = 0.6f) else JetCarbon.copy(alpha = 0.6f)
-    val crossColor = GoldenMain
+    val noteColor = GoldenMain
 
     androidx.compose.foundation.Canvas(modifier = modifier) {
         val w = size.width
@@ -434,40 +425,6 @@ fun AppLogo(modifier: Modifier = Modifier, isDarkMode: Boolean) {
         
         val scaleX = w / 108f
         val scaleY = h / 108f
-        
-        val drawScaledPath = { pathObj: Path, fill: Color, stroke: Color?, strokeWidth: Float ->
-            if (stroke != null) {
-                drawPath(path = pathObj, color = fill)
-                drawPath(path = pathObj, color = stroke, style = Stroke(width = strokeWidth))
-            } else {
-                drawPath(path = pathObj, color = fill)
-            }
-        }
-        
-        // Left page
-        val leftPath = Path().apply {
-            moveTo(50f * scaleX, 70f * scaleY)
-            quadraticTo(41f * scaleX, 66f * scaleY, 23f * scaleX, 68f * scaleY)
-            cubicTo(21f * scaleX, 68f * scaleY, 19f * scaleX, 66f * scaleY, 19f * scaleX, 64f * scaleY)
-            lineTo(19f * scaleX, 36f * scaleY)
-            cubicTo(19f * scaleX, 34f * scaleY, 21f * scaleX, 32f * scaleY, 23f * scaleX, 32f * scaleY)
-            quadraticTo(41f * scaleX, 32f * scaleY, 50f * scaleX, 38f * scaleY)
-            close()
-        }
-        
-        // Right page
-        val rightPath = Path().apply {
-            moveTo(58f * scaleX, 70f * scaleY)
-            quadraticTo(67f * scaleX, 66f * scaleY, 85f * scaleX, 68f * scaleY)
-            cubicTo(87f * scaleX, 68f * scaleY, 89f * scaleX, 66f * scaleY, 89f * scaleX, 64f * scaleY)
-            lineTo(89f * scaleX, 36f * scaleY)
-            cubicTo(89f * scaleX, 34f * scaleY, 87f * scaleX, 32f * scaleY, 85f * scaleX, 32f * scaleY)
-            quadraticTo(67f * scaleX, 32f * scaleY, 58f * scaleX, 38f * scaleY)
-            close()
-        }
-        
-        drawScaledPath(leftPath, pageFill, pageOutline, 1.5.dp.toPx())
-        drawScaledPath(rightPath, pageFill, pageOutline, 1.5.dp.toPx())
         
         // Golden Musical Note Path in the center
         val notePath = Path().apply {
@@ -489,7 +446,7 @@ fun AppLogo(modifier: Modifier = Modifier, isDarkMode: Boolean) {
             cubicTo(54.4f * scaleX, 28.3f * scaleY, 54.2f * scaleX, 28.2f * scaleY, 54f * scaleX, 28.2f * scaleY)
             close()
         }
-        drawPath(path = notePath, color = crossColor)
+        drawPath(path = notePath, color = noteColor)
     }
 }
 

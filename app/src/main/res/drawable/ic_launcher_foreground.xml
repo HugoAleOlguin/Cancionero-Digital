@@ -3,14 +3,6 @@
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-    <!-- Open Book Left Page -->
-    <path
-        android:fillColor="#FFFFFF"
-        android:pathData="M 50,70 C 41,66 32,66 23,68 C 21,68 19,66 19,64 L 19,36 C 19,34 21,32 23,32 C 32,32 41,34 50,38 Z" />
-    <!-- Open Book Right Page -->
-    <path
-        android:fillColor="#FFFFFF"
-        android:pathData="M 58,70 C 67,66 76,66 85,68 C 87,68 89,66 89,64 L 89,36 C 89,34 87,32 85,32 C 76,32 67,34 58,38 Z" />
     <!-- Golden Musical Note in the center -->
     <path
         android:fillColor="#C5A03A"
