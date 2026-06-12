@@ -14,8 +14,8 @@ android {
     applicationId = "com.aistudio.alabanzas.cphtxz"
     minSdk = 23
     targetSdk = 36
-    versionCode = 5
-    versionName = "1.5"
+    versionCode = 6
+    versionName = "2.0"
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
   }

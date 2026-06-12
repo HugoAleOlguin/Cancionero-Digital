@@ -48,11 +48,28 @@ import com.example.util.PdfGenerator
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.debounce
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch
+import android.content.Context
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        
+        // Keep screen on while app is in foreground
+        window.addFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        
+        // Disable StrictMode check to share file:// Uris on older Android versions without crashing
+        val builder = android.os.StrictMode.VmPolicy.Builder()
+        android.os.StrictMode.setVmPolicy(builder.build())
+
         enableEdgeToEdge()
         setContent {
             val viewModel: MainViewModel = viewModel()
@@ -112,11 +129,84 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val favoriteDatabase = FavoriteDatabase.getDatabase(application)
     private val favoriteRepository = FavoriteRepository(favoriteDatabase.favoriteHymnDao())
 
+    private val sharedPreferences = application.getSharedPreferences("HymnAppState", Context.MODE_PRIVATE)
+
     private val _isDarkMode = MutableStateFlow(false)
     val isDarkMode = _isDarkMode.asStateFlow()
 
     fun toggleDarkMode() {
         _isDarkMode.value = !_isDarkMode.value
+    }
+
+    fun saveLastViewedHymnId(hymnId: Int) {
+        val lastId = sharedPreferences.getInt("last_viewed_hymn_id", -1)
+        if (lastId != hymnId) {
+            sharedPreferences.edit().putInt("last_viewed_hymn_id", hymnId).apply()
+        }
+    }
+
+    fun getLastViewedHymnIndex(): Int {
+        val lastId = sharedPreferences.getInt("last_viewed_hymn_id", -1)
+        if (lastId != -1) {
+            val index = searchableHymns.indexOfFirst { it.hymn.id == lastId }
+            if (index != -1) {
+                return index
+            }
+        }
+        return 0
+    }
+
+    private val _recentSearches = MutableStateFlow<List<String>>(emptyList())
+    val recentSearches = _recentSearches.asStateFlow()
+
+    init {
+        loadRecentSearches()
+        
+        viewModelScope.launch {
+            favoriteRepository.favoriteHymnIds.collect { ids ->
+                _favoriteHymnIds.value = ids.toSet()
+                recalculateFilteredHymns()
+            }
+        }
+
+        viewModelScope.launch {
+            _searchQuery
+                .debounce(1500)
+                .map { it.trim().normalize() }
+                .distinctUntilChanged()
+                .collect { query ->
+                    if (query.length >= 3 && _filteredHymns.value.isNotEmpty()) {
+                        addRecentSearch(query)
+                    }
+                }
+        }
+    }
+
+    private fun loadRecentSearches() {
+        val raw = sharedPreferences.getString("recent_searches", "") ?: ""
+        if (raw.isNotEmpty()) {
+            _recentSearches.value = raw.split("|").filter { it.isNotEmpty() }
+        } else {
+            _recentSearches.value = emptyList()
+        }
+    }
+
+    fun addRecentSearch(query: String) {
+        val trimmed = query.trim()
+        if (trimmed.isEmpty()) return
+        val current = _recentSearches.value.toMutableList()
+        current.remove(trimmed)
+        current.add(0, trimmed)
+        if (current.size > 5) {
+            current.removeAt(current.size - 1)
+        }
+        _recentSearches.value = current
+        sharedPreferences.edit().putString("recent_searches", current.joinToString("|")).apply()
+    }
+
+    fun clearRecentSearches() {
+        _recentSearches.value = emptyList()
+        sharedPreferences.edit().remove("recent_searches").apply()
     }
 
     private val _searchQuery = MutableStateFlow("")
@@ -333,6 +423,77 @@ val JetCarbon = Color(0xFF1E242B) // Carbón profundo premium para texto nítido
 val DarkHeaderGradient = listOf(Color(0xFF2C394B), Color(0xFF1B2430)) // Azul noche de templo
 
 @Composable
+fun AppLogo(modifier: Modifier = Modifier, isDarkMode: Boolean) {
+    val pageFill = if (isDarkMode) Color.White.copy(alpha = 0.15f) else Color.Black.copy(alpha = 0.05f)
+    val pageOutline = if (isDarkMode) Color.White.copy(alpha = 0.6f) else JetCarbon.copy(alpha = 0.6f)
+    val crossColor = GoldenMain
+
+    androidx.compose.foundation.Canvas(modifier = modifier) {
+        val w = size.width
+        val h = size.height
+        
+        val scaleX = w / 108f
+        val scaleY = h / 108f
+        
+        val drawScaledPath = { pathObj: Path, fill: Color, stroke: Color?, strokeWidth: Float ->
+            if (stroke != null) {
+                drawPath(path = pathObj, color = fill)
+                drawPath(path = pathObj, color = stroke, style = Stroke(width = strokeWidth))
+            } else {
+                drawPath(path = pathObj, color = fill)
+            }
+        }
+        
+        // Left page
+        val leftPath = Path().apply {
+            moveTo(50f * scaleX, 70f * scaleY)
+            quadraticTo(41f * scaleX, 66f * scaleY, 23f * scaleX, 68f * scaleY)
+            cubicTo(21f * scaleX, 68f * scaleY, 19f * scaleX, 66f * scaleY, 19f * scaleX, 64f * scaleY)
+            lineTo(19f * scaleX, 36f * scaleY)
+            cubicTo(19f * scaleX, 34f * scaleY, 21f * scaleX, 32f * scaleY, 23f * scaleX, 32f * scaleY)
+            quadraticTo(41f * scaleX, 32f * scaleY, 50f * scaleX, 38f * scaleY)
+            close()
+        }
+        
+        // Right page
+        val rightPath = Path().apply {
+            moveTo(58f * scaleX, 70f * scaleY)
+            quadraticTo(67f * scaleX, 66f * scaleY, 85f * scaleX, 68f * scaleY)
+            cubicTo(87f * scaleX, 68f * scaleY, 89f * scaleX, 66f * scaleY, 89f * scaleX, 64f * scaleY)
+            lineTo(89f * scaleX, 36f * scaleY)
+            cubicTo(89f * scaleX, 34f * scaleY, 87f * scaleX, 32f * scaleY, 85f * scaleX, 32f * scaleY)
+            quadraticTo(67f * scaleX, 32f * scaleY, 58f * scaleX, 38f * scaleY)
+            close()
+        }
+        
+        drawScaledPath(leftPath, pageFill, pageOutline, 1.5.dp.toPx())
+        drawScaledPath(rightPath, pageFill, pageOutline, 1.5.dp.toPx())
+        
+        // Golden Musical Note Path in the center
+        val notePath = Path().apply {
+            moveTo(54f * scaleX, 26f * scaleY)
+            cubicTo(53.8f * scaleX, 26f * scaleY, 53.6f * scaleX, 26f * scaleY, 53.4f * scaleX, 26.1f * scaleY)
+            cubicTo(52.6f * scaleX, 26.3f * scaleY, 52f * scaleX, 27f * scaleY, 52f * scaleX, 27.9f * scaleY)
+            lineTo(52f * scaleX, 57.2f * scaleY)
+            cubicTo(50f * scaleX, 55.9f * scaleY, 47.6f * scaleX, 55.1f * scaleY, 45f * scaleX, 55.1f * scaleY)
+            cubicTo(38.9f * scaleX, 55.1f * scaleY, 34f * scaleX, 60f * scaleY, 34f * scaleX, 66f * scaleY)
+            cubicTo(34f * scaleX, 72f * scaleY, 38.9f * scaleX, 77f * scaleY, 45f * scaleX, 77f * scaleY)
+            cubicTo(51.1f * scaleX, 77f * scaleY, 56f * scaleX, 72.1f * scaleY, 56f * scaleX, 66f * scaleY)
+            lineTo(56f * scaleX, 34.8f * scaleY)
+            cubicTo(60.3f * scaleX, 37.2f * scaleY, 65.3f * scaleX, 38.7f * scaleY, 70.6f * scaleX, 38.9f * scaleY)
+            cubicTo(70.7f * scaleX, 38.9f * scaleY, 70.8f * scaleX, 38.9f * scaleY, 71f * scaleX, 38.9f * scaleY)
+            cubicTo(71.9f * scaleX, 38.9f * scaleY, 72.7f * scaleX, 38.2f * scaleY, 72.8f * scaleX, 37.3f * scaleY)
+            cubicTo(72.9f * scaleX, 36.3f * scaleY, 72.2f * scaleX, 35.5f * scaleY, 71.2f * scaleX, 35.4f * scaleY)
+            cubicTo(65.4f * scaleX, 34.9f * scaleY, 60f * scaleX, 32.7f * scaleY, 55.8f * scaleX, 29.2f * scaleY)
+            cubicTo(55.2f * scaleX, 28.7f * scaleY, 54.6f * scaleX, 28.4f * scaleY, 53.8f * scaleX, 28.3f * scaleY)
+            cubicTo(54.4f * scaleX, 28.3f * scaleY, 54.2f * scaleX, 28.2f * scaleY, 54f * scaleX, 28.2f * scaleY)
+            close()
+        }
+        drawPath(path = notePath, color = crossColor)
+    }
+}
+
+@Composable
 fun HymnApp(viewModel: MainViewModel = viewModel()) {
     HymnFeedScreen(viewModel = viewModel)
 }
@@ -350,10 +511,13 @@ fun HymnFeedScreen(viewModel: MainViewModel) {
     val currentScreen by viewModel.currentScreen.collectAsState()
     val favoritesSet by viewModel.favoriteHymnIds.collectAsState()
     
-    val lazyListState = rememberLazyListState()
+    val initialIndex = remember { viewModel.getLastViewedHymnIndex() }
+    val lazyListState = rememberLazyListState(initialFirstVisibleItemIndex = initialIndex)
     val context = LocalContext.current
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
+    var showDownloadSuccessDialog by remember { mutableStateOf<Pair<String, android.net.Uri>?>(null) }
+
 
     val backgroundColor = if (isDarkMode) Color(0xFF121212) else Color(0xFFFFFFFF)
     val headerBackground = if (isDarkMode) Color(0xFF1E1E1E) else Color(0xFFFFFFFF)
@@ -372,6 +536,19 @@ fun HymnFeedScreen(viewModel: MainViewModel) {
         }
     }
 
+    // Guardar dinámicamente la última alabanza vista al hacer scroll (optimizado con debounce)
+    LaunchedEffect(lazyListState, hymns) {
+        snapshotFlow { lazyListState.firstVisibleItemIndex }
+            .distinctUntilChanged()
+            .debounce(500)
+            .collect { index ->
+                if (index in hymns.indices) {
+                    val hymnId = hymns[index].hymn.id
+                    viewModel.saveLastViewedHymnId(hymnId)
+                }
+            }
+    }
+
     ModalNavigationDrawer(
         drawerState = drawerState,
         drawerContent = {
@@ -380,19 +557,26 @@ fun HymnFeedScreen(viewModel: MainViewModel) {
                 drawerContentColor = textPrimaryColor,
                 modifier = Modifier.width(280.dp).testTag("navigation_drawer")
             ) {
-                Spacer(modifier = Modifier.height(24.dp))
-                // Minimal Header - Only display the clean title text
-                Column(
+                Spacer(modifier = Modifier.height(16.dp))
+                // Header with Logo and Name
+                Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 24.dp, vertical = 8.dp)
+                        .padding(horizontal = 20.dp, vertical = 16.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(12.dp)
                 ) {
+                    AppLogo(
+                        isDarkMode = isDarkMode,
+                        modifier = Modifier.size(44.dp)
+                    )
                     Text(
-                        text = "Cuadernillo Digital",
+                        text = "Cuadernillo\nDigital",
                         fontSize = 18.sp,
                         fontWeight = FontWeight.Bold,
                         color = textPrimaryColor,
-                        fontFamily = FontFamily.Serif
+                        fontFamily = FontFamily.Serif,
+                        lineHeight = 22.sp
                     )
                 }
                 
@@ -480,7 +664,7 @@ fun HymnFeedScreen(viewModel: MainViewModel) {
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
-                        text = "Versión 1.0",
+                        text = "Versión 2.0",
                         fontSize = 11.sp,
                         color = textSecondaryColor.copy(alpha = 0.6f),
                         textAlign = TextAlign.Center
@@ -527,6 +711,14 @@ fun HymnFeedScreen(viewModel: MainViewModel) {
                                     tint = textPrimaryColor,
                                     modifier = Modifier.size(24.dp)
                                 )
+                            }
+                            
+                            if (currentScreen != ScreenType.FAVORITES) {
+                                AppLogo(
+                                    isDarkMode = isDarkMode,
+                                    modifier = Modifier.size(28.dp)
+                                )
+                                Spacer(modifier = Modifier.width(4.dp))
                             }
                             
                             Text(
@@ -647,7 +839,21 @@ fun HymnFeedScreen(viewModel: MainViewModel) {
 
                             if (searchQuery.isNotEmpty()) {
                                 IconButton(
-                                    onClick = { viewModel.updateSearchQuery("") },
+                                    onClick = {
+                                        val visibleIndex = lazyListState.firstVisibleItemIndex
+                                        val visibleHymnId = if (visibleIndex in hymns.indices) hymns[visibleIndex].hymn.id else null
+                                        
+                                        viewModel.updateSearchQuery("")
+                                        
+                                        if (visibleHymnId != null) {
+                                            scope.launch {
+                                                val targetIndex = viewModel.filteredHymns.value.indexOfFirst { it.hymn.id == visibleHymnId }
+                                                if (targetIndex != -1) {
+                                                    lazyListState.scrollToItem(targetIndex)
+                                                }
+                                            }
+                                        }
+                                    },
                                     modifier = Modifier.size(24.dp)
                                 ) {
                                     Icon(
@@ -687,6 +893,58 @@ fun HymnFeedScreen(viewModel: MainViewModel) {
                                     contentDescription = "Siguiente",
                                     tint = if (globalMatches.isNotEmpty()) textPrimaryColor else textSecondaryColor.copy(alpha = 0.5f),
                                     modifier = Modifier.size(20.dp)
+                                )
+                            }
+                        }
+                    }
+
+                    // Recent Searches Chips
+                    val recentSearches by viewModel.recentSearches.collectAsState()
+                    if (searchQuery.isEmpty() && recentSearches.isNotEmpty()) {
+                        Spacer(modifier = Modifier.height(8.dp))
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(horizontal = 4.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(6.dp)
+                        ) {
+                            Text(
+                                text = "Recientes:",
+                                fontSize = 11.sp,
+                                color = textSecondaryColor,
+                                fontWeight = FontWeight.Bold
+                            )
+                            LazyRow(
+                                horizontalArrangement = Arrangement.spacedBy(6.dp),
+                                modifier = Modifier.weight(1f)
+                            ) {
+                                items(recentSearches.size) { idx ->
+                                    val term = recentSearches[idx]
+                                    Box(
+                                        modifier = Modifier
+                                            .background(searchBarBackground, shape = RoundedCornerShape(12.dp))
+                                            .clickable { viewModel.updateSearchQuery(term) }
+                                            .padding(horizontal = 10.dp, vertical = 4.dp)
+                                    ) {
+                                        Text(
+                                            text = term,
+                                            fontSize = 10.sp,
+                                            color = textPrimaryColor,
+                                            fontWeight = FontWeight.Medium
+                                        )
+                                    }
+                                }
+                            }
+                            IconButton(
+                                onClick = { viewModel.clearRecentSearches() },
+                                modifier = Modifier.size(18.dp)
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Default.Delete,
+                                    contentDescription = "Borrar historial",
+                                    tint = textSecondaryColor.copy(alpha = 0.6f),
+                                    modifier = Modifier.size(12.dp)
                                 )
                             }
                         }
@@ -759,7 +1017,10 @@ fun HymnFeedScreen(viewModel: MainViewModel) {
                                 viewModel.toggleFavorite(item.hymn.id)
                             },
                             onDownload = {
-                                PdfGenerator.downloadHymnPdf(context, item.hymn)
+                                val uri = PdfGenerator.downloadHymnPdf(context, item.hymn)
+                                if (uri != null) {
+                                    showDownloadSuccessDialog = Pair(item.hymn.title, uri)
+                                }
                             }
                         )
                         if (index < hymns.lastIndex) {
@@ -777,7 +1038,65 @@ fun HymnFeedScreen(viewModel: MainViewModel) {
             }
         }
     }
+
+    showDownloadSuccessDialog?.let { (title, uri) ->
+        AlertDialog(
+            onDismissRequest = { showDownloadSuccessDialog = null },
+            title = {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Icon(
+                        imageVector = Icons.Default.CheckCircle,
+                        contentDescription = null,
+                        tint = GoldenMain,
+                        modifier = Modifier.size(24.dp)
+                    )
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Text(
+                        text = "¡PDF Generado!",
+                        fontFamily = FontFamily.Serif,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 18.sp
+                    )
+                }
+            },
+            text = {
+                Text(
+                    text = "El PDF de la alabanza \"$title\" se ha descargado y guardado en tu carpeta de Descargas (Downloads).\n\n¿Quieres abrir el archivo ahora?",
+                    fontSize = 14.sp
+                )
+            },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        showDownloadSuccessDialog = null
+                        try {
+                            val intent = android.content.Intent(android.content.Intent.ACTION_VIEW).apply {
+                                setDataAndType(uri, "application/pdf")
+                                addFlags(android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                            }
+                            context.startActivity(intent)
+                        } catch (e: Exception) {
+                            Toast.makeText(context, "No hay aplicación disponible para abrir PDFs", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                ) {
+                    Text("Abrir PDF", color = GoldenMain, fontWeight = FontWeight.Bold)
+                }
+            },
+            dismissButton = {
+                TextButton(
+                    onClick = { showDownloadSuccessDialog = null }
+                ) {
+                    Text("Cerrar", color = textSecondaryColor)
+                }
+            },
+            containerColor = if (isDarkMode) Color(0xFF1E1E1E) else Color.White,
+            titleContentColor = textPrimaryColor,
+            textContentColor = textPrimaryColor
+        )
+    }
 }
+
 
 /**
  * Visual Highlighter helper executing high-level diacritic-agnostic index matching
@@ -857,6 +1176,9 @@ fun FeedHymnCard(
 ) {
     val hymn = searchableHymn.hymn
     val stanzas = searchableHymn.splitStanzas
+    val context = LocalContext.current
+    var showShareMenu by remember { mutableStateOf(false) }
+
 
     val cardBg = if (isDarkMode) Color(0xFF1E1E1E) else Color.White
     val headerBg = if (isDarkMode) Color(0xFF2A2A2A) else Color(0xFFF8F9FA)
@@ -895,14 +1217,26 @@ fun FeedHymnCard(
                     currentMatchIndex = currentMatchIndex
                 )
 
-                Text(
-                    text = annotatedTitle,
-                    color = textPrimary,
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 14.sp,
-                    fontFamily = FontFamily.Serif,
-                    modifier = Modifier.weight(1f)
-                )
+                val textSecondary = if (isDarkMode) Color(0xFFB0B0B0) else Color.Gray
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(
+                        text = annotatedTitle,
+                        color = textPrimary,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 14.sp,
+                        fontFamily = FontFamily.Serif
+                    )
+                    if (hymn.author.isNotEmpty()) {
+                        Text(
+                            text = "Autor: ${hymn.author}",
+                            color = textSecondary,
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.Normal,
+                            fontFamily = FontFamily.Serif,
+                            modifier = Modifier.padding(top = 2.dp)
+                        )
+                    }
+                }
 
                 IconButton(
                     onClick = onToggleFavorite,
@@ -932,6 +1266,68 @@ fun FeedHymnCard(
                         .testTag("download_button_${hymn.id}")
                 ) {
                     DownloadIcon(tint = GoldenMain, modifier = Modifier.size(20.dp))
+                }
+
+                Box {
+                    IconButton(
+                        onClick = { showShareMenu = true },
+                        modifier = Modifier
+                            .size(36.dp)
+                            .testTag("share_button_${hymn.id}")
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Share,
+                            contentDescription = "Compartir Canto",
+                            tint = GoldenMain,
+                            modifier = Modifier.size(20.dp)
+                        )
+                    }
+                    DropdownMenu(
+                        expanded = showShareMenu,
+                        onDismissRequest = { showShareMenu = false },
+                        modifier = Modifier.background(if (isDarkMode) Color(0xFF2A2A2A) else Color.White)
+                    ) {
+                        DropdownMenuItem(
+                            text = { Text("Compartir como PDF", color = textPrimary) },
+                            onClick = {
+                                showShareMenu = false
+                                try {
+                                    val uri = PdfGenerator.downloadHymnPdf(context, hymn)
+                                    if (uri != null) {
+                                        val shareIntent = android.content.Intent().apply {
+                                            action = android.content.Intent.ACTION_SEND
+                                            putExtra(android.content.Intent.EXTRA_STREAM, uri)
+                                            type = "application/pdf"
+                                            addFlags(android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                                        }
+                                        context.startActivity(android.content.Intent.createChooser(shareIntent, "Compartir PDF"))
+                                    } else {
+                                        Toast.makeText(context, "No se pudo generar el PDF para compartir", Toast.LENGTH_SHORT).show()
+                                    }
+                                } catch (e: Exception) {
+                                    Toast.makeText(context, "Error al compartir PDF: ${e.message}", Toast.LENGTH_SHORT).show()
+                                }
+                            }
+                        )
+                        DropdownMenuItem(
+                            text = { Text("Compartir como Texto", color = textPrimary) },
+                            onClick = {
+                                showShareMenu = false
+                                try {
+                                    val sendIntent = android.content.Intent().apply {
+                                        action = android.content.Intent.ACTION_SEND
+                                        val authorText = if (hymn.author.isNotEmpty()) "\nAutor: ${hymn.author}" else ""
+                                        putExtra(android.content.Intent.EXTRA_TEXT, "${hymn.id} - ${hymn.title.uppercase()}$authorText\n\n${hymn.content}")
+                                        type = "text/plain"
+                                    }
+                                    val shareIntent = android.content.Intent.createChooser(sendIntent, "Compartir Alabanza")
+                                    context.startActivity(shareIntent)
+                                } catch (e: Exception) {
+                                    Toast.makeText(context, "No se pudo compartir la alabanza", Toast.LENGTH_SHORT).show()
+                                }
+                            }
+                        )
+                    }
                 }
 
                 if (hymn.link.isNotEmpty()) {

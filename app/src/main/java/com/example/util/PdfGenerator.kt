@@ -43,6 +43,14 @@ object PdfGenerator {
             typeface = Typeface.create(Typeface.SERIF, Typeface.BOLD)
             textAlign = Paint.Align.CENTER
         }
+
+        val paintAuthor = Paint().apply {
+            isAntiAlias = true
+            color = Color.rgb(100, 110, 120) // Gris medio elegante
+            textSize = 10f
+            typeface = Typeface.create(Typeface.SERIF, Typeface.ITALIC)
+            textAlign = Paint.Align.CENTER
+        }
         
         val paintText = Paint().apply {
             isAntiAlias = true
@@ -162,7 +170,12 @@ object PdfGenerator {
                 // Título principal arriba centrada en la primera hoja
                 paintTitle.textSize = 21f
                 val displayTitle = "${hymn.id} - ${hymn.title.uppercase()}"
-                canvas.drawText(displayTitle, pageWidth / 2f, marginY + 25f, paintTitle)
+                if (hymn.author.isNotEmpty()) {
+                    canvas.drawText(displayTitle, pageWidth / 2f, marginY + 20f, paintTitle)
+                    canvas.drawText("Autor: ${hymn.author}", pageWidth / 2f, marginY + 38f, paintAuthor)
+                } else {
+                    canvas.drawText(displayTitle, pageWidth / 2f, marginY + 25f, paintTitle)
+                }
                 renderY = marginY + titleSpace
             }
             
