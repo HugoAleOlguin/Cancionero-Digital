@@ -8,10 +8,13 @@ import com.example.data.database.AppDatabase
 import com.example.data.repository.HymnRepository
 import com.example.data.sync.HymnSyncManager
 import com.example.data.sync.SyncResult
-import com.example.search.FuzzyHymnSearchEngine
+import com.example.data.dlc.DlcStatus
+import com.example.data.dlc.ThemeDlcManager
 import com.example.search.MatchOccurrence
 import com.example.search.SearchableHymn
+import com.example.search.normalize
 import com.example.ui.components.ScreenType
+import com.example.ui.theme.ThemeMode
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -40,6 +43,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         context = application
     )
     val syncManager = HymnSyncManager(application, hymnRepository)
+    val themeDlcManager = ThemeDlcManager(application)
+    val themeMode = themeDlcManager.themeMode
+    val dlcStatus = themeDlcManager.dlcStatus
 
     private val sharedPreferences = application.getSharedPreferences("HymnAppState", Context.MODE_PRIVATE)
 
@@ -208,46 +214,99 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         val screen = _currentScreen.value
         val author = _selectedAuthor.value
 
-        // Filtrar por pantalla (Todas vs Favoritos)
+        // 1. Filtrar por pantalla (Todas vs Favoritos)
         val screenFiltered = if (screen == ScreenType.FAVORITES) {
             allSearchableHymns.filter { it.hymn.isFavorite }
         } else {
             allSearchableHymns
         }
 
-        // Filtrar por autor
+        // 2. Filtrar por autor
         val authorFiltered = if (author != null) {
             screenFiltered.filter { it.hymn.author == author }
         } else {
             screenFiltered
         }
 
-        if (query.isBlank()) {
-            _filteredHymns.value = authorFiltered
+        val trimmedQuery = query.trim().normalize()
+
+        // 3. Aplicar filtro de búsqueda simple (ID, título, autor o contenido)
+        // Conserva el orden numérico estricto y exacto original de los himnos
+        val finalFiltered = if (trimmedQuery.isEmpty()) {
+            authorFiltered
+        } else {
+            authorFiltered.filter { item ->
+                item.hymn.id.toString() == trimmedQuery ||
+                        item.normalizedTitle.contains(trimmedQuery) ||
+                        item.normalizedAuthor.contains(trimmedQuery) ||
+                        item.normalizedContent.contains(trimmedQuery)
+            }
+        }
+
+        _filteredHymns.value = finalFiltered
+
+        // 4. Calcular ocurrencias exactas para el navegador de coincidencias y resaltador
+        if (trimmedQuery.isEmpty()) {
             _globalMatches.value = emptyList()
             _currentMatchIndex.value = -1
             _scrollToItemEvent.value = null
-            return
-        }
-
-        // Ejecutar motor de búsqueda difuso y multi-palabra
-        val searchResults = FuzzyHymnSearchEngine.search(authorFiltered, query)
-        val filteredList = searchResults.map { it.hymn }
-        val matches = searchResults.flatMap { it.occurrences }
-
-        _filteredHymns.value = filteredList
-        _globalMatches.value = matches
-
-        if (matches.isNotEmpty()) {
-            _currentMatchIndex.value = 0
-            val occurrence = matches[0]
-            val listIndex = filteredList.indexOfFirst { it.hymn.id == occurrence.hymnId }
-            if (listIndex != -1) {
-                _scrollToItemEvent.value = ScrollEvent(listIndex, occurrence, System.currentTimeMillis())
-            }
         } else {
-            _currentMatchIndex.value = -1
-            _scrollToItemEvent.value = null
+            val matches = mutableListOf<MatchOccurrence>()
+            finalFiltered.forEach { item ->
+                val hymnId = item.hymn.id
+
+                // Coincidencias en el título
+                var index = item.normalizedTitle.indexOf(trimmedQuery)
+                while (index != -1 && trimmedQuery.isNotEmpty()) {
+                    matches.add(
+                        MatchOccurrence(
+                            hymnId = hymnId,
+                            isTitle = true,
+                            stanzaIndex = -1,
+                            charRange = index until (index + trimmedQuery.length)
+                        )
+                    )
+                    index = item.normalizedTitle.indexOf(trimmedQuery, index + 1)
+                }
+
+                // Coincidencias en las estrofas
+                item.splitStanzas.forEachIndexed { sIdx, stanza ->
+                    val normalizedStanza = stanza.normalize()
+                    var sIndex = normalizedStanza.indexOf(trimmedQuery)
+                    while (sIndex != -1 && trimmedQuery.isNotEmpty()) {
+                        matches.add(
+                            MatchOccurrence(
+                                hymnId = hymnId,
+                                isTitle = false,
+                                stanzaIndex = sIdx,
+                                charRange = sIndex until (sIndex + trimmedQuery.length)
+                            )
+                        )
+                        sIndex = normalizedStanza.indexOf(trimmedQuery, sIndex + 1)
+                    }
+                }
+            }
+
+            _globalMatches.value = matches
+
+            val currentIdx = _currentMatchIndex.value
+            if (matches.isEmpty()) {
+                _currentMatchIndex.value = -1
+                _scrollToItemEvent.value = null
+            } else if (currentIdx < 0 || currentIdx >= matches.size) {
+                _currentMatchIndex.value = 0
+                val occurrence = matches[0]
+                val listIndex = finalFiltered.indexOfFirst { it.hymn.id == occurrence.hymnId }
+                if (listIndex != -1) {
+                    _scrollToItemEvent.value = ScrollEvent(listIndex, occurrence, System.currentTimeMillis())
+                }
+            } else {
+                val occurrence = matches[currentIdx]
+                val listIndex = finalFiltered.indexOfFirst { it.hymn.id == occurrence.hymnId }
+                if (listIndex != -1) {
+                    _scrollToItemEvent.value = ScrollEvent(listIndex, occurrence, System.currentTimeMillis())
+                }
+            }
         }
     }
 
@@ -275,5 +334,25 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         if (listIndex != -1) {
             _scrollToItemEvent.value = ScrollEvent(listIndex, occurrence, System.currentTimeMillis())
         }
+    }
+
+    fun setThemeMode(mode: ThemeMode) {
+        themeDlcManager.setThemeMode(mode)
+    }
+
+    fun downloadModernTheme(customUrl: String? = null) {
+        viewModelScope.launch {
+            themeDlcManager.downloadDlcPack(customUrl)
+        }
+    }
+
+    fun uninstallModernTheme() {
+        viewModelScope.launch {
+            themeDlcManager.uninstallDlc()
+        }
+    }
+
+    fun getCoverPathForHymn(hymnId: Int, title: String, author: String): String? {
+        return themeDlcManager.getCoverPathForHymn(hymnId, title, author)
     }
 }

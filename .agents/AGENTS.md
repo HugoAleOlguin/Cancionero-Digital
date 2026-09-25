@@ -26,7 +26,7 @@ El proyecto sigue una arquitectura limpia y desacoplada de Android estructurada 
 │   ├── repository/                  # HymnRepository: Fuente única de verdad con pre-población offline de assets.
 │   └── sync/                        # HymnSyncManager: Sincronización silenciosa sobre Wi-Fi con GitHub Raw.
 ├── search/
-│   └── FuzzyHymnSearchEngine.kt     # Motor de búsqueda instantáneo multi-palabra y tolerante a typos (Fuzzy).
+│   └── FuzzyHymnSearchEngine.kt     # Motor de búsqueda instantáneo y exacto (SearchableHymn) con preservación estricta de orden.
 ├── ui/
 │   ├── components/
 │   │   ├── CanvasIcons.kt           # Iconos nativos dibujados en Compose y Canvas (AppLogo, Download, Theme).
@@ -47,7 +47,7 @@ El proyecto sigue una arquitectura limpia y desacoplada de Android estructurada 
 - **`data/catalog.json` y `assets/catalog.json`**: Catálogo base estructurado que garantiza que la app arranque 100% offline con 485 cantos sin requerir conexión a internet.
 - **`tools/manage_hymns.py`**: Asistente CLI interactivo todo-en-uno para agregar, editar, eliminar, validar y publicar alabanzas con `git push` automático.
 - **`HymnSyncManager`**: Sincronizador en segundo plano que detecta Wi-Fi, compara versiones con GitHub Raw y actualiza Room silenciosamente a costo $0.00 perpetuo.
-- **`FuzzyHymnSearchEngine`**: Motor de búsqueda multi-palabra con tolerancia a errores tipográficos de 1 letra (Levenshtein) para encontrar cantos en milisegundos en medio del culto.
+- **`SearchableHymn`**: Motor de búsqueda de latencia cero (0ms) precalculado y fiel al original, que busca por subcadena exacta (número/título/letra) manteniendo intacto el orden numérico de los himnos sin distorsiones.
 
 
 ---

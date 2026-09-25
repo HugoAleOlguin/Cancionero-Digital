@@ -40,12 +40,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.data.database.HymnEntity
 import com.example.ui.components.AppDrawer
 import com.example.ui.components.FastScrollbar
+import com.example.ui.components.ModernActionSheet
 import com.example.ui.components.ScreenType
 import com.example.ui.components.SearchHeader
 import com.example.ui.theme.GoldenMain
 import com.example.ui.theme.JetCarbon
+import com.example.ui.theme.ThemeMode
 import com.example.ui.viewmodel.MainViewModel
 import com.example.util.PdfGenerator
 import kotlinx.coroutines.FlowPreview
@@ -81,8 +84,11 @@ fun HymnFeedScreen(
     val scrollToItemEvent by viewModel.scrollToItemEvent.collectAsState()
     val catalogVersion by viewModel.catalogVersion.collectAsState()
     val isSyncing by viewModel.isSyncing.collectAsState()
+    val themeMode by viewModel.themeMode.collectAsState()
+    val dlcStatus by viewModel.dlcStatus.collectAsState()
 
     var showDownloadSuccessDialog by remember { mutableStateOf<Pair<String, Uri>?>(null) }
+    var activeHymnForActionSheet by remember { mutableStateOf<HymnEntity?>(null) }
 
     val fontFamily = remember(fontFamilyType) {
         when (fontFamilyType) {
@@ -133,6 +139,8 @@ fun HymnFeedScreen(
                 fontFamilyType = fontFamilyType,
                 catalogVersion = catalogVersion,
                 isSyncing = isSyncing,
+                themeMode = themeMode,
+                dlcStatus = dlcStatus,
                 onSelectAll = {
                     scope.launch { drawerState.close() }
                     viewModel.updateSearchQuery("")
@@ -154,6 +162,16 @@ fun HymnFeedScreen(
                 },
                 onChangeFontFamily = { type ->
                     viewModel.setFontFamilyType(type)
+                },
+                onSelectThemeMode = { mode ->
+                    viewModel.setThemeMode(mode)
+                    scope.launch { drawerState.close() }
+                },
+                onDownloadModernTheme = {
+                    viewModel.downloadModernTheme()
+                },
+                onUninstallModernTheme = {
+                    viewModel.uninstallModernTheme()
                 },
                 onCheckAppUpdate = {
                     Toast.makeText(context, "Buscando actualizaciones de la app...", Toast.LENGTH_SHORT).show()
@@ -236,32 +254,51 @@ fun HymnFeedScreen(
                         verticalArrangement = Arrangement.spacedBy(16.dp)
                     ) {
                         items(hymns, key = { it.hymn.id }) { item ->
-                            FeedHymnCard(
-                                searchableHymn = item,
-                                fontSize = readerFontSize,
-                                fontFamily = fontFamily,
-                                searchQuery = searchQuery,
-                                globalMatches = globalMatches,
-                                currentMatchIndex = currentMatchIndex,
-                                isDarkMode = isDarkMode,
-                                onToggleFavorite = { viewModel.toggleFavorite(item.hymn.id) },
-                                onDownload = {
-                                    val legacyHymn = com.example.data.Hymn(
-                                        id = item.hymn.id,
-                                        title = item.hymn.title,
-                                        content = item.hymn.content,
-                                        isFavorite = item.hymn.isFavorite,
-                                        link = item.hymn.link,
-                                        author = item.hymn.author
-                                    )
-                                    val uri = PdfGenerator.downloadHymnPdf(context, legacyHymn)
-                                    if (uri != null) {
-                                        showDownloadSuccessDialog = Pair(item.hymn.title, uri)
-                                    } else {
-                                        Toast.makeText(context, "Error al generar PDF", Toast.LENGTH_SHORT).show()
-                                    }
+                            if (themeMode == ThemeMode.MODERN) {
+                                val coverPath = remember(item.hymn.id) {
+                                    viewModel.getCoverPathForHymn(item.hymn.id, item.hymn.title, item.hymn.author)
                                 }
-                            )
+                                ModernHymnCard(
+                                    searchableHymn = item,
+                                    coverPath = coverPath,
+                                    fontSize = readerFontSize,
+                                    fontFamily = fontFamily,
+                                    searchQuery = searchQuery,
+                                    globalMatches = globalMatches,
+                                    currentMatchIndex = currentMatchIndex,
+                                    isDarkMode = isDarkMode,
+                                    onToggleFavorite = { viewModel.toggleFavorite(item.hymn.id) },
+                                    onOpenShareSheet = { activeHymnForActionSheet = item.hymn },
+                                    onOpenYoutube = {
+                                        try {
+                                            val intent = android.content.Intent(android.content.Intent.ACTION_VIEW, Uri.parse(item.hymn.link))
+                                            context.startActivity(intent)
+                                        } catch (e: Exception) {
+                                            Toast.makeText(context, "No se pudo abrir el enlace de YouTube", Toast.LENGTH_SHORT).show()
+                                        }
+                                    }
+                                )
+                            } else {
+                                FeedHymnCard(
+                                    searchableHymn = item,
+                                    fontSize = readerFontSize,
+                                    fontFamily = fontFamily,
+                                    searchQuery = searchQuery,
+                                    globalMatches = globalMatches,
+                                    currentMatchIndex = currentMatchIndex,
+                                    isDarkMode = isDarkMode,
+                                    onToggleFavorite = { viewModel.toggleFavorite(item.hymn.id) },
+                                    onOpenShareSheet = { activeHymnForActionSheet = item.hymn },
+                                    onOpenYoutube = {
+                                        try {
+                                            val intent = android.content.Intent(android.content.Intent.ACTION_VIEW, Uri.parse(item.hymn.link))
+                                            context.startActivity(intent)
+                                        } catch (e: Exception) {
+                                            Toast.makeText(context, "No se pudo abrir el enlace de YouTube", Toast.LENGTH_SHORT).show()
+                                        }
+                                    }
+                                )
+                            }
                         }
                     }
 
@@ -319,6 +356,88 @@ fun HymnFeedScreen(
             containerColor = if (isDarkMode) Color(0xFF1E1E1E) else Color.White,
             titleContentColor = textPrimaryColor,
             textContentColor = textPrimaryColor
+        )
+    }
+
+    // Bottom Action Sheet modal tipo iOS para el Tema Moderno
+    activeHymnForActionSheet?.let { hymn ->
+        val coverPath = remember(hymn.id) {
+            viewModel.getCoverPathForHymn(hymn.id, hymn.title, hymn.author)
+        }
+        ModernActionSheet(
+            hymn = hymn,
+            coverPath = coverPath,
+            isDarkMode = isDarkMode,
+            onDismiss = { activeHymnForActionSheet = null },
+            onDownloadPdf = {
+                val legacyHymn = com.example.data.Hymn(
+                    id = hymn.id,
+                    title = hymn.title,
+                    content = hymn.content,
+                    isFavorite = hymn.isFavorite,
+                    link = hymn.link,
+                    author = hymn.author
+                )
+                val uri = PdfGenerator.downloadHymnPdf(context, legacyHymn)
+                if (uri != null) {
+                    showDownloadSuccessDialog = Pair(hymn.title, uri)
+                } else {
+                    Toast.makeText(context, "Error al generar PDF", Toast.LENGTH_SHORT).show()
+                }
+            },
+            onSharePdf = {
+                try {
+                    val legacyHymn = com.example.data.Hymn(
+                        id = hymn.id,
+                        title = hymn.title,
+                        content = hymn.content,
+                        isFavorite = hymn.isFavorite,
+                        link = hymn.link,
+                        author = hymn.author
+                    )
+                    val uri = PdfGenerator.downloadHymnPdf(context, legacyHymn)
+                    if (uri != null) {
+                        val shareIntent = android.content.Intent().apply {
+                            action = android.content.Intent.ACTION_SEND
+                            putExtra(android.content.Intent.EXTRA_STREAM, uri)
+                            type = "application/pdf"
+                            addFlags(android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                        }
+                        context.startActivity(android.content.Intent.createChooser(shareIntent, "Compartir PDF"))
+                    } else {
+                        Toast.makeText(context, "No se pudo generar el PDF para compartir", Toast.LENGTH_SHORT).show()
+                    }
+                } catch (e: Exception) {
+                    Toast.makeText(context, "Error al compartir PDF: ${e.message}", Toast.LENGTH_SHORT).show()
+                }
+            },
+            onShareText = {
+                try {
+                    val sendIntent = android.content.Intent().apply {
+                        action = android.content.Intent.ACTION_SEND
+                        val authorText = if (hymn.author.isNotEmpty()) "\nAutor: ${hymn.author}" else ""
+                        putExtra(android.content.Intent.EXTRA_TEXT, "${hymn.id} - ${hymn.title.uppercase()}$authorText\n\n${hymn.content}")
+                        type = "text/plain"
+                    }
+                    context.startActivity(android.content.Intent.createChooser(sendIntent, "Compartir Alabanza"))
+                } catch (e: Exception) {
+                    Toast.makeText(context, "No se pudo compartir la alabanza", Toast.LENGTH_SHORT).show()
+                }
+            },
+            onCopyClipboard = {
+                try {
+                    val clipboard = context.getSystemService(android.content.Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager
+                    val authorText = if (hymn.author.isNotEmpty()) "\nAutor: ${hymn.author}" else ""
+                    val clip = android.content.ClipData.newPlainText(
+                        "Alabanza ${hymn.id}",
+                        "${hymn.id} - ${hymn.title.uppercase()}$authorText\n\n${hymn.content}"
+                    )
+                    clipboard.setPrimaryClip(clip)
+                    Toast.makeText(context, "¡Letra copiada al portapapeles!", Toast.LENGTH_SHORT).show()
+                } catch (e: Exception) {
+                    Toast.makeText(context, "Error al copiar texto", Toast.LENGTH_SHORT).show()
+                }
+            }
         )
     }
 }

@@ -30,6 +30,7 @@ import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.ModalDrawerSheet
 import androidx.compose.material3.NavigationDrawerItem
 import androidx.compose.material3.NavigationDrawerItemDefaults
@@ -42,14 +43,17 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.data.dlc.DlcStatus
 import com.example.ui.theme.GoldenMain
 import com.example.ui.theme.JetCarbon
+import com.example.ui.theme.ThemeMode
 
 enum class ScreenType {
     ALL, FAVORITES
@@ -68,11 +72,16 @@ fun AppDrawer(
     fontFamilyType: String,
     catalogVersion: Int,
     isSyncing: Boolean,
+    themeMode: ThemeMode = ThemeMode.CLASSIC,
+    dlcStatus: DlcStatus = DlcStatus.NotDownloaded,
     onSelectAll: () -> Unit,
     onSelectFavorites: () -> Unit,
     onSelectAuthor: (String) -> Unit,
     onClearAuthor: () -> Unit,
     onChangeFontFamily: (String) -> Unit,
+    onSelectThemeMode: (ThemeMode) -> Unit = {},
+    onDownloadModernTheme: () -> Unit = {},
+    onUninstallModernTheme: () -> Unit = {},
     onCheckAppUpdate: () -> Unit,
     onSyncCatalog: () -> Unit
 ) {
@@ -260,7 +269,197 @@ fun AppDrawer(
                     }
                 }
 
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(10.dp))
+                HorizontalDivider(color = dividerColor, thickness = 0.5.dp, modifier = Modifier.padding(horizontal = 16.dp))
+                Spacer(modifier = Modifier.height(12.dp))
+
+                // SECCIÓN: TEMA
+                Text(
+                    text = "TEMA",
+                    fontSize = 11.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = textSecondaryColor.copy(alpha = 0.8f),
+                    letterSpacing = 0.8.sp,
+                    modifier = Modifier.padding(horizontal = 24.dp, vertical = 6.dp)
+                )
+
+                val isClassicSelected = (themeMode == ThemeMode.CLASSIC)
+                val isModernSelected = (themeMode == ThemeMode.MODERN)
+                val isDownloaded = (dlcStatus is DlcStatus.Downloaded)
+                val isDownloading = (dlcStatus is DlcStatus.Downloading)
+
+                // Selector en 2 tarjetas lado a lado (Clásico vs Moderno)
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp, vertical = 4.dp),
+                    horizontalArrangement = Arrangement.spacedBy(10.dp)
+                ) {
+                    // Tarjeta: Clásico
+                    Box(
+                        modifier = Modifier
+                            .weight(1f)
+                            .clip(RoundedCornerShape(12.dp))
+                            .background(
+                                if (isClassicSelected) GoldenMain.copy(alpha = 0.15f)
+                                else if (isDarkMode) Color(0xFF262626)
+                                else Color(0xFFF2EFE9)
+                            )
+                            .border(
+                                width = if (isClassicSelected) 1.5.dp else 1.dp,
+                                color = if (isClassicSelected) GoldenMain else dividerColor,
+                                shape = RoundedCornerShape(12.dp)
+                            )
+                            .clickable { onSelectThemeMode(ThemeMode.CLASSIC) }
+                            .padding(vertical = 12.dp, horizontal = 8.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                            Text(text = "📜", fontSize = 22.sp)
+                            Spacer(modifier = Modifier.height(4.dp))
+                            Text(
+                                text = "Clásico",
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 13.5.sp,
+                                color = if (isClassicSelected) GoldenMain else textPrimaryColor
+                            )
+                            Spacer(modifier = Modifier.height(2.dp))
+                            Text(
+                                text = if (isClassicSelected) "Activo ✓" else "Seleccionar",
+                                fontSize = 10.5.sp,
+                                fontWeight = if (isClassicSelected) FontWeight.Bold else FontWeight.Normal,
+                                color = if (isClassicSelected) GoldenMain else textSecondaryColor
+                            )
+                        }
+                    }
+
+                    // Tarjeta: Moderno
+                    Box(
+                        modifier = Modifier
+                            .weight(1f)
+                            .clip(RoundedCornerShape(12.dp))
+                            .background(
+                                if (isModernSelected) GoldenMain.copy(alpha = 0.15f)
+                                else if (isDarkMode) Color(0xFF262626)
+                                else Color(0xFFF2EFE9)
+                            )
+                            .border(
+                                width = if (isModernSelected) 1.5.dp else 1.dp,
+                                color = if (isModernSelected) GoldenMain else dividerColor,
+                                shape = RoundedCornerShape(12.dp)
+                            )
+                            .clickable {
+                                if (isDownloaded) {
+                                    onSelectThemeMode(ThemeMode.MODERN)
+                                } else if (!isDownloading) {
+                                    onDownloadModernTheme()
+                                }
+                            }
+                            .padding(vertical = 12.dp, horizontal = 8.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                            Text(text = "✨", fontSize = 22.sp)
+                            Spacer(modifier = Modifier.height(4.dp))
+                            Text(
+                                text = "Moderno",
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 13.5.sp,
+                                color = if (isModernSelected) GoldenMain else textPrimaryColor
+                            )
+                            Spacer(modifier = Modifier.height(2.dp))
+                            when (dlcStatus) {
+                                is DlcStatus.NotDownloaded -> {
+                                    Text(
+                                        text = "Descargar",
+                                        fontSize = 10.5.sp,
+                                        fontWeight = FontWeight.Bold,
+                                        color = GoldenMain
+                                    )
+                                }
+                                is DlcStatus.Downloading -> {
+                                    Text(
+                                        text = "${(dlcStatus.progress * 100).toInt()}%",
+                                        fontSize = 10.5.sp,
+                                        fontWeight = FontWeight.Bold,
+                                        color = GoldenMain
+                                    )
+                                }
+                                is DlcStatus.Downloaded -> {
+                                    Text(
+                                        text = if (isModernSelected) "Activo ✓" else "Seleccionar",
+                                        fontSize = 10.5.sp,
+                                        fontWeight = if (isModernSelected) FontWeight.Bold else FontWeight.Normal,
+                                        color = if (isModernSelected) GoldenMain else textSecondaryColor
+                                    )
+                                }
+                                is DlcStatus.Error -> {
+                                    Text(
+                                        text = "Reintentar",
+                                        fontSize = 10.5.sp,
+                                        fontWeight = FontWeight.Bold,
+                                        color = Color(0xFFEF4444)
+                                    )
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // Feedback visual de descarga claro y obvio
+                if (isDownloading) {
+                    val progress = (dlcStatus as DlcStatus.Downloading).progress
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = 16.dp, vertical = 6.dp)
+                    ) {
+                        LinearProgressIndicator(
+                            progress = { progress },
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(6.dp)
+                                .clip(RoundedCornerShape(3.dp)),
+                            color = GoldenMain,
+                            trackColor = if (isDarkMode) Color(0xFF333333) else Color(0xFFE0E0E0)
+                        )
+                        Spacer(modifier = Modifier.height(4.dp))
+                        Text(
+                            text = "Descargando Tema Moderno... ${(progress * 100).toInt()}%",
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = GoldenMain,
+                            modifier = Modifier.align(Alignment.CenterHorizontally)
+                        )
+                    }
+                }
+
+                // Opción para desinstalar el tema descargado
+                if (isDownloaded) {
+                    Text(
+                        text = "Desinstalar Tema Moderno",
+                        fontSize = 10.5.sp,
+                        fontWeight = FontWeight.Medium,
+                        color = Color(0xFFEF4444).copy(alpha = 0.85f),
+                        modifier = Modifier
+                            .align(Alignment.CenterHorizontally)
+                            .clickable { onUninstallModernTheme() }
+                            .padding(vertical = 4.dp)
+                    )
+                }
+
+                if (dlcStatus is DlcStatus.Error) {
+                    Text(
+                        text = "Error al descargar. Toca 'Moderno' para reintentar.",
+                        fontSize = 10.5.sp,
+                        color = Color(0xFFEF4444),
+                        modifier = Modifier
+                            .align(Alignment.CenterHorizontally)
+                            .padding(vertical = 4.dp)
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(14.dp))
             }
 
             // --- 3. AJUSTE DE TIPOGRAFÍA INFERIOR ---
@@ -396,7 +595,7 @@ fun AppDrawer(
 
                 // Versión de la Aplicación
                 Text(
-                    text = "Cancionero Digital v3.0",
+                    text = "Cancionero Digital v4.0",
                     fontSize = 10.sp,
                     color = textSecondaryColor.copy(alpha = 0.5f)
                 )

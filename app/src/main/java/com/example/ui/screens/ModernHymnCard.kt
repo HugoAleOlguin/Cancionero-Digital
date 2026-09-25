@@ -2,6 +2,8 @@ package com.example.ui.screens
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -10,11 +12,13 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.GenericShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material.icons.Icons
@@ -33,10 +37,13 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shadow
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.testTag
-import androidx.compose.ui.text.AnnotatedString
-import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -45,104 +52,37 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.search.MatchOccurrence
 import com.example.search.SearchableHymn
-import com.example.search.normalize
 import com.example.ui.components.StarBorderIcon
 import com.example.ui.components.VideoPlayIcon
 import com.example.ui.theme.GoldenMain
 import com.example.ui.theme.JetCarbon
+import com.example.util.rememberCoverImage
 
 /**
- * Resaltador visual de texto coincidente tolerante a mayúsculas y acentos.
+ * Forma poligonal simétrica para el visor de 70px (clip-path en V).
+ * Corta suavemente las esquinas inferiores con una punta central estilizada.
  */
-@Composable
-fun buildHighlightedText(
-    originalText: String,
-    query: String,
-    hymnId: Int,
-    isTitle: Boolean,
-    stanzaIndex: Int,
-    globalMatches: List<MatchOccurrence>,
-    currentMatchIndex: Int
-): AnnotatedString {
-    return remember(originalText, query, globalMatches, currentMatchIndex) {
-        val builder = AnnotatedString.Builder(originalText)
-        val normalizedQuery = query.trim().normalize()
-        if (normalizedQuery.isEmpty()) {
-            return@remember builder.toAnnotatedString()
-        }
-
-        val normalizedText = originalText.normalize()
-        var index = normalizedText.indexOf(normalizedQuery)
-        while (index != -1 && normalizedQuery.isNotEmpty()) {
-            val end = index + normalizedQuery.length
-            val range = index until end
-
-            val occurrence = MatchOccurrence(
-                hymnId = hymnId,
-                isTitle = isTitle,
-                stanzaIndex = stanzaIndex,
-                charRange = range
-            )
-
-            val isActive = if (currentMatchIndex in globalMatches.indices) {
-                globalMatches[currentMatchIndex] == occurrence
-            } else {
-                false
-            }
-
-            val highlightBg = if (isActive) Color(0xFFFF9800) else Color(0xFFFFEB3B)
-            val highlightFg = if (isActive) Color.White else Color.Black
-
-            builder.addStyle(
-                style = SpanStyle(
-                    background = highlightBg,
-                    color = highlightFg,
-                    fontWeight = FontWeight.Bold
-                ),
-                start = index,
-                end = end
-            )
-
-            index = normalizedText.indexOf(normalizedQuery, index + 1)
-        }
-
-        builder.toAnnotatedString()
-    }
+private val PolygonalVisorShape = GenericShape { size, _ ->
+    val w = size.width
+    val h = size.height
+    moveTo(0f, 0f)
+    lineTo(w, 0f)
+    lineTo(w, h * 0.82f)
+    lineTo(w * 0.5f, h)
+    lineTo(0f, h * 0.82f)
+    close()
 }
 
 /**
- * Extrae la etiqueta de estrofa o coro (p. ej. "CORO", "I", "II", "1") si existe en la primera línea.
- */
-internal fun parseStanzaTag(stanza: String): Pair<String?, String> {
-    val lines = stanza.trim().lines()
-    if (lines.isEmpty()) return null to stanza
-    val firstLine = lines.first().trim()
-
-    val isCoro = firstLine.equals("CORO", ignoreCase = true) ||
-            firstLine.startsWith("CORO:", ignoreCase = true) ||
-            firstLine.equals("[CORO]", ignoreCase = true)
-
-    val isRoman = firstLine.matches(Regex("^(I|II|III|IV|V|VI|VII|VIII|IX|X)\\.?$", RegexOption.IGNORE_CASE))
-    val isNumber = firstLine.matches(Regex("^[0-9]+\\.?$"))
-
-    return if ((isCoro || isRoman || isNumber) && lines.size > 1) {
-        val tag = if (isCoro) "CORO" else firstLine.replace(".", "").replace("[", "").replace("]", "").uppercase()
-        val restOfStanza = lines.drop(1).joinToString("\n")
-        tag to restOfStanza
-    } else {
-        null to stanza
-    }
-}
-
-/**
- * Tarjeta individual Clásica Litúrgica con arquitectura y experiencia modernizada:
- * - Cabecera limpia con badge de ID, autor y título en relieve litúrgico.
- * - Toolbar ordenado: selector de versiones [ 1 ] [ 2 ], favorito, compartir con Action Sheet y YouTube directo.
+ * Tarjeta individual moderna (V3.2):
+ * - Visor poligonal de 70px con fotografía HD y gradiente oscuro de legibilidad.
+ * - Toolbar limpio con selector iOS de versiones, favorito, compartir y YouTube directo.
  * - Estrofas con espaciado armónico compacto y badges sutiles para CORO y números.
  */
 @Composable
-fun FeedHymnCard(
+fun ModernHymnCard(
     searchableHymn: SearchableHymn,
+    coverPath: String?,
     fontSize: Float,
     fontFamily: FontFamily = FontFamily.Serif,
     searchQuery: String,
@@ -159,107 +99,167 @@ fun FeedHymnCard(
     val activeContent = if (selectedVersionIndex in versions.indices) versions[selectedVersionIndex] else hymn.content
     val rawStanzas = remember(activeContent) { activeContent.split("\n\n") }
 
-    val cardBg = if (isDarkMode) Color(0xFF1E1E1E) else Color.White
-    val headerBg = if (isDarkMode) Color(0xFF282828) else Color(0xFFF9F7F1)
-    val headerBorder = if (isDarkMode) Color(0xFF383838) else Color(0xFFEBE7DD)
-    val toolbarBg = if (isDarkMode) Color(0xFF222222) else Color(0xFFFAF8F2)
-    val textPrimary = if (isDarkMode) Color.White else JetCarbon
-    val textSecondary = if (isDarkMode) Color(0xFFB0B0B0) else Color.Gray
+    val cardBg = if (isDarkMode) Color(0xFF141A24) else Color.White
+    val cardBorder = if (isDarkMode) Color(0x26FFFFFF) else Color(0x33C5A03A)
+    val toolbarBg = if (isDarkMode) Color(0x990D1118) else Color(0xFFF7F5EE)
+    val textPrimary = if (isDarkMode) Color(0xFFF8FAFC) else JetCarbon
+    val textSecondary = if (isDarkMode) Color(0xFF94A3B8) else Color(0xFF64748B)
+
+    val coverBitmap = rememberCoverImage(coverPath)
 
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .testTag("hymn_item_${hymn.id}"),
         colors = CardDefaults.cardColors(containerColor = cardBg),
-        elevation = CardDefaults.cardElevation(defaultElevation = 1.5.dp),
-        shape = RoundedCornerShape(14.dp),
-        border = androidx.compose.foundation.BorderStroke(
-            width = 1.dp,
-            color = if (isDarkMode) Color(0xFF333333) else Color(0xFFE8E4DA)
-        )
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+        shape = RoundedCornerShape(20.dp),
+        border = androidx.compose.foundation.BorderStroke(1.dp, cardBorder)
     ) {
         Column(modifier = Modifier.fillMaxWidth()) {
 
-            // --- 1. CABECERA LITÚRGICA ORGANIZADA ---
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(headerBg)
-                    .padding(horizontal = 14.dp, vertical = 8.dp)
-            ) {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    // Badge con ID en oro litúrgico
-                    Box(
-                        modifier = Modifier
-                            .clip(RoundedCornerShape(8.dp))
-                            .background(GoldenMain)
-                            .padding(horizontal = 7.dp, vertical = 1.5.dp)
-                    ) {
-                        Text(
-                            text = "${hymn.id}",
-                            color = Color(0xFF12161A),
-                            fontSize = 11.sp,
-                            fontWeight = FontWeight.ExtraBold
-                        )
-                    }
-
-                    if (hymn.author.isNotBlank()) {
-                        Text(
-                            text = hymn.author,
-                            color = textSecondary,
-                            fontSize = 11.5.sp,
-                            fontWeight = FontWeight.Normal,
-                            fontFamily = fontFamily,
-                            maxLines = 1,
-                            overflow = TextOverflow.Ellipsis
-                        )
-                    }
-                }
-
-                Spacer(modifier = Modifier.height(4.dp))
-
-                val annotatedTitle = buildHighlightedText(
-                    originalText = hymn.title.uppercase(),
-                    query = searchQuery,
-                    hymnId = hymn.id,
-                    isTitle = true,
-                    stanzaIndex = -1,
-                    globalMatches = globalMatches,
-                    currentMatchIndex = currentMatchIndex
-                )
-
-                Text(
-                    text = annotatedTitle,
-                    color = textPrimary,
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 14.5.sp,
-                    fontFamily = fontFamily,
-                    maxLines = 2,
-                    overflow = TextOverflow.Ellipsis
-                )
-            }
-
-            // Divisor entre cabecera y barra de herramientas
+            // --- 1. VISOR POLIGONAL DE 70PX ---
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(1.dp)
-                    .background(headerBorder)
-            )
+                    .height(70.dp)
+                    .clip(PolygonalVisorShape)
+            ) {
+                // Imagen de fondo o gradiente de respaldo sin assets
+                if (coverBitmap != null) {
+                    Image(
+                        bitmap = coverBitmap,
+                        contentDescription = null,
+                        contentScale = ContentScale.Crop,
+                        modifier = Modifier.fillMaxSize()
+                    )
+                } else {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .background(
+                                Brush.linearGradient(
+                                    colors = if (isDarkMode) {
+                                        listOf(Color(0xFF1E2838), Color(0xFF0F141F), Color(0xFF281E12))
+                                    } else {
+                                        listOf(Color(0xFF2F3C4F), Color(0xFF1D2635), Color(0xFF45361E))
+                                    }
+                                )
+                            )
+                    )
+                }
 
-            // --- 2. BARRA DE ACCIONES ELEVADA ---
+                // Superposición de sombra oscura para garantizar legibilidad 100%
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(
+                            Brush.verticalGradient(
+                                colors = listOf(
+                                    Color(0x1F000000),
+                                    Color(0x80000000),
+                                    Color(0xEE000000)
+                                )
+                            )
+                        )
+                )
+
+                // Borde inferior sutil dorado sobre el corte poligonal
+                Canvas(modifier = Modifier.fillMaxSize()) {
+                    val w = size.width
+                    val h = size.height
+                    val path = androidx.compose.ui.graphics.Path().apply {
+                        moveTo(0f, h * 0.82f)
+                        lineTo(w * 0.5f, h)
+                        lineTo(w, h * 0.82f)
+                    }
+                    drawPath(
+                        path = path,
+                        color = GoldenMain.copy(alpha = 0.8f),
+                        style = androidx.compose.ui.graphics.drawscope.Stroke(
+                            width = 2.dp.toPx(),
+                            cap = androidx.compose.ui.graphics.StrokeCap.Round
+                        )
+                    )
+                }
+
+                // Metadatos sobre el visor (ID, Autor y Título con sombra de alto contraste)
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(horizontal = 14.dp, vertical = 6.dp),
+                    verticalArrangement = Arrangement.Bottom
+                ) {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(6.dp)
+                    ) {
+                        // Badge con ID en oro litúrgico
+                        Box(
+                            modifier = Modifier
+                                .clip(RoundedCornerShape(10.dp))
+                                .background(GoldenMain)
+                                .padding(horizontal = 6.dp, vertical = 1.dp)
+                        ) {
+                            Text(
+                                text = "${hymn.id}",
+                                color = Color(0xFF12161A),
+                                fontSize = 10.sp,
+                                fontWeight = FontWeight.ExtraBold
+                            )
+                        }
+
+                        // Autor de la alabanza
+                        if (hymn.author.isNotBlank()) {
+                            Text(
+                                text = hymn.author,
+                                color = Color.White.copy(alpha = 0.85f),
+                                fontSize = 11.sp,
+                                fontWeight = FontWeight.SemiBold,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis
+                            )
+                        }
+                    }
+
+                    val annotatedTitle = buildHighlightedText(
+                        originalText = hymn.title.uppercase(),
+                        query = searchQuery,
+                        hymnId = hymn.id,
+                        isTitle = true,
+                        stanzaIndex = -1,
+                        globalMatches = globalMatches,
+                        currentMatchIndex = currentMatchIndex
+                    )
+
+                    Text(
+                        text = annotatedTitle,
+                        color = Color.White,
+                        fontSize = 14.5.sp,
+                        fontWeight = FontWeight.Bold,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                        style = TextStyle(
+                            shadow = Shadow(
+                                color = Color.Black.copy(alpha = 0.85f),
+                                offset = Offset(0f, 2f),
+                                blurRadius = 4f
+                            )
+                        )
+                    )
+                }
+            }
+
+            // --- 2. TOOLBAR ELEVADO LIMPIO ---
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
                     .background(toolbarBg)
-                    .padding(horizontal = 12.dp, vertical = 3.dp),
+                    .padding(horizontal = 12.dp, vertical = 4.dp),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                // Selector de Versiones numérico ([ 1 ] [ 2 ])
+                // Selector de versiones numérico estilo iOS segmented ([ 1 ] [ 2 ])
                 if (versions.size > 1) {
                     Row(
                         modifier = Modifier
@@ -275,7 +275,7 @@ fun FeedHymnCard(
                             val pillBg by animateColorAsState(
                                 targetValue = if (isSelected) GoldenMain else Color.Transparent,
                                 animationSpec = tween(180),
-                                label = "pillBgClassic"
+                                label = "pillBg"
                             )
                             val pillTextColor = if (isSelected) Color(0xFF12161A) else textSecondary
 
@@ -300,12 +300,12 @@ fun FeedHymnCard(
                     Spacer(modifier = Modifier.width(1.dp))
                 }
 
-                // Botones de acción a la derecha
+                // Grupo de botones de acción a la derecha
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(4.dp)
                 ) {
-                    // Botón de Favorito
+                    // Botón de Favoritos
                     IconButton(
                         onClick = onToggleFavorite,
                         modifier = Modifier
@@ -327,7 +327,7 @@ fun FeedHymnCard(
                         }
                     }
 
-                    // Botón de Compartir (Abre Action Sheet unificado)
+                    // Botón Compartir (Abre Action Sheet iOS)
                     IconButton(
                         onClick = onOpenShareSheet,
                         modifier = Modifier
@@ -342,7 +342,7 @@ fun FeedHymnCard(
                         )
                     }
 
-                    // Botón de YouTube directo al lado de compartir
+                    // Botón de YouTube directo en la barra
                     if (hymn.link.isNotBlank()) {
                         IconButton(
                             onClick = onOpenYoutube,
@@ -359,14 +359,12 @@ fun FeedHymnCard(
                 }
             }
 
-            Spacer(modifier = Modifier.height(6.dp))
-
-            // --- 3. LETRA DEL CANTO CON ESTROFAS CENTRADAS Y BADGES ---
+            // --- 3. LETRA DEL CANTO CON ESTROFAS COMPACTAS Y BADGES ---
             SelectionContainer {
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 16.dp, vertical = 6.dp),
+                        .padding(horizontal = 16.dp, vertical = 10.dp),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     rawStanzas.forEachIndexed { index, rawStanza ->
@@ -378,7 +376,7 @@ fun FeedHymnCard(
                                 .fillMaxWidth()
                                 .padding(vertical = 3.dp)
                         ) {
-                            // Badge de CORO o Estrofa
+                            // Badge sutil de estrofa o coro
                             if (stanzaTag != null) {
                                 val isCoro = stanzaTag == "CORO"
                                 val tagBg = if (isCoro) {
@@ -428,22 +426,20 @@ fun FeedHymnCard(
                                 color = textPrimary,
                                 fontSize = fontSize.sp,
                                 textAlign = TextAlign.Center,
-                                lineHeight = (fontSize * 1.50f).sp,
+                                lineHeight = (fontSize * 1.48f).sp,
                                 fontFamily = fontFamily,
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(vertical = 2.dp)
+                                modifier = Modifier.fillMaxWidth()
                             )
                         }
 
-                        // Divisor sutil entre estrofas
+                        // Divisor armónico sutil entre estrofas
                         if (index < rawStanzas.lastIndex) {
                             Box(
                                 modifier = Modifier
-                                    .padding(vertical = 6.dp)
+                                    .padding(vertical = 5.dp)
                                     .width(22.dp)
                                     .height(1.dp)
-                                    .background(if (isDarkMode) Color.Gray.copy(alpha = 0.3f) else Color.LightGray.copy(alpha = 0.4f))
+                                    .background(GoldenMain.copy(alpha = 0.28f))
                             )
                         }
                     }

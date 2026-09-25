@@ -14,8 +14,8 @@ android {
     applicationId = "com.aistudio.alabanzas.cphtxz"
     minSdk = 23
     targetSdk = 36
-    versionCode = 8
-    versionName = "3.0"
+    versionCode = 9
+    versionName = "4.0"
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
   }
@@ -43,7 +43,8 @@ android {
       isShrinkResources = true
       isDebuggable = false
       proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-      signingConfig = signingConfigs.getByName("release")
+      val hasReleaseSigning = !System.getenv("STORE_PASSWORD").isNullOrBlank()
+      signingConfig = if (hasReleaseSigning) signingConfigs.getByName("release") else signingConfigs.getByName("debugConfig")
     }
     debug {
       signingConfig = signingConfigs.getByName("debugConfig")

@@ -273,3 +273,167 @@ fun VideoPlayIcon(modifier: Modifier = Modifier, tint: Color) {
         tint = tint
     )
 }
+
+/**
+ * Icono de documento PDF implementado en vector nativo.
+ */
+@Composable
+fun PdfFileIcon(modifier: Modifier = Modifier, tint: Color) {
+    Icon(
+        imageVector = ImageVector.Builder(
+            name = "custom_pdf_file",
+            defaultWidth = 24.dp,
+            defaultHeight = 24.dp,
+            viewportWidth = 24f,
+            viewportHeight = 24f
+        ).apply {
+            path(fill = SolidColor(tint)) {
+                moveTo(6f, 2f)
+                lineTo(14f, 2f)
+                lineTo(20f, 8f)
+                lineTo(20f, 20f)
+                curveTo(20f, 21.1f, 19.1f, 22f, 18f, 22f)
+                lineTo(6f, 22f)
+                curveTo(4.9f, 22f, 4f, 21.1f, 4f, 20f)
+                lineTo(4f, 4f)
+                curveTo(4f, 2.9f, 4.9f, 2f, 6f, 2f)
+                close()
+                moveTo(13f, 3.5f)
+                lineTo(13f, 9f)
+                lineTo(18.5f, 9f)
+                close()
+                moveTo(8f, 13f)
+                lineTo(16f, 13f)
+                lineTo(16f, 14.5f)
+                lineTo(8f, 14.5f)
+                close()
+                moveTo(8f, 16.5f)
+                lineTo(14f, 16.5f)
+                lineTo(14f, 18f)
+                lineTo(8f, 18f)
+                close()
+            }
+        }.build(),
+        contentDescription = "Documento PDF",
+        modifier = modifier,
+        tint = tint
+    )
+}
+
+/**
+ * Icono de mensaje / compartir texto implementado en vector nativo.
+ */
+@Composable
+fun ShareTextIcon(modifier: Modifier = Modifier, tint: Color) {
+    Icon(
+        imageVector = ImageVector.Builder(
+            name = "custom_share_text",
+            defaultWidth = 24.dp,
+            defaultHeight = 24.dp,
+            viewportWidth = 24f,
+            viewportHeight = 24f
+        ).apply {
+            path(fill = SolidColor(tint)) {
+                moveTo(20f, 2f)
+                lineTo(4f, 2f)
+                curveTo(2.9f, 2f, 2f, 2.9f, 2f, 4f)
+                lineTo(2f, 22f)
+                lineTo(6f, 18f)
+                lineTo(20f, 18f)
+                curveTo(21.1f, 18f, 22f, 17.1f, 22f, 16f)
+                lineTo(22f, 4f)
+                curveTo(22f, 2.9f, 21.1f, 2f, 20f, 2f)
+                close()
+                moveTo(6f, 9f)
+                lineTo(18f, 9f)
+                lineTo(18f, 10.5f)
+                lineTo(6f, 10.5f)
+                close()
+                moveTo(6f, 13f)
+                lineTo(14f, 13f)
+                lineTo(14f, 14.5f)
+                lineTo(6f, 14.5f)
+                close()
+            }
+        }.build(),
+        contentDescription = "Compartir Texto",
+        modifier = modifier,
+        tint = tint
+    )
+}
+
+/**
+ * Icono de copiar al portapapeles en vector nativo.
+ */
+@Composable
+fun ClipboardCopyIcon(modifier: Modifier = Modifier, tint: Color) {
+    Icon(
+        imageVector = ImageVector.Builder(
+            name = "custom_clipboard_copy",
+            defaultWidth = 24.dp,
+            defaultHeight = 24.dp,
+            viewportWidth = 24f,
+            viewportHeight = 24f
+        ).apply {
+            path(fill = SolidColor(tint)) {
+                moveTo(16f, 1f)
+                lineTo(4f, 1f)
+                curveTo(2.9f, 1f, 2f, 1.9f, 2f, 3f)
+                lineTo(2f, 17f)
+                lineTo(4f, 17f)
+                lineTo(4f, 3f)
+                lineTo(16f, 3f)
+                lineTo(16f, 1f)
+                close()
+                moveTo(19f, 5f)
+                lineTo(8f, 5f)
+                curveTo(6.9f, 5f, 6f, 5.9f, 6f, 7f)
+                lineTo(6f, 21f)
+                curveTo(6f, 22.1f, 6.9f, 23f, 8f, 23f)
+                lineTo(19f, 23f)
+                curveTo(20.1f, 23f, 21f, 22.1f, 21f, 21f)
+                lineTo(21f, 7f)
+                curveTo(21f, 5.9f, 20.1f, 5f, 19f, 5f)
+                close()
+                moveTo(17f, 19f)
+                lineTo(10f, 19f)
+                lineTo(10f, 7f)
+                lineTo(17f, 7f)
+                lineTo(17f, 19f)
+                close()
+            }
+        }.build(),
+        contentDescription = "Copiar Portapapeles",
+        modifier = modifier,
+        tint = tint
+    )
+}
+
+/**
+ * Icono de destellos / estrella estética para el Tema Moderno.
+ */
+@Composable
+fun SparkleThemeIcon(modifier: Modifier = Modifier, tint: Color) {
+    Icon(
+        imageVector = ImageVector.Builder(
+            name = "custom_sparkle_theme",
+            defaultWidth = 24.dp,
+            defaultHeight = 24.dp,
+            viewportWidth = 24f,
+            viewportHeight = 24f
+        ).apply {
+            path(fill = SolidColor(tint)) {
+                moveTo(12f, 2f)
+                curveTo(12f, 7.52f, 16.48f, 12f, 22f, 12f)
+                curveTo(16.48f, 12f, 12f, 16.48f, 12f, 22f)
+                curveTo(12f, 16.48f, 7.52f, 12f, 2f, 12f)
+                curveTo(7.52f, 12f, 12f, 7.52f, 12f, 2f)
+                close()
+            }
+        }.build(),
+        contentDescription = "Tema Moderno",
+        modifier = modifier,
+        tint = tint
+    )
+}
+

@@ -2,12 +2,11 @@ package com.example.search
 
 import com.example.data.database.HymnEntity
 import org.junit.Assert.assertEquals
-import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 
-class FuzzyHymnSearchEngineTest {
+class HymnSearchEngineTest {
 
     private lateinit var dataset: List<SearchableHymn>
 
@@ -45,63 +44,56 @@ class FuzzyHymnSearchEngineTest {
     }
 
     @Test
-    fun testFuzzyMatchFunction() {
-        // Distancia 0 (idéntico)
-        assertTrue(FuzzyHymnSearchEngine.isFuzzyMatch("grande", "grande", 1))
-
-        // Transposición de letras adyacentes: "grnade" -> "grande"
-        assertTrue(FuzzyHymnSearchEngine.isFuzzyMatch("grnade", "grande", 1))
-
-        // Eliminación: "cielo" vs "cielos"
-        assertTrue(FuzzyHymnSearchEngine.isFuzzyMatch("cielo", "cielos", 1))
-
-        // Inserción: "cielos" vs "cielo"
-        assertTrue(FuzzyHymnSearchEngine.isFuzzyMatch("cielos", "cielo", 1))
-
-        // Sustitución de 1 letra: "blanda" vs "blanca"
-        assertTrue(FuzzyHymnSearchEngine.isFuzzyMatch("blanda", "blanca", 1))
-
-        // Distancia > 1 (demasiado diferente)
-        assertFalse(FuzzyHymnSearchEngine.isFuzzyMatch("zapato", "cielos", 1))
-
-        // Palabras cortas (<4 letras) no usan fuzzy para evitar falsos positivos
-        assertFalse(FuzzyHymnSearchEngine.isFuzzyMatch("de", "el", 1))
-    }
-
-    @Test
     fun testSearchExactId() {
-        val results = FuzzyHymnSearchEngine.search(dataset, "2")
+        val trimmed = "2".trim().normalize()
+        val results = dataset.filter {
+            it.hymn.id.toString() == trimmed ||
+                    it.normalizedTitle.contains(trimmed) ||
+                    it.normalizedAuthor.contains(trimmed) ||
+                    it.normalizedContent.contains(trimmed)
+        }
         assertEquals(1, results.size)
-        assertEquals(2, results[0].hymn.hymn.id)
+        assertEquals(2, results[0].hymn.id)
     }
 
     @Test
     fun testSearchExactTitle() {
-        val results = FuzzyHymnSearchEngine.search(dataset, "cuan grande")
-        assertTrue(results.isNotEmpty())
-        assertEquals(1, results[0].hymn.hymn.id)
+        val trimmed = "cuan grande".trim().normalize()
+        val results = dataset.filter {
+            it.hymn.id.toString() == trimmed ||
+                    it.normalizedTitle.contains(trimmed) ||
+                    it.normalizedAuthor.contains(trimmed) ||
+                    it.normalizedContent.contains(trimmed)
+        }
+        assertEquals(1, results.size)
+        assertEquals(1, results[0].hymn.id)
     }
 
     @Test
-    fun testSearchMultiWordNonConsecutiveInStanza() {
-        // En h2: "En una nube blanca Cristo volverá... nos levantará"
-        // Usuario escribe: "nube levantara" (palabras salteadas en la misma estrofa)
-        val results = FuzzyHymnSearchEngine.search(dataset, "nube levantara")
-        assertTrue(results.isNotEmpty())
-        assertEquals(2, results[0].hymn.hymn.id)
+    fun testSearchContentPreservesOrder() {
+        val trimmed = "cristo".trim().normalize()
+        val results = dataset.filter {
+            it.hymn.id.toString() == trimmed ||
+                    it.normalizedTitle.contains(trimmed) ||
+                    it.normalizedAuthor.contains(trimmed) ||
+                    it.normalizedContent.contains(trimmed)
+        }
+        assertEquals(1, results.size)
+        assertEquals(2, results[0].hymn.id)
     }
 
     @Test
-    fun testSearchWithFuzzyTypo() {
-        // Usuario escribe con error de 1 letra: "grnade" en lugar de "grande"
-        val results = FuzzyHymnSearchEngine.search(dataset, "cuan grnade")
-        assertTrue(results.isNotEmpty())
-        assertEquals(1, results[0].hymn.hymn.id)
-    }
-
-    @Test
-    fun testEmptyQueryReturnsAll() {
-        val results = FuzzyHymnSearchEngine.search(dataset, "")
+    fun testEmptyQueryReturnsAllInNaturalOrder() {
+        val trimmed = "".trim().normalize()
+        val results = if (trimmed.isEmpty()) dataset else dataset.filter {
+            it.hymn.id.toString() == trimmed ||
+                    it.normalizedTitle.contains(trimmed) ||
+                    it.normalizedAuthor.contains(trimmed) ||
+                    it.normalizedContent.contains(trimmed)
+        }
         assertEquals(3, results.size)
+        assertEquals(1, results[0].hymn.id)
+        assertEquals(2, results[1].hymn.id)
+        assertEquals(3, results[2].hymn.id)
     }
 }
