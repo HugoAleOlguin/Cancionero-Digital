@@ -14,8 +14,8 @@ android {
     applicationId = "com.aistudio.alabanzas.cphtxz"
     minSdk = 23
     targetSdk = 36
-    versionCode = 7
-    versionName = "2.5"
+    versionCode = 8
+    versionName = "3.0"
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
   }
@@ -63,6 +63,11 @@ android {
       reset()
       include("arm64-v8a", "armeabi-v7a")
       isUniversalApk = true
+    }
+  }
+  testOptions {
+    unitTests {
+      isIncludeAndroidResources = true
     }
   }
 }

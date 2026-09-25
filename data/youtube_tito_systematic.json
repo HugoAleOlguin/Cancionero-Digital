@@ -1,0 +1,4050 @@
+[
+  {
+    "id": 284,
+    "title": "Job",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "pcOlo3axiN0",
+      "videoTitle": "Puedo cantar -Tito abarca",
+      "channel": "Carlos Ramírez",
+      "url": "https://www.youtube.com/watch?v=pcOlo3axiN0",
+      "has_artist": true,
+      "matched_words": 0,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "pcOlo3axiN0",
+        "videoTitle": "Puedo cantar -Tito abarca",
+        "channel": "Carlos Ramírez",
+        "url": "https://www.youtube.com/watch?v=pcOlo3axiN0",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "S1nWwWVmnJQ",
+        "videoTitle": "Tito Abarca - Sigo de Pie",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=S1nWwWVmnJQ",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "uHNhe_qD1hU",
+        "videoTitle": "Todo Cambio (testimonio de inspiración de esta alabanza)",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=uHNhe_qD1hU",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 288,
+    "title": "Mi abogado",
+    "author": "Tito Abarca",
+    "status": "NEEDS_REVIEW",
+    "best_match": {
+      "videoId": "E4b_b4HTdho",
+      "videoTitle": "Mi Abogado",
+      "channel": "Conjunto de Luján de Cuyo - Topic",
+      "url": "https://www.youtube.com/watch?v=E4b_b4HTdho",
+      "has_artist": false,
+      "matched_words": 1,
+      "score": 70
+    },
+    "all_candidates": [
+      {
+        "videoId": "E4b_b4HTdho",
+        "videoTitle": "Mi Abogado",
+        "channel": "Conjunto de Luján de Cuyo - Topic",
+        "url": "https://www.youtube.com/watch?v=E4b_b4HTdho",
+        "has_artist": false,
+        "matched_words": 1,
+        "score": 70
+      },
+      {
+        "videoId": "C3087InnZ-8",
+        "videoTitle": "AVIVA EL DON - Tito Abarca",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=C3087InnZ-8",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "A4jk658pYAI",
+        "videoTitle": "Tito Abarca - Renuncio a la Miseria",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=A4jk658pYAI",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 433,
+    "title": "Porque no me lo Pediste",
+    "author": "Tito Abarca",
+    "status": "EXACT_MATCH",
+    "best_match": {
+      "videoId": "VsmjmQd5GcQ",
+      "videoTitle": "Porque no me lo pedistes- Tito abarca",
+      "channel": "Carlos Ramírez",
+      "url": "https://www.youtube.com/watch?v=VsmjmQd5GcQ",
+      "has_artist": true,
+      "matched_words": 2,
+      "score": 120
+    },
+    "all_candidates": [
+      {
+        "videoId": "VsmjmQd5GcQ",
+        "videoTitle": "Porque no me lo pedistes- Tito abarca",
+        "channel": "Carlos Ramírez",
+        "url": "https://www.youtube.com/watch?v=VsmjmQd5GcQ",
+        "has_artist": true,
+        "matched_words": 2,
+        "score": 120
+      },
+      {
+        "videoId": "tHmAYlu6hJM",
+        "videoTitle": "Porque Sigo De Pie - Tito Abarca - Andrés Plagges - IEP",
+        "channel": "IGLESIA CRISTIANA UNIDA - Plagges Lira",
+        "url": "https://www.youtube.com/watch?v=tHmAYlu6hJM",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 75
+      },
+      {
+        "videoId": "pcOlo3axiN0",
+        "videoTitle": "Puedo cantar -Tito abarca",
+        "channel": "Carlos Ramírez",
+        "url": "https://www.youtube.com/watch?v=pcOlo3axiN0",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 434,
+    "title": "¿Hasta Cuando Señor?",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "_eYCrRKu-KU",
+      "videoTitle": "Yo te alabo señor - Tito abarca",
+      "channel": "Carlos Ramírez",
+      "url": "https://www.youtube.com/watch?v=_eYCrRKu-KU",
+      "has_artist": true,
+      "matched_words": 1,
+      "score": 66
+    },
+    "all_candidates": [
+      {
+        "videoId": "_eYCrRKu-KU",
+        "videoTitle": "Yo te alabo señor - Tito abarca",
+        "channel": "Carlos Ramírez",
+        "url": "https://www.youtube.com/watch?v=_eYCrRKu-KU",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 66
+      },
+      {
+        "videoId": "UZF2pC_xhkI",
+        "videoTitle": "Tito Abarca - Señor Yo Te Vi",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=UZF2pC_xhkI",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 66
+      },
+      {
+        "videoId": "e_HEQ-9sF3Q",
+        "videoTitle": "Tito Abarca - Quemame con Fuego Santo",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=e_HEQ-9sF3Q",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 435,
+    "title": "No Temáis",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "RheHRyks_QA",
+      "videoTitle": "¿ Por Qué Temer ? LETRA - Hno. Tito Abarca - Andrés y Gamaliel Plagges - IEP",
+      "channel": "IGLESIA CRISTIANA UNIDA - Plagges Lira",
+      "url": "https://www.youtube.com/watch?v=RheHRyks_QA",
+      "has_artist": true,
+      "matched_words": 0,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "RheHRyks_QA",
+        "videoTitle": "¿ Por Qué Temer ? LETRA - Hno. Tito Abarca - Andrés y Gamaliel Plagges - IEP",
+        "channel": "IGLESIA CRISTIANA UNIDA - Plagges Lira",
+        "url": "https://www.youtube.com/watch?v=RheHRyks_QA",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "jpbYB3DAaug",
+        "videoTitle": "TIZON ARREBATADO - TITO ABARCA",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=jpbYB3DAaug",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "k_w2ouuUSOk",
+        "videoTitle": "NO HAY CADENAS NI CERROJOS - Tito Abarca",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=k_w2ouuUSOk",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 436,
+    "title": "Hijo no te sorprendas",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "k_w2ouuUSOk",
+      "videoTitle": "NO HAY CADENAS NI CERROJOS - Tito Abarca",
+      "channel": "Creciendo en Su presencia",
+      "url": "https://www.youtube.com/watch?v=k_w2ouuUSOk",
+      "has_artist": true,
+      "matched_words": 0,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "k_w2ouuUSOk",
+        "videoTitle": "NO HAY CADENAS NI CERROJOS - Tito Abarca",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=k_w2ouuUSOk",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "C3087InnZ-8",
+        "videoTitle": "AVIVA EL DON - Tito Abarca",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=C3087InnZ-8",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "jpbYB3DAaug",
+        "videoTitle": "TIZON ARREBATADO - TITO ABARCA",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=jpbYB3DAaug",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 437,
+    "title": "Las Bodas",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "F7MUvcjslfo",
+      "videoTitle": "Porque Temer? - Tito Abarca",
+      "channel": "Alabanzas DIOS ES AMOR",
+      "url": "https://www.youtube.com/watch?v=F7MUvcjslfo",
+      "has_artist": true,
+      "matched_words": 0,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "F7MUvcjslfo",
+        "videoTitle": "Porque Temer? - Tito Abarca",
+        "channel": "Alabanzas DIOS ES AMOR",
+        "url": "https://www.youtube.com/watch?v=F7MUvcjslfo",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "rW7OQ8D1H-M",
+        "videoTitle": "MEFIBOSET - TITO ABARCA",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=rW7OQ8D1H-M",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "-dugdtLoLJk",
+        "videoTitle": "Mefiboset “Hermano Tito Abarca” Visita a Chile Diciembre 2024",
+        "channel": "Elias Daniel Gatica Abrigo",
+        "url": "https://www.youtube.com/watch?v=-dugdtLoLJk",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 438,
+    "title": "Sopla Señor",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "_mQKytCyTAY",
+      "videoTitle": "Sopla — Tito Abarca Cover _ Juventud Cristiana Dios es Amor",
+      "channel": "Juventud Cristiana Dios es Amor",
+      "url": "https://www.youtube.com/watch?v=_mQKytCyTAY",
+      "has_artist": true,
+      "matched_words": 1,
+      "score": 75
+    },
+    "all_candidates": [
+      {
+        "videoId": "_mQKytCyTAY",
+        "videoTitle": "Sopla — Tito Abarca Cover _ Juventud Cristiana Dios es Amor",
+        "channel": "Juventud Cristiana Dios es Amor",
+        "url": "https://www.youtube.com/watch?v=_mQKytCyTAY",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 75
+      },
+      {
+        "videoId": "zwgLrZME4rg",
+        "videoTitle": "Sopla cover (Tito Abarca )",
+        "channel": "Himnos y Alabanzas Cristianas",
+        "url": "https://www.youtube.com/watch?v=zwgLrZME4rg",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 75
+      },
+      {
+        "videoId": "bzSJL88cqIo",
+        "videoTitle": "SOPLA SEÑOR.",
+        "channel": "Lenin Vladimir Cárdenas Torres",
+        "url": "https://www.youtube.com/watch?v=bzSJL88cqIo",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 70
+      }
+    ]
+  },
+  {
+    "id": 439,
+    "title": "Yo Conozco",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "fkoG31ATcJk",
+      "videoTitle": "Yo quiero estar - Tito Abarca",
+      "channel": "Tito Abarca",
+      "url": "https://www.youtube.com/watch?v=fkoG31ATcJk",
+      "has_artist": true,
+      "matched_words": 0,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "fkoG31ATcJk",
+        "videoTitle": "Yo quiero estar - Tito Abarca",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=fkoG31ATcJk",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "pcOlo3axiN0",
+        "videoTitle": "Puedo cantar -Tito abarca",
+        "channel": "Carlos Ramírez",
+        "url": "https://www.youtube.com/watch?v=pcOlo3axiN0",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "_eYCrRKu-KU",
+        "videoTitle": "Yo te alabo señor - Tito abarca",
+        "channel": "Carlos Ramírez",
+        "url": "https://www.youtube.com/watch?v=_eYCrRKu-KU",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 440,
+    "title": "La Barca",
+    "author": "Tito Abarca",
+    "status": "EXACT_MATCH",
+    "best_match": {
+      "videoId": "ZVvv_cyvw6c",
+      "videoTitle": "Como el siervo ansioso brama- Tito abarca ",
+      "channel": "Brian sena",
+      "url": "https://www.youtube.com/watch?v=ZVvv_cyvw6c",
+      "has_artist": true,
+      "matched_words": 1,
+      "score": 100
+    },
+    "all_candidates": [
+      {
+        "videoId": "ZVvv_cyvw6c",
+        "videoTitle": "Como el siervo ansioso brama- Tito abarca ",
+        "channel": "Brian sena",
+        "url": "https://www.youtube.com/watch?v=ZVvv_cyvw6c",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 100
+      },
+      {
+        "videoId": "UZF2pC_xhkI",
+        "videoTitle": "Tito Abarca - Señor Yo Te Vi",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=UZF2pC_xhkI",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 100
+      },
+      {
+        "videoId": "-dugdtLoLJk",
+        "videoTitle": "Mefiboset “Hermano Tito Abarca” Visita a Chile Diciembre 2024",
+        "channel": "Elias Daniel Gatica Abrigo",
+        "url": "https://www.youtube.com/watch?v=-dugdtLoLJk",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 100
+      }
+    ]
+  },
+  {
+    "id": 441,
+    "title": "Consolada Fui",
+    "author": "Tito Abarca",
+    "status": "EXACT_MATCH",
+    "best_match": {
+      "videoId": "Z2scHOqUzek",
+      "videoTitle": "Tito Abarca - Consolada Fui",
+      "channel": "Tito Abarca",
+      "url": "https://www.youtube.com/watch?v=Z2scHOqUzek",
+      "has_artist": true,
+      "matched_words": 2,
+      "score": 120
+    },
+    "all_candidates": [
+      {
+        "videoId": "Z2scHOqUzek",
+        "videoTitle": "Tito Abarca - Consolada Fui",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=Z2scHOqUzek",
+        "has_artist": true,
+        "matched_words": 2,
+        "score": 120
+      },
+      {
+        "videoId": "_eYCrRKu-KU",
+        "videoTitle": "Yo te alabo señor - Tito abarca",
+        "channel": "Carlos Ramírez",
+        "url": "https://www.youtube.com/watch?v=_eYCrRKu-KU",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "fkoG31ATcJk",
+        "videoTitle": "Yo quiero estar - Tito Abarca",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=fkoG31ATcJk",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 442,
+    "title": "Jesús Venció",
+    "author": "Tito Abarca",
+    "status": "NEEDS_REVIEW",
+    "best_match": {
+      "videoId": "81CtOo2AOV0",
+      "videoTitle": "01  Jesus Vencio",
+      "channel": "Iglesia Adventista del Séptimo Día, Centro de BsAs",
+      "url": "https://www.youtube.com/watch?v=81CtOo2AOV0",
+      "has_artist": false,
+      "matched_words": 2,
+      "score": 70
+    },
+    "all_candidates": [
+      {
+        "videoId": "81CtOo2AOV0",
+        "videoTitle": "01  Jesus Vencio",
+        "channel": "Iglesia Adventista del Séptimo Día, Centro de BsAs",
+        "url": "https://www.youtube.com/watch?v=81CtOo2AOV0",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 70
+      },
+      {
+        "videoId": "UZF2pC_xhkI",
+        "videoTitle": "Tito Abarca - Señor Yo Te Vi",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=UZF2pC_xhkI",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "jpbYB3DAaug",
+        "videoTitle": "TIZON ARREBATADO - TITO ABARCA",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=jpbYB3DAaug",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 443,
+    "title": "Puedo Cantar",
+    "author": "Tito Abarca",
+    "status": "EXACT_MATCH",
+    "best_match": {
+      "videoId": "pcOlo3axiN0",
+      "videoTitle": "Puedo cantar -Tito abarca",
+      "channel": "Carlos Ramírez",
+      "url": "https://www.youtube.com/watch?v=pcOlo3axiN0",
+      "has_artist": true,
+      "matched_words": 2,
+      "score": 120
+    },
+    "all_candidates": [
+      {
+        "videoId": "pcOlo3axiN0",
+        "videoTitle": "Puedo cantar -Tito abarca",
+        "channel": "Carlos Ramírez",
+        "url": "https://www.youtube.com/watch?v=pcOlo3axiN0",
+        "has_artist": true,
+        "matched_words": 2,
+        "score": 120
+      },
+      {
+        "videoId": "UZF2pC_xhkI",
+        "videoTitle": "Tito Abarca - Señor Yo Te Vi",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=UZF2pC_xhkI",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "rW7OQ8D1H-M",
+        "videoTitle": "MEFIBOSET - TITO ABARCA",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=rW7OQ8D1H-M",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 444,
+    "title": "José",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "bu6f71VwdXM",
+      "videoTitle": "Mefi-boset (letra)- Tito Abarca - Andrés Plagges",
+      "channel": "IGLESIA CRISTIANA UNIDA - Plagges Lira",
+      "url": "https://www.youtube.com/watch?v=bu6f71VwdXM",
+      "has_artist": true,
+      "matched_words": 0,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "bu6f71VwdXM",
+        "videoTitle": "Mefi-boset (letra)- Tito Abarca - Andrés Plagges",
+        "channel": "IGLESIA CRISTIANA UNIDA - Plagges Lira",
+        "url": "https://www.youtube.com/watch?v=bu6f71VwdXM",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "pcOlo3axiN0",
+        "videoTitle": "Puedo cantar -Tito abarca",
+        "channel": "Carlos Ramírez",
+        "url": "https://www.youtube.com/watch?v=pcOlo3axiN0",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "UZF2pC_xhkI",
+        "videoTitle": "Tito Abarca - Señor Yo Te Vi",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=UZF2pC_xhkI",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 445,
+    "title": "Señor yo te Vi",
+    "author": "Tito Abarca",
+    "status": "EXACT_MATCH",
+    "best_match": {
+      "videoId": "UZF2pC_xhkI",
+      "videoTitle": "Tito Abarca - Señor Yo Te Vi",
+      "channel": "Tito Abarca",
+      "url": "https://www.youtube.com/watch?v=UZF2pC_xhkI",
+      "has_artist": true,
+      "matched_words": 1,
+      "score": 120
+    },
+    "all_candidates": [
+      {
+        "videoId": "UZF2pC_xhkI",
+        "videoTitle": "Tito Abarca - Señor Yo Te Vi",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=UZF2pC_xhkI",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 120
+      },
+      {
+        "videoId": "_eYCrRKu-KU",
+        "videoTitle": "Yo te alabo señor - Tito abarca",
+        "channel": "Carlos Ramírez",
+        "url": "https://www.youtube.com/watch?v=_eYCrRKu-KU",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 100
+      },
+      {
+        "videoId": "NhDcs8lim4k",
+        "videoTitle": "Soledad y Nicolás Soldatti / SEÑOR YO TE VI",
+        "channel": "Nicolas Soldatti",
+        "url": "https://www.youtube.com/watch?v=NhDcs8lim4k",
+        "has_artist": false,
+        "matched_words": 1,
+        "score": 70
+      }
+    ]
+  },
+  {
+    "id": 446,
+    "title": "Casa de Dios",
+    "author": "Tito Abarca",
+    "status": "NEEDS_REVIEW",
+    "best_match": {
+      "videoId": "A2NTkepObR4",
+      "videoTitle": "Casa de Dios (Conjunto del NOA)",
+      "channel": "Asamblea Cristiana (Música)",
+      "url": "https://www.youtube.com/watch?v=A2NTkepObR4",
+      "has_artist": false,
+      "matched_words": 2,
+      "score": 70
+    },
+    "all_candidates": [
+      {
+        "videoId": "A2NTkepObR4",
+        "videoTitle": "Casa de Dios (Conjunto del NOA)",
+        "channel": "Asamblea Cristiana (Música)",
+        "url": "https://www.youtube.com/watch?v=A2NTkepObR4",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 70
+      },
+      {
+        "videoId": "rW7OQ8D1H-M",
+        "videoTitle": "MEFIBOSET - TITO ABARCA",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=rW7OQ8D1H-M",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "0-XSWXGpd-A",
+        "videoTitle": "Quien me apartará del amor de cristo - Tito Abarca // musica cristiana canción propia",
+        "channel": "Moises Y David",
+        "url": "https://www.youtube.com/watch?v=0-XSWXGpd-A",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 447,
+    "title": "El Talento",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "pcOlo3axiN0",
+      "videoTitle": "Puedo cantar -Tito abarca",
+      "channel": "Carlos Ramírez",
+      "url": "https://www.youtube.com/watch?v=pcOlo3axiN0",
+      "has_artist": true,
+      "matched_words": 0,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "pcOlo3axiN0",
+        "videoTitle": "Puedo cantar -Tito abarca",
+        "channel": "Carlos Ramírez",
+        "url": "https://www.youtube.com/watch?v=pcOlo3axiN0",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "A4jk658pYAI",
+        "videoTitle": "Tito Abarca - Renuncio a la Miseria",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=A4jk658pYAI",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "e_HEQ-9sF3Q",
+        "videoTitle": "Tito Abarca - Quemame con Fuego Santo",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=e_HEQ-9sF3Q",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 448,
+    "title": "La Oración de la Iglesia",
+    "author": "Tito Abarca",
+    "status": "NEEDS_REVIEW",
+    "best_match": {
+      "videoId": "NhCgt5ZAslo",
+      "videoTitle": "La Oración de la Iglesia",
+      "channel": "Conjunto de Luján de Cuyo - Topic",
+      "url": "https://www.youtube.com/watch?v=NhCgt5ZAslo",
+      "has_artist": false,
+      "matched_words": 2,
+      "score": 70
+    },
+    "all_candidates": [
+      {
+        "videoId": "NhCgt5ZAslo",
+        "videoTitle": "La Oración de la Iglesia",
+        "channel": "Conjunto de Luján de Cuyo - Topic",
+        "url": "https://www.youtube.com/watch?v=NhCgt5ZAslo",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 70
+      },
+      {
+        "videoId": "d6TrWMt4W-Y",
+        "videoTitle": "LA ORACIÓN DE LA IGLESIA",
+        "channel": "Asamblea Cristiana Alabanzas, Himnos",
+        "url": "https://www.youtube.com/watch?v=d6TrWMt4W-Y",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 70
+      },
+      {
+        "videoId": "uHNhe_qD1hU",
+        "videoTitle": "Todo Cambio (testimonio de inspiración de esta alabanza)",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=uHNhe_qD1hU",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 449,
+    "title": "El Jordán",
+    "author": "Tito Abarca",
+    "status": "NEEDS_REVIEW",
+    "best_match": {
+      "videoId": "Y-1DZqpTboA",
+      "videoTitle": "El Jordan - Coro y Orquesta La Plata",
+      "channel": "Creciendo en Su presencia",
+      "url": "https://www.youtube.com/watch?v=Y-1DZqpTboA",
+      "has_artist": false,
+      "matched_words": 1,
+      "score": 70
+    },
+    "all_candidates": [
+      {
+        "videoId": "Y-1DZqpTboA",
+        "videoTitle": "El Jordan - Coro y Orquesta La Plata",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=Y-1DZqpTboA",
+        "has_artist": false,
+        "matched_words": 1,
+        "score": 70
+      },
+      {
+        "videoId": "k_w2ouuUSOk",
+        "videoTitle": "NO HAY CADENAS NI CERROJOS - Tito Abarca",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=k_w2ouuUSOk",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "UZF2pC_xhkI",
+        "videoTitle": "Tito Abarca - Señor Yo Te Vi",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=UZF2pC_xhkI",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 450,
+    "title": "Restáurame",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "wHH23VGK62U",
+      "videoTitle": "Todo Cambió (Tito Abarca)",
+      "channel": "Natanael Esteban Rain Montecinos",
+      "url": "https://www.youtube.com/watch?v=wHH23VGK62U",
+      "has_artist": true,
+      "matched_words": 0,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "wHH23VGK62U",
+        "videoTitle": "Todo Cambió (Tito Abarca)",
+        "channel": "Natanael Esteban Rain Montecinos",
+        "url": "https://www.youtube.com/watch?v=wHH23VGK62U",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "ZVvv_cyvw6c",
+        "videoTitle": "Como el siervo ansioso brama- Tito abarca ",
+        "channel": "Brian sena",
+        "url": "https://www.youtube.com/watch?v=ZVvv_cyvw6c",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "F7MUvcjslfo",
+        "videoTitle": "Porque Temer? - Tito Abarca",
+        "channel": "Alabanzas DIOS ES AMOR",
+        "url": "https://www.youtube.com/watch?v=F7MUvcjslfo",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 451,
+    "title": "Incomparable es Nuestro Dios",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "UZF2pC_xhkI",
+      "videoTitle": "Tito Abarca - Señor Yo Te Vi",
+      "channel": "Tito Abarca",
+      "url": "https://www.youtube.com/watch?v=UZF2pC_xhkI",
+      "has_artist": true,
+      "matched_words": 0,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "UZF2pC_xhkI",
+        "videoTitle": "Tito Abarca - Señor Yo Te Vi",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=UZF2pC_xhkI",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "ZVvv_cyvw6c",
+        "videoTitle": "Como el siervo ansioso brama- Tito abarca ",
+        "channel": "Brian sena",
+        "url": "https://www.youtube.com/watch?v=ZVvv_cyvw6c",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "pcOlo3axiN0",
+        "videoTitle": "Puedo cantar -Tito abarca",
+        "channel": "Carlos Ramírez",
+        "url": "https://www.youtube.com/watch?v=pcOlo3axiN0",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 452,
+    "title": "Te Esperé",
+    "author": "Tito Abarca",
+    "status": "EXACT_MATCH",
+    "best_match": {
+      "videoId": "bkD8IpacGY8",
+      "videoTitle": "Tito Abarca - Te Esperé",
+      "channel": "Tito Abarca",
+      "url": "https://www.youtube.com/watch?v=bkD8IpacGY8",
+      "has_artist": true,
+      "matched_words": 1,
+      "score": 120
+    },
+    "all_candidates": [
+      {
+        "videoId": "bkD8IpacGY8",
+        "videoTitle": "Tito Abarca - Te Esperé",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=bkD8IpacGY8",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 120
+      },
+      {
+        "videoId": "UZF2pC_xhkI",
+        "videoTitle": "Tito Abarca - Señor Yo Te Vi",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=UZF2pC_xhkI",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "ixR4Y1leDiA",
+        "videoTitle": "Tito Abarca - Trayendo Consuelo",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=ixR4Y1leDiA",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 453,
+    "title": "Yo Soy el que Soy",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "pcOlo3axiN0",
+      "videoTitle": "Puedo cantar -Tito abarca",
+      "channel": "Carlos Ramírez",
+      "url": "https://www.youtube.com/watch?v=pcOlo3axiN0",
+      "has_artist": true,
+      "matched_words": 0,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "pcOlo3axiN0",
+        "videoTitle": "Puedo cantar -Tito abarca",
+        "channel": "Carlos Ramírez",
+        "url": "https://www.youtube.com/watch?v=pcOlo3axiN0",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "58pJyGiIjeM",
+        "videoTitle": "Tito Abarca - Te lo Debo a Ti",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=58pJyGiIjeM",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "UZF2pC_xhkI",
+        "videoTitle": "Tito Abarca - Señor Yo Te Vi",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=UZF2pC_xhkI",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 454,
+    "title": "Mi Rey",
+    "author": "Tito Abarca",
+    "status": "NEEDS_REVIEW",
+    "best_match": {
+      "videoId": "yzLlBeYb4I4",
+      "videoTitle": "EL SEÑOR ES MI REY -  TITO PACO V. \\u0026 YOBANA BELTRAN M.",
+      "channel": "Tito Paco Vasquez",
+      "url": "https://www.youtube.com/watch?v=yzLlBeYb4I4",
+      "has_artist": false,
+      "matched_words": 1,
+      "score": 70
+    },
+    "all_candidates": [
+      {
+        "videoId": "yzLlBeYb4I4",
+        "videoTitle": "EL SEÑOR ES MI REY -  TITO PACO V. \\u0026 YOBANA BELTRAN M.",
+        "channel": "Tito Paco Vasquez",
+        "url": "https://www.youtube.com/watch?v=yzLlBeYb4I4",
+        "has_artist": false,
+        "matched_words": 1,
+        "score": 70
+      },
+      {
+        "videoId": "bu6f71VwdXM",
+        "videoTitle": "Mefi-boset (letra)- Tito Abarca - Andrés Plagges",
+        "channel": "IGLESIA CRISTIANA UNIDA - Plagges Lira",
+        "url": "https://www.youtube.com/watch?v=bu6f71VwdXM",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "A4jk658pYAI",
+        "videoTitle": "Tito Abarca - Renuncio a la Miseria",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=A4jk658pYAI",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 455,
+    "title": "Aviva el Don que hay en Ti",
+    "author": "Tito Abarca",
+    "status": "EXACT_MATCH",
+    "best_match": {
+      "videoId": "C3087InnZ-8",
+      "videoTitle": "AVIVA EL DON - Tito Abarca",
+      "channel": "Creciendo en Su presencia",
+      "url": "https://www.youtube.com/watch?v=C3087InnZ-8",
+      "has_artist": true,
+      "matched_words": 2,
+      "score": 83
+    },
+    "all_candidates": [
+      {
+        "videoId": "C3087InnZ-8",
+        "videoTitle": "AVIVA EL DON - Tito Abarca",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=C3087InnZ-8",
+        "has_artist": true,
+        "matched_words": 2,
+        "score": 83
+      },
+      {
+        "videoId": "UZF2pC_xhkI",
+        "videoTitle": "Tito Abarca - Señor Yo Te Vi",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=UZF2pC_xhkI",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "ExKi7ES_7ek",
+        "videoTitle": "Tito Abarca - Caleb",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=ExKi7ES_7ek",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 456,
+    "title": "El Espíritu de Dios",
+    "author": "Tito Abarca",
+    "status": "NEEDS_REVIEW",
+    "best_match": {
+      "videoId": "P5GXhY-A-7s",
+      "videoTitle": "Espíritu de Dios",
+      "channel": "Conjunto de Dorrego - Topic",
+      "url": "https://www.youtube.com/watch?v=P5GXhY-A-7s",
+      "has_artist": false,
+      "matched_words": 2,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "P5GXhY-A-7s",
+        "videoTitle": "Espíritu de Dios",
+        "channel": "Conjunto de Dorrego - Topic",
+        "url": "https://www.youtube.com/watch?v=P5GXhY-A-7s",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 50
+      },
+      {
+        "videoId": "01ypDFkYqds",
+        "videoTitle": "Espíritu de Dios - Asamblea Cristiana",
+        "channel": "Asamblea Cristiana La Plata",
+        "url": "https://www.youtube.com/watch?v=01ypDFkYqds",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 50
+      },
+      {
+        "videoId": "IZ9IGjYjktk",
+        "videoTitle": "Tito Abarca - Quemame con Fuego Santo",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=IZ9IGjYjktk",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 457,
+    "title": "Dios no olvida",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "k_w2ouuUSOk",
+      "videoTitle": "NO HAY CADENAS NI CERROJOS - Tito Abarca",
+      "channel": "Creciendo en Su presencia",
+      "url": "https://www.youtube.com/watch?v=k_w2ouuUSOk",
+      "has_artist": true,
+      "matched_words": 0,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "k_w2ouuUSOk",
+        "videoTitle": "NO HAY CADENAS NI CERROJOS - Tito Abarca",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=k_w2ouuUSOk",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "UZF2pC_xhkI",
+        "videoTitle": "Tito Abarca - Señor Yo Te Vi",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=UZF2pC_xhkI",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "-dugdtLoLJk",
+        "videoTitle": "Mefiboset “Hermano Tito Abarca” Visita a Chile Diciembre 2024",
+        "channel": "Elias Daniel Gatica Abrigo",
+        "url": "https://www.youtube.com/watch?v=-dugdtLoLJk",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 458,
+    "title": "Fue por Ti",
+    "author": "Tito Abarca",
+    "status": "EXACT_MATCH",
+    "best_match": {
+      "videoId": "ffKWlq23gE8",
+      "videoTitle": "Fue por ti - Tito abarca",
+      "channel": "Carlos Ramírez",
+      "url": "https://www.youtube.com/watch?v=ffKWlq23gE8",
+      "has_artist": true,
+      "matched_words": 1,
+      "score": 120
+    },
+    "all_candidates": [
+      {
+        "videoId": "ffKWlq23gE8",
+        "videoTitle": "Fue por ti - Tito abarca",
+        "channel": "Carlos Ramírez",
+        "url": "https://www.youtube.com/watch?v=ffKWlq23gE8",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 120
+      },
+      {
+        "videoId": "h_bvdCJY2b0",
+        "videoTitle": "Los Hermanos Narváez-Todo Fue Por Tí",
+        "channel": "Walter González",
+        "url": "https://www.youtube.com/watch?v=h_bvdCJY2b0",
+        "has_artist": false,
+        "matched_words": 1,
+        "score": 70
+      },
+      {
+        "videoId": "C3087InnZ-8",
+        "videoTitle": "AVIVA EL DON - Tito Abarca",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=C3087InnZ-8",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 459,
+    "title": "El Sacrificio de la cruz",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "k_w2ouuUSOk",
+      "videoTitle": "NO HAY CADENAS NI CERROJOS - Tito Abarca",
+      "channel": "Creciendo en Su presencia",
+      "url": "https://www.youtube.com/watch?v=k_w2ouuUSOk",
+      "has_artist": true,
+      "matched_words": 0,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "k_w2ouuUSOk",
+        "videoTitle": "NO HAY CADENAS NI CERROJOS - Tito Abarca",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=k_w2ouuUSOk",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "stEnj15x0IM",
+        "videoTitle": "Sigo de Pie “ Hno Tito Abarca y Hna Isidora Meléndez” Visita a Chile Diciembre 2024",
+        "channel": "Elias Daniel Gatica Abrigo",
+        "url": "https://www.youtube.com/watch?v=stEnj15x0IM",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "e_HEQ-9sF3Q",
+        "videoTitle": "Tito Abarca - Quemame con Fuego Santo",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=e_HEQ-9sF3Q",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 460,
+    "title": "El afán y la ansiedad",
+    "author": "Tito Abarca",
+    "status": "EXACT_MATCH",
+    "best_match": {
+      "videoId": "3WHjn-JPc8E",
+      "videoTitle": "El afán y la ansiedad-Tito Abarca",
+      "channel": "Rachel Leiva Fernández",
+      "url": "https://www.youtube.com/watch?v=3WHjn-JPc8E",
+      "has_artist": true,
+      "matched_words": 2,
+      "score": 120
+    },
+    "all_candidates": [
+      {
+        "videoId": "3WHjn-JPc8E",
+        "videoTitle": "El afán y la ansiedad-Tito Abarca",
+        "channel": "Rachel Leiva Fernández",
+        "url": "https://www.youtube.com/watch?v=3WHjn-JPc8E",
+        "has_artist": true,
+        "matched_words": 2,
+        "score": 120
+      },
+      {
+        "videoId": "ELNQDAR7Z9k",
+        "videoTitle": "El afán y la ansiedad ",
+        "channel": "Salmos, Himnos y Cánticos Espirituales ",
+        "url": "https://www.youtube.com/watch?v=ELNQDAR7Z9k",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 70
+      },
+      {
+        "videoId": "2hwQFWB7SrQ",
+        "videoTitle": "Pablo: Consejos para combatir el afán y la ansiedad | Personajes Bíblicos",
+        "channel": "Radio Solidaria",
+        "url": "https://www.youtube.com/watch?v=2hwQFWB7SrQ",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 70
+      }
+    ]
+  },
+  {
+    "id": 461,
+    "title": "Señor mi corazón te Canta",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "UZF2pC_xhkI",
+      "videoTitle": "Tito Abarca - Señor Yo Te Vi",
+      "channel": "Tito Abarca",
+      "url": "https://www.youtube.com/watch?v=UZF2pC_xhkI",
+      "has_artist": true,
+      "matched_words": 1,
+      "score": 66
+    },
+    "all_candidates": [
+      {
+        "videoId": "UZF2pC_xhkI",
+        "videoTitle": "Tito Abarca - Señor Yo Te Vi",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=UZF2pC_xhkI",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 66
+      },
+      {
+        "videoId": "e_HEQ-9sF3Q",
+        "videoTitle": "Tito Abarca - Quemame con Fuego Santo",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=e_HEQ-9sF3Q",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "jKfs8A5X8r0",
+        "videoTitle": "Tito Abarca - Llena Hoy Mi Vida",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=jKfs8A5X8r0",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 462,
+    "title": "Este es el Rey",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "bu6f71VwdXM",
+      "videoTitle": "Mefi-boset (letra)- Tito Abarca - Andrés Plagges",
+      "channel": "IGLESIA CRISTIANA UNIDA - Plagges Lira",
+      "url": "https://www.youtube.com/watch?v=bu6f71VwdXM",
+      "has_artist": true,
+      "matched_words": 0,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "bu6f71VwdXM",
+        "videoTitle": "Mefi-boset (letra)- Tito Abarca - Andrés Plagges",
+        "channel": "IGLESIA CRISTIANA UNIDA - Plagges Lira",
+        "url": "https://www.youtube.com/watch?v=bu6f71VwdXM",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "UZF2pC_xhkI",
+        "videoTitle": "Tito Abarca - Señor Yo Te Vi",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=UZF2pC_xhkI",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "-dugdtLoLJk",
+        "videoTitle": "Mefiboset “Hermano Tito Abarca” Visita a Chile Diciembre 2024",
+        "channel": "Elias Daniel Gatica Abrigo",
+        "url": "https://www.youtube.com/watch?v=-dugdtLoLJk",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 463,
+    "title": "Fue en una Cruz",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "ffKWlq23gE8",
+      "videoTitle": "Fue por ti - Tito abarca",
+      "channel": "Carlos Ramírez",
+      "url": "https://www.youtube.com/watch?v=ffKWlq23gE8",
+      "has_artist": true,
+      "matched_words": 1,
+      "score": 75
+    },
+    "all_candidates": [
+      {
+        "videoId": "ffKWlq23gE8",
+        "videoTitle": "Fue por ti - Tito abarca",
+        "channel": "Carlos Ramírez",
+        "url": "https://www.youtube.com/watch?v=ffKWlq23gE8",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 75
+      },
+      {
+        "videoId": "pcOlo3axiN0",
+        "videoTitle": "Puedo cantar -Tito abarca",
+        "channel": "Carlos Ramírez",
+        "url": "https://www.youtube.com/watch?v=pcOlo3axiN0",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "UZF2pC_xhkI",
+        "videoTitle": "Tito Abarca - Señor Yo Te Vi",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=UZF2pC_xhkI",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 464,
+    "title": "Que terrible Dolor",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "F7MUvcjslfo",
+      "videoTitle": "Porque Temer? - Tito Abarca",
+      "channel": "Alabanzas DIOS ES AMOR",
+      "url": "https://www.youtube.com/watch?v=F7MUvcjslfo",
+      "has_artist": true,
+      "matched_words": 0,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "F7MUvcjslfo",
+        "videoTitle": "Porque Temer? - Tito Abarca",
+        "channel": "Alabanzas DIOS ES AMOR",
+        "url": "https://www.youtube.com/watch?v=F7MUvcjslfo",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "C3087InnZ-8",
+        "videoTitle": "AVIVA EL DON - Tito Abarca",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=C3087InnZ-8",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "jKfs8A5X8r0",
+        "videoTitle": "Tito Abarca - Llena Hoy Mi Vida",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=jKfs8A5X8r0",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 465,
+    "title": "Canta para Dios",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "pcOlo3axiN0",
+      "videoTitle": "Puedo cantar -Tito abarca",
+      "channel": "Carlos Ramírez",
+      "url": "https://www.youtube.com/watch?v=pcOlo3axiN0",
+      "has_artist": true,
+      "matched_words": 1,
+      "score": 75
+    },
+    "all_candidates": [
+      {
+        "videoId": "pcOlo3axiN0",
+        "videoTitle": "Puedo cantar -Tito abarca",
+        "channel": "Carlos Ramírez",
+        "url": "https://www.youtube.com/watch?v=pcOlo3axiN0",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 75
+      },
+      {
+        "videoId": "uHNhe_qD1hU",
+        "videoTitle": "Todo Cambio (testimonio de inspiración de esta alabanza)",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=uHNhe_qD1hU",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "rW7OQ8D1H-M",
+        "videoTitle": "MEFIBOSET - TITO ABARCA",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=rW7OQ8D1H-M",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 466,
+    "title": "Un día Especial",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "fkoG31ATcJk",
+      "videoTitle": "Yo quiero estar - Tito Abarca",
+      "channel": "Tito Abarca",
+      "url": "https://www.youtube.com/watch?v=fkoG31ATcJk",
+      "has_artist": true,
+      "matched_words": 0,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "fkoG31ATcJk",
+        "videoTitle": "Yo quiero estar - Tito Abarca",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=fkoG31ATcJk",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "rW7OQ8D1H-M",
+        "videoTitle": "MEFIBOSET - TITO ABARCA",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=rW7OQ8D1H-M",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "jpbYB3DAaug",
+        "videoTitle": "TIZON ARREBATADO - TITO ABARCA",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=jpbYB3DAaug",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 467,
+    "title": "Ven",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "pcOlo3axiN0",
+      "videoTitle": "Puedo cantar -Tito abarca",
+      "channel": "Carlos Ramírez",
+      "url": "https://www.youtube.com/watch?v=pcOlo3axiN0",
+      "has_artist": true,
+      "matched_words": 0,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "pcOlo3axiN0",
+        "videoTitle": "Puedo cantar -Tito abarca",
+        "channel": "Carlos Ramírez",
+        "url": "https://www.youtube.com/watch?v=pcOlo3axiN0",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "jKfs8A5X8r0",
+        "videoTitle": "Tito Abarca - Llena Hoy Mi Vida",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=jKfs8A5X8r0",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "ixR4Y1leDiA",
+        "videoTitle": "Tito Abarca - Trayendo Consuelo",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=ixR4Y1leDiA",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 468,
+    "title": "Mirad Cuan Bueno",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "pcOlo3axiN0",
+      "videoTitle": "Puedo cantar -Tito abarca",
+      "channel": "Carlos Ramírez",
+      "url": "https://www.youtube.com/watch?v=pcOlo3axiN0",
+      "has_artist": true,
+      "matched_words": 0,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "pcOlo3axiN0",
+        "videoTitle": "Puedo cantar -Tito abarca",
+        "channel": "Carlos Ramírez",
+        "url": "https://www.youtube.com/watch?v=pcOlo3axiN0",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "ffKWlq23gE8",
+        "videoTitle": "Fue por ti - Tito abarca",
+        "channel": "Carlos Ramírez",
+        "url": "https://www.youtube.com/watch?v=ffKWlq23gE8",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "C3087InnZ-8",
+        "videoTitle": "AVIVA EL DON - Tito Abarca",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=C3087InnZ-8",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 469,
+    "title": "Josué",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "ZVvv_cyvw6c",
+      "videoTitle": "Como el siervo ansioso brama- Tito abarca ",
+      "channel": "Brian sena",
+      "url": "https://www.youtube.com/watch?v=ZVvv_cyvw6c",
+      "has_artist": true,
+      "matched_words": 0,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "ZVvv_cyvw6c",
+        "videoTitle": "Como el siervo ansioso brama- Tito abarca ",
+        "channel": "Brian sena",
+        "url": "https://www.youtube.com/watch?v=ZVvv_cyvw6c",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "UZF2pC_xhkI",
+        "videoTitle": "Tito Abarca - Señor Yo Te Vi",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=UZF2pC_xhkI",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "e_HEQ-9sF3Q",
+        "videoTitle": "Tito Abarca - Quemame con Fuego Santo",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=e_HEQ-9sF3Q",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 470,
+    "title": "Con Gran Amor",
+    "author": "Tito Abarca",
+    "status": "NEEDS_REVIEW",
+    "best_match": {
+      "videoId": "llls8ryug_0",
+      "videoTitle": "Alabanza - Qué gran amor",
+      "channel": "Asamblea Cristiana",
+      "url": "https://www.youtube.com/watch?v=llls8ryug_0",
+      "has_artist": false,
+      "matched_words": 2,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "llls8ryug_0",
+        "videoTitle": "Alabanza - Qué gran amor",
+        "channel": "Asamblea Cristiana",
+        "url": "https://www.youtube.com/watch?v=llls8ryug_0",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 50
+      },
+      {
+        "videoId": "GDOGACbb3ek",
+        "videoTitle": "ERES LIBRE - Tito Abarca - Coro Asamblea Cristiana La Plata",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=GDOGACbb3ek",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "U7IoQc9_rig",
+        "videoTitle": "Qué Gran Amor",
+        "channel": "Conjunto de Luján de Cuyo - Topic",
+        "url": "https://www.youtube.com/watch?v=U7IoQc9_rig",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 471,
+    "title": "Lamento de los cautivos",
+    "author": "Tito Abarca",
+    "status": "EXACT_MATCH",
+    "best_match": {
+      "videoId": "13hRzONC5NA",
+      "videoTitle": "Tito Abarca - Lamento De Los Cautivos En Babilonia",
+      "channel": "Alabanzas_Cristianas",
+      "url": "https://www.youtube.com/watch?v=13hRzONC5NA",
+      "has_artist": true,
+      "matched_words": 2,
+      "score": 120
+    },
+    "all_candidates": [
+      {
+        "videoId": "13hRzONC5NA",
+        "videoTitle": "Tito Abarca - Lamento De Los Cautivos En Babilonia",
+        "channel": "Alabanzas_Cristianas",
+        "url": "https://www.youtube.com/watch?v=13hRzONC5NA",
+        "has_artist": true,
+        "matched_words": 2,
+        "score": 120
+      },
+      {
+        "videoId": "NCRIeGBnCO8",
+        "videoTitle": "Lamento de los cautivos en Babilonia1.wmv",
+        "channel": "Consuelo Gutierrez",
+        "url": "https://www.youtube.com/watch?v=NCRIeGBnCO8",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 70
+      },
+      {
+        "videoId": "ZVvv_cyvw6c",
+        "videoTitle": "Como el siervo ansioso brama- Tito abarca ",
+        "channel": "Brian sena",
+        "url": "https://www.youtube.com/watch?v=ZVvv_cyvw6c",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 472,
+    "title": "Qué Gran Amor de Dios",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "UZF2pC_xhkI",
+      "videoTitle": "Tito Abarca - Señor Yo Te Vi",
+      "channel": "Tito Abarca",
+      "url": "https://www.youtube.com/watch?v=UZF2pC_xhkI",
+      "has_artist": true,
+      "matched_words": 0,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "UZF2pC_xhkI",
+        "videoTitle": "Tito Abarca - Señor Yo Te Vi",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=UZF2pC_xhkI",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "e_HEQ-9sF3Q",
+        "videoTitle": "Tito Abarca - Quemame con Fuego Santo",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=e_HEQ-9sF3Q",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "llls8ryug_0",
+        "videoTitle": "Alabanza - Qué gran amor",
+        "channel": "Asamblea Cristiana",
+        "url": "https://www.youtube.com/watch?v=llls8ryug_0",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 33
+      }
+    ]
+  },
+  {
+    "id": 473,
+    "title": "La reina de Sabá",
+    "author": "Tito Abarca",
+    "status": "EXACT_MATCH",
+    "best_match": {
+      "videoId": "GjPQjU0YYo0",
+      "videoTitle": "Tito Abarca - La reina de Sabá",
+      "channel": "Tito Abarca",
+      "url": "https://www.youtube.com/watch?v=GjPQjU0YYo0",
+      "has_artist": true,
+      "matched_words": 2,
+      "score": 120
+    },
+    "all_candidates": [
+      {
+        "videoId": "GjPQjU0YYo0",
+        "videoTitle": "Tito Abarca - La reina de Sabá",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=GjPQjU0YYo0",
+        "has_artist": true,
+        "matched_words": 2,
+        "score": 120
+      },
+      {
+        "videoId": "x4gTauRRoBI",
+        "videoTitle": "La Reina de Sabá - Tito Abarca",
+        "channel": "Alabanzas DIOS ES AMOR",
+        "url": "https://www.youtube.com/watch?v=x4gTauRRoBI",
+        "has_artist": true,
+        "matched_words": 2,
+        "score": 120
+      },
+      {
+        "videoId": "lqwo7BUWC50",
+        "videoTitle": "Jeremías Abarca - Viaje (Tito Abarca)",
+        "channel": "jeremias emanuel abarca ortega",
+        "url": "https://www.youtube.com/watch?v=lqwo7BUWC50",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 474,
+    "title": "El valle de los Huesos Secos",
+    "author": "Tito Abarca",
+    "status": "NEEDS_REVIEW",
+    "best_match": {
+      "videoId": "gH_-T9Goa6o",
+      "videoTitle": "EZEQUIEL - VALLE DE LOS HUESOS SECOS",
+      "channel": "Júlio Freitas",
+      "url": "https://www.youtube.com/watch?v=gH_-T9Goa6o",
+      "has_artist": false,
+      "matched_words": 3,
+      "score": 70
+    },
+    "all_candidates": [
+      {
+        "videoId": "gH_-T9Goa6o",
+        "videoTitle": "EZEQUIEL - VALLE DE LOS HUESOS SECOS",
+        "channel": "Júlio Freitas",
+        "url": "https://www.youtube.com/watch?v=gH_-T9Goa6o",
+        "has_artist": false,
+        "matched_words": 3,
+        "score": 70
+      },
+      {
+        "videoId": "9TFPqCcHWWk",
+        "videoTitle": "El valle de los huesos secos - Abraham Peña - 20 Mayo",
+        "channel": "Iglesia Cristiana Filadelfia JV",
+        "url": "https://www.youtube.com/watch?v=9TFPqCcHWWk",
+        "has_artist": false,
+        "matched_words": 3,
+        "score": 70
+      },
+      {
+        "videoId": "QktuSVH5a0k",
+        "videoTitle": "El valle de los huesos secos - Pr. Carlos Vásquez | 25/Septiembre/2022",
+        "channel": "Iglesia Abre tus ojos",
+        "url": "https://www.youtube.com/watch?v=QktuSVH5a0k",
+        "has_artist": false,
+        "matched_words": 3,
+        "score": 70
+      }
+    ]
+  },
+  {
+    "id": 475,
+    "title": "Pedro",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "lqwo7BUWC50",
+      "videoTitle": "Jeremías Abarca - Viaje (Tito Abarca)",
+      "channel": "jeremias emanuel abarca ortega",
+      "url": "https://www.youtube.com/watch?v=lqwo7BUWC50",
+      "has_artist": true,
+      "matched_words": 0,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "lqwo7BUWC50",
+        "videoTitle": "Jeremías Abarca - Viaje (Tito Abarca)",
+        "channel": "jeremias emanuel abarca ortega",
+        "url": "https://www.youtube.com/watch?v=lqwo7BUWC50",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "ZVvv_cyvw6c",
+        "videoTitle": "Como el siervo ansioso brama- Tito abarca ",
+        "channel": "Brian sena",
+        "url": "https://www.youtube.com/watch?v=ZVvv_cyvw6c",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "fkoG31ATcJk",
+        "videoTitle": "Yo quiero estar - Tito Abarca",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=fkoG31ATcJk",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 476,
+    "title": "Mi Hermano y mi Amigo",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "-dugdtLoLJk",
+      "videoTitle": "Mefiboset “Hermano Tito Abarca” Visita a Chile Diciembre 2024",
+      "channel": "Elias Daniel Gatica Abrigo",
+      "url": "https://www.youtube.com/watch?v=-dugdtLoLJk",
+      "has_artist": true,
+      "matched_words": 1,
+      "score": 75
+    },
+    "all_candidates": [
+      {
+        "videoId": "-dugdtLoLJk",
+        "videoTitle": "Mefiboset “Hermano Tito Abarca” Visita a Chile Diciembre 2024",
+        "channel": "Elias Daniel Gatica Abrigo",
+        "url": "https://www.youtube.com/watch?v=-dugdtLoLJk",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 75
+      },
+      {
+        "videoId": "UZF2pC_xhkI",
+        "videoTitle": "Tito Abarca - Señor Yo Te Vi",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=UZF2pC_xhkI",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "rW7OQ8D1H-M",
+        "videoTitle": "MEFIBOSET - TITO ABARCA",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=rW7OQ8D1H-M",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 477,
+    "title": "Señor quiero ser Limpio",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "s2fmtH7vARQ",
+      "videoTitle": "Quiero; sé Limpio - Tito Abarca",
+      "channel": "Alabanzas DIOS ES AMOR",
+      "url": "https://www.youtube.com/watch?v=s2fmtH7vARQ",
+      "has_artist": true,
+      "matched_words": 2,
+      "score": 75
+    },
+    "all_candidates": [
+      {
+        "videoId": "s2fmtH7vARQ",
+        "videoTitle": "Quiero; sé Limpio - Tito Abarca",
+        "channel": "Alabanzas DIOS ES AMOR",
+        "url": "https://www.youtube.com/watch?v=s2fmtH7vARQ",
+        "has_artist": true,
+        "matched_words": 2,
+        "score": 75
+      },
+      {
+        "videoId": "fkoG31ATcJk",
+        "videoTitle": "Yo quiero estar - Tito Abarca",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=fkoG31ATcJk",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 62
+      },
+      {
+        "videoId": "UZF2pC_xhkI",
+        "videoTitle": "Tito Abarca - Señor Yo Te Vi",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=UZF2pC_xhkI",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 62
+      }
+    ]
+  },
+  {
+    "id": 478,
+    "title": "Bendice alma mía a Jehová",
+    "author": "Tito Abarca",
+    "status": "NEEDS_REVIEW",
+    "best_match": {
+      "videoId": "VnCUWMiUBJo",
+      "videoTitle": "Bendice Alma mía a Jehová (Me Coronó) - Alabanza",
+      "channel": "Alabanzas DIOS ES AMOR",
+      "url": "https://www.youtube.com/watch?v=VnCUWMiUBJo",
+      "has_artist": false,
+      "matched_words": 4,
+      "score": 70
+    },
+    "all_candidates": [
+      {
+        "videoId": "VnCUWMiUBJo",
+        "videoTitle": "Bendice Alma mía a Jehová (Me Coronó) - Alabanza",
+        "channel": "Alabanzas DIOS ES AMOR",
+        "url": "https://www.youtube.com/watch?v=VnCUWMiUBJo",
+        "has_artist": false,
+        "matched_words": 4,
+        "score": 70
+      },
+      {
+        "videoId": "4MAs2h-ALKM",
+        "videoTitle": "coro IEP Lirquén - Bendice Alma Mía a Jehová",
+        "channel": "Canticos IEP",
+        "url": "https://www.youtube.com/watch?v=4MAs2h-ALKM",
+        "has_artist": false,
+        "matched_words": 4,
+        "score": 70
+      },
+      {
+        "videoId": "vpr9YKX7Cbg",
+        "videoTitle": "Bendice Alma Mía a Jehová | Marimba Cumbia Cristiana | Video Musical Oficial",
+        "channel": "SonDeCristo",
+        "url": "https://www.youtube.com/watch?v=vpr9YKX7Cbg",
+        "has_artist": false,
+        "matched_words": 4,
+        "score": 70
+      }
+    ]
+  },
+  {
+    "id": 479,
+    "title": "La Gloria de Dios",
+    "author": "Tito Abarca",
+    "status": "NEEDS_REVIEW",
+    "best_match": {
+      "videoId": "gRtL_aT4Zrk",
+      "videoTitle": "La Gloria de Dios - Polo Negrete (20 años de alabanza con Jesús)",
+      "channel": "zaupagabi",
+      "url": "https://www.youtube.com/watch?v=gRtL_aT4Zrk",
+      "has_artist": false,
+      "matched_words": 2,
+      "score": 70
+    },
+    "all_candidates": [
+      {
+        "videoId": "gRtL_aT4Zrk",
+        "videoTitle": "La Gloria de Dios - Polo Negrete (20 años de alabanza con Jesús)",
+        "channel": "zaupagabi",
+        "url": "https://www.youtube.com/watch?v=gRtL_aT4Zrk",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 70
+      },
+      {
+        "videoId": "58pJyGiIjeM",
+        "videoTitle": "Tito Abarca - Te lo Debo a Ti",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=58pJyGiIjeM",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "RheHRyks_QA",
+        "videoTitle": "¿ Por Qué Temer ? LETRA - Hno. Tito Abarca - Andrés y Gamaliel Plagges - IEP",
+        "channel": "IGLESIA CRISTIANA UNIDA - Plagges Lira",
+        "url": "https://www.youtube.com/watch?v=RheHRyks_QA",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 480,
+    "title": "El Leproso",
+    "author": "Tito Abarca",
+    "status": "NEEDS_REVIEW",
+    "best_match": {
+      "videoId": "HFrTBDN4LYU",
+      "videoTitle": "Jesús y el Leproso",
+      "channel": "Conjunto de Luján de Cuyo - Topic",
+      "url": "https://www.youtube.com/watch?v=HFrTBDN4LYU",
+      "has_artist": false,
+      "matched_words": 1,
+      "score": 70
+    },
+    "all_candidates": [
+      {
+        "videoId": "HFrTBDN4LYU",
+        "videoTitle": "Jesús y el Leproso",
+        "channel": "Conjunto de Luján de Cuyo - Topic",
+        "url": "https://www.youtube.com/watch?v=HFrTBDN4LYU",
+        "has_artist": false,
+        "matched_words": 1,
+        "score": 70
+      },
+      {
+        "videoId": "s2fmtH7vARQ",
+        "videoTitle": "Quiero; sé Limpio - Tito Abarca",
+        "channel": "Alabanzas DIOS ES AMOR",
+        "url": "https://www.youtube.com/watch?v=s2fmtH7vARQ",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "A4jk658pYAI",
+        "videoTitle": "Tito Abarca - Renuncio a la Miseria",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=A4jk658pYAI",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 543,
+    "title": "Lluvias de Bendición",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "k_w2ouuUSOk",
+      "videoTitle": "NO HAY CADENAS NI CERROJOS - Tito Abarca",
+      "channel": "Creciendo en Su presencia",
+      "url": "https://www.youtube.com/watch?v=k_w2ouuUSOk",
+      "has_artist": true,
+      "matched_words": 0,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "k_w2ouuUSOk",
+        "videoTitle": "NO HAY CADENAS NI CERROJOS - Tito Abarca",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=k_w2ouuUSOk",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "fkoG31ATcJk",
+        "videoTitle": "Yo quiero estar - Tito Abarca",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=fkoG31ATcJk",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "jpbYB3DAaug",
+        "videoTitle": "TIZON ARREBATADO - TITO ABARCA",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=jpbYB3DAaug",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 544,
+    "title": "Como un ave en Libertad",
+    "author": "Tito Abarca",
+    "status": "EXACT_MATCH",
+    "best_match": {
+      "videoId": "aS03nXNiBbY",
+      "videoTitle": "Dante Abarca - Como ave en libertad",
+      "channel": "Víctor Hugo Torres",
+      "url": "https://www.youtube.com/watch?v=aS03nXNiBbY",
+      "has_artist": true,
+      "matched_words": 3,
+      "score": 100
+    },
+    "all_candidates": [
+      {
+        "videoId": "aS03nXNiBbY",
+        "videoTitle": "Dante Abarca - Como ave en libertad",
+        "channel": "Víctor Hugo Torres",
+        "url": "https://www.youtube.com/watch?v=aS03nXNiBbY",
+        "has_artist": true,
+        "matched_words": 3,
+        "score": 100
+      },
+      {
+        "videoId": "ZVvv_cyvw6c",
+        "videoTitle": "Como el siervo ansioso brama- Tito abarca ",
+        "channel": "Brian sena",
+        "url": "https://www.youtube.com/watch?v=ZVvv_cyvw6c",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 66
+      },
+      {
+        "videoId": "ZxKnQLDjBUU",
+        "videoTitle": "Tito Abarca - Eres Libre",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=ZxKnQLDjBUU",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 545,
+    "title": "Un Nuevo Día",
+    "author": "Tito Abarca",
+    "status": "EXACT_MATCH",
+    "best_match": {
+      "videoId": "YjpmN9nwn-Y",
+      "videoTitle": "Dante Abarca - Un nuevo día",
+      "channel": "Víctor Hugo Torres",
+      "url": "https://www.youtube.com/watch?v=YjpmN9nwn-Y",
+      "has_artist": true,
+      "matched_words": 2,
+      "score": 120
+    },
+    "all_candidates": [
+      {
+        "videoId": "YjpmN9nwn-Y",
+        "videoTitle": "Dante Abarca - Un nuevo día",
+        "channel": "Víctor Hugo Torres",
+        "url": "https://www.youtube.com/watch?v=YjpmN9nwn-Y",
+        "has_artist": true,
+        "matched_words": 2,
+        "score": 120
+      },
+      {
+        "videoId": "eHah9--h1ds",
+        "videoTitle": "UN NUEVO DIA - DANTE ABARCA",
+        "channel": "jeremias abarca",
+        "url": "https://www.youtube.com/watch?v=eHah9--h1ds",
+        "has_artist": true,
+        "matched_words": 2,
+        "score": 120
+      },
+      {
+        "videoId": "C3087InnZ-8",
+        "videoTitle": "AVIVA EL DON - Tito Abarca",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=C3087InnZ-8",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 546,
+    "title": "Encontré un Amigo",
+    "author": "Tito Abarca",
+    "status": "NEEDS_REVIEW",
+    "best_match": {
+      "videoId": "XpW4Uy2cCIc",
+      "videoTitle": "Daniel \\u0026 Toniel -Encontré un Amigo- |VIDEO-OFICIAL|",
+      "channel": "Daniel \\u0026 Toniel  ",
+      "url": "https://www.youtube.com/watch?v=XpW4Uy2cCIc",
+      "has_artist": false,
+      "matched_words": 2,
+      "score": 70
+    },
+    "all_candidates": [
+      {
+        "videoId": "XpW4Uy2cCIc",
+        "videoTitle": "Daniel \\u0026 Toniel -Encontré un Amigo- |VIDEO-OFICIAL|",
+        "channel": "Daniel \\u0026 Toniel  ",
+        "url": "https://www.youtube.com/watch?v=XpW4Uy2cCIc",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 70
+      },
+      {
+        "videoId": "A1DKuCF_tA8",
+        "videoTitle": "Las Voces Del Manantial (2016)Hoy encontre un amigo",
+        "channel": "Las Voces De Manantial",
+        "url": "https://www.youtube.com/watch?v=A1DKuCF_tA8",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 70
+      },
+      {
+        "videoId": "-dugdtLoLJk",
+        "videoTitle": "Mefiboset “Hermano Tito Abarca” Visita a Chile Diciembre 2024",
+        "channel": "Elias Daniel Gatica Abrigo",
+        "url": "https://www.youtube.com/watch?v=-dugdtLoLJk",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 547,
+    "title": "Su Gracia me Alcanzó",
+    "author": "Tito Abarca",
+    "status": "EXACT_MATCH",
+    "best_match": {
+      "videoId": "IYq_Y56kcvY",
+      "videoTitle": "Dante Abarca - Su Gracia me alcanzo",
+      "channel": "Víctor Hugo Torres",
+      "url": "https://www.youtube.com/watch?v=IYq_Y56kcvY",
+      "has_artist": true,
+      "matched_words": 2,
+      "score": 120
+    },
+    "all_candidates": [
+      {
+        "videoId": "IYq_Y56kcvY",
+        "videoTitle": "Dante Abarca - Su Gracia me alcanzo",
+        "channel": "Víctor Hugo Torres",
+        "url": "https://www.youtube.com/watch?v=IYq_Y56kcvY",
+        "has_artist": true,
+        "matched_words": 2,
+        "score": 120
+      },
+      {
+        "videoId": "eh97lLWjQ-Q",
+        "videoTitle": "Su Gracia Me Alcanzó (Remasterizado)",
+        "channel": "Armonía Acappella",
+        "url": "https://www.youtube.com/watch?v=eh97lLWjQ-Q",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 70
+      },
+      {
+        "videoId": "K2bY7T00VFs",
+        "videoTitle": "Tu Gracia Me Alcanzó ( Me Amaste Así) - Offical Lyric Video | Hillsong UNITED",
+        "channel": "Hillsong UNITED",
+        "url": "https://www.youtube.com/watch?v=K2bY7T00VFs",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 548,
+    "title": "No hay porque temer",
+    "author": "Tito Abarca",
+    "status": "EXACT_MATCH",
+    "best_match": {
+      "videoId": "F7MUvcjslfo",
+      "videoTitle": "Porque Temer? - Tito Abarca",
+      "channel": "Alabanzas DIOS ES AMOR",
+      "url": "https://www.youtube.com/watch?v=F7MUvcjslfo",
+      "has_artist": true,
+      "matched_words": 2,
+      "score": 83
+    },
+    "all_candidates": [
+      {
+        "videoId": "F7MUvcjslfo",
+        "videoTitle": "Porque Temer? - Tito Abarca",
+        "channel": "Alabanzas DIOS ES AMOR",
+        "url": "https://www.youtube.com/watch?v=F7MUvcjslfo",
+        "has_artist": true,
+        "matched_words": 2,
+        "score": 83
+      },
+      {
+        "videoId": "RheHRyks_QA",
+        "videoTitle": "¿ Por Qué Temer ? LETRA - Hno. Tito Abarca - Andrés y Gamaliel Plagges - IEP",
+        "channel": "IGLESIA CRISTIANA UNIDA - Plagges Lira",
+        "url": "https://www.youtube.com/watch?v=RheHRyks_QA",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 66
+      },
+      {
+        "videoId": "UZF2pC_xhkI",
+        "videoTitle": "Tito Abarca - Señor Yo Te Vi",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=UZF2pC_xhkI",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 549,
+    "title": "Mi Amigo Solo es Él",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "ZVvv_cyvw6c",
+      "videoTitle": "Como el siervo ansioso brama- Tito abarca ",
+      "channel": "Brian sena",
+      "url": "https://www.youtube.com/watch?v=ZVvv_cyvw6c",
+      "has_artist": true,
+      "matched_words": 0,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "ZVvv_cyvw6c",
+        "videoTitle": "Como el siervo ansioso brama- Tito abarca ",
+        "channel": "Brian sena",
+        "url": "https://www.youtube.com/watch?v=ZVvv_cyvw6c",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "C3087InnZ-8",
+        "videoTitle": "AVIVA EL DON - Tito Abarca",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=C3087InnZ-8",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "jpbYB3DAaug",
+        "videoTitle": "TIZON ARREBATADO - TITO ABARCA",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=jpbYB3DAaug",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 550,
+    "title": "Yo quiero Hablarte de Aquel",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "fkoG31ATcJk",
+      "videoTitle": "Yo quiero estar - Tito Abarca",
+      "channel": "Tito Abarca",
+      "url": "https://www.youtube.com/watch?v=fkoG31ATcJk",
+      "has_artist": true,
+      "matched_words": 1,
+      "score": 66
+    },
+    "all_candidates": [
+      {
+        "videoId": "fkoG31ATcJk",
+        "videoTitle": "Yo quiero estar - Tito Abarca",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=fkoG31ATcJk",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 66
+      },
+      {
+        "videoId": "UZF2pC_xhkI",
+        "videoTitle": "Tito Abarca - Señor Yo Te Vi",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=UZF2pC_xhkI",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "58pJyGiIjeM",
+        "videoTitle": "Tito Abarca - Te lo Debo a Ti",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=58pJyGiIjeM",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 551,
+    "title": "Y es por Eso",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "RheHRyks_QA",
+      "videoTitle": "¿ Por Qué Temer ? LETRA - Hno. Tito Abarca - Andrés y Gamaliel Plagges - IEP",
+      "channel": "IGLESIA CRISTIANA UNIDA - Plagges Lira",
+      "url": "https://www.youtube.com/watch?v=RheHRyks_QA",
+      "has_artist": true,
+      "matched_words": 0,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "RheHRyks_QA",
+        "videoTitle": "¿ Por Qué Temer ? LETRA - Hno. Tito Abarca - Andrés y Gamaliel Plagges - IEP",
+        "channel": "IGLESIA CRISTIANA UNIDA - Plagges Lira",
+        "url": "https://www.youtube.com/watch?v=RheHRyks_QA",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "pcOlo3axiN0",
+        "videoTitle": "Puedo cantar -Tito abarca",
+        "channel": "Carlos Ramírez",
+        "url": "https://www.youtube.com/watch?v=pcOlo3axiN0",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "bu6f71VwdXM",
+        "videoTitle": "Mefi-boset (letra)- Tito Abarca - Andrés Plagges",
+        "channel": "IGLESIA CRISTIANA UNIDA - Plagges Lira",
+        "url": "https://www.youtube.com/watch?v=bu6f71VwdXM",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 552,
+    "title": "Porque tan Grande fue Su amor",
+    "author": "Tito Abarca",
+    "status": "NEEDS_REVIEW",
+    "best_match": {
+      "videoId": "_m7_YC_u2Gs",
+      "videoTitle": "Porque tan Grande fue su Amor - Conjunto de San Luis",
+      "channel": "Juventud Cristiana Dios es Amor",
+      "url": "https://www.youtube.com/watch?v=_m7_YC_u2Gs",
+      "has_artist": false,
+      "matched_words": 5,
+      "score": 70
+    },
+    "all_candidates": [
+      {
+        "videoId": "_m7_YC_u2Gs",
+        "videoTitle": "Porque tan Grande fue su Amor - Conjunto de San Luis",
+        "channel": "Juventud Cristiana Dios es Amor",
+        "url": "https://www.youtube.com/watch?v=_m7_YC_u2Gs",
+        "has_artist": false,
+        "matched_words": 5,
+        "score": 70
+      },
+      {
+        "videoId": "F7MUvcjslfo",
+        "videoTitle": "Porque Temer? - Tito Abarca",
+        "channel": "Alabanzas DIOS ES AMOR",
+        "url": "https://www.youtube.com/watch?v=F7MUvcjslfo",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 60
+      },
+      {
+        "videoId": "RheHRyks_QA",
+        "videoTitle": "¿ Por Qué Temer ? LETRA - Hno. Tito Abarca - Andrés y Gamaliel Plagges - IEP",
+        "channel": "IGLESIA CRISTIANA UNIDA - Plagges Lira",
+        "url": "https://www.youtube.com/watch?v=RheHRyks_QA",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 553,
+    "title": "Qué Gran Amor",
+    "author": "Tito Abarca",
+    "status": "NEEDS_REVIEW",
+    "best_match": {
+      "videoId": "llls8ryug_0",
+      "videoTitle": "Alabanza - Qué gran amor",
+      "channel": "Asamblea Cristiana",
+      "url": "https://www.youtube.com/watch?v=llls8ryug_0",
+      "has_artist": false,
+      "matched_words": 2,
+      "score": 70
+    },
+    "all_candidates": [
+      {
+        "videoId": "llls8ryug_0",
+        "videoTitle": "Alabanza - Qué gran amor",
+        "channel": "Asamblea Cristiana",
+        "url": "https://www.youtube.com/watch?v=llls8ryug_0",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 70
+      },
+      {
+        "videoId": "U7IoQc9_rig",
+        "videoTitle": "Qué Gran Amor",
+        "channel": "Conjunto de Luján de Cuyo - Topic",
+        "url": "https://www.youtube.com/watch?v=U7IoQc9_rig",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 70
+      },
+      {
+        "videoId": "uHBkIvE11mQ",
+        "videoTitle": "Qué Gran Amor - Alabanza",
+        "channel": "Alabanzas DIOS ES AMOR",
+        "url": "https://www.youtube.com/watch?v=uHBkIvE11mQ",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 70
+      }
+    ]
+  },
+  {
+    "id": 554,
+    "title": "Ven",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "uHNhe_qD1hU",
+      "videoTitle": "Todo Cambio (testimonio de inspiración de esta alabanza)",
+      "channel": "Tito Abarca",
+      "url": "https://www.youtube.com/watch?v=uHNhe_qD1hU",
+      "has_artist": true,
+      "matched_words": 0,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "uHNhe_qD1hU",
+        "videoTitle": "Todo Cambio (testimonio de inspiración de esta alabanza)",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=uHNhe_qD1hU",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "jKfs8A5X8r0",
+        "videoTitle": "Tito Abarca - Llena Hoy Mi Vida",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=jKfs8A5X8r0",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "ZVvv_cyvw6c",
+        "videoTitle": "Como el siervo ansioso brama- Tito abarca ",
+        "channel": "Brian sena",
+        "url": "https://www.youtube.com/watch?v=ZVvv_cyvw6c",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 555,
+    "title": "El Precio del alma",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "C3087InnZ-8",
+      "videoTitle": "AVIVA EL DON - Tito Abarca",
+      "channel": "Creciendo en Su presencia",
+      "url": "https://www.youtube.com/watch?v=C3087InnZ-8",
+      "has_artist": true,
+      "matched_words": 0,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "C3087InnZ-8",
+        "videoTitle": "AVIVA EL DON - Tito Abarca",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=C3087InnZ-8",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "e_HEQ-9sF3Q",
+        "videoTitle": "Tito Abarca - Quemame con Fuego Santo",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=e_HEQ-9sF3Q",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "UZF2pC_xhkI",
+        "videoTitle": "Tito Abarca - Señor Yo Te Vi",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=UZF2pC_xhkI",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 556,
+    "title": "Navidad para ti",
+    "author": "Tito Abarca",
+    "status": "EXACT_MATCH",
+    "best_match": {
+      "videoId": "BqvREFt1dOE",
+      "videoTitle": "NAVIDAD PARA TI - Dante Abarca",
+      "channel": "Víctor Hugo Torres",
+      "url": "https://www.youtube.com/watch?v=BqvREFt1dOE",
+      "has_artist": true,
+      "matched_words": 1,
+      "score": 120
+    },
+    "all_candidates": [
+      {
+        "videoId": "BqvREFt1dOE",
+        "videoTitle": "NAVIDAD PARA TI - Dante Abarca",
+        "channel": "Víctor Hugo Torres",
+        "url": "https://www.youtube.com/watch?v=BqvREFt1dOE",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 120
+      },
+      {
+        "videoId": "fkoG31ATcJk",
+        "videoTitle": "Yo quiero estar - Tito Abarca",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=fkoG31ATcJk",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "jKfs8A5X8r0",
+        "videoTitle": "Tito Abarca - Llena Hoy Mi Vida",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=jKfs8A5X8r0",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 557,
+    "title": "Yo Vengo Pronto",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "e_HEQ-9sF3Q",
+      "videoTitle": "Tito Abarca - Quemame con Fuego Santo",
+      "channel": "Tito Abarca",
+      "url": "https://www.youtube.com/watch?v=e_HEQ-9sF3Q",
+      "has_artist": true,
+      "matched_words": 0,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "e_HEQ-9sF3Q",
+        "videoTitle": "Tito Abarca - Quemame con Fuego Santo",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=e_HEQ-9sF3Q",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "jKfs8A5X8r0",
+        "videoTitle": "Tito Abarca - Llena Hoy Mi Vida",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=jKfs8A5X8r0",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "fkoG31ATcJk",
+        "videoTitle": "Yo quiero estar - Tito Abarca",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=fkoG31ATcJk",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 558,
+    "title": "Este mundo no Comprende lo que Siento",
+    "author": "Tito Abarca",
+    "status": "NO_FOUND",
+    "best_match": {
+      "videoId": "7VLksigKzvM",
+      "videoTitle": "Ratones Paranoicos - Vicio (Official Video)",
+      "channel": "Ratones Paranoicos",
+      "url": "https://www.youtube.com/watch?v=7VLksigKzvM",
+      "has_artist": false,
+      "matched_words": 0,
+      "score": 0
+    },
+    "all_candidates": [
+      {
+        "videoId": "7VLksigKzvM",
+        "videoTitle": "Ratones Paranoicos - Vicio (Official Video)",
+        "channel": "Ratones Paranoicos",
+        "url": "https://www.youtube.com/watch?v=7VLksigKzvM",
+        "has_artist": false,
+        "matched_words": 0,
+        "score": 0
+      },
+      {
+        "videoId": "U3lDkGNU5aA",
+        "videoTitle": "Ratones Paranoicos - Vicio (Official Audio)",
+        "channel": "Ratones Paranoicos",
+        "url": "https://www.youtube.com/watch?v=U3lDkGNU5aA",
+        "has_artist": false,
+        "matched_words": 0,
+        "score": 0
+      },
+      {
+        "videoId": "OtRF9L1NtAY",
+        "videoTitle": "Ratones Paranoicos - Juana de Arco (Official Video)",
+        "channel": "Ratones Paranoicos",
+        "url": "https://www.youtube.com/watch?v=OtRF9L1NtAY",
+        "has_artist": false,
+        "matched_words": 0,
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 559,
+    "title": "Pasa Jesús por el Camino",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "XD_27RjNprI",
+      "videoTitle": "Tito Abarca - Esperalo",
+      "channel": "Tito Abarca",
+      "url": "https://www.youtube.com/watch?v=XD_27RjNprI",
+      "has_artist": true,
+      "matched_words": 0,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "XD_27RjNprI",
+        "videoTitle": "Tito Abarca - Esperalo",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=XD_27RjNprI",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "lqwo7BUWC50",
+        "videoTitle": "Jeremías Abarca - Viaje (Tito Abarca)",
+        "channel": "jeremias emanuel abarca ortega",
+        "url": "https://www.youtube.com/watch?v=lqwo7BUWC50",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "-dugdtLoLJk",
+        "videoTitle": "Mefiboset “Hermano Tito Abarca” Visita a Chile Diciembre 2024",
+        "channel": "Elias Daniel Gatica Abrigo",
+        "url": "https://www.youtube.com/watch?v=-dugdtLoLJk",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 560,
+    "title": "Gracias te doy Señor",
+    "author": "Tito Abarca",
+    "status": "NEEDS_REVIEW",
+    "best_match": {
+      "videoId": "Tn921udl1fA",
+      "videoTitle": "Gracias te doy Señor | c/ letra",
+      "channel": "Impa Frutillar Brc",
+      "url": "https://www.youtube.com/watch?v=Tn921udl1fA",
+      "has_artist": false,
+      "matched_words": 3,
+      "score": 70
+    },
+    "all_candidates": [
+      {
+        "videoId": "Tn921udl1fA",
+        "videoTitle": "Gracias te doy Señor | c/ letra",
+        "channel": "Impa Frutillar Brc",
+        "url": "https://www.youtube.com/watch?v=Tn921udl1fA",
+        "has_artist": false,
+        "matched_words": 3,
+        "score": 70
+      },
+      {
+        "videoId": "UZF2pC_xhkI",
+        "videoTitle": "Tito Abarca - Señor Yo Te Vi",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=UZF2pC_xhkI",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 66
+      },
+      {
+        "videoId": "zWa85nD73_U",
+        "videoTitle": "Gracias te doy a ti Señor con letra - Coro San Miguel",
+        "channel": "Netza alabanzas",
+        "url": "https://www.youtube.com/watch?v=zWa85nD73_U",
+        "has_artist": false,
+        "matched_words": 3,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 561,
+    "title": "Tinieblas Tenebrosas",
+    "author": "Tito Abarca",
+    "status": "NEEDS_REVIEW",
+    "best_match": {
+      "videoId": "VCYMe5MP4lk",
+      "videoTitle": "Tinieblas Tenebrosas",
+      "channel": "Ruben Ortiz - Topic",
+      "url": "https://www.youtube.com/watch?v=VCYMe5MP4lk",
+      "has_artist": false,
+      "matched_words": 2,
+      "score": 70
+    },
+    "all_candidates": [
+      {
+        "videoId": "VCYMe5MP4lk",
+        "videoTitle": "Tinieblas Tenebrosas",
+        "channel": "Ruben Ortiz - Topic",
+        "url": "https://www.youtube.com/watch?v=VCYMe5MP4lk",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 70
+      },
+      {
+        "videoId": "Zg7gz1wL-tY",
+        "videoTitle": "Tinieblas Tenebrosas - Juventud Alabando al Señor",
+        "channel": "Juventud Cristiana Dios es Amor",
+        "url": "https://www.youtube.com/watch?v=Zg7gz1wL-tY",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 70
+      },
+      {
+        "videoId": "CBoH1VIVUuI",
+        "videoTitle": "Tinieblas tenebrosas - Cover",
+        "channel": "Padilla Covers",
+        "url": "https://www.youtube.com/watch?v=CBoH1VIVUuI",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 70
+      }
+    ]
+  },
+  {
+    "id": 562,
+    "title": "Camino Voy",
+    "author": "Tito Abarca",
+    "status": "NEEDS_REVIEW",
+    "best_match": {
+      "videoId": "dE4rur2UFIs",
+      "videoTitle": "Camino voy",
+      "channel": "Jose Alvarez",
+      "url": "https://www.youtube.com/watch?v=dE4rur2UFIs",
+      "has_artist": false,
+      "matched_words": 2,
+      "score": 70
+    },
+    "all_candidates": [
+      {
+        "videoId": "dE4rur2UFIs",
+        "videoTitle": "Camino voy",
+        "channel": "Jose Alvarez",
+        "url": "https://www.youtube.com/watch?v=dE4rur2UFIs",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 70
+      },
+      {
+        "videoId": "pcOlo3axiN0",
+        "videoTitle": "Puedo cantar -Tito abarca",
+        "channel": "Carlos Ramírez",
+        "url": "https://www.youtube.com/watch?v=pcOlo3axiN0",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "jpbYB3DAaug",
+        "videoTitle": "TIZON ARREBATADO - TITO ABARCA",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=jpbYB3DAaug",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 563,
+    "title": "Maravilloso Será",
+    "author": "Tito Abarca",
+    "status": "NEEDS_REVIEW",
+    "best_match": {
+      "videoId": "-Xf6gyby63g",
+      "videoTitle": "Maravilloso Será",
+      "channel": "Conjunto Juvenil de Luján de Cuyo - Topic",
+      "url": "https://www.youtube.com/watch?v=-Xf6gyby63g",
+      "has_artist": false,
+      "matched_words": 2,
+      "score": 70
+    },
+    "all_candidates": [
+      {
+        "videoId": "-Xf6gyby63g",
+        "videoTitle": "Maravilloso Será",
+        "channel": "Conjunto Juvenil de Luján de Cuyo - Topic",
+        "url": "https://www.youtube.com/watch?v=-Xf6gyby63g",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 70
+      },
+      {
+        "videoId": "_eYCrRKu-KU",
+        "videoTitle": "Yo te alabo señor - Tito abarca",
+        "channel": "Carlos Ramírez",
+        "url": "https://www.youtube.com/watch?v=_eYCrRKu-KU",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "UZF2pC_xhkI",
+        "videoTitle": "Tito Abarca - Señor Yo Te Vi",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=UZF2pC_xhkI",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 564,
+    "title": "Hoy tengo Paz",
+    "author": "Tito Abarca",
+    "status": "NEEDS_REVIEW",
+    "best_match": {
+      "videoId": "yoFopUGCkdg",
+      "videoTitle": "Hoy Tengo Paz - Conjunto Juvenil Luján de Cuyo Mendoza",
+      "channel": "Alabanzas DIOS ES AMOR",
+      "url": "https://www.youtube.com/watch?v=yoFopUGCkdg",
+      "has_artist": false,
+      "matched_words": 3,
+      "score": 70
+    },
+    "all_candidates": [
+      {
+        "videoId": "yoFopUGCkdg",
+        "videoTitle": "Hoy Tengo Paz - Conjunto Juvenil Luján de Cuyo Mendoza",
+        "channel": "Alabanzas DIOS ES AMOR",
+        "url": "https://www.youtube.com/watch?v=yoFopUGCkdg",
+        "has_artist": false,
+        "matched_words": 3,
+        "score": 70
+      },
+      {
+        "videoId": "WTRMqnUvUAk",
+        "videoTitle": "Hoy Tengo Paz",
+        "channel": "Conjunto Juvenil de Luján de Cuyo - Topic",
+        "url": "https://www.youtube.com/watch?v=WTRMqnUvUAk",
+        "has_artist": false,
+        "matched_words": 3,
+        "score": 70
+      },
+      {
+        "videoId": "ZVvv_cyvw6c",
+        "videoTitle": "Como el siervo ansioso brama- Tito abarca ",
+        "channel": "Brian sena",
+        "url": "https://www.youtube.com/watch?v=ZVvv_cyvw6c",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 565,
+    "title": "Un Encuentro con Jesús",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "UZF2pC_xhkI",
+      "videoTitle": "Tito Abarca - Señor Yo Te Vi",
+      "channel": "Tito Abarca",
+      "url": "https://www.youtube.com/watch?v=UZF2pC_xhkI",
+      "has_artist": true,
+      "matched_words": 0,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "UZF2pC_xhkI",
+        "videoTitle": "Tito Abarca - Señor Yo Te Vi",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=UZF2pC_xhkI",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "e_HEQ-9sF3Q",
+        "videoTitle": "Tito Abarca - Quemame con Fuego Santo",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=e_HEQ-9sF3Q",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "-dugdtLoLJk",
+        "videoTitle": "Mefiboset “Hermano Tito Abarca” Visita a Chile Diciembre 2024",
+        "channel": "Elias Daniel Gatica Abrigo",
+        "url": "https://www.youtube.com/watch?v=-dugdtLoLJk",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 566,
+    "title": "Joven Rico",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "djVYJpxj96M",
+      "videoTitle": "Tito Abarca - Eutico",
+      "channel": "Tito Abarca",
+      "url": "https://www.youtube.com/watch?v=djVYJpxj96M",
+      "has_artist": true,
+      "matched_words": 0,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "djVYJpxj96M",
+        "videoTitle": "Tito Abarca - Eutico",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=djVYJpxj96M",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "e_HEQ-9sF3Q",
+        "videoTitle": "Tito Abarca - Quemame con Fuego Santo",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=e_HEQ-9sF3Q",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "UZF2pC_xhkI",
+        "videoTitle": "Tito Abarca - Señor Yo Te Vi",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=UZF2pC_xhkI",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 567,
+    "title": "Muy Pronto",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "fkoG31ATcJk",
+      "videoTitle": "Yo quiero estar - Tito Abarca",
+      "channel": "Tito Abarca",
+      "url": "https://www.youtube.com/watch?v=fkoG31ATcJk",
+      "has_artist": true,
+      "matched_words": 0,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "fkoG31ATcJk",
+        "videoTitle": "Yo quiero estar - Tito Abarca",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=fkoG31ATcJk",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "rW7OQ8D1H-M",
+        "videoTitle": "MEFIBOSET - TITO ABARCA",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=rW7OQ8D1H-M",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "ixR4Y1leDiA",
+        "videoTitle": "Tito Abarca - Trayendo Consuelo",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=ixR4Y1leDiA",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 568,
+    "title": "La Gloria Venidera",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "UZF2pC_xhkI",
+      "videoTitle": "Tito Abarca - Señor Yo Te Vi",
+      "channel": "Tito Abarca",
+      "url": "https://www.youtube.com/watch?v=UZF2pC_xhkI",
+      "has_artist": true,
+      "matched_words": 0,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "UZF2pC_xhkI",
+        "videoTitle": "Tito Abarca - Señor Yo Te Vi",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=UZF2pC_xhkI",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "GjPQjU0YYo0",
+        "videoTitle": "Tito Abarca - La reina de Sabá",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=GjPQjU0YYo0",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "e_HEQ-9sF3Q",
+        "videoTitle": "Tito Abarca - Quemame con Fuego Santo",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=e_HEQ-9sF3Q",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 569,
+    "title": "El Buen Samaritano",
+    "author": "Tito Abarca",
+    "status": "NEEDS_REVIEW",
+    "best_match": {
+      "videoId": "IZ9IGjYjktk",
+      "videoTitle": "El buen samaritano Poderoso mensaje Pastor Gerardo Bonilla 7/22/2023",
+      "channel": "Pastor Gerardo Bonilla",
+      "url": "https://www.youtube.com/watch?v=IZ9IGjYjktk",
+      "has_artist": false,
+      "matched_words": 2,
+      "score": 70
+    },
+    "all_candidates": [
+      {
+        "videoId": "IZ9IGjYjktk",
+        "videoTitle": "El buen samaritano Poderoso mensaje Pastor Gerardo Bonilla 7/22/2023",
+        "channel": "Pastor Gerardo Bonilla",
+        "url": "https://www.youtube.com/watch?v=IZ9IGjYjktk",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 70
+      },
+      {
+        "videoId": "ln5sneTZXG4",
+        "videoTitle": "El Narrador  2 | El Buen Samaritano | Pastor Chali Martinez",
+        "channel": "Vital Church",
+        "url": "https://www.youtube.com/watch?v=ln5sneTZXG4",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 70
+      },
+      {
+        "videoId": "mJ02hSpw1iM",
+        "videoTitle": "Todo Cambió - Tito Abarca \\u0026 Los hns Benítez",
+        "channel": "Joan Btz",
+        "url": "https://www.youtube.com/watch?v=mJ02hSpw1iM",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 570,
+    "title": "El Poder de mi Gran Dios",
+    "author": "Tito Abarca",
+    "status": "NEEDS_REVIEW",
+    "best_match": {
+      "videoId": "rbVmhYVct1c",
+      "videoTitle": "El Poder de Mi Gran Dios",
+      "channel": "Conjunto de Luján de Cuyo - Topic",
+      "url": "https://www.youtube.com/watch?v=rbVmhYVct1c",
+      "has_artist": false,
+      "matched_words": 3,
+      "score": 70
+    },
+    "all_candidates": [
+      {
+        "videoId": "rbVmhYVct1c",
+        "videoTitle": "El Poder de Mi Gran Dios",
+        "channel": "Conjunto de Luján de Cuyo - Topic",
+        "url": "https://www.youtube.com/watch?v=rbVmhYVct1c",
+        "has_artist": false,
+        "matched_words": 3,
+        "score": 70
+      },
+      {
+        "videoId": "e_HEQ-9sF3Q",
+        "videoTitle": "Tito Abarca - Quemame con Fuego Santo",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=e_HEQ-9sF3Q",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "rW7OQ8D1H-M",
+        "videoTitle": "MEFIBOSET - TITO ABARCA",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=rW7OQ8D1H-M",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 571,
+    "title": "Jesús y el Leproso",
+    "author": "Tito Abarca",
+    "status": "NEEDS_REVIEW",
+    "best_match": {
+      "videoId": "ABaKybgx6wI",
+      "videoTitle": "Tito Vasquez  jesus y el leproso",
+      "channel": " 『ramiro⁰²』",
+      "url": "https://www.youtube.com/watch?v=ABaKybgx6wI",
+      "has_artist": false,
+      "matched_words": 2,
+      "score": 70
+    },
+    "all_candidates": [
+      {
+        "videoId": "ABaKybgx6wI",
+        "videoTitle": "Tito Vasquez  jesus y el leproso",
+        "channel": " 『ramiro⁰²』",
+        "url": "https://www.youtube.com/watch?v=ABaKybgx6wI",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 70
+      },
+      {
+        "videoId": "TiCzJ5x8pZ4",
+        "videoTitle": "Jesús y el Leproso",
+        "channel": "Conjunto de Luján de Cuyo - Topic",
+        "url": "https://www.youtube.com/watch?v=TiCzJ5x8pZ4",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 70
+      },
+      {
+        "videoId": "d5wQpBgqUJM",
+        "videoTitle": "Juan carlos Zubiaga - Jesus y el leproso",
+        "channel": "Juan Carlos Zubiaga",
+        "url": "https://www.youtube.com/watch?v=d5wQpBgqUJM",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 70
+      }
+    ]
+  },
+  {
+    "id": 572,
+    "title": "Tu corazón en Horeb",
+    "author": "Tito Abarca",
+    "status": "NEEDS_REVIEW",
+    "best_match": {
+      "videoId": "Y_Xf0bwTHCg",
+      "videoTitle": "Tu Corazón en Horeb",
+      "channel": "Conjunto de Luján de Cuyo - Topic",
+      "url": "https://www.youtube.com/watch?v=Y_Xf0bwTHCg",
+      "has_artist": false,
+      "matched_words": 2,
+      "score": 70
+    },
+    "all_candidates": [
+      {
+        "videoId": "Y_Xf0bwTHCg",
+        "videoTitle": "Tu Corazón en Horeb",
+        "channel": "Conjunto de Luján de Cuyo - Topic",
+        "url": "https://www.youtube.com/watch?v=Y_Xf0bwTHCg",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 70
+      },
+      {
+        "videoId": "vX8zIqeJq0k",
+        "videoTitle": "Conjunto De Luján De Cuyo - Tu Corazón En Horeb",
+        "channel": "Bet-El",
+        "url": "https://www.youtube.com/watch?v=vX8zIqeJq0k",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 70
+      },
+      {
+        "videoId": "jpbYB3DAaug",
+        "videoTitle": "TIZON ARREBATADO - TITO ABARCA",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=jpbYB3DAaug",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 573,
+    "title": "El Peregrino",
+    "author": "Tito Abarca",
+    "status": "NEEDS_REVIEW",
+    "best_match": {
+      "videoId": "a-p8gQlDDoo",
+      "videoTitle": "Himno 289. - EL PEREGRINO",
+      "channel": "Dios Es Amor",
+      "url": "https://www.youtube.com/watch?v=a-p8gQlDDoo",
+      "has_artist": false,
+      "matched_words": 1,
+      "score": 70
+    },
+    "all_candidates": [
+      {
+        "videoId": "a-p8gQlDDoo",
+        "videoTitle": "Himno 289. - EL PEREGRINO",
+        "channel": "Dios Es Amor",
+        "url": "https://www.youtube.com/watch?v=a-p8gQlDDoo",
+        "has_artist": false,
+        "matched_words": 1,
+        "score": 70
+      },
+      {
+        "videoId": "O9sUKcE8RVg",
+        "videoTitle": "Conjunto Peregrino CD // 10 pistas",
+        "channel": "María Varela",
+        "url": "https://www.youtube.com/watch?v=O9sUKcE8RVg",
+        "has_artist": false,
+        "matched_words": 1,
+        "score": 50
+      },
+      {
+        "videoId": "jKfs8A5X8r0",
+        "videoTitle": "Tito Abarca - Llena Hoy Mi Vida",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=jKfs8A5X8r0",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 574,
+    "title": "Mírame Señor",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "UZF2pC_xhkI",
+      "videoTitle": "Tito Abarca - Señor Yo Te Vi",
+      "channel": "Tito Abarca",
+      "url": "https://www.youtube.com/watch?v=UZF2pC_xhkI",
+      "has_artist": true,
+      "matched_words": 1,
+      "score": 75
+    },
+    "all_candidates": [
+      {
+        "videoId": "UZF2pC_xhkI",
+        "videoTitle": "Tito Abarca - Señor Yo Te Vi",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=UZF2pC_xhkI",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 75
+      },
+      {
+        "videoId": "e_HEQ-9sF3Q",
+        "videoTitle": "Tito Abarca - Quemame con Fuego Santo",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=e_HEQ-9sF3Q",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "ZVvv_cyvw6c",
+        "videoTitle": "Como el siervo ansioso brama- Tito abarca ",
+        "channel": "Brian sena",
+        "url": "https://www.youtube.com/watch?v=ZVvv_cyvw6c",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 575,
+    "title": "Llega a mí Ser",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "fkoG31ATcJk",
+      "videoTitle": "Yo quiero estar - Tito Abarca",
+      "channel": "Tito Abarca",
+      "url": "https://www.youtube.com/watch?v=fkoG31ATcJk",
+      "has_artist": true,
+      "matched_words": 0,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "fkoG31ATcJk",
+        "videoTitle": "Yo quiero estar - Tito Abarca",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=fkoG31ATcJk",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "ZVvv_cyvw6c",
+        "videoTitle": "Como el siervo ansioso brama- Tito abarca ",
+        "channel": "Brian sena",
+        "url": "https://www.youtube.com/watch?v=ZVvv_cyvw6c",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "_eYCrRKu-KU",
+        "videoTitle": "Yo te alabo señor - Tito abarca",
+        "channel": "Carlos Ramírez",
+        "url": "https://www.youtube.com/watch?v=_eYCrRKu-KU",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 576,
+    "title": "Ven hoy Mesías",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "jKfs8A5X8r0",
+      "videoTitle": "Tito Abarca - Llena Hoy Mi Vida",
+      "channel": "Tito Abarca",
+      "url": "https://www.youtube.com/watch?v=jKfs8A5X8r0",
+      "has_artist": true,
+      "matched_words": 1,
+      "score": 66
+    },
+    "all_candidates": [
+      {
+        "videoId": "jKfs8A5X8r0",
+        "videoTitle": "Tito Abarca - Llena Hoy Mi Vida",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=jKfs8A5X8r0",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 66
+      },
+      {
+        "videoId": "A4jk658pYAI",
+        "videoTitle": "Tito Abarca - Renuncio a la Miseria",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=A4jk658pYAI",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "jpbYB3DAaug",
+        "videoTitle": "TIZON ARREBATADO - TITO ABARCA",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=jpbYB3DAaug",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 577,
+    "title": "El Propósito",
+    "author": "Tito Abarca",
+    "status": "NEEDS_REVIEW",
+    "best_match": {
+      "videoId": "2JiQNk9ywZQ",
+      "videoTitle": "El Propósito",
+      "channel": "Conjunto de Luján de Cuyo - Topic",
+      "url": "https://www.youtube.com/watch?v=2JiQNk9ywZQ",
+      "has_artist": false,
+      "matched_words": 1,
+      "score": 70
+    },
+    "all_candidates": [
+      {
+        "videoId": "2JiQNk9ywZQ",
+        "videoTitle": "El Propósito",
+        "channel": "Conjunto de Luján de Cuyo - Topic",
+        "url": "https://www.youtube.com/watch?v=2JiQNk9ywZQ",
+        "has_artist": false,
+        "matched_words": 1,
+        "score": 70
+      },
+      {
+        "videoId": "pcOlo3axiN0",
+        "videoTitle": "Puedo cantar -Tito abarca",
+        "channel": "Carlos Ramírez",
+        "url": "https://www.youtube.com/watch?v=pcOlo3axiN0",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "k_w2ouuUSOk",
+        "videoTitle": "NO HAY CADENAS NI CERROJOS - Tito Abarca",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=k_w2ouuUSOk",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 578,
+    "title": "Quiero ir en Pos de Ti",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "fkoG31ATcJk",
+      "videoTitle": "Yo quiero estar - Tito Abarca",
+      "channel": "Tito Abarca",
+      "url": "https://www.youtube.com/watch?v=fkoG31ATcJk",
+      "has_artist": true,
+      "matched_words": 1,
+      "score": 75
+    },
+    "all_candidates": [
+      {
+        "videoId": "fkoG31ATcJk",
+        "videoTitle": "Yo quiero estar - Tito Abarca",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=fkoG31ATcJk",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 75
+      },
+      {
+        "videoId": "rW7OQ8D1H-M",
+        "videoTitle": "MEFIBOSET - TITO ABARCA",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=rW7OQ8D1H-M",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "2bMJe2HyL8g",
+        "videoTitle": "La Presencia del Señor | Iglesia A.C km 26 - Laferrere (cover-Tito Abarca)",
+        "channel": "Joan Btz",
+        "url": "https://www.youtube.com/watch?v=2bMJe2HyL8g",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 580,
+    "title": "El Siervo de Dios",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "ZVvv_cyvw6c",
+      "videoTitle": "Como el siervo ansioso brama- Tito abarca ",
+      "channel": "Brian sena",
+      "url": "https://www.youtube.com/watch?v=ZVvv_cyvw6c",
+      "has_artist": true,
+      "matched_words": 1,
+      "score": 75
+    },
+    "all_candidates": [
+      {
+        "videoId": "ZVvv_cyvw6c",
+        "videoTitle": "Como el siervo ansioso brama- Tito abarca ",
+        "channel": "Brian sena",
+        "url": "https://www.youtube.com/watch?v=ZVvv_cyvw6c",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 75
+      },
+      {
+        "videoId": "bu6f71VwdXM",
+        "videoTitle": "Mefi-boset (letra)- Tito Abarca - Andrés Plagges",
+        "channel": "IGLESIA CRISTIANA UNIDA - Plagges Lira",
+        "url": "https://www.youtube.com/watch?v=bu6f71VwdXM",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "rW7OQ8D1H-M",
+        "videoTitle": "MEFIBOSET - TITO ABARCA",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=rW7OQ8D1H-M",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 581,
+    "title": "Despierta mi Primer Amor",
+    "author": "Tito Abarca",
+    "status": "NEEDS_REVIEW",
+    "best_match": {
+      "videoId": "fwyQG7gQyMo",
+      "videoTitle": "Despierta mi Primer Amor",
+      "channel": "Alabanzas DIOS ES AMOR",
+      "url": "https://www.youtube.com/watch?v=fwyQG7gQyMo",
+      "has_artist": false,
+      "matched_words": 3,
+      "score": 70
+    },
+    "all_candidates": [
+      {
+        "videoId": "fwyQG7gQyMo",
+        "videoTitle": "Despierta mi Primer Amor",
+        "channel": "Alabanzas DIOS ES AMOR",
+        "url": "https://www.youtube.com/watch?v=fwyQG7gQyMo",
+        "has_artist": false,
+        "matched_words": 3,
+        "score": 70
+      },
+      {
+        "videoId": "_mQKytCyTAY",
+        "videoTitle": "Sopla — Tito Abarca Cover _ Juventud Cristiana Dios es Amor",
+        "channel": "Juventud Cristiana Dios es Amor",
+        "url": "https://www.youtube.com/watch?v=_mQKytCyTAY",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 66
+      },
+      {
+        "videoId": "ZxKnQLDjBUU",
+        "videoTitle": "Tito Abarca - Eres Libre",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=ZxKnQLDjBUU",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 582,
+    "title": "Cuenta la Biblia",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "ZVvv_cyvw6c",
+      "videoTitle": "Como el siervo ansioso brama- Tito abarca ",
+      "channel": "Brian sena",
+      "url": "https://www.youtube.com/watch?v=ZVvv_cyvw6c",
+      "has_artist": true,
+      "matched_words": 0,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "ZVvv_cyvw6c",
+        "videoTitle": "Como el siervo ansioso brama- Tito abarca ",
+        "channel": "Brian sena",
+        "url": "https://www.youtube.com/watch?v=ZVvv_cyvw6c",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "rW7OQ8D1H-M",
+        "videoTitle": "MEFIBOSET - TITO ABARCA",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=rW7OQ8D1H-M",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "jpbYB3DAaug",
+        "videoTitle": "TIZON ARREBATADO - TITO ABARCA",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=jpbYB3DAaug",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 583,
+    "title": "Puedo oír Tu Voz",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "pcOlo3axiN0",
+      "videoTitle": "Puedo cantar -Tito abarca",
+      "channel": "Carlos Ramírez",
+      "url": "https://www.youtube.com/watch?v=pcOlo3axiN0",
+      "has_artist": true,
+      "matched_words": 1,
+      "score": 66
+    },
+    "all_candidates": [
+      {
+        "videoId": "pcOlo3axiN0",
+        "videoTitle": "Puedo cantar -Tito abarca",
+        "channel": "Carlos Ramírez",
+        "url": "https://www.youtube.com/watch?v=pcOlo3axiN0",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 66
+      },
+      {
+        "videoId": "C3087InnZ-8",
+        "videoTitle": "AVIVA EL DON - Tito Abarca",
+        "channel": "Creciendo en Su presencia",
+        "url": "https://www.youtube.com/watch?v=C3087InnZ-8",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "ZVvv_cyvw6c",
+        "videoTitle": "Como el siervo ansioso brama- Tito abarca ",
+        "channel": "Brian sena",
+        "url": "https://www.youtube.com/watch?v=ZVvv_cyvw6c",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 584,
+    "title": "La Oveja perdida",
+    "author": "Tito Abarca",
+    "status": "NEEDS_REVIEW",
+    "best_match": {
+      "videoId": "XjE4CIvGW-E",
+      "videoTitle": "Parábola de La Oveja Perdida - Valivan",
+      "channel": "Valivan",
+      "url": "https://www.youtube.com/watch?v=XjE4CIvGW-E",
+      "has_artist": false,
+      "matched_words": 2,
+      "score": 70
+    },
+    "all_candidates": [
+      {
+        "videoId": "XjE4CIvGW-E",
+        "videoTitle": "Parábola de La Oveja Perdida - Valivan",
+        "channel": "Valivan",
+        "url": "https://www.youtube.com/watch?v=XjE4CIvGW-E",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 70
+      },
+      {
+        "videoId": "33NK84mMjwQ",
+        "videoTitle": "LA OVEJA PERDIDA (VIDEOCLIP) - LOS DESCALZADOS  FEAT IVÁN MANGINI - ALABA @LosDescalzados",
+        "channel": "Iván Mangini",
+        "url": "https://www.youtube.com/watch?v=33NK84mMjwQ",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 70
+      },
+      {
+        "videoId": "AgduBtWYNfc",
+        "videoTitle": "Humberto ballejos-La oveja perdida-excelente",
+        "channel": "Somosmuchosche",
+        "url": "https://www.youtube.com/watch?v=AgduBtWYNfc",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 70
+      }
+    ]
+  },
+  {
+    "id": 585,
+    "title": "Señor Permíteme",
+    "author": "Tito Abarca",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "UZF2pC_xhkI",
+      "videoTitle": "Tito Abarca - Señor Yo Te Vi",
+      "channel": "Tito Abarca",
+      "url": "https://www.youtube.com/watch?v=UZF2pC_xhkI",
+      "has_artist": true,
+      "matched_words": 1,
+      "score": 75
+    },
+    "all_candidates": [
+      {
+        "videoId": "UZF2pC_xhkI",
+        "videoTitle": "Tito Abarca - Señor Yo Te Vi",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=UZF2pC_xhkI",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 75
+      },
+      {
+        "videoId": "e_HEQ-9sF3Q",
+        "videoTitle": "Tito Abarca - Quemame con Fuego Santo",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=e_HEQ-9sF3Q",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "fkoG31ATcJk",
+        "videoTitle": "Yo quiero estar - Tito Abarca",
+        "channel": "Tito Abarca",
+        "url": "https://www.youtube.com/watch?v=fkoG31ATcJk",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  }
+]

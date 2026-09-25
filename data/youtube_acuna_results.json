@@ -1,0 +1,882 @@
+[
+  {
+    "id": 328,
+    "title": "Más que Vencedores",
+    "author": "Trio Acuña",
+    "status": "NEEDS_REVIEW",
+    "best_match": {
+      "videoId": "EfmQRvDLny0",
+      "videoTitle": "Más que Vencedores en Jesús [A/C  Edgar Americo Cardozo] int. por Familia del Rey.",
+      "channel": "Familia Del Rey",
+      "url": "https://www.youtube.com/watch?v=EfmQRvDLny0",
+      "has_artist": false,
+      "matched_words": 1,
+      "score": 70
+    },
+    "all_candidates": [
+      {
+        "videoId": "EfmQRvDLny0",
+        "videoTitle": "Más que Vencedores en Jesús [A/C  Edgar Americo Cardozo] int. por Familia del Rey.",
+        "channel": "Familia Del Rey",
+        "url": "https://www.youtube.com/watch?v=EfmQRvDLny0",
+        "has_artist": false,
+        "matched_words": 1,
+        "score": 70
+      },
+      {
+        "videoId": "v-tUSOC25mk",
+        "videoTitle": "Conjunto los hermanos Acuña - Pedro",
+        "channel": "CONJUNTO LOS HERMANOS ACUÑA",
+        "url": "https://www.youtube.com/watch?v=v-tUSOC25mk",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "dwZwdaf5QwQ",
+        "videoTitle": "Quien me ha Tocado? - Trio Acuña",
+        "channel": "Alabanzas DIOS ES AMOR",
+        "url": "https://www.youtube.com/watch?v=dwZwdaf5QwQ",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 329,
+    "title": "El día ya viene",
+    "author": "Trio Acuña",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "GKLd67tVXDI",
+      "videoTitle": "Ha Resucitado - Trío Acuña",
+      "channel": "Alabanzas DIOS ES AMOR",
+      "url": "https://www.youtube.com/watch?v=GKLd67tVXDI",
+      "has_artist": true,
+      "matched_words": 0,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "GKLd67tVXDI",
+        "videoTitle": "Ha Resucitado - Trío Acuña",
+        "channel": "Alabanzas DIOS ES AMOR",
+        "url": "https://www.youtube.com/watch?v=GKLd67tVXDI",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "v-tUSOC25mk",
+        "videoTitle": "Conjunto los hermanos Acuña - Pedro",
+        "channel": "CONJUNTO LOS HERMANOS ACUÑA",
+        "url": "https://www.youtube.com/watch?v=v-tUSOC25mk",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "dwZwdaf5QwQ",
+        "videoTitle": "Quien me ha Tocado? - Trio Acuña",
+        "channel": "Alabanzas DIOS ES AMOR",
+        "url": "https://www.youtube.com/watch?v=dwZwdaf5QwQ",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 330,
+    "title": "Soy la Resurrección",
+    "author": "Trio Acuña",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "QsuQUNBpmHY",
+      "videoTitle": "La Resurrección de Lázaro - Trío Acuña",
+      "channel": "Alabanzas DIOS ES AMOR",
+      "url": "https://www.youtube.com/watch?v=QsuQUNBpmHY",
+      "has_artist": true,
+      "matched_words": 1,
+      "score": 75
+    },
+    "all_candidates": [
+      {
+        "videoId": "QsuQUNBpmHY",
+        "videoTitle": "La Resurrección de Lázaro - Trío Acuña",
+        "channel": "Alabanzas DIOS ES AMOR",
+        "url": "https://www.youtube.com/watch?v=QsuQUNBpmHY",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 75
+      },
+      {
+        "videoId": "g4CBbqUIEDY",
+        "videoTitle": "Los Trigales - Soy la Resurrección",
+        "channel": "Daniel Cancelo",
+        "url": "https://www.youtube.com/watch?v=g4CBbqUIEDY",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 70
+      },
+      {
+        "videoId": "e_-4x196XL0",
+        "videoTitle": "soy la resurrección Asamblea Cristiana  -(David celiz y Juliana Celiz)",
+        "channel": "Juliana Celiz",
+        "url": "https://www.youtube.com/watch?v=e_-4x196XL0",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 70
+      }
+    ]
+  },
+  {
+    "id": 331,
+    "title": "Palabra de Dios",
+    "author": "Trio Acuña",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "CFcr2Lmm7EY",
+      "videoTitle": "Hnos Acuña- El incomparable Dios",
+      "channel": "Conjunto Hnos Acuñas",
+      "url": "https://www.youtube.com/watch?v=CFcr2Lmm7EY",
+      "has_artist": true,
+      "matched_words": 1,
+      "score": 75
+    },
+    "all_candidates": [
+      {
+        "videoId": "CFcr2Lmm7EY",
+        "videoTitle": "Hnos Acuña- El incomparable Dios",
+        "channel": "Conjunto Hnos Acuñas",
+        "url": "https://www.youtube.com/watch?v=CFcr2Lmm7EY",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 75
+      },
+      {
+        "videoId": "dwZwdaf5QwQ",
+        "videoTitle": "Quien me ha Tocado? - Trio Acuña",
+        "channel": "Alabanzas DIOS ES AMOR",
+        "url": "https://www.youtube.com/watch?v=dwZwdaf5QwQ",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "v-tUSOC25mk",
+        "videoTitle": "Conjunto los hermanos Acuña - Pedro",
+        "channel": "CONJUNTO LOS HERMANOS ACUÑA",
+        "url": "https://www.youtube.com/watch?v=v-tUSOC25mk",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 332,
+    "title": "Ha Resucitado",
+    "author": "Trio Acuña",
+    "status": "EXACT_MATCH",
+    "best_match": {
+      "videoId": "GKLd67tVXDI",
+      "videoTitle": "Ha Resucitado - Trío Acuña",
+      "channel": "Alabanzas DIOS ES AMOR",
+      "url": "https://www.youtube.com/watch?v=GKLd67tVXDI",
+      "has_artist": true,
+      "matched_words": 1,
+      "score": 120
+    },
+    "all_candidates": [
+      {
+        "videoId": "GKLd67tVXDI",
+        "videoTitle": "Ha Resucitado - Trío Acuña",
+        "channel": "Alabanzas DIOS ES AMOR",
+        "url": "https://www.youtube.com/watch?v=GKLd67tVXDI",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 120
+      },
+      {
+        "videoId": "7C4FgElz9GA",
+        "videoTitle": "ALIVE - Cristo Ha Resucitado // Video Oficial",
+        "channel": "Conjunto Vocal Alive",
+        "url": "https://www.youtube.com/watch?v=7C4FgElz9GA",
+        "has_artist": false,
+        "matched_words": 1,
+        "score": 70
+      },
+      {
+        "videoId": "QsuQUNBpmHY",
+        "videoTitle": "La Resurrección de Lázaro - Trío Acuña",
+        "channel": "Alabanzas DIOS ES AMOR",
+        "url": "https://www.youtube.com/watch?v=QsuQUNBpmHY",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 333,
+    "title": "Marta y María",
+    "author": "Trio Acuña",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "lwqbXgmwd88",
+      "videoTitle": "Maria Quiero Ser - Trio Acuña",
+      "channel": "Alabanzas DIOS ES AMOR",
+      "url": "https://www.youtube.com/watch?v=lwqbXgmwd88",
+      "has_artist": true,
+      "matched_words": 1,
+      "score": 75
+    },
+    "all_candidates": [
+      {
+        "videoId": "lwqbXgmwd88",
+        "videoTitle": "Maria Quiero Ser - Trio Acuña",
+        "channel": "Alabanzas DIOS ES AMOR",
+        "url": "https://www.youtube.com/watch?v=lwqbXgmwd88",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 75
+      },
+      {
+        "videoId": "SLndElK97ac",
+        "videoTitle": "María y Marta #4 — A sus pies, el fuego sigue ardiendo",
+        "channel": "doug dennis",
+        "url": "https://www.youtube.com/watch?v=SLndElK97ac",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 50
+      },
+      {
+        "videoId": "iiLBHS00qqE",
+        "videoTitle": "Folklore Argentino | Mix – Los Hermanos Acuña en Lufa Studio",
+        "channel": "Lufa Studio",
+        "url": "https://www.youtube.com/watch?v=iiLBHS00qqE",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 334,
+    "title": "El Borde del Manto",
+    "author": "Trio Acuña",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "nPJDSkv_Nyo",
+      "videoTitle": "conjunto hnos acuña- EL MANTO DE JESUS",
+      "channel": "Conjunto Hnos Acuñas",
+      "url": "https://www.youtube.com/watch?v=nPJDSkv_Nyo",
+      "has_artist": true,
+      "matched_words": 1,
+      "score": 75
+    },
+    "all_candidates": [
+      {
+        "videoId": "nPJDSkv_Nyo",
+        "videoTitle": "conjunto hnos acuña- EL MANTO DE JESUS",
+        "channel": "Conjunto Hnos Acuñas",
+        "url": "https://www.youtube.com/watch?v=nPJDSkv_Nyo",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 75
+      },
+      {
+        "videoId": "drlXdjOqvxY",
+        "videoTitle": "La Mujer que Toco el Manto- Los Hnos Acuña @vocesdecristo1012 ",
+        "channel": "VOCES DE CRISTO",
+        "url": "https://www.youtube.com/watch?v=drlXdjOqvxY",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 75
+      },
+      {
+        "videoId": "dwZwdaf5QwQ",
+        "videoTitle": "Quien me ha Tocado? - Trio Acuña",
+        "channel": "Alabanzas DIOS ES AMOR",
+        "url": "https://www.youtube.com/watch?v=dwZwdaf5QwQ",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 335,
+    "title": "Oh Jehová",
+    "author": "Trio Acuña",
+    "status": "EXACT_MATCH",
+    "best_match": {
+      "videoId": "nhFsXh7zkjs",
+      "videoTitle": "A ti oh Jehová | Videoclip | Ciudad Refugio Feat. Alex Acuña, Lucas Leyes, Esteban Kubista",
+      "channel": "Ciudad Refugio",
+      "url": "https://www.youtube.com/watch?v=nhFsXh7zkjs",
+      "has_artist": true,
+      "matched_words": 1,
+      "score": 120
+    },
+    "all_candidates": [
+      {
+        "videoId": "nhFsXh7zkjs",
+        "videoTitle": "A ti oh Jehová | Videoclip | Ciudad Refugio Feat. Alex Acuña, Lucas Leyes, Esteban Kubista",
+        "channel": "Ciudad Refugio",
+        "url": "https://www.youtube.com/watch?v=nhFsXh7zkjs",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 120
+      },
+      {
+        "videoId": "IdCW73_VdBI",
+        "videoTitle": "IEUC VALDIVIA - ENCOMIENDA A JEHOVA TU CAMINO - ANGUSTIADA ESTA MI ALMA ",
+        "channel": "Videos de bendicion",
+        "url": "https://www.youtube.com/watch?v=IdCW73_VdBI",
+        "has_artist": false,
+        "matched_words": 1,
+        "score": 50
+      },
+      {
+        "videoId": "CCLumWq9C10",
+        "videoTitle": "Conjunto hnos acuña- ALABADLE AL REY",
+        "channel": "Conjunto Hnos Acuñas",
+        "url": "https://www.youtube.com/watch?v=CCLumWq9C10",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 336,
+    "title": "Fieras del Camino",
+    "author": "Trio Acuña",
+    "status": "NEEDS_REVIEW",
+    "best_match": {
+      "videoId": "efZPkDSJx1E",
+      "videoTitle": "Luis B Ramos con Las Hermanitas Rivera   Fieras Del Camino",
+      "channel": "Las Hermanitas Rivera",
+      "url": "https://www.youtube.com/watch?v=efZPkDSJx1E",
+      "has_artist": false,
+      "matched_words": 2,
+      "score": 70
+    },
+    "all_candidates": [
+      {
+        "videoId": "efZPkDSJx1E",
+        "videoTitle": "Luis B Ramos con Las Hermanitas Rivera   Fieras Del Camino",
+        "channel": "Las Hermanitas Rivera",
+        "url": "https://www.youtube.com/watch?v=efZPkDSJx1E",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 70
+      },
+      {
+        "videoId": "dwZwdaf5QwQ",
+        "videoTitle": "Quien me ha Tocado? - Trio Acuña",
+        "channel": "Alabanzas DIOS ES AMOR",
+        "url": "https://www.youtube.com/watch?v=dwZwdaf5QwQ",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "v-tUSOC25mk",
+        "videoTitle": "Conjunto los hermanos Acuña - Pedro",
+        "channel": "CONJUNTO LOS HERMANOS ACUÑA",
+        "url": "https://www.youtube.com/watch?v=v-tUSOC25mk",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 337,
+    "title": "Lléname de Tu Poder",
+    "author": "Trio Acuña",
+    "status": "NEEDS_REVIEW",
+    "best_match": {
+      "videoId": "gl2oBGNqnwE",
+      "videoTitle": "José De La Rosa, Asdrúbal Monroy y Hnas. Ovalle - Lléname De Tu Poder [Álbum Completo]",
+      "channel": "Música Cristiana Del Ayer-Hoy",
+      "url": "https://www.youtube.com/watch?v=gl2oBGNqnwE",
+      "has_artist": false,
+      "matched_words": 2,
+      "score": 70
+    },
+    "all_candidates": [
+      {
+        "videoId": "gl2oBGNqnwE",
+        "videoTitle": "José De La Rosa, Asdrúbal Monroy y Hnas. Ovalle - Lléname De Tu Poder [Álbum Completo]",
+        "channel": "Música Cristiana Del Ayer-Hoy",
+        "url": "https://www.youtube.com/watch?v=gl2oBGNqnwE",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 70
+      },
+      {
+        "videoId": "dwZwdaf5QwQ",
+        "videoTitle": "Quien me ha Tocado? - Trio Acuña",
+        "channel": "Alabanzas DIOS ES AMOR",
+        "url": "https://www.youtube.com/watch?v=dwZwdaf5QwQ",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "v-tUSOC25mk",
+        "videoTitle": "Conjunto los hermanos Acuña - Pedro",
+        "channel": "CONJUNTO LOS HERMANOS ACUÑA",
+        "url": "https://www.youtube.com/watch?v=v-tUSOC25mk",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 338,
+    "title": "Apocalipsis",
+    "author": "Trio Acuña",
+    "status": "NEEDS_REVIEW",
+    "best_match": {
+      "videoId": "PqSnpsJqClI",
+      "videoTitle": "TRÍO APOCALIPSIS 21 El Paraíso (cassette completo)",
+      "channel": "RAMÓN SOTO (músico)",
+      "url": "https://www.youtube.com/watch?v=PqSnpsJqClI",
+      "has_artist": false,
+      "matched_words": 1,
+      "score": 70
+    },
+    "all_candidates": [
+      {
+        "videoId": "PqSnpsJqClI",
+        "videoTitle": "TRÍO APOCALIPSIS 21 El Paraíso (cassette completo)",
+        "channel": "RAMÓN SOTO (músico)",
+        "url": "https://www.youtube.com/watch?v=PqSnpsJqClI",
+        "has_artist": false,
+        "matched_words": 1,
+        "score": 70
+      },
+      {
+        "videoId": "UepwTXFHeDQ",
+        "videoTitle": "Los Jinetes del Apocalipsis (Cover Trío Buenas Nuevas)",
+        "channel": "Conjunto Impch San Joaquín",
+        "url": "https://www.youtube.com/watch?v=UepwTXFHeDQ",
+        "has_artist": false,
+        "matched_words": 1,
+        "score": 70
+      },
+      {
+        "videoId": "YTlTuNutkn4",
+        "videoTitle": "Los jinetes del apocalipsis",
+        "channel": "Ariel Vega",
+        "url": "https://www.youtube.com/watch?v=YTlTuNutkn4",
+        "has_artist": false,
+        "matched_words": 1,
+        "score": 70
+      }
+    ]
+  },
+  {
+    "id": 339,
+    "title": "El Amor de Dios",
+    "author": "Trio Acuña",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "CFcr2Lmm7EY",
+      "videoTitle": "Hnos Acuña- El incomparable Dios",
+      "channel": "Conjunto Hnos Acuñas",
+      "url": "https://www.youtube.com/watch?v=CFcr2Lmm7EY",
+      "has_artist": true,
+      "matched_words": 1,
+      "score": 75
+    },
+    "all_candidates": [
+      {
+        "videoId": "CFcr2Lmm7EY",
+        "videoTitle": "Hnos Acuña- El incomparable Dios",
+        "channel": "Conjunto Hnos Acuñas",
+        "url": "https://www.youtube.com/watch?v=CFcr2Lmm7EY",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 75
+      },
+      {
+        "videoId": "MluPadi7ikM",
+        "videoTitle": "El amor de Dios",
+        "channel": "Salmo Trio - Topic",
+        "url": "https://www.youtube.com/watch?v=MluPadi7ikM",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 70
+      },
+      {
+        "videoId": "dwZwdaf5QwQ",
+        "videoTitle": "Quien me ha Tocado? - Trio Acuña",
+        "channel": "Alabanzas DIOS ES AMOR",
+        "url": "https://www.youtube.com/watch?v=dwZwdaf5QwQ",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 340,
+    "title": "La Samaritana",
+    "author": "Trio Acuña",
+    "status": "NEEDS_REVIEW",
+    "best_match": {
+      "videoId": "phA3NGl3p04",
+      "videoTitle": "Trio Jubal - La Samaritana",
+      "channel": "ibnuevavida2012",
+      "url": "https://www.youtube.com/watch?v=phA3NGl3p04",
+      "has_artist": false,
+      "matched_words": 1,
+      "score": 70
+    },
+    "all_candidates": [
+      {
+        "videoId": "phA3NGl3p04",
+        "videoTitle": "Trio Jubal - La Samaritana",
+        "channel": "ibnuevavida2012",
+        "url": "https://www.youtube.com/watch?v=phA3NGl3p04",
+        "has_artist": false,
+        "matched_words": 1,
+        "score": 70
+      },
+      {
+        "videoId": "lYHmYVc6i2g",
+        "videoTitle": "La Samaritana (Conjunto de Tucumán)",
+        "channel": "Asamblea Cristiana (Música)",
+        "url": "https://www.youtube.com/watch?v=lYHmYVc6i2g",
+        "has_artist": false,
+        "matched_words": 1,
+        "score": 70
+      },
+      {
+        "videoId": "W1CG-gy-frg",
+        "videoTitle": "UNA SAMARITANA_ TRIO AMIGOS DE JESUS",
+        "channel": "JOEL RENGIFO",
+        "url": "https://www.youtube.com/watch?v=W1CG-gy-frg",
+        "has_artist": false,
+        "matched_words": 1,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 341,
+    "title": "El día de Redención",
+    "author": "Trio Acuña",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "QsuQUNBpmHY",
+      "videoTitle": "La Resurrección de Lázaro - Trío Acuña",
+      "channel": "Alabanzas DIOS ES AMOR",
+      "url": "https://www.youtube.com/watch?v=QsuQUNBpmHY",
+      "has_artist": true,
+      "matched_words": 0,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "QsuQUNBpmHY",
+        "videoTitle": "La Resurrección de Lázaro - Trío Acuña",
+        "channel": "Alabanzas DIOS ES AMOR",
+        "url": "https://www.youtube.com/watch?v=QsuQUNBpmHY",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "v-tUSOC25mk",
+        "videoTitle": "Conjunto los hermanos Acuña - Pedro",
+        "channel": "CONJUNTO LOS HERMANOS ACUÑA",
+        "url": "https://www.youtube.com/watch?v=v-tUSOC25mk",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "ChWwfSVqE6o",
+        "videoTitle": "Quien me ha Tocado? - Trio Acuña",
+        "channel": "Alabanzas DIOS ES AMOR",
+        "url": "https://www.youtube.com/watch?v=ChWwfSVqE6o",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 342,
+    "title": "Bueno es Alabarte Señor",
+    "author": "Trio Acuña",
+    "status": "EXACT_MATCH",
+    "best_match": {
+      "videoId": "7LU9dYUf5-4",
+      "videoTitle": "Bueno es Alabarte Señor - Trío Acuña",
+      "channel": "Alabanzas DIOS ES AMOR",
+      "url": "https://www.youtube.com/watch?v=7LU9dYUf5-4",
+      "has_artist": true,
+      "matched_words": 3,
+      "score": 120
+    },
+    "all_candidates": [
+      {
+        "videoId": "7LU9dYUf5-4",
+        "videoTitle": "Bueno es Alabarte Señor - Trío Acuña",
+        "channel": "Alabanzas DIOS ES AMOR",
+        "url": "https://www.youtube.com/watch?v=7LU9dYUf5-4",
+        "has_artist": true,
+        "matched_words": 3,
+        "score": 120
+      },
+      {
+        "videoId": "54cPNApjzdQ",
+        "videoTitle": "Bueno es Alabarte Señor - Santiago Acuña \\u0026 Ana Laura Muñoz",
+        "channel": "Alabanzas DIOS ES AMOR",
+        "url": "https://www.youtube.com/watch?v=54cPNApjzdQ",
+        "has_artist": true,
+        "matched_words": 3,
+        "score": 120
+      },
+      {
+        "videoId": "svcOEuT4avg",
+        "videoTitle": "BUENO ES ALABARTE SEÑOR (MEDLEY DE SALMOS) - CORO JUVENIL IEP PUENTE ALTO",
+        "channel": "IEP Puente Alto",
+        "url": "https://www.youtube.com/watch?v=svcOEuT4avg",
+        "has_artist": false,
+        "matched_words": 3,
+        "score": 70
+      }
+    ]
+  },
+  {
+    "id": 343,
+    "title": "Salmo ciento veintiuno",
+    "author": "Trio Acuña",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "dwZwdaf5QwQ",
+      "videoTitle": "Quien me ha Tocado? - Trio Acuña",
+      "channel": "Alabanzas DIOS ES AMOR",
+      "url": "https://www.youtube.com/watch?v=dwZwdaf5QwQ",
+      "has_artist": true,
+      "matched_words": 0,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "dwZwdaf5QwQ",
+        "videoTitle": "Quien me ha Tocado? - Trio Acuña",
+        "channel": "Alabanzas DIOS ES AMOR",
+        "url": "https://www.youtube.com/watch?v=dwZwdaf5QwQ",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "J0I2XPlLCIA",
+        "videoTitle": "Trío Nazareth Oficial. Salmo 121",
+        "channel": "Trío Nazareth Oficial Arturo Jaramillo",
+        "url": "https://www.youtube.com/watch?v=J0I2XPlLCIA",
+        "has_artist": false,
+        "matched_words": 1,
+        "score": 16
+      },
+      {
+        "videoId": "4IQNMrvBaZU",
+        "videoTitle": "Trinity (NL) - Salmo 121 (grabado en las montańas de Curahuasi, Peru)",
+        "channel": "Trinity",
+        "url": "https://www.youtube.com/watch?v=4IQNMrvBaZU",
+        "has_artist": false,
+        "matched_words": 1,
+        "score": 16
+      }
+    ]
+  },
+  {
+    "id": 344,
+    "title": "Un Hombre Galileo",
+    "author": "Trio Acuña",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "Lrri-hOmGAc",
+      "videoTitle": "Quien me ha Tocado? - Trio Acuña",
+      "channel": "Alabanzas DIOS ES AMOR",
+      "url": "https://www.youtube.com/watch?v=Lrri-hOmGAc",
+      "has_artist": true,
+      "matched_words": 0,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "Lrri-hOmGAc",
+        "videoTitle": "Quien me ha Tocado? - Trio Acuña",
+        "channel": "Alabanzas DIOS ES AMOR",
+        "url": "https://www.youtube.com/watch?v=Lrri-hOmGAc",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "v-tUSOC25mk",
+        "videoTitle": "Conjunto los hermanos Acuña - Pedro",
+        "channel": "CONJUNTO LOS HERMANOS ACUÑA",
+        "url": "https://www.youtube.com/watch?v=v-tUSOC25mk",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "JQ1qiOtlwjg",
+        "videoTitle": "UN JOVEN GALILEO",
+        "channel": "Joel Ramirez Limones",
+        "url": "https://www.youtube.com/watch?v=JQ1qiOtlwjg",
+        "has_artist": false,
+        "matched_words": 1,
+        "score": 25
+      }
+    ]
+  },
+  {
+    "id": 345,
+    "title": "Has Sentido",
+    "author": "Trio Acuña",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "dwZwdaf5QwQ",
+      "videoTitle": "Quien me ha Tocado? - Trio Acuña",
+      "channel": "Alabanzas DIOS ES AMOR",
+      "url": "https://www.youtube.com/watch?v=dwZwdaf5QwQ",
+      "has_artist": true,
+      "matched_words": 0,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "dwZwdaf5QwQ",
+        "videoTitle": "Quien me ha Tocado? - Trio Acuña",
+        "channel": "Alabanzas DIOS ES AMOR",
+        "url": "https://www.youtube.com/watch?v=dwZwdaf5QwQ",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "QsuQUNBpmHY",
+        "videoTitle": "La Resurrección de Lázaro - Trío Acuña",
+        "channel": "Alabanzas DIOS ES AMOR",
+        "url": "https://www.youtube.com/watch?v=QsuQUNBpmHY",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "v-tUSOC25mk",
+        "videoTitle": "Conjunto los hermanos Acuña - Pedro",
+        "channel": "CONJUNTO LOS HERMANOS ACUÑA",
+        "url": "https://www.youtube.com/watch?v=v-tUSOC25mk",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      }
+    ]
+  },
+  {
+    "id": 346,
+    "title": "Te doy las Gracias",
+    "author": "Trio Acuña",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "qSm2ugqDen4",
+      "videoTitle": "Yo Soy Quien Te Quiere",
+      "channel": "Dúo Acuña Avalos - Topic",
+      "url": "https://www.youtube.com/watch?v=qSm2ugqDen4",
+      "has_artist": true,
+      "matched_words": 0,
+      "score": 50
+    },
+    "all_candidates": [
+      {
+        "videoId": "qSm2ugqDen4",
+        "videoTitle": "Yo Soy Quien Te Quiere",
+        "channel": "Dúo Acuña Avalos - Topic",
+        "url": "https://www.youtube.com/watch?v=qSm2ugqDen4",
+        "has_artist": true,
+        "matched_words": 0,
+        "score": 50
+      },
+      {
+        "videoId": "c8J8bN7Oawk",
+        "videoTitle": "Vengo a Tu Casa - Alabanza - Asamblea Cristiana",
+        "channel": "Alabanzas Asamblea Cristiana",
+        "url": "https://www.youtube.com/watch?v=c8J8bN7Oawk",
+        "has_artist": false,
+        "matched_words": 0,
+        "score": 0
+      },
+      {
+        "videoId": "FE67g9exQjk",
+        "videoTitle": "Trío Buenas Nuevas - Dios Está En La Alabanza (Álbum Completo)",
+        "channel": "Sector Cristiano",
+        "url": "https://www.youtube.com/watch?v=FE67g9exQjk",
+        "has_artist": false,
+        "matched_words": 0,
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": 347,
+    "title": "El Profeta Eliseo y la viuda de Serepta",
+    "author": "Trio Acuña",
+    "status": "HIGH_CONFIDENCE",
+    "best_match": {
+      "videoId": "OYtFV1E_HA0",
+      "videoTitle": "Conjunto Los Hnos Acuña - El aceite de la viuda",
+      "channel": "CONJUNTO LOS HERMANOS ACUÑA",
+      "url": "https://www.youtube.com/watch?v=OYtFV1E_HA0",
+      "has_artist": true,
+      "matched_words": 1,
+      "score": 62
+    },
+    "all_candidates": [
+      {
+        "videoId": "OYtFV1E_HA0",
+        "videoTitle": "Conjunto Los Hnos Acuña - El aceite de la viuda",
+        "channel": "CONJUNTO LOS HERMANOS ACUÑA",
+        "url": "https://www.youtube.com/watch?v=OYtFV1E_HA0",
+        "has_artist": true,
+        "matched_words": 1,
+        "score": 62
+      },
+      {
+        "videoId": "0ME3Zak3vDg",
+        "videoTitle": "Eliseo y la viuda de un profeta (2Reyes 4:1-7). Marcos Sancio",
+        "channel": "Cristianos Evangélicos por el Mundo",
+        "url": "https://www.youtube.com/watch?v=0ME3Zak3vDg",
+        "has_artist": false,
+        "matched_words": 3,
+        "score": 37
+      },
+      {
+        "videoId": "u1J3PVPxMCQ",
+        "videoTitle": "LA VIUDA DE SAREPTA: El Profeta Pidió Comida A Una Viuda Hambrienta: Lo Que Sucedió Te Marcará",
+        "channel": "Lecciones de Fe",
+        "url": "https://www.youtube.com/watch?v=u1J3PVPxMCQ",
+        "has_artist": false,
+        "matched_words": 2,
+        "score": 25
+      }
+    ]
+  }
+]
