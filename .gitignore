@@ -55,3 +55,4 @@ scratch
 graphify-out/
 __pycache__/
 *.py[cod]
+*.apk
