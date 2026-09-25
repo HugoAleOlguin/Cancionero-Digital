@@ -65,10 +65,10 @@ Al presionar el botón de compartir en cualquiera de los dos temas, se despliega
 ---
 
 ## 🛠️ Instrucciones de Instalación
-1. Descarga el archivo APK generado (`app-release.apk` o `app-debug.apk`).
+1. Descarga el archivo APK generado (`app-universal-release.apk` o la variante para tu arquitectura).
 2. Habilita la instalación desde orígenes desconocidos si tu dispositivo lo solicita.
-3. Abre la app: funcionará 100% offline de inmediato con el catálogo base completo.
-4. Si deseas activar el Tema Moderno con portadas HD, abre el menú lateral izquierdo (Drawer) y pulsa en *"Descargar Tema HD (3.2 MB)"*.
+3. Abre la app: funcionará 100% offline de inmediato con el catálogo base completo y el tema **Clásico**.
+4. Si deseas activar el tema **Moderno** con portadas HD, abre el menú lateral izquierdo (Drawer) y pulsa en *"Descargar"* en la tarjeta **Moderno**.
 
 ---
 *Cancionero Digital — Adoración, Solemnidad y Excelencia Técnica.*
