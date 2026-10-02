@@ -1,12 +1,13 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
-import type { HymnCatalog } from './types/hymn';
+import type { Hymn, HymnCatalog } from './types/hymn';
 import { createSearchableHymns, searchHymns, extractMatches } from './utils/searchEngine';
 import { useFavorites } from './hooks/useFavorites';
 import { useSettings } from './hooks/useSettings';
 import { SearchHeader } from './components/SearchHeader';
 import { HymnCard } from './components/HymnCard';
 import { AppDrawer } from './components/AppDrawer';
-import { ArrowUp, BookX } from 'lucide-react';
+import { ShareModal } from './components/ShareModal';
+import { ArrowUp, BookX, Star } from 'lucide-react';
 
 export function App() {
   const [catalog, setCatalog] = useState<HymnCatalog | null>(null);
@@ -17,6 +18,7 @@ export function App() {
   const [selectedAuthor, setSelectedAuthor] = useState<string | null>(null);
   const [currentMatchIndex, setCurrentMatchIndex] = useState<number>(0);
   const [showScrollTop, setShowScrollTop] = useState<boolean>(false);
+  const [sharingHymn, setSharingHymn] = useState<{ hymn: Hymn; versionIndex: number } | null>(null);
 
   const { favorites, toggleFavorite, isFavorite, favoritesCount } = useFavorites();
   const { theme, toggleTheme, typography, setTypography, fontSize, setFontSize } = useSettings();
@@ -75,6 +77,34 @@ export function App() {
     if (!catalog?.hymns) return [];
     return createSearchableHymns(catalog.hymns);
   }, [catalog]);
+
+  // Deep linking: detect ?id=XX or ?canto=XX or ?hymn=XX on initial load
+  useEffect(() => {
+    if (!catalog?.hymns || catalog.hymns.length === 0) return;
+    const params = new URLSearchParams(window.location.search);
+    const targetIdStr = params.get('id') || params.get('canto') || params.get('hymn');
+    if (!targetIdStr) return;
+
+    const targetId = parseInt(targetIdStr, 10);
+    if (isNaN(targetId)) return;
+
+    const targetIdx = searchables.findIndex(s => s.hymn.id === targetId);
+    if (targetIdx !== -1) {
+      if (targetIdx >= visibleLimit) {
+        setVisibleLimit(targetIdx + 15);
+      }
+      setTimeout(() => {
+        const el = document.getElementById(`hymn-${targetId}`);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          el.classList.add('ring-2', 'ring-golden', 'ring-offset-4', 'ring-offset-parchment', 'dark:ring-offset-darkbg');
+          setTimeout(() => {
+            el.classList.remove('ring-2', 'ring-golden', 'ring-offset-4', 'ring-offset-parchment', 'dark:ring-offset-darkbg');
+          }, 3000);
+        }
+      }, 250);
+    }
+  }, [catalog, searchables]);
 
   // Authors list for drawer
   const authorsList = useMemo(() => {
@@ -184,7 +214,7 @@ export function App() {
             <span className="text-xs text-jetcarbon-muted dark:text-gray-400 font-semibold">Filtros activos:</span>
             {showOnlyFavorites && (
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-golden text-white shadow-xs">
-                ⭐ Favoritos ({favoritesCount})
+                <Star size={12} className="fill-white" /> Favoritos ({favoritesCount})
                 <button onClick={() => setShowOnlyFavorites(false)} className="hover:opacity-75">×</button>
               </span>
             )}
@@ -243,6 +273,7 @@ export function App() {
                 query={query}
                 isFavorite={isFavorite(item.hymn.id)}
                 onToggleFavorite={toggleFavorite}
+                onOpenShare={(hymn, vIdx) => setSharingHymn({ hymn, versionIndex: vIdx })}
                 typography={typography}
                 fontSize={fontSize}
               />
@@ -291,6 +322,14 @@ export function App() {
         theme={theme}
         onToggleTheme={toggleTheme}
         catalogVersion={catalog?.version || 1}
+      />
+
+      {/* Share & PDF Export Modal */}
+      <ShareModal
+        isOpen={!!sharingHymn}
+        onClose={() => setSharingHymn(null)}
+        hymn={sharingHymn?.hymn || null}
+        activeVersionIndex={sharingHymn?.versionIndex || 0}
       />
     </div>
   );

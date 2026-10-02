@@ -20,6 +20,7 @@ interface HymnCardProps {
   query: string;
   isFavorite: boolean;
   onToggleFavorite: (id: number) => void;
+  onOpenShare: (hymn: Hymn, versionIndex: number) => void;
   typography: TypographyType;
   fontSize: number;
 }
@@ -29,6 +30,7 @@ export const HymnCard: React.FC<HymnCardProps> = ({
   query,
   isFavorite,
   onToggleFavorite,
+  onOpenShare,
   typography,
   fontSize
 }) => {
@@ -56,22 +58,6 @@ export const HymnCard: React.FC<HymnCardProps> = ({
     }
   };
 
-  const handleShare = async () => {
-    const textToShare = `${hymn.id} - ${hymn.title}\n\n${activeContent}`;
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: `${hymn.id} - ${hymn.title}`,
-          text: textToShare
-        });
-        return;
-      } catch {
-        // User cancelled or share failed, fallback to copy
-      }
-    }
-    handleCopy();
-  };
-
   return (
     <article
       id={`hymn-${hymn.id}`}
@@ -81,7 +67,7 @@ export const HymnCard: React.FC<HymnCardProps> = ({
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-parchment-border/60 dark:border-jetcarbon-border/60">
         <div>
           <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-jetcarbon dark:text-gray-100 flex items-center gap-2">
-            <span className="text-golden font-black">#{hymn.id}</span>
+            <span className="text-golden font-bold">{hymn.id}.</span>
             <HighlightText text={hymn.title} query={query} />
           </h2>
           {hymn.author && (
@@ -114,8 +100,8 @@ export const HymnCard: React.FC<HymnCardProps> = ({
           </button>
 
           <button
-            onClick={handleShare}
-            title="Compartir alabanza"
+            onClick={() => onOpenShare(hymn, selectedVersion)}
+            title="Compartir o descargar alabanza"
             className="p-2 rounded-xl text-jetcarbon-muted hover:text-jetcarbon dark:text-gray-400 dark:hover:text-gray-200 hover:bg-parchment dark:hover:bg-jetcarbon-light transition-colors"
           >
             <Share2 size={20} />

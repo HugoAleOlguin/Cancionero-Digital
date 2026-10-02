@@ -1,8 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
   <rect width="100" height="100" rx="22" fill="#1E242B"/>
-  <circle cx="50" cy="50" r="38" stroke="#C5A03A" stroke-width="2" stroke-opacity="0.4"/>
-  <!-- Cross in Gold -->
-  <path d="M50 20 V80 M32 38 H68" stroke="#C5A03A" stroke-width="6" stroke-linecap="round"/>
-  <!-- Decorative rays / rays of light -->
-  <circle cx="50" cy="38" r="16" stroke="#C5A03A" stroke-width="2" stroke-dasharray="3 3"/>
+  <circle cx="50" cy="50" r="40" stroke="#C5A03A" stroke-width="1.5" stroke-opacity="0.3"/>
+  <!-- Canonical Musical Note in Gold -->
+  <path d="M48 24 C48 24 52 24 53 25 C54 26 54 28 54 31 L54 62 C50 60 45 59 40 61 C33 63 28 69 29 75 C30 81 37 85 44 83 C51 81 56 75 56 68 L56 36 C61 39 67 41 73 41 C74 41 75 40 75 39 C75 37 74 36 73 35 C66 34 60 30 55 25 C53 23 50 23 48 24 Z" fill="#C5A03A"/>
 </svg>

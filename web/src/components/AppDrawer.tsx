@@ -55,10 +55,12 @@ export const AppDrawer: React.FC<AppDrawerProps> = ({
         <div className="p-5 border-b border-parchment-border dark:border-jetcarbon-border flex items-center justify-between bg-white dark:bg-darkbg">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-jetcarbon flex items-center justify-center border border-golden/40 shadow-sm">
-              <span className="text-golden font-bold text-lg">✝</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" fill="#C5A03A"/>
+              </svg>
             </div>
             <div>
-              <h1 className="font-bold text-lg text-jetcarbon dark:text-gray-100">Cancionero Digital</h1>
+              <h1 className="font-bold text-lg text-jetcarbon dark:text-gray-100">Cancionero Cristiano</h1>
               <p className="text-xs text-jetcarbon-muted dark:text-gray-400">Catálogo v{catalogVersion} • {totalHymns} cantos</p>
             </div>
           </div>
