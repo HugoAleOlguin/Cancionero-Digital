@@ -7,6 +7,7 @@ import { SearchHeader } from './components/SearchHeader';
 import { HymnCard } from './components/HymnCard';
 import { AppDrawer } from './components/AppDrawer';
 import { ShareModal } from './components/ShareModal';
+import { UkuleleCompanionPanel } from './components/UkuleleCompanionPanel';
 import { ArrowUp, BookX, Star } from 'lucide-react';
 
 export function App() {
@@ -19,6 +20,22 @@ export function App() {
   const [currentMatchIndex, setCurrentMatchIndex] = useState<number>(0);
   const [showScrollTop, setShowScrollTop] = useState<boolean>(false);
   const [sharingHymn, setSharingHymn] = useState<{ hymn: Hymn; versionIndex: number } | null>(null);
+  const [isUkuleleOpen, setIsUkuleleOpen] = useState<boolean>(() => {
+    try {
+      const saved = localStorage.getItem('cancionero_ukulele_open');
+      return saved !== null ? JSON.parse(saved) : true;
+    } catch {
+      return true;
+    }
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('cancionero_ukulele_open', JSON.stringify(isUkuleleOpen));
+    } catch {
+      // fallback
+    }
+  }, [isUkuleleOpen]);
 
   const { favorites, toggleFavorite, isFavorite, favoritesCount } = useFavorites();
   const { theme, toggleTheme, typography, setTypography, fontSize, setFontSize } = useSettings();
@@ -204,10 +221,13 @@ export function App() {
         onOpenDrawer={() => setIsDrawerOpen(true)}
         theme={theme}
         onToggleTheme={toggleTheme}
+        isUkuleleOpen={isUkuleleOpen}
+        onToggleUkulele={() => setIsUkuleleOpen(prev => !prev)}
       />
 
-      {/* Main Feed Container */}
-      <main className="flex-1 max-w-4xl w-full mx-auto px-4 py-6">
+      {/* Central Area: Feed + Desktop Ukulele Companion */}
+      <div className="flex-1 flex max-w-7xl w-full mx-auto justify-center">
+        <main className="flex-1 max-w-4xl w-full px-4 py-6 min-w-0">
         {/* Active Filters Badges */}
         {(selectedAuthor || showOnlyFavorites) && (
           <div className="flex items-center gap-2 mb-6 flex-wrap">
@@ -292,6 +312,15 @@ export function App() {
           </div>
         )}
       </main>
+
+        {/* Ukulele Sidebar - Only on Desktop */}
+        <div className="hidden lg:block">
+          <UkuleleCompanionPanel
+            isOpen={isUkuleleOpen}
+            onClose={() => setIsUkuleleOpen(false)}
+          />
+        </div>
+      </div>
 
       {/* Floating Back to Top Button */}
       {showScrollTop && (

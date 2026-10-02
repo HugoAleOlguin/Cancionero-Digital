@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Search, X, ChevronLeft, ChevronRight, Menu, Moon, Sun } from 'lucide-react';
+import { Search, X, ChevronLeft, ChevronRight, Menu, Moon, Sun, Music2 } from 'lucide-react';
 import { ThemeMode } from '../types/hymn';
 
 interface SearchHeaderProps {
@@ -13,6 +13,8 @@ interface SearchHeaderProps {
   onOpenDrawer: () => void;
   theme: ThemeMode;
   onToggleTheme: () => void;
+  isUkuleleOpen?: boolean;
+  onToggleUkulele?: () => void;
 }
 
 export const SearchHeader: React.FC<SearchHeaderProps> = ({
@@ -25,7 +27,9 @@ export const SearchHeader: React.FC<SearchHeaderProps> = ({
   onPrevMatch,
   onOpenDrawer,
   theme,
-  onToggleTheme
+  onToggleTheme,
+  isUkuleleOpen,
+  onToggleUkulele
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -97,6 +101,22 @@ export const SearchHeader: React.FC<SearchHeaderProps> = ({
               <ChevronRight size={16} />
             </button>
           </div>
+        )}
+
+        {/* Desktop Ukulele Button */}
+        {onToggleUkulele && (
+          <button
+            onClick={onToggleUkulele}
+            title={isUkuleleOpen ? 'Ocultar acordes de ukelele' : 'Mostrar acordes de ukelele'}
+            className={`hidden lg:flex items-center gap-1.5 px-3 py-2 rounded-xl border text-xs font-bold transition-all ${
+              isUkuleleOpen
+                ? 'bg-golden/15 border-golden text-golden-dark dark:text-golden'
+                : 'border-parchment-border dark:border-jetcarbon-border text-jetcarbon-muted hover:text-jetcarbon dark:text-gray-300 hover:bg-black/5 dark:hover:bg-white/5'
+            }`}
+          >
+            <Music2 size={16} />
+            <span>Ukelele</span>
+          </button>
         )}
 
         {/* Quick Theme Toggle */}
