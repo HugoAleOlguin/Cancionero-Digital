@@ -56,3 +56,8 @@ graphify-out/
 __pycache__/
 *.py[cod]
 *.apk
+
+# Web app outputs
+node_modules/
+dist/
+.vercel/

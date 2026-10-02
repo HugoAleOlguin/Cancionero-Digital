@@ -20,6 +20,8 @@ from pathlib import Path
 DEFAULT_CATALOG_PATH = Path("data/catalog.json")
 DEFAULT_VERSION_PATH = Path("data/catalog_version.json")
 DEFAULT_ASSETS_PATH = Path("app/src/main/assets/catalog.json")
+DEFAULT_WEB_CATALOG_PATH = Path("web/public/catalog.json")
+DEFAULT_WEB_VERSION_PATH = Path("web/public/catalog_version.json")
 
 def normalize_text(text: str) -> str:
     """Normaliza texto eliminando acentos, caracteres diacríticos y puntuación para comparaciones."""
@@ -57,7 +59,9 @@ def load_catalog(catalog_path: Path = DEFAULT_CATALOG_PATH) -> dict:
 def save_catalog(catalog: dict,
                  catalog_path: Path = DEFAULT_CATALOG_PATH,
                  version_path: Path = DEFAULT_VERSION_PATH,
-                 assets_path: Path = DEFAULT_ASSETS_PATH) -> None:
+                 assets_path: Path = DEFAULT_ASSETS_PATH,
+                 web_catalog_path: Path = DEFAULT_WEB_CATALOG_PATH,
+                 web_version_path: Path = DEFAULT_WEB_VERSION_PATH) -> None:
     """Guarda el catálogo actualizado en disco y actualiza los metadatos."""
     now_iso = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     catalog["updatedAt"] = now_iso
@@ -86,6 +90,14 @@ def save_catalog(catalog: dict,
         assets_dir.mkdir(parents=True, exist_ok=True)
         with open(assets_path, "w", encoding="utf-8") as f:
             f.write(catalog_str)
+
+    if web_catalog_path and web_catalog_path.parent.exists():
+        with open(web_catalog_path, "w", encoding="utf-8") as f:
+            f.write(catalog_str)
+
+    if web_version_path and web_version_path.parent.exists():
+        with open(web_version_path, "w", encoding="utf-8") as f:
+            json.dump(version_info, f, indent=2, ensure_ascii=False)
 
 def check_duplicate(title: str, content: str, hymns: list, threshold: float = 0.7) -> tuple:
     """
@@ -244,7 +256,11 @@ def publish_catalog(repo_dir: str = ".", auto_push: bool = True) -> tuple:
 
     try:
         # Git operations
-        subprocess.run(["git", "add", "data/catalog.json", "data/catalog_version.json", "app/src/main/assets/catalog.json"],
+        git_files = ["data/catalog.json", "data/catalog_version.json", "app/src/main/assets/catalog.json"]
+        if Path(repo_dir, "web/public/catalog.json").exists():
+            git_files.extend(["web/public/catalog.json", "web/public/catalog_version.json"])
+
+        subprocess.run(["git", "add"] + git_files,
                        check=True, cwd=repo_dir, capture_output=True, text=True)
         commit_msg = f"Actualizar catálogo de alabanzas (v{new_version})"
         subprocess.run(["git", "commit", "-m", commit_msg],

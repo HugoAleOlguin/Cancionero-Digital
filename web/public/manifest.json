@@ -1,0 +1,17 @@
+{
+  "short_name": "Cancionero",
+  "name": "Cancionero Digital",
+  "description": "Cuadernillo digital de himnos y cantos cristianos para adoración",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#FDFBF7",
+  "theme_color": "#C5A03A",
+  "display": "standalone",
+  "orientation": "portrait"
+}
