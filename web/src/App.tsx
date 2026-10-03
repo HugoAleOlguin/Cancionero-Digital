@@ -7,7 +7,7 @@ import { SearchHeader } from './components/SearchHeader';
 import { HymnCard } from './components/HymnCard';
 import { AppDrawer } from './components/AppDrawer';
 import { ShareModal } from './components/ShareModal';
-import { UkuleleCompanionPanel } from './components/UkuleleCompanionPanel';
+import { InstrumentCompanionPanel } from './components/InstrumentCompanionPanel';
 import { ArrowUp, BookX, Star } from 'lucide-react';
 
 export function App() {
@@ -313,9 +313,9 @@ export function App() {
         )}
       </main>
 
-        {/* Ukulele Sidebar - Only on Desktop */}
+        {/* Instrument Sidebar - Only on Desktop */}
         <div className="hidden lg:block">
-          <UkuleleCompanionPanel
+          <InstrumentCompanionPanel
             isOpen={isUkuleleOpen}
             onClose={() => setIsUkuleleOpen(false)}
           />

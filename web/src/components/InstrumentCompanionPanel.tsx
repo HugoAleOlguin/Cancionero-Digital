@@ -1,33 +1,98 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   HARMONIC_FAMILIES,
   PREDOMINANT_KEYS,
   UKULELE_CHORDS_DB,
   UkuleleChord
 } from '../data/ukuleleChords';
-import { UkuleleChordDiagram } from './UkuleleChordDiagram';
-import { X, Music2, Grid, BookMarked, Search } from 'lucide-react';
+import {
+  GUITAR_CHORDS_DB,
+  GUITAR_HARMONIC_FAMILIES
+} from '../data/guitarChords';
+import { ChordDiagram } from './ChordDiagram';
+import { X, Grid, BookMarked, Search } from 'lucide-react';
 
-interface UkuleleCompanionPanelProps {
+export type InstrumentType = 'ukulele' | 'guitar';
+
+interface InstrumentCompanionPanelProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-export const UkuleleCompanionPanel: React.FC<UkuleleCompanionPanelProps> = ({
+// Icono vectorial limpio de Ukelele (sin emojis)
+const UkuleleIcon = ({ size = 16 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    {/* Cuerpo pequeño de ukelele */}
+    <path d="M12 10c-2.2 0-4 1.5-4 4 0 2.8 2 4.5 4 4.5s4-1.7 4-4.5c0-2.5-1.8-4-4-4z" />
+    <circle cx="12" cy="14" r="1.5" />
+    {/* Mástil más corto */}
+    <path d="M11 10V5h2v5" />
+    {/* Clavijero con 4 clavijas */}
+    <path d="M10.5 5h3V2h-3z" />
+    <circle cx="9" cy="3" r="0.75" fill="currentColor" />
+    <circle cx="15" cy="3" r="0.75" fill="currentColor" />
+    <circle cx="9" cy="4.5" r="0.75" fill="currentColor" />
+    <circle cx="15" cy="4.5" r="0.75" fill="currentColor" />
+  </svg>
+);
+
+// Icono vectorial limpio de Guitarra (sin emojis)
+const GuitarIcon = ({ size = 16 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    {/* Cuerpo de guitarra con cintura */}
+    <path d="M12 9c-1.5 0-3 1-3 2.5 0 1.2.8 1.8 1.5 2-.8.5-1.5 1.5-1.5 3 0 2.5 1.8 4 3 4s3-1.5 3-4c0-1.5-.7-2.5-1.5-3 .7-.2 1.5-.8 1.5-2 0-1.5-1.5-2.5-3-2.5z" />
+    <circle cx="12" cy="15" r="1.5" />
+    {/* Mástil */}
+    <path d="M11 9V4h2v5" />
+    {/* Clavijero con 6 clavijas */}
+    <path d="M10.5 4h3V1h-3z" />
+    <circle cx="9" cy="1.8" r="0.6" fill="currentColor" />
+    <circle cx="15" cy="1.8" r="0.6" fill="currentColor" />
+    <circle cx="9" cy="2.8" r="0.6" fill="currentColor" />
+    <circle cx="15" cy="2.8" r="0.6" fill="currentColor" />
+    <circle cx="9" cy="3.8" r="0.6" fill="currentColor" />
+    <circle cx="15" cy="3.8" r="0.6" fill="currentColor" />
+  </svg>
+);
+
+export const InstrumentCompanionPanel: React.FC<InstrumentCompanionPanelProps> = ({
   isOpen,
   onClose
 }) => {
+  const [instrument, setInstrument] = useState<InstrumentType>(() => {
+    try {
+      const stored = localStorage.getItem('cancionero_instrument');
+      if (stored === 'ukulele' || stored === 'guitar') return stored;
+    } catch {
+      // fallback
+    }
+    return 'guitar'; // Guitarra por defecto o ukelele
+  });
+
   const [selectedKey, setSelectedKey] = useState<string>('C');
   const [activeTab, setActiveTab] = useState<'family' | 'all'>('family');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [filterType, setFilterType] = useState<string>('all');
 
+  useEffect(() => {
+    try {
+      localStorage.setItem('cancionero_instrument', instrument);
+    } catch {
+      // fallback
+    }
+  }, [instrument]);
+
   if (!isOpen) return null;
 
-  const currentFamily = HARMONIC_FAMILIES[selectedKey] || HARMONIC_FAMILIES['C'];
+  // Base de datos activa según instrumento
+  const isGuitar = instrument === 'guitar';
+  const activeChordsDb = isGuitar ? GUITAR_CHORDS_DB : UKULELE_CHORDS_DB;
+  const activeFamilies = isGuitar ? GUITAR_HARMONIC_FAMILIES : HARMONIC_FAMILIES;
+
+  const currentFamily = activeFamilies[selectedKey] || activeFamilies['C'];
 
   // Lista de todos los acordes filtrada
-  const allChordsList: UkuleleChord[] = Object.values(UKULELE_CHORDS_DB).filter(c => {
+  const allChordsList: UkuleleChord[] = Object.values(activeChordsDb).filter(c => {
     if (filterType !== 'all' && c.type !== filterType) return false;
     if (searchQuery.trim()) {
       const q = searchQuery.trim().toLowerCase();
@@ -43,28 +108,51 @@ export const UkuleleCompanionPanel: React.FC<UkuleleCompanionPanelProps> = ({
   return (
     <aside className="w-80 xl:w-96 flex-shrink-0 bg-white dark:bg-darkcard border-l border-parchment-border dark:border-jetcarbon-border flex flex-col h-[calc(100vh-65px)] sticky top-[65px] shadow-lg overflow-hidden animate-in slide-in-from-right duration-200">
       {/* Header del Panel */}
-      <div className="p-4 border-b border-parchment-border dark:border-jetcarbon-border flex items-center justify-between bg-parchment/60 dark:bg-darkbg/60">
-        <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-golden/15 text-golden-dark dark:text-golden flex items-center justify-center">
-            <Music2 size={18} />
-          </div>
+      <div className="p-4 border-b border-parchment-border dark:border-jetcarbon-border bg-parchment/60 dark:bg-darkbg/60">
+        <div className="flex items-center justify-between mb-3">
           <div>
             <h3 className="font-bold text-sm text-jetcarbon dark:text-gray-100">
-              Guía de Ukelele
+              Acompañamiento Musical
             </h3>
             <p className="text-[11px] text-jetcarbon-muted dark:text-gray-400">
-              Afinación G-C-E-A • Asistente de Alabanza
+              {isGuitar ? 'Guitarra • Afinación E-A-D-G-B-E' : 'Ukelele • Afinación G-C-E-A'}
             </p>
           </div>
+
+          <button
+            onClick={onClose}
+            title="Cerrar panel de instrumentos"
+            className="p-1.5 rounded-lg text-jetcarbon-muted hover:text-jetcarbon dark:text-gray-400 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10"
+          >
+            <X size={18} />
+          </button>
         </div>
 
-        <button
-          onClick={onClose}
-          title="Cerrar panel de ukelele"
-          className="p-1.5 rounded-lg text-jetcarbon-muted hover:text-jetcarbon dark:text-gray-400 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10"
-        >
-          <X size={18} />
-        </button>
+        {/* Conmutador Simple y Directo: Ukelele vs Guitarra con sus SVGs */}
+        <div className="grid grid-cols-2 p-1 bg-parchment-border/40 dark:bg-darkbg/80 rounded-xl gap-1">
+          <button
+            onClick={() => setInstrument('ukulele')}
+            className={`flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-bold transition-all ${
+              instrument === 'ukulele'
+                ? 'bg-golden text-white shadow-xs'
+                : 'text-jetcarbon-muted dark:text-gray-400 hover:text-jetcarbon dark:hover:text-gray-200'
+            }`}
+          >
+            <UkuleleIcon size={16} />
+            <span>Ukelele</span>
+          </button>
+          <button
+            onClick={() => setInstrument('guitar')}
+            className={`flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-bold transition-all ${
+              instrument === 'guitar'
+                ? 'bg-golden text-white shadow-xs'
+                : 'text-jetcarbon-muted dark:text-gray-400 hover:text-jetcarbon dark:hover:text-gray-200'
+            }`}
+          >
+            <GuitarIcon size={16} />
+            <span>Guitarra</span>
+          </button>
+        </div>
       </div>
 
       {/* Tabs: Familia Armónica vs Diccionario Completo */}
@@ -89,7 +177,7 @@ export const UkuleleCompanionPanel: React.FC<UkuleleCompanionPanelProps> = ({
           }`}
         >
           <Grid size={14} />
-          <span>Todos ({Object.keys(UKULELE_CHORDS_DB).length})</span>
+          <span>Todos ({Object.keys(activeChordsDb).length})</span>
         </button>
       </div>
 
@@ -124,7 +212,7 @@ export const UkuleleCompanionPanel: React.FC<UkuleleCompanionPanelProps> = ({
             <div className="space-y-3 pt-1">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold text-jetcarbon dark:text-gray-200">
-                  Acordes para tono {currentFamily.keyName} ({currentFamily.keySymbol})
+                  {currentFamily.keyName} ({currentFamily.keySymbol}) en {isGuitar ? 'Guitarra' : 'Ukelele'}
                 </span>
                 <span className="text-[11px] text-golden font-semibold">
                   Grados I • IV • V • vi
@@ -136,7 +224,7 @@ export const UkuleleCompanionPanel: React.FC<UkuleleCompanionPanelProps> = ({
                 <span className="text-[10px] font-bold uppercase tracking-wider text-golden block mb-1">
                   1. Tónica Principal (Inicio / Reposo)
                 </span>
-                <UkuleleChordDiagram chord={currentFamily.tonic} size="lg" />
+                <ChordDiagram chord={currentFamily.tonic} size="lg" />
               </div>
 
               {/* Subdominante y Dominante (IV y V / V7) */}
@@ -145,8 +233,8 @@ export const UkuleleCompanionPanel: React.FC<UkuleleCompanionPanelProps> = ({
                   2. Acompañamiento y Tensión (IV y V / V7)
                 </span>
                 <div className="grid grid-cols-2 gap-2">
-                  <UkuleleChordDiagram chord={currentFamily.subdominant} size="sm" />
-                  <UkuleleChordDiagram chord={currentFamily.dominant} size="sm" />
+                  <ChordDiagram chord={currentFamily.subdominant} size="sm" />
+                  <ChordDiagram chord={currentFamily.dominant} size="sm" />
                 </div>
               </div>
 
@@ -156,8 +244,8 @@ export const UkuleleCompanionPanel: React.FC<UkuleleCompanionPanelProps> = ({
                   3. Relativa Menor y Séptima
                 </span>
                 <div className="grid grid-cols-2 gap-2">
-                  <UkuleleChordDiagram chord={currentFamily.relativeMinor} size="sm" />
-                  <UkuleleChordDiagram chord={currentFamily.dominant7} size="sm" />
+                  <ChordDiagram chord={currentFamily.relativeMinor} size="sm" />
+                  <ChordDiagram chord={currentFamily.dominant7} size="sm" />
                 </div>
               </div>
 
@@ -167,8 +255,8 @@ export const UkuleleCompanionPanel: React.FC<UkuleleCompanionPanelProps> = ({
                   4. Secundarios Frecuentes
                 </span>
                 <div className="grid grid-cols-2 gap-2">
-                  <UkuleleChordDiagram chord={currentFamily.secondary1} size="sm" />
-                  <UkuleleChordDiagram chord={currentFamily.secondary2} size="sm" />
+                  <ChordDiagram chord={currentFamily.secondary1} size="sm" />
+                  <ChordDiagram chord={currentFamily.secondary2} size="sm" />
                 </div>
               </div>
             </div>
@@ -214,7 +302,7 @@ export const UkuleleCompanionPanel: React.FC<UkuleleCompanionPanelProps> = ({
             {/* Grilla de Acordes */}
             <div className="grid grid-cols-2 gap-2 max-h-[calc(100vh-270px)] overflow-y-auto pr-1">
               {allChordsList.map(chord => (
-                <UkuleleChordDiagram key={chord.symbol} chord={chord} size="sm" />
+                <ChordDiagram key={chord.symbol} chord={chord} size="sm" />
               ))}
             </div>
           </div>
@@ -223,7 +311,7 @@ export const UkuleleCompanionPanel: React.FC<UkuleleCompanionPanelProps> = ({
 
       {/* Pie del Panel */}
       <div className="p-3 border-t border-parchment-border dark:border-jetcarbon-border bg-parchment/40 dark:bg-darkbg/40 text-center text-[10px] text-jetcarbon-muted dark:text-gray-400">
-        Ukelele Soprano / Concierto / Tenor
+        {isGuitar ? 'Guitarra Acústica / Criolla / Eléctrica' : 'Ukelele Soprano / Concierto / Tenor'}
       </div>
     </aside>
   );

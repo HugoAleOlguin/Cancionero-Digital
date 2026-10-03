@@ -103,11 +103,11 @@ export const SearchHeader: React.FC<SearchHeaderProps> = ({
           </div>
         )}
 
-        {/* Desktop Ukulele Button */}
+        {/* Desktop Instrument Button */}
         {onToggleUkulele && (
           <button
             onClick={onToggleUkulele}
-            title={isUkuleleOpen ? 'Ocultar acordes de ukelele' : 'Mostrar acordes de ukelele'}
+            title={isUkuleleOpen ? 'Ocultar guía de instrumentos' : 'Mostrar guía de instrumentos'}
             className={`hidden lg:flex items-center gap-1.5 px-3 py-2 rounded-xl border text-xs font-bold transition-all ${
               isUkuleleOpen
                 ? 'bg-golden/15 border-golden text-golden-dark dark:text-golden'
@@ -115,7 +115,7 @@ export const SearchHeader: React.FC<SearchHeaderProps> = ({
             }`}
           >
             <Music2 size={16} />
-            <span>Ukelele</span>
+            <span>Instrumento</span>
           </button>
         )}
 

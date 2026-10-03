@@ -1,27 +1,29 @@
 import React from 'react';
 import { UkuleleChord } from '../data/ukuleleChords';
 
-interface UkuleleChordDiagramProps {
-  chord: UkuleleChord;
+interface ChordDiagramProps {
+  chord: UkuleleChord; // Estructura compartida (4 o 6 cuerdas)
   size?: 'sm' | 'md' | 'lg';
   showTitle?: boolean;
   className?: string;
 }
 
-export const UkuleleChordDiagram: React.FC<UkuleleChordDiagramProps> = ({
+export const ChordDiagram: React.FC<ChordDiagramProps> = ({
   chord,
   size = 'md',
   showTitle = true,
   className = ''
 }) => {
-  // Dimensiones del mástil
-  const stringCount = 4; // G, C, E, A
-  const fretCount = 4;   // 4 trastes visibles
-  
-  const width = size === 'sm' ? 84 : size === 'lg' ? 120 : 100;
-  const height = size === 'sm' ? 104 : size === 'lg' ? 150 : 124;
+  const stringCount = chord.frets.length; // 4 para Ukelele, 6 para Guitarra
+  const fretCount = 4; // 4 trastes visibles
+  const isGuitar = stringCount === 6;
 
-  const marginX = size === 'sm' ? 16 : 18;
+  // Ajuste de anchura para acomodar 6 cuerdas cómodamente
+  const baseWidth = isGuitar ? 116 : 100;
+  const width = size === 'sm' ? (isGuitar ? 96 : 84) : size === 'lg' ? (isGuitar ? 144 : 124) : baseWidth;
+  const height = size === 'sm' ? 108 : size === 'lg' ? 154 : 128;
+
+  const marginX = size === 'sm' ? 14 : 18;
   const marginTop = size === 'sm' ? 24 : 28;
   const marginBottom = size === 'sm' ? 14 : 16;
 
@@ -34,7 +36,19 @@ export const UkuleleChordDiagram: React.FC<UkuleleChordDiagramProps> = ({
   const baseFret = chord.baseFret || 1;
   const isFirstPosition = baseFret === 1;
 
-  const stringNames = ['G', 'C', 'E', 'A'];
+  const stringNames = isGuitar
+    ? ['E', 'A', 'D', 'G', 'B', 'E']
+    : ['G', 'C', 'E', 'A'];
+
+  // Grosor de cuerdas según instrumento
+  const getStringStroke = (idx: number) => {
+    if (isGuitar) {
+      // 6ta(E): 2.2, 5ta(A): 1.9, 4ta(D): 1.6, 3ra(G): 1.3, 2da(B): 1.1, 1ra(E): 0.9
+      return [2.2, 1.9, 1.6, 1.3, 1.1, 0.9][idx] || 1.2;
+    }
+    // Ukelele: C es más gruesa
+    return idx === 1 ? 1.8 : idx === 0 ? 1.4 : 1.1;
+  };
 
   return (
     <div className={`flex flex-col items-center bg-white dark:bg-darkcard border border-parchment-border dark:border-jetcarbon-border rounded-xl p-2.5 shadow-2xs hover:shadow-xs transition-all ${className}`}>
@@ -58,7 +72,7 @@ export const UkuleleChordDiagram: React.FC<UkuleleChordDiagramProps> = ({
         {/* Indicador de traste si no es la primera posición (ej. 3fr) */}
         {!isFirstPosition && (
           <text
-            x={marginX - 4}
+            x={marginX - 3}
             y={marginTop + fretSpacing * 0.7}
             fontSize="9"
             fontWeight="bold"
@@ -69,7 +83,7 @@ export const UkuleleChordDiagram: React.FC<UkuleleChordDiagramProps> = ({
           </text>
         )}
 
-        {/* Cejuela (Nut) gruesa en la posición 1, o línea normal si es traste alto */}
+        {/* Cejuela (Nut) en traste 1, o línea normal en traste alto */}
         {isFirstPosition ? (
           <rect
             x={marginX - 1}
@@ -104,7 +118,7 @@ export const UkuleleChordDiagram: React.FC<UkuleleChordDiagramProps> = ({
           />
         ))}
 
-        {/* Cuerdas verticales (4 cuerdas: G, C, E, A) */}
+        {/* Cuerdas verticales */}
         {Array.from({ length: stringCount }).map((_, idx) => (
           <line
             key={`string-${idx}`}
@@ -114,7 +128,7 @@ export const UkuleleChordDiagram: React.FC<UkuleleChordDiagramProps> = ({
             y2={marginTop + fretboardHeight}
             stroke="#A39B8B"
             className="dark:stroke-gray-600"
-            strokeWidth={idx === 1 ? '1.8' : idx === 0 ? '1.4' : '1.1'} // cuerda C más gruesa
+            strokeWidth={getStringStroke(idx)}
           />
         ))}
 
@@ -133,13 +147,13 @@ export const UkuleleChordDiagram: React.FC<UkuleleChordDiagramProps> = ({
           </text>
         ))}
 
-        {/* Indicadores de cuerda al aire (O) o silenciada (X) sobre la cejuela */}
+        {/* Indicadores de cuerda al aire (O) o silenciada (X) */}
         {chord.frets.map((fret, sIdx) => {
           const cx = marginX + sIdx * stringSpacing;
           const cy = marginTop - 9;
 
           if (fret === 0) {
-            // Cuerda al aire: círculo sin relleno
+            // Cuerda al aire
             return (
               <circle
                 key={`open-${sIdx}`}
@@ -152,7 +166,7 @@ export const UkuleleChordDiagram: React.FC<UkuleleChordDiagramProps> = ({
               />
             );
           } else if (fret === -1) {
-            // Cuerda silenciada: X
+            // Cuerda silenciada (X)
             return (
               <text
                 key={`mute-${sIdx}`}
@@ -170,7 +184,7 @@ export const UkuleleChordDiagram: React.FC<UkuleleChordDiagramProps> = ({
           return null;
         })}
 
-        {/* Cejilla completa (Barre) si aplica */}
+        {/* Cejilla completa (Barre) */}
         {chord.barre && (
           <rect
             x={marginX}
@@ -192,20 +206,19 @@ export const UkuleleChordDiagram: React.FC<UkuleleChordDiagramProps> = ({
           const cx = marginX + sIdx * stringSpacing;
           const cy = marginTop + (relativeFret - 0.5) * fretSpacing;
           const finger = chord.fingers ? chord.fingers[sIdx] : 0;
+          const dotRadius = isGuitar ? (size === 'sm' ? 4.5 : 5.5) : (size === 'sm' ? 5 : 6);
 
           return (
             <g key={`dot-${sIdx}-${fret}`}>
-              {/* Punto circular en oro cálido */}
               <circle
                 cx={cx}
                 cy={cy}
-                r={size === 'sm' ? 5 : 6}
+                r={dotRadius}
                 fill="#C5A03A"
                 stroke="#FFFFFF"
                 className="dark:stroke-darkcard"
                 strokeWidth="1.2"
               />
-              {/* Número de dedo (1=índice, 2=medio, 3=anular, 4=meñique) */}
               {finger > 0 && (
                 <text
                   x={cx}

@@ -3,11 +3,11 @@ export interface UkuleleChord {
   symbol: string;      // ej: "C", "G", "Dm"
   type: 'major' | 'minor' | '7th' | 'm7' | 'maj7' | 'sus4' | 'dim';
   typeName: string;    // ej: "Mayor", "Menor", "Séptima"
-  // Trastes para [Cuerda 4 (G), Cuerda 3 (C), Cuerda 2 (E), Cuerda 1 (A)]
+  // Trastes para las cuerdas del instrumento (4 para ukelele, 6 para guitarra)
   // 0 = al aire, -1 = silenciada, >0 = número de traste
-  frets: [number, number, number, number];
+  frets: number[];
   // Dedos sugeridos: [1=índice, 2=medio, 3=anular, 4=meñique], 0 = sin dedo
-  fingers?: [number, number, number, number];
+  fingers?: number[];
   baseFret?: number; // traste inicial en el mástil (1 por defecto)
   barre?: number;    // traste donde va la cejilla completa
 }
