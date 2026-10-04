@@ -12,7 +12,8 @@ import {
 } from '../data/guitarChords';
 import { ChordDiagram } from './ChordDiagram';
 import { ChordDetailInspector } from './ChordDetailInspector';
-import { X, Grid, BookMarked, Search, Music } from 'lucide-react';
+import { playAcousticChord } from '../util/chordAudio';
+import { X, Grid, BookMarked, Search, Music, Volume2 } from 'lucide-react';
 
 export type InstrumentType = 'ukulele' | 'guitar';
 
@@ -71,9 +72,11 @@ export const InstrumentCompanionPanel: React.FC<InstrumentCompanionPanelProps> =
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [filterType, setFilterType] = useState<string>('all');
 
-  // Estado del Inspector Interactivo de Acorde
-  const [selectedChord, setSelectedChord] = useState<UkuleleChord | null>(null);
-  const [isInspectorModal, setIsInspectorModal] = useState<boolean>(false);
+  // Estado de sonido instantáneo en Familia Armónica
+  const [playingSymbol, setPlayingSymbol] = useState<string | null>(null);
+
+  // Estado del Acorde en Inspección (solo pestaña "Todos")
+  const [inspectingChord, setInspectingChord] = useState<UkuleleChord | null>(null);
 
   useEffect(() => {
     try {
@@ -92,31 +95,44 @@ export const InstrumentCompanionPanel: React.FC<InstrumentCompanionPanelProps> =
 
   const currentFamily = activeFamilies[selectedKey] || activeFamilies['C'];
 
-  // Cambiar instrumento preservando el acorde activo
+  // Cambiar instrumento actualizando también el acorde inspeccionado si existe
   const handleInstrumentChange = (nextInst: InstrumentType) => {
     setInstrument(nextInst);
-    if (selectedChord) {
+    if (inspectingChord) {
       const nextDb = nextInst === 'guitar' ? GUITAR_CHORDS_DB : UKULELE_CHORDS_DB;
-      const equivalent = nextDb[selectedChord.symbol];
+      const equivalent = nextDb[inspectingChord.symbol];
       if (equivalent) {
-        setSelectedChord(equivalent);
+        setInspectingChord(equivalent);
       }
     }
   };
 
-  // Buscar y seleccionar acorde por símbolo o nombre (para resoluciones armónicas)
-  const handleSelectChordBySymbolOrName = (target: string) => {
+  // En Familia Armónica: 1 click = 1 sonido directo y rápido
+  const handleDirectPlay = async (chord: UkuleleChord) => {
+    setPlayingSymbol(chord.symbol);
+    try {
+      await playAcousticChord(chord, instrument);
+    } catch {
+      // fallback silencioso
+    } finally {
+      setTimeout(() => setPlayingSymbol(null), 600);
+    }
+  };
+
+  // Buscar y cambiar acorde en la vista de inspección
+  const handleSelectChordInInspector = (target: string) => {
     const direct = activeChordsDb[target];
     if (direct) {
-      setSelectedChord(direct);
+      setInspectingChord(direct);
+      playAcousticChord(direct, instrument).catch(() => {});
       return;
     }
-    // Buscar por nombre
     const found = Object.values(activeChordsDb).find(
       c => c.name.toLowerCase() === target.toLowerCase() || c.symbol.toLowerCase() === target.toLowerCase()
     );
     if (found) {
-      setSelectedChord(found);
+      setInspectingChord(found);
+      playAcousticChord(found, instrument).catch(() => {});
     }
   };
 
@@ -135,258 +151,267 @@ export const InstrumentCompanionPanel: React.FC<InstrumentCompanionPanelProps> =
   });
 
   return (
-    <>
-      <aside className="w-80 xl:w-96 flex-shrink-0 bg-white dark:bg-darkcard border-l border-parchment-border dark:border-jetcarbon-border flex flex-col h-[calc(100vh-65px)] sticky top-[65px] shadow-lg overflow-hidden animate-in slide-in-from-right duration-200">
-        {/* Header del Panel */}
-        <div className="p-4 border-b border-parchment-border dark:border-jetcarbon-border bg-parchment/60 dark:bg-darkbg/60">
-          <div className="flex items-center justify-between mb-3">
+    <aside className="w-80 xl:w-96 flex-shrink-0 bg-white dark:bg-darkcard border-l border-parchment-border dark:border-jetcarbon-border flex flex-col h-[calc(100vh-65px)] sticky top-[65px] shadow-lg overflow-hidden animate-in slide-in-from-right duration-200">
+      {/* Header del Panel */}
+      <div className="p-4 border-b border-parchment-border dark:border-jetcarbon-border bg-parchment/60 dark:bg-darkbg/60">
+        <div className="flex items-center justify-between mb-3">
+          <div>
+            <h3 className="font-bold text-sm text-jetcarbon dark:text-gray-100 flex items-center gap-1.5">
+              <Music size={15} className="text-golden" />
+              <span>Acompañamiento Musical</span>
+            </h3>
+            <p className="text-[11px] text-jetcarbon-muted dark:text-gray-400">
+              {isGuitar ? 'Guitarra • Afinación E-A-D-G-B-E' : 'Ukelele • Afinación G-C-E-A'}
+            </p>
+          </div>
+
+          <button
+            onClick={onClose}
+            title="Cerrar panel de instrumentos"
+            className="p-1.5 rounded-lg text-jetcarbon-muted hover:text-jetcarbon dark:text-gray-400 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
+          >
+            <X size={18} />
+          </button>
+        </div>
+
+        {/* Conmutador Simple y Directo: Ukelele vs Guitarra */}
+        <div className="grid grid-cols-2 p-1 bg-parchment-border/40 dark:bg-darkbg/80 rounded-xl gap-1">
+          <button
+            onClick={() => handleInstrumentChange('ukulele')}
+            className={`flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-bold transition-all ${
+              instrument === 'ukulele'
+                ? 'bg-golden text-white shadow-xs'
+                : 'text-jetcarbon-muted dark:text-gray-400 hover:text-jetcarbon dark:hover:text-gray-200'
+            }`}
+          >
+            <UkuleleIcon size={16} />
+            <span>Ukelele</span>
+          </button>
+          <button
+            onClick={() => handleInstrumentChange('guitar')}
+            className={`flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-bold transition-all ${
+              instrument === 'guitar'
+                ? 'bg-golden text-white shadow-xs'
+                : 'text-jetcarbon-muted dark:text-gray-400 hover:text-jetcarbon dark:hover:text-gray-200'
+            }`}
+          >
+            <GuitarIcon size={16} />
+            <span>Guitarra</span>
+          </button>
+        </div>
+      </div>
+
+      {/* Tabs: Familia Armónica vs Diccionario Completo */}
+      <div className="flex border-b border-parchment-border dark:border-jetcarbon-border px-3 pt-2 bg-parchment/30 dark:bg-darkbg/30">
+        <button
+          onClick={() => {
+            setActiveTab('family');
+            setInspectingChord(null);
+          }}
+          className={`flex-1 pb-2 text-xs font-bold border-b-2 flex items-center justify-center gap-1.5 transition-all ${
+            activeTab === 'family'
+              ? 'border-golden text-golden-dark dark:text-golden'
+              : 'border-transparent text-jetcarbon-muted dark:text-gray-400 hover:text-jetcarbon'
+          }`}
+        >
+          <BookMarked size={14} />
+          <span>Familia Armónica</span>
+        </button>
+        <button
+          onClick={() => setActiveTab('all')}
+          className={`flex-1 pb-2 text-xs font-bold border-b-2 flex items-center justify-center gap-1.5 transition-all ${
+            activeTab === 'all'
+              ? 'border-golden text-golden-dark dark:text-golden'
+              : 'border-transparent text-jetcarbon-muted dark:text-gray-400 hover:text-jetcarbon'
+          }`}
+        >
+          <Grid size={14} />
+          <span>Todos ({Object.keys(activeChordsDb).length})</span>
+        </button>
+      </div>
+
+      {/* Contenido según Tab */}
+      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+        {activeTab === 'family' ? (
+          <>
+            {/* Selector de Tono Base (Mayores vs Menores) */}
             <div>
-              <h3 className="font-bold text-sm text-jetcarbon dark:text-gray-100 flex items-center gap-1.5">
-                <Music size={15} className="text-golden" />
-                <span>Acompañamiento Musical</span>
-              </h3>
-              <p className="text-[11px] text-jetcarbon-muted dark:text-gray-400">
-                {isGuitar ? 'Guitarra • Afinación E-A-D-G-B-E' : 'Ukelele • Afinación G-C-E-A'}
-              </p>
-            </div>
-
-            <button
-              onClick={onClose}
-              title="Cerrar panel de instrumentos"
-              className="p-1.5 rounded-lg text-jetcarbon-muted hover:text-jetcarbon dark:text-gray-400 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
-            >
-              <X size={18} />
-            </button>
-          </div>
-
-          {/* Conmutador Simple y Directo: Ukelele vs Guitarra con sus SVGs */}
-          <div className="grid grid-cols-2 p-1 bg-parchment-border/40 dark:bg-darkbg/80 rounded-xl gap-1">
-            <button
-              onClick={() => handleInstrumentChange('ukulele')}
-              className={`flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-bold transition-all ${
-                instrument === 'ukulele'
-                  ? 'bg-golden text-white shadow-xs'
-                  : 'text-jetcarbon-muted dark:text-gray-400 hover:text-jetcarbon dark:hover:text-gray-200'
-              }`}
-            >
-              <UkuleleIcon size={16} />
-              <span>Ukelele</span>
-            </button>
-            <button
-              onClick={() => handleInstrumentChange('guitar')}
-              className={`flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-bold transition-all ${
-                instrument === 'guitar'
-                  ? 'bg-golden text-white shadow-xs'
-                  : 'text-jetcarbon-muted dark:text-gray-400 hover:text-jetcarbon dark:hover:text-gray-200'
-              }`}
-            >
-              <GuitarIcon size={16} />
-              <span>Guitarra</span>
-            </button>
-          </div>
-        </div>
-
-        {/* Tabs: Familia Armónica vs Diccionario Completo */}
-        <div className="flex border-b border-parchment-border dark:border-jetcarbon-border px-3 pt-2 bg-parchment/30 dark:bg-darkbg/30">
-          <button
-            onClick={() => setActiveTab('family')}
-            className={`flex-1 pb-2 text-xs font-bold border-b-2 flex items-center justify-center gap-1.5 transition-all ${
-              activeTab === 'family'
-                ? 'border-golden text-golden-dark dark:text-golden'
-                : 'border-transparent text-jetcarbon-muted dark:text-gray-400 hover:text-jetcarbon'
-            }`}
-          >
-            <BookMarked size={14} />
-            <span>Familia Armónica</span>
-          </button>
-          <button
-            onClick={() => setActiveTab('all')}
-            className={`flex-1 pb-2 text-xs font-bold border-b-2 flex items-center justify-center gap-1.5 transition-all ${
-              activeTab === 'all'
-                ? 'border-golden text-golden-dark dark:text-golden'
-                : 'border-transparent text-jetcarbon-muted dark:text-gray-400 hover:text-jetcarbon'
-            }`}
-          >
-            <Grid size={14} />
-            <span>Todos ({Object.keys(activeChordsDb).length})</span>
-          </button>
-        </div>
-
-        {/* Contenido según Tab */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-4">
-          {/* Inspector Fijado en Barra Lateral (si hay un acorde seleccionado) */}
-          {selectedChord && (
-            <div className="mb-2">
-              <ChordDetailInspector
-                chord={selectedChord}
-                instrument={instrument}
-                isModal={false}
-                onClose={() => setSelectedChord(null)}
-                onSelectChord={handleSelectChordBySymbolOrName}
-                onToggleDock={() => setIsInspectorModal(true)}
-              />
-            </div>
-          )}
-
-          {activeTab === 'family' ? (
-            <>
-              {/* Selector de Tono Base Predominante (Mayores vs Menores) */}
-              <div>
-                <div className="flex items-center justify-between mb-2">
-                  <label className="text-[11px] font-bold uppercase tracking-wider text-jetcarbon-muted dark:text-gray-400 block">
-                    Tono Base del Canto
-                  </label>
-                  <div className="flex gap-1 text-[10px] font-bold bg-parchment dark:bg-darkbg p-0.5 rounded-lg border border-parchment-border dark:border-jetcarbon-border">
-                    <button
-                      onClick={() => {
-                        setTonalityMode('major');
-                        if (!ALL_MAJOR_KEYS.some(k => k.symbol === selectedKey)) {
-                          setSelectedKey('C');
-                        }
-                      }}
-                      className={`px-2 py-0.5 rounded-md transition-colors ${
-                        tonalityMode === 'major'
-                          ? 'bg-golden text-white'
-                          : 'text-jetcarbon-muted hover:text-jetcarbon dark:text-gray-400'
-                      }`}
-                    >
-                      Mayores (12)
-                    </button>
-                    <button
-                      onClick={() => {
-                        setTonalityMode('minor');
-                        if (!ALL_MINOR_KEYS.some(k => k.symbol === selectedKey)) {
-                          setSelectedKey('Am');
-                        }
-                      }}
-                      className={`px-2 py-0.5 rounded-md transition-colors ${
-                        tonalityMode === 'minor'
-                          ? 'bg-golden text-white'
-                          : 'text-jetcarbon-muted hover:text-jetcarbon dark:text-gray-400'
-                      }`}
-                    >
-                      Menores (7)
-                    </button>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-4 gap-1.5">
-                  {(tonalityMode === 'major' ? ALL_MAJOR_KEYS : ALL_MINOR_KEYS).map(k => (
-                    <button
-                      key={k.symbol}
-                      onClick={() => setSelectedKey(k.symbol)}
-                      className={`py-1.5 px-2 rounded-lg text-xs font-bold border transition-all text-center ${
-                        selectedKey === k.symbol
-                          ? 'bg-golden text-white border-golden shadow-2xs scale-98'
-                          : 'bg-parchment dark:bg-darkbg text-jetcarbon dark:text-gray-300 border-parchment-border dark:border-jetcarbon-border hover:border-golden/50'
-                      }`}
-                    >
-                      <span>{k.name}</span>
-                      <span className="text-[10px] opacity-75 ml-0.5">({k.symbol})</span>
-                    </button>
-                  ))}
+              <div className="flex items-center justify-between mb-2">
+                <label className="text-[11px] font-bold uppercase tracking-wider text-jetcarbon-muted dark:text-gray-400 block">
+                  Tono del Canto
+                </label>
+                <div className="flex gap-1 text-[10px] font-bold bg-parchment dark:bg-darkbg p-0.5 rounded-lg border border-parchment-border dark:border-jetcarbon-border">
+                  <button
+                    onClick={() => {
+                      setTonalityMode('major');
+                      if (!ALL_MAJOR_KEYS.some(k => k.symbol === selectedKey)) {
+                        setSelectedKey('C');
+                      }
+                    }}
+                    className={`px-2 py-0.5 rounded-md transition-colors ${
+                      tonalityMode === 'major'
+                        ? 'bg-golden text-white'
+                        : 'text-jetcarbon-muted hover:text-jetcarbon dark:text-gray-400'
+                    }`}
+                  >
+                    Mayores (12)
+                  </button>
+                  <button
+                    onClick={() => {
+                      setTonalityMode('minor');
+                      if (!ALL_MINOR_KEYS.some(k => k.symbol === selectedKey)) {
+                        setSelectedKey('Am');
+                      }
+                    }}
+                    className={`px-2 py-0.5 rounded-md transition-colors ${
+                      tonalityMode === 'minor'
+                        ? 'bg-golden text-white'
+                        : 'text-jetcarbon-muted hover:text-jetcarbon dark:text-gray-400'
+                    }`}
+                  >
+                    Menores (7)
+                  </button>
                 </div>
               </div>
 
-              {/* Tarjetas de Acordes Acompañantes Organizados */}
-              <div className="space-y-3 pt-1">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-jetcarbon dark:text-gray-200">
-                    {currentFamily.keyName} ({currentFamily.keySymbol}) en {isGuitar ? 'Guitarra' : 'Ukelele'}
-                  </span>
-                  <span className="text-[11px] text-golden font-semibold">
-                    {currentFamily.isMinor ? 'Tono Menor' : 'Grados I • IV • V • vi'}
-                  </span>
-                </div>
+              <div className="grid grid-cols-4 gap-1.5">
+                {(tonalityMode === 'major' ? ALL_MAJOR_KEYS : ALL_MINOR_KEYS).map(k => (
+                  <button
+                    key={k.symbol}
+                    onClick={() => setSelectedKey(k.symbol)}
+                    className={`py-1.5 px-2 rounded-lg text-xs font-bold border transition-all text-center ${
+                      selectedKey === k.symbol
+                        ? 'bg-golden text-white border-golden shadow-2xs scale-98'
+                        : 'bg-parchment dark:bg-darkbg text-jetcarbon dark:text-gray-300 border-parchment-border dark:border-jetcarbon-border hover:border-golden/50'
+                    }`}
+                  >
+                    <span>{k.name}</span>
+                    <span className="text-[10px] opacity-75 ml-0.5">({k.symbol})</span>
+                  </button>
+                ))}
+              </div>
+            </div>
 
-                {/* Tónica Principal */}
-                <div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-golden block mb-1">
-                    1. Tónica Principal (Inicio / Reposo)
-                  </span>
+            {/* Aviso informativo de sonido directo */}
+            <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-golden/5 border border-golden/20 text-[11px] text-golden-dark dark:text-golden">
+              <Volume2 size={13} className="flex-shrink-0" />
+              <span>Haz clic en cualquier acorde para escucharlo directamente.</span>
+            </div>
+
+            {/* Acordes de la Familia Armónica (1 clic = 1 sonido directo) */}
+            <div className="space-y-3 pt-1">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold text-jetcarbon dark:text-gray-200">
+                  {currentFamily.keyName} ({currentFamily.keySymbol}) en {isGuitar ? 'Guitarra' : 'Ukelele'}
+                </span>
+                <span className="text-[11px] text-golden font-semibold">
+                  {currentFamily.isMinor ? 'Tono Menor' : 'Grados I • IV • V • vi'}
+                </span>
+              </div>
+
+              {/* Tónica Principal */}
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-golden block mb-1">
+                  1. Tónica Principal (Inicio / Reposo)
+                </span>
+                <ChordDiagram
+                  chord={currentFamily.tonic}
+                  size="lg"
+                  interactive
+                  isSelected={playingSymbol === currentFamily.tonic.symbol}
+                  onClick={() => handleDirectPlay(currentFamily.tonic)}
+                />
+              </div>
+
+              {/* Subdominante y Dominante */}
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-jetcarbon-muted dark:text-gray-400 block mb-1">
+                  2. Acompañamiento y Tensión ({currentFamily.isMinor ? 'iv y V' : 'IV y V'})
+                </span>
+                <div className="grid grid-cols-2 gap-2">
                   <ChordDiagram
-                    chord={currentFamily.tonic}
-                    size="lg"
+                    chord={currentFamily.subdominant}
+                    size="sm"
                     interactive
-                    isSelected={selectedChord?.symbol === currentFamily.tonic.symbol}
-                    onClick={() => setSelectedChord(currentFamily.tonic)}
+                    isSelected={playingSymbol === currentFamily.subdominant.symbol}
+                    onClick={() => handleDirectPlay(currentFamily.subdominant)}
+                  />
+                  <ChordDiagram
+                    chord={currentFamily.dominant}
+                    size="sm"
+                    interactive
+                    isSelected={playingSymbol === currentFamily.dominant.symbol}
+                    onClick={() => handleDirectPlay(currentFamily.dominant)}
                   />
                 </div>
+              </div>
 
-                {/* Subdominante y Dominante */}
-                <div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-jetcarbon-muted dark:text-gray-400 block mb-1">
-                    2. Acompañamiento y Tensión ({currentFamily.isMinor ? 'iv y V' : 'IV y V'})
-                  </span>
-                  <div className="grid grid-cols-2 gap-2">
-                    <ChordDiagram
-                      chord={currentFamily.subdominant}
-                      size="sm"
-                      interactive
-                      isSelected={selectedChord?.symbol === currentFamily.subdominant.symbol}
-                      onClick={() => setSelectedChord(currentFamily.subdominant)}
-                    />
-                    <ChordDiagram
-                      chord={currentFamily.dominant}
-                      size="sm"
-                      interactive
-                      isSelected={selectedChord?.symbol === currentFamily.dominant.symbol}
-                      onClick={() => setSelectedChord(currentFamily.dominant)}
-                    />
-                  </div>
-                </div>
-
-                {/* Dominante 7 y Relativa */}
-                <div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-jetcarbon-muted dark:text-gray-400 block mb-1">
-                    3. {currentFamily.isMinor ? 'Relativa Mayor y Dominante 7' : 'Relativa Menor y Séptima'}
-                  </span>
-                  <div className="grid grid-cols-2 gap-2">
-                    <ChordDiagram
-                      chord={currentFamily.relativeMinor}
-                      size="sm"
-                      interactive
-                      isSelected={selectedChord?.symbol === currentFamily.relativeMinor.symbol}
-                      onClick={() => setSelectedChord(currentFamily.relativeMinor)}
-                    />
-                    <ChordDiagram
-                      chord={currentFamily.dominant7}
-                      size="sm"
-                      interactive
-                      isSelected={selectedChord?.symbol === currentFamily.dominant7.symbol}
-                      onClick={() => setSelectedChord(currentFamily.dominant7)}
-                    />
-                  </div>
-                </div>
-
-                {/* Secundarios frecuentes */}
-                <div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-jetcarbon-muted dark:text-gray-400 block mb-1">
-                    4. Acordes Secundarios Frecuentes
-                  </span>
-                  <div className="grid grid-cols-2 gap-2">
-                    <ChordDiagram
-                      chord={currentFamily.secondary1}
-                      size="sm"
-                      interactive
-                      isSelected={selectedChord?.symbol === currentFamily.secondary1.symbol}
-                      onClick={() => setSelectedChord(currentFamily.secondary1)}
-                    />
-                    <ChordDiagram
-                      chord={currentFamily.secondary2}
-                      size="sm"
-                      interactive
-                      isSelected={selectedChord?.symbol === currentFamily.secondary2.symbol}
-                      onClick={() => setSelectedChord(currentFamily.secondary2)}
-                    />
-                  </div>
+              {/* Dominante 7 y Relativa */}
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-jetcarbon-muted dark:text-gray-400 block mb-1">
+                  3. {currentFamily.isMinor ? 'Relativa Mayor y Dominante 7' : 'Relativa Menor y Séptima'}
+                </span>
+                <div className="grid grid-cols-2 gap-2">
+                  <ChordDiagram
+                    chord={currentFamily.relativeMinor}
+                    size="sm"
+                    interactive
+                    isSelected={playingSymbol === currentFamily.relativeMinor.symbol}
+                    onClick={() => handleDirectPlay(currentFamily.relativeMinor)}
+                  />
+                  <ChordDiagram
+                    chord={currentFamily.dominant7}
+                    size="sm"
+                    interactive
+                    isSelected={playingSymbol === currentFamily.dominant7.symbol}
+                    onClick={() => handleDirectPlay(currentFamily.dominant7)}
+                  />
                 </div>
               </div>
-            </>
+
+              {/* Secundarios frecuentes */}
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-jetcarbon-muted dark:text-gray-400 block mb-1">
+                  4. Acordes Secundarios Frecuentes
+                </span>
+                <div className="grid grid-cols-2 gap-2">
+                  <ChordDiagram
+                    chord={currentFamily.secondary1}
+                    size="sm"
+                    interactive
+                    isSelected={playingSymbol === currentFamily.secondary1.symbol}
+                    onClick={() => handleDirectPlay(currentFamily.secondary1)}
+                  />
+                  <ChordDiagram
+                    chord={currentFamily.secondary2}
+                    size="sm"
+                    interactive
+                    isSelected={playingSymbol === currentFamily.secondary2.symbol}
+                    onClick={() => handleDirectPlay(currentFamily.secondary2)}
+                  />
+                </div>
+              </div>
+            </div>
+          </>
+        ) : (
+          /* Pestaña: Diccionario Completo ("Todos") */
+          inspectingChord ? (
+            /* Vista de Inspección Compacta al pulsar un acorde con botón Volver */
+            <ChordDetailInspector
+              chord={inspectingChord}
+              instrument={instrument}
+              families={activeFamilies}
+              onBack={() => setInspectingChord(null)}
+              onSelectChord={handleSelectChordInInspector}
+              onSelectFamily={keySymbol => {
+                setSelectedKey(keySymbol);
+                setActiveTab('family');
+                setInspectingChord(null);
+              }}
+            />
           ) : (
-            /* Pestaña: Diccionario Completo */
+            /* Lista normal con buscador y filtros */
             <div className="space-y-3">
-              {/* Buscador de acorde */}
               <div className="relative">
                 <Search size={14} className="absolute left-3 top-3 text-jetcarbon-muted dark:text-gray-400" />
                 <input
@@ -423,7 +448,7 @@ export const InstrumentCompanionPanel: React.FC<InstrumentCompanionPanelProps> =
                 ))}
               </div>
 
-              {/* Grilla de Acordes Interactivos */}
+              {/* Grilla de Acordes: Al pulsar uno, abre la vista compacta con botón Volver */}
               <div className="grid grid-cols-2 gap-2 max-h-[calc(100vh-270px)] overflow-y-auto pr-1">
                 {allChordsList.map(chord => (
                   <ChordDiagram
@@ -431,32 +456,24 @@ export const InstrumentCompanionPanel: React.FC<InstrumentCompanionPanelProps> =
                     chord={chord}
                     size="sm"
                     interactive
-                    isSelected={selectedChord?.symbol === chord.symbol}
-                    onClick={() => setSelectedChord(chord)}
+                    onClick={() => {
+                      setInspectingChord(chord);
+                      playAcousticChord(chord, instrument).catch(() => {});
+                    }}
                   />
                 ))}
               </div>
             </div>
-          )}
-        </div>
+          )
+        )}
+      </div>
 
-        {/* Pie del Panel */}
-        <div className="p-3 border-t border-parchment-border dark:border-jetcarbon-border bg-parchment/40 dark:bg-darkbg/40 text-center text-[10px] text-jetcarbon-muted dark:text-gray-400">
-          Haz clic en cualquier acorde para inspeccionar notas y digitación
-        </div>
-      </aside>
-
-      {/* Modal Centrado Overlay (cuando el usuario solicita pantalla completa) */}
-      {selectedChord && isInspectorModal && (
-        <ChordDetailInspector
-          chord={selectedChord}
-          instrument={instrument}
-          isModal={true}
-          onClose={() => setIsInspectorModal(false)}
-          onSelectChord={handleSelectChordBySymbolOrName}
-          onToggleDock={() => setIsInspectorModal(false)}
-        />
-      )}
-    </>
+      {/* Pie del Panel */}
+      <div className="p-3 border-t border-parchment-border dark:border-jetcarbon-border bg-parchment/40 dark:bg-darkbg/40 text-center text-[10px] text-jetcarbon-muted dark:text-gray-400">
+        {activeTab === 'family'
+          ? 'Toca cualquier acorde para escucharlo al instante'
+          : 'Toca un acorde para ver sus notas y familias'}
+      </div>
+    </aside>
   );
 };
