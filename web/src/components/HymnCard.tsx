@@ -1,7 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Hymn, TypographyType } from '../types/hymn';
 import { HighlightText } from './HighlightText';
-import { Star, Share2, Check, Copy } from 'lucide-react';
+import { HymnLyricsWithChords } from './HymnLyricsWithChords';
+import {
+  HARMONIC_FAMILIES,
+  ALL_MAJOR_KEYS,
+  ALL_MINOR_KEYS,
+  UKULELE_CHORDS_DB
+} from '../data/ukuleleChords';
+import { GUITAR_CHORDS_DB } from '../data/guitarChords';
+import { transposeHymnChords, transposeKey } from '../util/chordTransposer';
+import { playAcousticChord } from '../util/chordAudio';
+import { Star, Share2, Check, Copy, Music, RotateCcw } from 'lucide-react';
 
 const YouTubeIcon = ({ size = 20, className = '' }: { size?: number; className?: string }) => (
   <svg
@@ -14,6 +24,11 @@ const YouTubeIcon = ({ size = 20, className = '' }: { size?: number; className?:
     <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
   </svg>
 );
+
+interface HymnChordsData {
+  key: string;
+  chords: Record<string, string>;
+}
 
 interface HymnCardProps {
   hymn: Hymn;
@@ -37,6 +52,35 @@ export const HymnCard: React.FC<HymnCardProps> = ({
   const [selectedVersion, setSelectedVersion] = useState<number>(0);
   const [copied, setCopied] = useState<boolean>(false);
 
+  // Estado del editor de acordes
+  const [showChords, setShowChords] = useState<boolean>(false);
+  const [isEditingChords, setIsEditingChords] = useState<boolean>(false);
+
+  const [chordsData, setChordsData] = useState<HymnChordsData>(() => {
+    try {
+      const stored = localStorage.getItem(`cancionero_chords_${hymn.id}`);
+      if (stored) {
+        return JSON.parse(stored);
+      }
+    } catch {
+      // fallback
+    }
+    return { key: 'C', chords: {} };
+  });
+
+  // Guardar en localStorage cuando cambien los acordes
+  useEffect(() => {
+    try {
+      if (Object.keys(chordsData.chords).length > 0) {
+        localStorage.setItem(`cancionero_chords_${hymn.id}`, JSON.stringify(chordsData));
+      } else {
+        localStorage.removeItem(`cancionero_chords_${hymn.id}`);
+      }
+    } catch {
+      // fallback
+    }
+  }, [chordsData, hymn.id]);
+
   const versions = [hymn.content, ...(hymn.extraVersions || [])];
   const activeContent = versions[selectedVersion] || hymn.content;
   const stanzas = activeContent.split(/\n\s*\n/).filter(s => s.trim().length > 0);
@@ -57,6 +101,59 @@ export const HymnCard: React.FC<HymnCardProps> = ({
       console.error('Failed to copy', err);
     }
   };
+
+  const handleAssignChord = (syllableId: string, chordSymbol: string) => {
+    setChordsData(prev => ({
+      ...prev,
+      chords: {
+        ...prev.chords,
+        [syllableId]: chordSymbol
+      }
+    }));
+  };
+
+  const handleRemoveChord = (syllableId: string) => {
+    setChordsData(prev => {
+      const nextChords = { ...prev.chords };
+      delete nextChords[syllableId];
+      return {
+        ...prev,
+        chords: nextChords
+      };
+    });
+  };
+
+  const handleChangeKey = (newKey: string) => {
+    setChordsData(prev => ({
+      ...prev,
+      key: newKey
+    }));
+  };
+
+  const handleTranspose = (semitones: number) => {
+    setChordsData(prev => ({
+      key: transposeKey(prev.key, semitones),
+      chords: transposeHymnChords(prev.chords, semitones)
+    }));
+  };
+
+  const handleResetChords = () => {
+    if (window.confirm('¿Deseas borrar todos los acordes colocados en este himno?')) {
+      setChordsData({ key: 'C', chords: {} });
+    }
+  };
+
+  const handlePlayChord = (chordSymbol: string) => {
+    const inst = (localStorage.getItem('cancionero_instrument') as 'ukulele' | 'guitar') || 'guitar';
+    const db = inst === 'guitar' ? GUITAR_CHORDS_DB : UKULELE_CHORDS_DB;
+    const chord = db[chordSymbol];
+    if (chord) {
+      playAcousticChord(chord, inst).catch(() => {});
+    }
+  };
+
+  const hasChords = Object.keys(chordsData.chords).length > 0;
+  const activeFamily = HARMONIC_FAMILIES[chordsData.key] || HARMONIC_FAMILIES['C'];
 
   return (
     <article
@@ -79,6 +176,25 @@ export const HymnCard: React.FC<HymnCardProps> = ({
 
         {/* Action Buttons */}
         <div className="flex items-center gap-1.5 self-end sm:self-center">
+          {/* Botón de Acordes para Músicos */}
+          <button
+            onClick={() => {
+              setShowChords(!showChords);
+              if (showChords) setIsEditingChords(false);
+            }}
+            title={showChords ? 'Ocultar acordes' : 'Ver y editar acordes musicales'}
+            className={`p-2 rounded-xl transition-all relative ${
+              showChords || hasChords
+                ? 'bg-golden/10 text-golden-dark dark:text-golden border border-golden/30'
+                : 'text-jetcarbon-muted hover:text-jetcarbon dark:text-gray-400 dark:hover:text-gray-200 hover:bg-parchment dark:hover:bg-jetcarbon-light'
+            }`}
+          >
+            <Music size={20} />
+            {hasChords && !showChords && (
+              <span className="absolute top-1 right-1 w-2 h-2 rounded-full bg-golden" />
+            )}
+          </button>
+
           {hymn.link && (
             <a
               href={hymn.link}
@@ -139,16 +255,106 @@ export const HymnCard: React.FC<HymnCardProps> = ({
         </div>
       )}
 
-      {/* Lyrics Stanzas */}
+      {/* Barra de Herramientas de Acordes para Músicos */}
+      {showChords && (
+        <div className="flex flex-wrap items-center justify-between gap-2 p-2.5 mt-4 rounded-xl bg-golden/5 dark:bg-golden/10 border border-golden/25 text-xs animate-in fade-in duration-150">
+          <div className="flex items-center gap-2">
+            <span className="font-semibold text-jetcarbon dark:text-gray-200">Tono base:</span>
+            <select
+              value={chordsData.key}
+              onChange={e => handleChangeKey(e.target.value)}
+              className="py-1 px-2 rounded-lg bg-white dark:bg-darkcard border border-golden/40 text-golden-dark dark:text-golden font-bold focus:outline-none cursor-pointer"
+            >
+              <optgroup label="Tonalidades Mayores">
+                {ALL_MAJOR_KEYS.map(k => (
+                  <option key={k.symbol} value={k.symbol}>
+                    {k.name} ({k.symbol})
+                  </option>
+                ))}
+              </optgroup>
+              <optgroup label="Tonalidades Menores">
+                {ALL_MINOR_KEYS.map(k => (
+                  <option key={k.symbol} value={k.symbol}>
+                    {k.name} ({k.symbol})
+                  </option>
+                ))}
+              </optgroup>
+            </select>
+          </div>
+
+          <div className="flex items-center gap-1.5">
+            {/* Controles de Transporte de Tono (-1 / +1) */}
+            <div className="flex items-center rounded-lg border border-parchment-border dark:border-jetcarbon-border overflow-hidden bg-white dark:bg-darkcard text-xs">
+              <button
+                onClick={() => handleTranspose(-1)}
+                title="Bajar 1 semitono (-1)"
+                className="px-2.5 py-1 font-bold hover:bg-golden/10 text-jetcarbon dark:text-gray-200 transition-colors"
+              >
+                -1
+              </button>
+              <span className="px-1 text-[10px] text-jetcarbon-muted border-x border-parchment-border dark:border-jetcarbon-border">
+                Tono
+              </span>
+              <button
+                onClick={() => handleTranspose(1)}
+                title="Subir 1 semitono (+1)"
+                className="px-2.5 py-1 font-bold hover:bg-golden/10 text-jetcarbon dark:text-gray-200 transition-colors"
+              >
+                +1
+              </button>
+            </div>
+
+            {/* Alternar Modo Edición / Lectura */}
+            <button
+              onClick={() => setIsEditingChords(!isEditingChords)}
+              className={`px-3 py-1 rounded-lg font-bold transition-all ${
+                isEditingChords
+                  ? 'bg-golden text-white shadow-xs'
+                  : 'bg-parchment dark:bg-darkbg text-jetcarbon dark:text-gray-200 border border-golden/40 hover:bg-golden/10'
+              }`}
+            >
+              {isEditingChords ? 'Guardar / Listo' : 'Editar Acordes'}
+            </button>
+
+            {/* Reiniciar acordes si tiene */}
+            {hasChords && (
+              <button
+                onClick={handleResetChords}
+                title="Borrar todos los acordes de esta alabanza"
+                className="p-1.5 rounded-lg text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/30 transition-colors"
+              >
+                <RotateCcw size={15} />
+              </button>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Lyrics Stanzas (con soporte de acordes sílaba a sílaba o lectura normal) */}
       <div
-        className={`mt-6 space-y-5 ${fontClass} leading-relaxed text-jetcarbon dark:text-gray-200`}
+        className={`mt-6 ${fontClass} text-jetcarbon dark:text-gray-200`}
         style={{ fontSize: `${fontSize}px` }}
       >
-        {stanzas.map((stanza, idx) => (
-          <div key={idx} className="whitespace-pre-line">
-            <HighlightText text={stanza} query={query} />
+        {showChords ? (
+          <HymnLyricsWithChords
+            verses={stanzas}
+            chords={chordsData.chords}
+            isEditing={isEditingChords}
+            activeFamily={activeFamily}
+            onAssignChord={handleAssignChord}
+            onRemoveChord={handleRemoveChord}
+            onChangeFamily={handleChangeKey}
+            onPlayChordSound={handlePlayChord}
+          />
+        ) : (
+          <div className="space-y-5 leading-relaxed">
+            {stanzas.map((stanza, idx) => (
+              <div key={idx} className="whitespace-pre-line text-center">
+                <HighlightText text={stanza} query={query} />
+              </div>
+            ))}
           </div>
-        ))}
+        )}
       </div>
     </article>
   );
