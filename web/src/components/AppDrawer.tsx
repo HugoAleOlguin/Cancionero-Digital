@@ -1,6 +1,6 @@
-import React from 'react';
-import { X, Star, BookOpen, User, Type, Moon, Sun, Sliders } from 'lucide-react';
+import { X, Star, BookOpen, User, Type, Moon, Sun, Sliders, Music } from 'lucide-react';
 import { TypographyType, ThemeMode } from '../types/hymn';
+import { ChordNotationType } from '../util/chordNotation';
 
 interface AppDrawerProps {
   isOpen: boolean;
@@ -19,6 +19,8 @@ interface AppDrawerProps {
   theme: ThemeMode;
   onToggleTheme: () => void;
   catalogVersion: number;
+  chordNotation: ChordNotationType;
+  onChangeChordNotation: (n: ChordNotationType) => void;
 }
 
 export const AppDrawer: React.FC<AppDrawerProps> = ({
@@ -37,7 +39,9 @@ export const AppDrawer: React.FC<AppDrawerProps> = ({
   onChangeFontSize,
   theme,
   onToggleTheme,
-  catalogVersion
+  catalogVersion,
+  chordNotation,
+  onChangeChordNotation
 }) => {
   if (!isOpen) return null;
 
@@ -192,6 +196,36 @@ export const AppDrawer: React.FC<AppDrawerProps> = ({
               </div>
               <span className="text-xs text-jetcarbon-muted dark:text-gray-400">Alternar</span>
             </button>
+          </section>
+
+          {/* Chord Notation Settings Section */}
+          <section>
+            <h2 className="text-xs font-bold uppercase tracking-wider text-jetcarbon-muted dark:text-gray-400 mb-2 flex items-center gap-1.5">
+              <Music size={14} className="text-golden" />
+              <span>Notación de Acordes</span>
+            </h2>
+            <div className="grid grid-cols-2 gap-2">
+              <button
+                onClick={() => onChangeChordNotation('latin')}
+                className={`py-2 px-3 rounded-xl border text-xs font-bold transition-all text-center ${
+                  chordNotation === 'latin'
+                    ? 'border-golden bg-golden/10 text-golden-dark dark:text-golden shadow-2xs'
+                    : 'border-parchment-border dark:border-jetcarbon-border text-jetcarbon dark:text-gray-300 hover:bg-white dark:hover:bg-jetcarbon-light'
+                }`}
+              >
+                DO RE MI (Latina)
+              </button>
+              <button
+                onClick={() => onChangeChordNotation('anglo')}
+                className={`py-2 px-3 rounded-xl border text-xs font-bold transition-all text-center ${
+                  chordNotation === 'anglo'
+                    ? 'border-golden bg-golden/10 text-golden-dark dark:text-golden shadow-2xs'
+                    : 'border-parchment-border dark:border-jetcarbon-border text-jetcarbon dark:text-gray-300 hover:bg-white dark:hover:bg-jetcarbon-light'
+                }`}
+              >
+                C D E (Anglosajona)
+              </button>
+            </div>
           </section>
 
           {/* Filter by Author Section (if any author has names) */}

@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { HarmonicFamily, UKULELE_CHORDS_DB, ALL_MAJOR_KEYS, ALL_MINOR_KEYS } from '../data/ukuleleChords';
+import { ChordNotationType, formatChordNotation } from '../util/chordNotation';
 import { X, Trash2, ChevronDown, Plus } from 'lucide-react';
 
 interface SyllableChordPopoverProps {
   currentChord?: string;
   activeFamily: HarmonicFamily;
+  notation?: ChordNotationType;
   onSelectChord: (chordSymbol: string) => void;
   onRemoveChord: () => void;
   onChangeFamily: (keySymbol: string) => void;
@@ -14,6 +16,7 @@ interface SyllableChordPopoverProps {
 export const SyllableChordPopover: React.FC<SyllableChordPopoverProps> = ({
   currentChord,
   activeFamily,
+  notation = 'latin',
   onSelectChord,
   onRemoveChord,
   onChangeFamily,
@@ -51,7 +54,9 @@ export const SyllableChordPopover: React.FC<SyllableChordPopoverProps> = ({
           className="flex items-center gap-1 font-bold text-jetcarbon dark:text-gray-200 hover:text-golden transition-colors"
         >
           <span className="text-[10px] uppercase text-jetcarbon-muted dark:text-gray-400 font-normal">Tono:</span>
-          <span className="text-golden-dark dark:text-golden">{activeFamily.keyName} ({activeFamily.keySymbol})</span>
+          <span className="text-golden-dark dark:text-golden">
+            {formatChordNotation(activeFamily.keySymbol, notation)} ({activeFamily.keySymbol})
+          </span>
           <ChevronDown size={13} className="text-golden" />
         </button>
 
@@ -83,17 +88,19 @@ export const SyllableChordPopover: React.FC<SyllableChordPopoverProps> = ({
                     : 'bg-white dark:bg-darkcard text-jetcarbon dark:text-gray-300 hover:bg-golden/10'
                 }`}
               >
-                {k.name}
+                {formatChordNotation(k.symbol, notation)}
               </button>
             ))}
           </div>
         </div>
       )}
 
-      {/* Chips Rápidos de la Familia Armónica */}
+      {/* Chips Rápidos de la Familia Armónica (formateados a DO RE MI por defecto) */}
       <div className="grid grid-cols-3 gap-1 mb-2">
         {familyChords.map((chord, idx) => {
           const isSelected = currentChord === chord.symbol;
+          const displayLabel = formatChordNotation(chord.symbol, notation);
+
           return (
             <button
               key={`fam-ch-${idx}-${chord.symbol}`}
@@ -104,8 +111,10 @@ export const SyllableChordPopover: React.FC<SyllableChordPopoverProps> = ({
                   : 'bg-parchment/60 dark:bg-darkbg/60 text-jetcarbon dark:text-gray-200 border-parchment-border dark:border-jetcarbon-border hover:border-golden hover:text-golden-dark dark:hover:text-golden active:scale-95'
               }`}
             >
-              <span>{chord.name}</span>
-              <span className="text-[9px] opacity-75 ml-0.5 font-normal">({chord.symbol})</span>
+              <span>{displayLabel}</span>
+              {notation === 'latin' && (
+                <span className="text-[9px] opacity-75 ml-0.5 font-normal">({chord.symbol})</span>
+              )}
             </button>
           );
         })}
@@ -124,7 +133,7 @@ export const SyllableChordPopover: React.FC<SyllableChordPopoverProps> = ({
                 }}
                 className="py-1 px-1 rounded text-[10px] font-bold text-center bg-white dark:bg-darkcard text-jetcarbon dark:text-gray-300 hover:bg-golden/20 hover:text-golden-dark transition-colors"
               >
-                {sym}
+                {formatChordNotation(sym, notation)}
               </button>
             ))}
           </div>

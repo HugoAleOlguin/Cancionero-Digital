@@ -11,6 +11,7 @@ import {
 import { GUITAR_CHORDS_DB } from '../data/guitarChords';
 import { transposeHymnChords, transposeKey } from '../util/chordTransposer';
 import { playAcousticChord } from '../util/chordAudio';
+import { ChordNotationType, formatChordNotation } from '../util/chordNotation';
 import { Star, Share2, Check, Copy, Music, RotateCcw } from 'lucide-react';
 
 const YouTubeIcon = ({ size = 20, className = '' }: { size?: number; className?: string }) => (
@@ -38,6 +39,7 @@ interface HymnCardProps {
   onOpenShare: (hymn: Hymn, versionIndex: number) => void;
   typography: TypographyType;
   fontSize: number;
+  chordNotation?: ChordNotationType;
 }
 
 export const HymnCard: React.FC<HymnCardProps> = ({
@@ -47,7 +49,8 @@ export const HymnCard: React.FC<HymnCardProps> = ({
   onToggleFavorite,
   onOpenShare,
   typography,
-  fontSize
+  fontSize,
+  chordNotation = 'latin'
 }) => {
   const [selectedVersion, setSelectedVersion] = useState<number>(0);
   const [copied, setCopied] = useState<boolean>(false);
@@ -255,40 +258,46 @@ export const HymnCard: React.FC<HymnCardProps> = ({
         </div>
       )}
 
-      {/* Barra de Herramientas de Acordes para Músicos */}
+      {/* Barra de Herramientas de Acordes para Músicos - Tira compacta de una sola línea */}
       {showChords && (
-        <div className="flex flex-wrap items-center justify-between gap-2 p-2.5 mt-4 rounded-xl bg-golden/5 dark:bg-golden/10 border border-golden/25 text-xs animate-in fade-in duration-150">
+        <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 px-3 py-1.5 mt-3 rounded-xl bg-golden/5 dark:bg-golden/10 border border-golden/20 text-xs animate-in fade-in duration-150">
           <div className="flex items-center gap-2">
-            <span className="font-semibold text-jetcarbon dark:text-gray-200">Tono base:</span>
+            <span className="font-semibold text-jetcarbon-muted dark:text-gray-400 text-[11px] uppercase tracking-wide">
+              Tono:
+            </span>
             <select
               value={chordsData.key}
               onChange={e => handleChangeKey(e.target.value)}
-              className="py-1 px-2 rounded-lg bg-white dark:bg-darkcard border border-golden/40 text-golden-dark dark:text-golden font-bold focus:outline-none cursor-pointer"
+              className="py-1 px-2 rounded-lg bg-white dark:bg-darkcard border border-golden/30 text-golden-dark dark:text-golden font-bold text-xs focus:outline-none cursor-pointer"
             >
               <optgroup label="Tonalidades Mayores">
                 {ALL_MAJOR_KEYS.map(k => (
                   <option key={k.symbol} value={k.symbol}>
-                    {k.name} ({k.symbol})
+                    {chordNotation === 'latin'
+                      ? `${formatChordNotation(k.symbol, 'latin')} (${k.symbol})`
+                      : k.symbol}
                   </option>
                 ))}
               </optgroup>
               <optgroup label="Tonalidades Menores">
                 {ALL_MINOR_KEYS.map(k => (
                   <option key={k.symbol} value={k.symbol}>
-                    {k.name} ({k.symbol})
+                    {chordNotation === 'latin'
+                      ? `${formatChordNotation(k.symbol, 'latin')} (${k.symbol})`
+                      : k.symbol}
                   </option>
                 ))}
               </optgroup>
             </select>
           </div>
 
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-2">
             {/* Controles de Transporte de Tono (-1 / +1) */}
-            <div className="flex items-center rounded-lg border border-parchment-border dark:border-jetcarbon-border overflow-hidden bg-white dark:bg-darkcard text-xs">
+            <div className="flex items-center rounded-lg border border-parchment-border dark:border-jetcarbon-border overflow-hidden bg-white dark:bg-darkcard text-xs shadow-2xs">
               <button
                 onClick={() => handleTranspose(-1)}
                 title="Bajar 1 semitono (-1)"
-                className="px-2.5 py-1 font-bold hover:bg-golden/10 text-jetcarbon dark:text-gray-200 transition-colors"
+                className="px-2 py-0.5 font-bold hover:bg-golden/10 text-jetcarbon dark:text-gray-200 transition-colors"
               >
                 -1
               </button>
@@ -298,7 +307,7 @@ export const HymnCard: React.FC<HymnCardProps> = ({
               <button
                 onClick={() => handleTranspose(1)}
                 title="Subir 1 semitono (+1)"
-                className="px-2.5 py-1 font-bold hover:bg-golden/10 text-jetcarbon dark:text-gray-200 transition-colors"
+                className="px-2 py-0.5 font-bold hover:bg-golden/10 text-jetcarbon dark:text-gray-200 transition-colors"
               >
                 +1
               </button>
@@ -307,13 +316,13 @@ export const HymnCard: React.FC<HymnCardProps> = ({
             {/* Alternar Modo Edición / Lectura */}
             <button
               onClick={() => setIsEditingChords(!isEditingChords)}
-              className={`px-3 py-1 rounded-lg font-bold transition-all ${
+              className={`px-3 py-1 rounded-lg font-bold text-xs transition-all ${
                 isEditingChords
                   ? 'bg-golden text-white shadow-xs'
-                  : 'bg-parchment dark:bg-darkbg text-jetcarbon dark:text-gray-200 border border-golden/40 hover:bg-golden/10'
+                  : 'bg-white dark:bg-darkcard text-jetcarbon dark:text-gray-200 border border-golden/30 hover:bg-golden/10'
               }`}
             >
-              {isEditingChords ? 'Guardar / Listo' : 'Editar Acordes'}
+              {isEditingChords ? 'Guardar' : 'Editar Acordes'}
             </button>
 
             {/* Reiniciar acordes si tiene */}
@@ -321,9 +330,9 @@ export const HymnCard: React.FC<HymnCardProps> = ({
               <button
                 onClick={handleResetChords}
                 title="Borrar todos los acordes de esta alabanza"
-                className="p-1.5 rounded-lg text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/30 transition-colors"
+                className="p-1 rounded-lg text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/30 transition-colors"
               >
-                <RotateCcw size={15} />
+                <RotateCcw size={14} />
               </button>
             )}
           </div>
@@ -345,6 +354,7 @@ export const HymnCard: React.FC<HymnCardProps> = ({
             onRemoveChord={handleRemoveChord}
             onChangeFamily={handleChangeKey}
             onPlayChordSound={handlePlayChord}
+            notation={chordNotation}
           />
         ) : (
           <div className="space-y-5 leading-relaxed">

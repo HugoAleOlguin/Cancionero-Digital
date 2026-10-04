@@ -9,6 +9,7 @@ import { AppDrawer } from './components/AppDrawer';
 import { ShareModal } from './components/ShareModal';
 import { InstrumentCompanionPanel } from './components/InstrumentCompanionPanel';
 import { ArrowUp, BookX, Star } from 'lucide-react';
+import { ChordNotationType } from './util/chordNotation';
 
 export function App() {
   const [catalog, setCatalog] = useState<HymnCatalog | null>(null);
@@ -20,6 +21,15 @@ export function App() {
   const [currentMatchIndex, setCurrentMatchIndex] = useState<number>(0);
   const [showScrollTop, setShowScrollTop] = useState<boolean>(false);
   const [sharingHymn, setSharingHymn] = useState<{ hymn: Hymn; versionIndex: number } | null>(null);
+  const [chordNotation, setChordNotation] = useState<ChordNotationType>(() => {
+    try {
+      const stored = localStorage.getItem('cancionero_chord_notation');
+      if (stored === 'latin' || stored === 'anglo') return stored;
+    } catch {
+      // fallback
+    }
+    return 'latin'; // DO RE MI por defecto
+  });
   const [isUkuleleOpen, setIsUkuleleOpen] = useState<boolean>(() => {
     try {
       const saved = localStorage.getItem('cancionero_ukulele_open');
@@ -36,6 +46,14 @@ export function App() {
       // fallback
     }
   }, [isUkuleleOpen]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('cancionero_chord_notation', chordNotation);
+    } catch {
+      // fallback
+    }
+  }, [chordNotation]);
 
   const { favorites, toggleFavorite, isFavorite, favoritesCount } = useFavorites();
   const { theme, toggleTheme, typography, setTypography, fontSize, setFontSize } = useSettings();
@@ -296,6 +314,7 @@ export function App() {
                 onOpenShare={(hymn, vIdx) => setSharingHymn({ hymn, versionIndex: vIdx })}
                 typography={typography}
                 fontSize={fontSize}
+                chordNotation={chordNotation}
               />
             ))}
 
@@ -351,6 +370,8 @@ export function App() {
         theme={theme}
         onToggleTheme={toggleTheme}
         catalogVersion={catalog?.version || 1}
+        chordNotation={chordNotation}
+        onChangeChordNotation={setChordNotation}
       />
 
       {/* Share & PDF Export Modal */}
