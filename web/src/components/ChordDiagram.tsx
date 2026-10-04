@@ -1,24 +1,80 @@
 import React from 'react';
 import { UkuleleChord } from '../data/ukuleleChords';
 
-interface ChordDiagramProps {
+export interface ChordDiagramProps {
   chord: UkuleleChord; // Estructura compartida (4 o 6 cuerdas)
   size?: 'sm' | 'md' | 'lg';
   showTitle?: boolean;
   className?: string;
+  onClick?: () => void;
+  isSelected?: boolean;
+  interactive?: boolean;
+}
+
+/**
+ * Calcula con precisión el tramo contiguo de cuerdas que abarca la cejilla (barre).
+ * Regla física estricta: Una cejilla NUNCA puede cruzar cuerdas al aire (0) ni silenciadas (-1).
+ * Por ejemplo, en Fsus4 [3, 0, 1, 1], la cejilla solo cubre las cuerdas 2 y 1 (índices 2 y 3).
+ */
+export function getBarreSpan(chord: UkuleleChord): { startIdx: number; endIdx: number } | null {
+  const targetFret = chord.barre;
+  if (!targetFret || targetFret <= 0) return null;
+
+  let bestSpan: { startIdx: number; endIdx: number } | null = null;
+  let maxMatched = 0;
+  let currentStart = -1;
+
+  for (let i = 0; i <= chord.frets.length; i++) {
+    const fret = i < chord.frets.length ? chord.frets[i] : -1;
+    // Un traste solo puede pertenecer al segmento si es >= targetFret y mayor a 0
+    const isValid = fret >= targetFret && fret > 0;
+
+    if (isValid) {
+      if (currentStart === -1) currentStart = i;
+    } else {
+      if (currentStart !== -1) {
+        const segStart = currentStart;
+        const segEnd = i - 1;
+
+        // Buscar las cuerdas dentro del segmento contiguo que tengan exactamente targetFret
+        const matchingIndices: number[] = [];
+        for (let j = segStart; j <= segEnd; j++) {
+          if (chord.frets[j] === targetFret) {
+            matchingIndices.push(j);
+          }
+        }
+
+        if (matchingIndices.length >= 2) {
+          const first = matchingIndices[0];
+          const last = matchingIndices[matchingIndices.length - 1];
+          const count = last - first + 1;
+          if (count > maxMatched) {
+            maxMatched = count;
+            bestSpan = { startIdx: first, endIdx: last };
+          }
+        }
+        currentStart = -1;
+      }
+    }
+  }
+
+  return bestSpan;
 }
 
 export const ChordDiagram: React.FC<ChordDiagramProps> = ({
   chord,
   size = 'md',
   showTitle = true,
-  className = ''
+  className = '',
+  onClick,
+  isSelected = false,
+  interactive = false
 }) => {
   const stringCount = chord.frets.length; // 4 para Ukelele, 6 para Guitarra
   const fretCount = 4; // 4 trastes visibles
   const isGuitar = stringCount === 6;
 
-  // Ajuste de anchura para acomodar 6 cuerdas cómodamente
+  // Dimensiones según tamaño e instrumento
   const baseWidth = isGuitar ? 116 : 100;
   const width = size === 'sm' ? (isGuitar ? 96 : 84) : size === 'lg' ? (isGuitar ? 144 : 124) : baseWidth;
   const height = size === 'sm' ? 108 : size === 'lg' ? 154 : 128;
@@ -43,15 +99,35 @@ export const ChordDiagram: React.FC<ChordDiagramProps> = ({
   // Grosor de cuerdas según instrumento
   const getStringStroke = (idx: number) => {
     if (isGuitar) {
-      // 6ta(E): 2.2, 5ta(A): 1.9, 4ta(D): 1.6, 3ra(G): 1.3, 2da(B): 1.1, 1ra(E): 0.9
       return [2.2, 1.9, 1.6, 1.3, 1.1, 0.9][idx] || 1.2;
     }
-    // Ukelele: C es más gruesa
     return idx === 1 ? 1.8 : idx === 0 ? 1.4 : 1.1;
   };
 
+  const dotRadius = isGuitar ? (size === 'sm' ? 4.5 : size === 'lg' ? 6.5 : 5.5) : (size === 'sm' ? 5 : size === 'lg' ? 7 : 6);
+  const barreSpan = getBarreSpan(chord);
+
+  const isClickable = interactive || !!onClick;
+
   return (
-    <div className={`flex flex-col items-center bg-white dark:bg-darkcard border border-parchment-border dark:border-jetcarbon-border rounded-xl p-2.5 shadow-2xs hover:shadow-xs transition-all ${className}`}>
+    <div
+      onClick={onClick}
+      role={isClickable ? 'button' : undefined}
+      tabIndex={isClickable ? 0 : undefined}
+      onKeyDown={e => {
+        if (isClickable && (e.key === 'Enter' || e.key === ' ')) {
+          e.preventDefault();
+          onClick?.();
+        }
+      }}
+      className={`flex flex-col items-center bg-white dark:bg-darkcard border rounded-xl p-2.5 transition-all select-none ${
+        isSelected
+          ? 'border-golden ring-2 ring-golden/40 bg-golden/5 dark:bg-golden/10 shadow-sm'
+          : isClickable
+          ? 'border-parchment-border dark:border-jetcarbon-border hover:border-golden/60 hover:shadow-xs cursor-pointer'
+          : 'border-parchment-border dark:border-jetcarbon-border shadow-2xs'
+      } ${className}`}
+    >
       {showTitle && (
         <div className="text-center mb-1 w-full">
           <div className="flex items-baseline justify-center gap-1">
@@ -68,7 +144,7 @@ export const ChordDiagram: React.FC<ChordDiagramProps> = ({
         </div>
       )}
 
-      <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`} className="overflow-visible select-none">
+      <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`} className="overflow-visible">
         {/* Indicador de traste si no es la primera posición (ej. 3fr) */}
         {!isFirstPosition && (
           <text
@@ -184,17 +260,33 @@ export const ChordDiagram: React.FC<ChordDiagramProps> = ({
           return null;
         })}
 
-        {/* Cejilla completa (Barre) */}
-        {chord.barre && (
-          <rect
-            x={marginX}
-            y={marginTop + (chord.barre - (baseFret - 1) - 0.75) * fretSpacing}
-            width={fretboardWidth}
-            height={fretSpacing * 0.5}
-            rx={fretSpacing * 0.25}
-            fill="#C5A03A"
-            opacity="0.9"
-          />
+        {/* Cejilla (Barre) contigua y precisa: Solo conecta el rango de cuerdas pisadas */}
+        {barreSpan && chord.barre && (
+          (() => {
+            const relativeFret = chord.barre - (baseFret - 1);
+            if (relativeFret >= 1 && relativeFret <= fretCount) {
+              const xStart = marginX + barreSpan.startIdx * stringSpacing;
+              const xEnd = marginX + barreSpan.endIdx * stringSpacing;
+              const cy = marginTop + (relativeFret - 0.5) * fretSpacing;
+              const barHeight = dotRadius * 2;
+              const barWidth = (xEnd - xStart) + dotRadius * 2;
+              const barX = xStart - dotRadius;
+              const barY = cy - barHeight / 2;
+
+              return (
+                <rect
+                  x={barX}
+                  y={barY}
+                  width={barWidth}
+                  height={barHeight}
+                  rx={barHeight / 2}
+                  fill="#C5A03A"
+                  opacity="0.95"
+                />
+              );
+            }
+            return null;
+          })()
         )}
 
         {/* Puntos dorados de digitación con número de dedo */}
@@ -206,7 +298,6 @@ export const ChordDiagram: React.FC<ChordDiagramProps> = ({
           const cx = marginX + sIdx * stringSpacing;
           const cy = marginTop + (relativeFret - 0.5) * fretSpacing;
           const finger = chord.fingers ? chord.fingers[sIdx] : 0;
-          const dotRadius = isGuitar ? (size === 'sm' ? 4.5 : 5.5) : (size === 'sm' ? 5 : 6);
 
           return (
             <g key={`dot-${sIdx}-${fret}`}>
@@ -222,8 +313,8 @@ export const ChordDiagram: React.FC<ChordDiagramProps> = ({
               {finger > 0 && (
                 <text
                   x={cx}
-                  y={cy + 2.5}
-                  fontSize={size === 'sm' ? '7' : '8'}
+                  y={cy + (size === 'lg' ? 3 : 2.5)}
+                  fontSize={size === 'sm' ? '7' : size === 'lg' ? '9' : '8'}
                   fontWeight="bold"
                   fill="#FFFFFF"
                   textAnchor="middle"

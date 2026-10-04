@@ -3,7 +3,7 @@ import {
   GUITAR_CHORDS_DB,
   GUITAR_HARMONIC_FAMILIES
 } from '../data/guitarChords';
-import { PREDOMINANT_KEYS } from '../data/ukuleleChords';
+import { ALL_MAJOR_KEYS, ALL_MINOR_KEYS } from '../data/ukuleleChords';
 
 describe('Guitar Chords Database & Harmonic Engine', () => {
   it('contains valid 6-string fretings for all defined guitar chords', () => {
@@ -18,6 +18,10 @@ describe('Guitar Chords Database & Harmonic Engine', () => {
       chord.frets.forEach(f => {
         expect(f).toBeGreaterThanOrEqual(-1);
       });
+      // Notes and description must exist
+      expect(chord.notes).toBeDefined();
+      expect(chord.notes?.length).toBeGreaterThan(0);
+      expect(chord.description).toBeDefined();
     }
   });
 
@@ -43,10 +47,11 @@ describe('Guitar Chords Database & Harmonic Engine', () => {
     expect(GUITAR_CHORDS_DB['Dm'].frets).toEqual([-1, -1, 0, 2, 3, 1]);
   });
 
-  it('provides complete guitar harmonic families for all predominant keys', () => {
-    for (const k of PREDOMINANT_KEYS) {
+  it('provides complete guitar harmonic families for all 12 major chromatic keys', () => {
+    expect(ALL_MAJOR_KEYS.length).toBe(12);
+    for (const k of ALL_MAJOR_KEYS) {
       const family = GUITAR_HARMONIC_FAMILIES[k.symbol];
-      expect(family).toBeDefined();
+      expect(family, `Guitar family for ${k.symbol} must exist`).toBeDefined();
       expect(family.tonic.frets.length).toBe(6);
       expect(family.subdominant.frets.length).toBe(6);
       expect(family.dominant.frets.length).toBe(6);
@@ -54,6 +59,19 @@ describe('Guitar Chords Database & Harmonic Engine', () => {
       expect(family.relativeMinor.frets.length).toBe(6);
       expect(family.secondary1.frets.length).toBe(6);
       expect(family.secondary2.frets.length).toBe(6);
+    }
+  });
+
+  it('provides complete guitar harmonic families for key minor tonalities', () => {
+    expect(ALL_MINOR_KEYS.length).toBeGreaterThanOrEqual(7);
+    for (const k of ALL_MINOR_KEYS) {
+      const family = GUITAR_HARMONIC_FAMILIES[k.symbol];
+      expect(family, `Guitar family for ${k.symbol} must exist`).toBeDefined();
+      expect(family.tonic.frets.length).toBe(6);
+      expect(family.subdominant.frets.length).toBe(6);
+      expect(family.dominant.frets.length).toBe(6);
+      expect(family.dominant7.frets.length).toBe(6);
+      expect(family.relativeMinor.frets.length).toBe(6);
     }
   });
 

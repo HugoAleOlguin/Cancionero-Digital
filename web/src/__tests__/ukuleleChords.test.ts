@@ -2,7 +2,8 @@ import { describe, it, expect } from 'vitest';
 import {
   UKULELE_CHORDS_DB,
   HARMONIC_FAMILIES,
-  PREDOMINANT_KEYS
+  ALL_MAJOR_KEYS,
+  ALL_MINOR_KEYS
 } from '../data/ukuleleChords';
 
 describe('Ukulele Chords Database & Harmonic Engine', () => {
@@ -19,6 +20,10 @@ describe('Ukulele Chords Database & Harmonic Engine', () => {
       chord.frets.forEach(f => {
         expect(f).toBeGreaterThanOrEqual(-1);
       });
+      // Notes and description should be populated
+      expect(chord.notes).toBeDefined();
+      expect(chord.notes?.length).toBeGreaterThan(0);
+      expect(chord.description).toBeDefined();
     }
   });
 
@@ -35,10 +40,11 @@ describe('Ukulele Chords Database & Harmonic Engine', () => {
     expect(UKULELE_CHORDS_DB['Am'].frets).toEqual([2, 0, 0, 0]);
   });
 
-  it('provides complete harmonic accompaniment families for predominant keys', () => {
-    for (const k of PREDOMINANT_KEYS) {
+  it('provides complete harmonic accompaniment families for all 12 major chromatic keys', () => {
+    expect(ALL_MAJOR_KEYS.length).toBe(12);
+    for (const k of ALL_MAJOR_KEYS) {
       const family = HARMONIC_FAMILIES[k.symbol];
-      expect(family).toBeDefined();
+      expect(family, `Family for major key ${k.symbol} should exist`).toBeDefined();
       expect(family.tonic).toBeDefined();
       expect(family.subdominant).toBeDefined();
       expect(family.dominant).toBeDefined();
@@ -46,6 +52,19 @@ describe('Ukulele Chords Database & Harmonic Engine', () => {
       expect(family.relativeMinor).toBeDefined();
       expect(family.secondary1).toBeDefined();
       expect(family.secondary2).toBeDefined();
+    }
+  });
+
+  it('provides complete harmonic accompaniment families for key minor tonalities', () => {
+    expect(ALL_MINOR_KEYS.length).toBeGreaterThanOrEqual(7);
+    for (const k of ALL_MINOR_KEYS) {
+      const family = HARMONIC_FAMILIES[k.symbol];
+      expect(family, `Family for minor key ${k.symbol} should exist`).toBeDefined();
+      expect(family.tonic).toBeDefined();
+      expect(family.subdominant).toBeDefined();
+      expect(family.dominant).toBeDefined();
+      expect(family.dominant7).toBeDefined();
+      expect(family.relativeMinor).toBeDefined();
     }
   });
 
