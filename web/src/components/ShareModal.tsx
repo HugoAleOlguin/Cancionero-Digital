@@ -8,6 +8,7 @@ interface ShareModalProps {
   onClose: () => void;
   hymn: Hymn | null;
   activeVersionIndex?: number;
+  onOpenPdfStudio?: (hymn: Hymn, versionIndex: number) => void;
 }
 
 // Icono vectorial limpio de WhatsApp (sin emojis)
@@ -21,7 +22,8 @@ export const ShareModal: React.FC<ShareModalProps> = ({
   isOpen,
   onClose,
   hymn,
-  activeVersionIndex = 0
+  activeVersionIndex = 0,
+  onOpenPdfStudio
 }) => {
   const [copiedLink, setCopiedLink] = useState(false);
   const [copiedLyrics, setCopiedLyrics] = useState(false);
@@ -34,6 +36,12 @@ export const ShareModal: React.FC<ShareModalProps> = ({
   const directUrl = `${window.location.origin}/?id=${hymn.id}`;
 
   const handleDownloadPdf = () => {
+    if (onOpenPdfStudio && hymn) {
+      onOpenPdfStudio(hymn, activeVersionIndex);
+      onClose();
+      return;
+    }
+
     try {
       setIsGeneratingPdf(true);
       generateHymnPdf(hymn, activeVersionIndex);
@@ -132,10 +140,10 @@ export const ShareModal: React.FC<ShareModalProps> = ({
               </div>
               <div>
                 <p className="text-sm font-bold text-jetcarbon dark:text-gray-100">
-                  {isGeneratingPdf ? 'Generando PDF...' : 'Descargar en PDF'}
+                  Estudio y Descarga en PDF
                 </p>
                 <p className="text-xs text-jetcarbon-muted dark:text-gray-400">
-                  Formato A4 con diseño litúrgico centrado
+                  Personaliza tamaño, acordes y vista previa A4 antes de descargar
                 </p>
               </div>
             </div>

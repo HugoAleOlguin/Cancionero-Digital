@@ -12,7 +12,7 @@ import { GUITAR_CHORDS_DB } from '../data/guitarChords';
 import { transposeHymnChords, transposeKey } from '../util/chordTransposer';
 import { playAcousticChord } from '../util/chordAudio';
 import { ChordNotationType, formatChordNotation } from '../util/chordNotation';
-import { Star, Share2, Check, Copy, Music, RotateCcw } from 'lucide-react';
+import { Star, Share2, Check, Copy, Music, RotateCcw, FileDown } from 'lucide-react';
 
 const YouTubeIcon = ({ size = 20, className = '' }: { size?: number; className?: string }) => (
   <svg
@@ -37,6 +37,7 @@ interface HymnCardProps {
   isFavorite: boolean;
   onToggleFavorite: (id: number) => void;
   onOpenShare: (hymn: Hymn, versionIndex: number) => void;
+  onOpenPdfStudio?: (hymn: Hymn, versionIndex: number) => void;
   typography: TypographyType;
   fontSize: number;
   chordNotation?: ChordNotationType;
@@ -48,6 +49,7 @@ export const HymnCard: React.FC<HymnCardProps> = ({
   isFavorite,
   onToggleFavorite,
   onOpenShare,
+  onOpenPdfStudio,
   typography,
   fontSize,
   chordNotation = 'latin'
@@ -217,6 +219,16 @@ export const HymnCard: React.FC<HymnCardProps> = ({
           >
             {copied ? <Check size={20} className="text-green-600" /> : <Copy size={20} />}
           </button>
+
+          {onOpenPdfStudio && (
+            <button
+              onClick={() => onOpenPdfStudio(hymn, selectedVersion)}
+              title="Estudio de impresión y PDF"
+              className="p-2 rounded-xl text-jetcarbon-muted hover:text-jetcarbon dark:text-gray-400 dark:hover:text-gray-200 hover:bg-parchment dark:hover:bg-jetcarbon-light transition-colors"
+            >
+              <FileDown size={20} />
+            </button>
+          )}
 
           <button
             onClick={() => onOpenShare(hymn, selectedVersion)}

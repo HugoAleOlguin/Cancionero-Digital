@@ -7,6 +7,7 @@ import { SearchHeader } from './components/SearchHeader';
 import { HymnCard } from './components/HymnCard';
 import { AppDrawer } from './components/AppDrawer';
 import { ShareModal } from './components/ShareModal';
+import { PdfStudioModal } from './components/PdfStudioModal';
 import { InstrumentCompanionPanel } from './components/InstrumentCompanionPanel';
 import { ArrowUp, BookX, Star } from 'lucide-react';
 import { ChordNotationType } from './util/chordNotation';
@@ -21,6 +22,7 @@ export function App() {
   const [currentMatchIndex, setCurrentMatchIndex] = useState<number>(0);
   const [showScrollTop, setShowScrollTop] = useState<boolean>(false);
   const [sharingHymn, setSharingHymn] = useState<{ hymn: Hymn; versionIndex: number } | null>(null);
+  const [pdfStudioHymn, setPdfStudioHymn] = useState<{ hymn: Hymn; versionIndex: number } | null>(null);
   const [chordNotation, setChordNotation] = useState<ChordNotationType>(() => {
     try {
       const stored = localStorage.getItem('cancionero_chord_notation');
@@ -312,6 +314,7 @@ export function App() {
                 isFavorite={isFavorite(item.hymn.id)}
                 onToggleFavorite={toggleFavorite}
                 onOpenShare={(hymn, vIdx) => setSharingHymn({ hymn, versionIndex: vIdx })}
+                onOpenPdfStudio={(hymn, vIdx) => setPdfStudioHymn({ hymn, versionIndex: vIdx })}
                 typography={typography}
                 fontSize={fontSize}
                 chordNotation={chordNotation}
@@ -380,6 +383,16 @@ export function App() {
         onClose={() => setSharingHymn(null)}
         hymn={sharingHymn?.hymn || null}
         activeVersionIndex={sharingHymn?.versionIndex || 0}
+        onOpenPdfStudio={(hymn, vIdx) => setPdfStudioHymn({ hymn, versionIndex: vIdx })}
+      />
+
+      {/* Estudio Interactivo de Edición e Impresión PDF */}
+      <PdfStudioModal
+        isOpen={!!pdfStudioHymn}
+        onClose={() => setPdfStudioHymn(null)}
+        hymn={pdfStudioHymn?.hymn || null}
+        activeVersionIndex={pdfStudioHymn?.versionIndex || 0}
+        initialChordNotation={chordNotation}
       />
     </div>
   );
