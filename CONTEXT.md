@@ -118,3 +118,20 @@ El catálogo base ha superado el hito histórico de las **1,000 alabanzas**, ubi
 **Pendiente:**
 - Generación del archivo APK final (`assembleDebug` o `assembleRelease`) a petición del usuario.
 - Commit y push a GitHub (`origin/main`).
+
+### Sesión 2026-10-04 (Web PWA, Acompañamiento y Editor de Acordes Sílaba a Sílaba)
+
+**Completado:**
+- Despliegue de la versión Web / PWA oficial en Vercel: `https://cancionero-cristiano.vercel.app/` con Vite, React, TypeScript y Tailwind CSS.
+- Panel de Acompañamiento para Instrumentistas (Ukelele G-C-E-A y Guitarra E-A-D-G-B-E):
+  - 12 tonalidades mayores cromáticas completas y 7 familias armónicas menores clave.
+  - Corrección matemática y física del trazado de cejilla (`barre`) en `ChordDiagram.tsx`: las cejillas no cruzan cuerdas al aire ni silenciadas.
+  - Pestaña "Familia Armónica": 1 clic = 1 sonido directo con síntesis acústica en Web Audio API (latencia cero, sin librerías externas).
+  - Pestaña "Todos": Inspector compacto con botón "Volver a la lista", notas del acorde, y detección automática de familias armónicas asociadas.
+- Sistema de Asignación y Edición Manual de Acordes por Sílaba:
+  - Motor silabeador determinista en español (`web/src/util/syllabifier.ts`) probado con Vitest.
+  - Selector flotante ágil pegado a la sílaba (`SyllableChordPopover.tsx`) con acordes de la familia base, "+ Otro" y "Quitar".
+  - Notación lírica alineada (`HymnLyricsWithChords.tsx`): en modo lectura el texto es fluido y las notas flotan sobre la sílaba; al tocarlas suenan.
+  - Barra de herramientas en `HymnCard.tsx`: activación/desactivación de acordes, selector de tono base, transporte armónico (+1 / -1 semitono) y persistencia offline en `localStorage`.
+- Suite de pruebas de Vitest: 35 pruebas unitarias pasando en verde (100% éxito) y compilación `vite build` en producción limpia.
+
