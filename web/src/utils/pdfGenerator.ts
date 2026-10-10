@@ -21,6 +21,7 @@ export interface PdfLineToken {
   leadingPunct?: string;
   trailingPunct?: string;
   chord?: string;
+  isWordEnd: boolean;
 }
 
 export interface PdfLineLayout {
@@ -58,6 +59,34 @@ export function getJsPdfFont(typography: TypographyType): string {
     default:
       return 'times';
   }
+}
+
+/**
+ * Dibuja un icono vectorial de nota musical (♫) en el encabezado.
+ * Evita caracteres Unicode directos que se corrompen en fuentes PostScript estándar de jsPDF.
+ */
+export function drawMusicalNoteIcon(
+  doc: jsPDF,
+  x: number,
+  y: number,
+  color: [number, number, number] = [197, 160, 58]
+) {
+  doc.setFillColor(color[0], color[1], color[2]);
+  doc.setDrawColor(color[0], color[1], color[2]);
+
+  // Cabeza 1 (izquierda)
+  doc.circle(x, y, 0.75, 'F');
+  // Cabeza 2 (derecha, ligeramente más alta)
+  doc.circle(x + 2.8, y - 0.4, 0.75, 'F');
+
+  // Plicas verticales
+  doc.setLineWidth(0.35);
+  doc.line(x + 0.65, y, x + 0.65, y - 3.4);
+  doc.line(x + 3.45, y - 0.4, x + 3.45, y - 3.8);
+
+  // Barra de unión superior (beam)
+  doc.setLineWidth(0.7);
+  doc.line(x + 0.65, y - 3.4, x + 3.45, y - 3.8);
 }
 
 /**
@@ -144,7 +173,8 @@ export function paginateHymnContent(
           text: t.text,
           leadingPunct: t.leadingPunct,
           trailingPunct: t.trailingPunct,
-          chord: chordSymbol
+          chord: chordSymbol,
+          isWordEnd: t.isWordEnd
         };
       });
 
@@ -276,10 +306,7 @@ export function buildHymnPdfDocument(
       doc.setTextColor(110, 115, 125);
       doc.text('CANCIONERO CRISTIANO', margin, headerY - 5);
 
-      doc.setFont('times', 'normal');
-      doc.setFontSize(11);
-      doc.setTextColor(197, 160, 58);
-      doc.text('♪', pageWidth - margin - 2, headerY - 5);
+      drawMusicalNoteIcon(doc, pageWidth - margin - 5, headerY - 3.5);
 
       drawShapedDivider(doc, headerY, pageWidth, margin);
     }
@@ -346,10 +373,21 @@ export function buildHymnPdfDocument(
           // Renderizar sílabas y acordes centrados armónicamente
           doc.setFont(fontName, 'normal');
           doc.setFontSize(config.fontSize);
-          const fullLineWidth = doc.getTextWidth(line.text);
-          let currentX = (pageWidth - fullLineWidth) / 2;
+          const spaceWidth = doc.getTextWidth(' ');
 
-          line.syllables.forEach(syl => {
+          // Medir el ancho total considerando texto y espacios de palabras
+          let totalLineWidth = 0;
+          line.syllables.forEach((syl, sIdx) => {
+            const sylText = `${syl.leadingPunct || ''}${syl.text}${syl.trailingPunct || ''}`;
+            totalLineWidth += doc.getTextWidth(sylText);
+            if (syl.isWordEnd && sIdx < line.syllables.length - 1) {
+              totalLineWidth += spaceWidth;
+            }
+          });
+
+          let currentX = (pageWidth - totalLineWidth) / 2;
+
+          line.syllables.forEach((syl, sIdx) => {
             const sylText = `${syl.leadingPunct || ''}${syl.text}${syl.trailingPunct || ''}`;
             const sylWidth = doc.getTextWidth(sylText);
 
@@ -368,6 +406,11 @@ export function buildHymnPdfDocument(
             doc.text(sylText, currentX, currentY);
 
             currentX += sylWidth;
+
+            // Si es fin de palabra, añadir espacio
+            if (syl.isWordEnd && sIdx < line.syllables.length - 1) {
+              currentX += spaceWidth;
+            }
           });
 
           currentY += baseLineHeight;

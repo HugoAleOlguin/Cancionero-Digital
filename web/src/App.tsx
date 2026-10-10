@@ -9,6 +9,7 @@ import { AppDrawer } from './components/AppDrawer';
 import { ShareModal } from './components/ShareModal';
 import { PdfStudioModal } from './components/PdfStudioModal';
 import { InstrumentCompanionPanel } from './components/InstrumentCompanionPanel';
+import { Toast } from './components/Toast';
 import { ArrowUp, BookX, Star } from 'lucide-react';
 import { ChordNotationType } from './util/chordNotation';
 
@@ -23,6 +24,8 @@ export function App() {
   const [showScrollTop, setShowScrollTop] = useState<boolean>(false);
   const [sharingHymn, setSharingHymn] = useState<{ hymn: Hymn; versionIndex: number } | null>(null);
   const [pdfStudioHymn, setPdfStudioHymn] = useState<{ hymn: Hymn; versionIndex: number } | null>(null);
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const showToast = useCallback((msg: string) => setToastMessage(msg), []);
   const [chordNotation, setChordNotation] = useState<ChordNotationType>(() => {
     try {
       const stored = localStorage.getItem('cancionero_chord_notation');
@@ -97,16 +100,43 @@ export function App() {
     setVisibleLimit(35);
   }, [query, selectedAuthor, showOnlyFavorites]);
 
-  // Monitor scroll for back to top button & auto-batch loading
+  // Monitor scroll for back to top button, auto-batch loading & reading position persistence
   useEffect(() => {
+    let scrollTimeout: any = null;
+
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 400);
       if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 1000) {
         setVisibleLimit(prev => prev + 35);
       }
+
+      // Debounce saving reading position (350ms)
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        const cards = document.querySelectorAll('article[id^="hymn-"]');
+        for (const card of cards) {
+          const rect = card.getBoundingClientRect();
+          if (rect.bottom > 160 && rect.top <= window.innerHeight * 0.45) {
+            const hymnIdStr = card.id.replace('hymn-', '');
+            const id = parseInt(hymnIdStr, 10);
+            if (!isNaN(id)) {
+              try {
+                localStorage.setItem('cancionero_last_viewed_hymn', id.toString());
+              } catch {
+                // fallback
+              }
+              break;
+            }
+          }
+        }
+      }, 350);
     };
+
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(scrollTimeout);
+    };
   }, []);
 
   // Searchables cache
@@ -115,15 +145,34 @@ export function App() {
     return createSearchableHymns(catalog.hymns);
   }, [catalog]);
 
-  // Deep linking: detect ?id=XX or ?canto=XX or ?hymn=XX on initial load
+  // Deep linking or restoring last read position on initial load
   useEffect(() => {
     if (!catalog?.hymns || catalog.hymns.length === 0) return;
     const params = new URLSearchParams(window.location.search);
     const targetIdStr = params.get('id') || params.get('canto') || params.get('hymn');
-    if (!targetIdStr) return;
 
-    const targetId = parseInt(targetIdStr, 10);
-    if (isNaN(targetId)) return;
+    let targetId: number | null = null;
+    let isRestoringSaved = false;
+
+    if (targetIdStr) {
+      const parsed = parseInt(targetIdStr, 10);
+      if (!isNaN(parsed)) targetId = parsed;
+    } else {
+      try {
+        const savedStr = localStorage.getItem('cancionero_last_viewed_hymn');
+        if (savedStr) {
+          const parsed = parseInt(savedStr, 10);
+          if (!isNaN(parsed) && parsed > 1) {
+            targetId = parsed;
+            isRestoringSaved = true;
+          }
+        }
+      } catch {
+        // fallback
+      }
+    }
+
+    if (targetId === null) return;
 
     const targetIdx = searchables.findIndex(s => s.hymn.id === targetId);
     if (targetIdx !== -1) {
@@ -138,10 +187,14 @@ export function App() {
           setTimeout(() => {
             el.classList.remove('ring-2', 'ring-golden', 'ring-offset-4', 'ring-offset-parchment', 'dark:ring-offset-darkbg');
           }, 3000);
+
+          if (isRestoringSaved) {
+            showToast(`Continuando en el himno #${targetId}`);
+          }
         }
-      }, 250);
+      }, 300);
     }
-  }, [catalog, searchables]);
+  }, [catalog, searchables, showToast]);
 
   // Authors list for drawer
   const authorsList = useMemo(() => {
@@ -315,6 +368,7 @@ export function App() {
                 onToggleFavorite={toggleFavorite}
                 onOpenShare={(hymn, vIdx) => setSharingHymn({ hymn, versionIndex: vIdx })}
                 onOpenPdfStudio={(hymn, vIdx) => setPdfStudioHymn({ hymn, versionIndex: vIdx })}
+                onNotify={showToast}
                 typography={typography}
                 fontSize={fontSize}
                 chordNotation={chordNotation}
@@ -393,6 +447,12 @@ export function App() {
         hymn={pdfStudioHymn?.hymn || null}
         activeVersionIndex={pdfStudioHymn?.versionIndex || 0}
         initialChordNotation={chordNotation}
+      />
+
+      {/* Notificación Toast Flotante */}
+      <Toast
+        message={toastMessage}
+        onClose={() => setToastMessage(null)}
       />
     </div>
   );

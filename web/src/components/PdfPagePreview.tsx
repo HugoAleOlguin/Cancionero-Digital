@@ -43,7 +43,9 @@ export const PdfPagePreview: React.FC<PdfPagePreviewProps> = ({ page, config }) 
             <div className="mb-4">
               <div className="flex items-center justify-between text-[10px] tracking-widest text-neutral-500 font-sans uppercase">
                 <span>Cancionero Cristiano</span>
-                <span className="text-golden font-bold text-xs">♪</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" className="text-golden">
+                  <path d="M9 18V5l12-2v13M9 18a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm12-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                </svg>
               </div>
               <OrnamentalDivider />
             </div>
@@ -81,7 +83,9 @@ export const PdfPagePreview: React.FC<PdfPagePreviewProps> = ({ page, config }) 
                         {line.syllables.map((syl, sylIdx) => (
                           <span
                             key={`syl-${sylIdx}-${syl.id}`}
-                            className="inline-block relative px-[1px] leading-tight"
+                            className={`inline-block relative px-[0.5px] leading-tight ${
+                              syl.isWordEnd && sylIdx < line.syllables.length - 1 ? 'mr-1.5 sm:mr-2' : ''
+                            }`}
                           >
                             {/* Acorde flotante arriba */}
                             {syl.chord && (

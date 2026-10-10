@@ -38,6 +38,7 @@ interface HymnCardProps {
   onToggleFavorite: (id: number) => void;
   onOpenShare: (hymn: Hymn, versionIndex: number) => void;
   onOpenPdfStudio?: (hymn: Hymn, versionIndex: number) => void;
+  onNotify?: (message: string) => void;
   typography: TypographyType;
   fontSize: number;
   chordNotation?: ChordNotationType;
@@ -50,6 +51,7 @@ export const HymnCard: React.FC<HymnCardProps> = ({
   onToggleFavorite,
   onOpenShare,
   onOpenPdfStudio,
+  onNotify,
   typography,
   fontSize,
   chordNotation = 'latin'
@@ -101,6 +103,7 @@ export const HymnCard: React.FC<HymnCardProps> = ({
       const textToCopy = `${hymn.id} - ${hymn.title}\n${hymn.author ? `Autor: ${hymn.author}\n` : ''}\n${activeContent}`;
       await navigator.clipboard.writeText(textToCopy);
       setCopied(true);
+      onNotify?.('Letra copiada al portapapeles');
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
       console.error('Failed to copy', err);
@@ -239,13 +242,20 @@ export const HymnCard: React.FC<HymnCardProps> = ({
           </button>
 
           <button
-            onClick={() => onToggleFavorite(hymn.id)}
+            onClick={() => {
+              onToggleFavorite(hymn.id);
+              onNotify?.(isFavorite ? 'Quitado de favoritos' : 'Agregado a favoritos');
+            }}
             title={isFavorite ? 'Quitar de favoritos' : 'Agregar a favoritos'}
-            className="p-2 rounded-xl text-golden hover:bg-golden-subtle dark:hover:bg-golden-darkSubtle transition-colors"
+            className="p-2 rounded-xl text-golden hover:bg-golden-subtle dark:hover:bg-golden-darkSubtle transition-all transform active:scale-75 hover:scale-110 duration-200"
           >
             <Star
               size={22}
-              className={isFavorite ? 'fill-golden text-golden' : 'text-golden'}
+              className={`transition-all duration-300 ${
+                isFavorite
+                  ? 'fill-golden text-golden scale-105 drop-shadow-[0_0_8px_rgba(197,160,58,0.4)]'
+                  : 'text-golden/70 hover:text-golden'
+              }`}
             />
           </button>
         </div>

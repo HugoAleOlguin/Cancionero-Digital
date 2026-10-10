@@ -120,4 +120,21 @@ describe('PDF Studio & Generator Engine', () => {
     const doc = buildHymnPdfDocument(sampleHymn, 0, config);
     expect(doc).toBeDefined();
   });
+
+  it('preserves isWordEnd property on syllables to prevent mashed words', () => {
+    const config: PdfStudioConfig = {
+      fontSize: 12,
+      typography: 'serif',
+      showHeader: true,
+      showFooter: true,
+      showChords: true,
+      chordNotation: 'latin',
+      content: sampleHymn.content
+    };
+
+    const pages = paginateHymnContent(sampleHymn, config, sampleChords);
+    const firstLine = pages[0].stanzas[0].lines[0];
+    const wordEndSyllables = firstLine.syllables.filter(s => s.isWordEnd);
+    expect(wordEndSyllables.length).toBeGreaterThan(0);
+  });
 });

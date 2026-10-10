@@ -155,7 +155,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({
             className="w-full flex items-center justify-between p-3.5 rounded-xl border border-parchment-border dark:border-jetcarbon-border bg-parchment/50 dark:bg-darkbg hover:bg-golden/10 hover:border-golden/60 transition-all text-left group"
           >
             <div className="flex items-center gap-3.5">
-              <div className="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center group-hover:scale-105 transition-transform">
+              <div className="w-10 h-10 rounded-xl bg-amber-500/15 text-amber-700 dark:text-amber-400 flex items-center justify-center group-hover:scale-105 transition-transform">
                 {copiedLink ? <Check size={20} /> : <Link2 size={20} />}
               </div>
               <div>

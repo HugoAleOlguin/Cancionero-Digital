@@ -11,11 +11,8 @@ import {
   X,
   Download,
   RotateCcw,
-  Type,
-  Music,
   Sliders,
   Eye,
-  FileText,
   Check
 } from 'lucide-react';
 
@@ -68,7 +65,7 @@ export const PdfStudioModal: React.FC<PdfStudioModalProps> = ({
     content: initialContent
   }));
 
-  // Actualizar contenido cuando cambia de versión
+  // Actualizar contenido cuando cambia de versión o de notación
   useEffect(() => {
     setConfig(prev => ({
       ...prev,
@@ -123,20 +120,22 @@ export const PdfStudioModal: React.FC<PdfStudioModalProps> = ({
       <div className="bg-parchment dark:bg-darkcard border border-parchment-border dark:border-jetcarbon-border rounded-none sm:rounded-2xl shadow-2xl flex flex-col w-full max-w-6xl h-full sm:h-[92vh] overflow-hidden">
         
         {/* Barra Superior Header */}
-        <header className="px-5 py-3.5 border-b border-parchment-border dark:border-jetcarbon-border bg-white dark:bg-darkbg flex items-center justify-between shrink-0">
-          <div className="flex items-center gap-2.5">
-            <span className="w-8 h-8 rounded-xl bg-golden/10 flex items-center justify-center text-golden font-bold">
+        <header className="px-5 py-3 border-b border-parchment-border dark:border-jetcarbon-border bg-white dark:bg-darkbg flex items-center justify-between shrink-0">
+          <div className="flex items-center gap-3">
+            <span className="w-8 h-8 rounded-xl bg-golden/10 flex items-center justify-center text-golden font-bold text-sm">
               ♪
             </span>
             <div>
-              <h2 className="text-sm sm:text-base font-bold text-jetcarbon dark:text-gray-100 flex items-center gap-2">
-                <span>Estudio de Impresión y PDF</span>
+              <div className="flex items-center gap-2">
+                <h2 className="text-sm sm:text-base font-bold text-jetcarbon dark:text-gray-100">
+                  Estudio de Impresión PDF
+                </h2>
                 <span className="text-xs px-2 py-0.5 rounded-full bg-golden/15 text-golden-dark dark:text-golden font-semibold">
                   {hymn.id}. {hymn.title}
                 </span>
-              </h2>
+              </div>
               <p className="text-[11px] text-jetcarbon-muted dark:text-gray-400">
-                Personaliza tipografía, acordes y ajusta el texto con vista previa A4 exacta en tiempo real.
+                Ajusta la apariencia y edita el texto con vista previa A4 en tiempo real.
               </p>
             </div>
           </div>
@@ -144,9 +143,9 @@ export const PdfStudioModal: React.FC<PdfStudioModalProps> = ({
           <button
             onClick={onClose}
             className="p-2 rounded-xl text-jetcarbon-muted hover:text-jetcarbon dark:text-gray-400 dark:hover:text-gray-200 hover:bg-parchment dark:hover:bg-jetcarbon-light transition-colors"
-            title="Cerrar estudio"
+            title="Cerrar"
           >
-            <X size={20} />
+            <X size={18} />
           </button>
         </header>
 
@@ -160,8 +159,8 @@ export const PdfStudioModal: React.FC<PdfStudioModalProps> = ({
                 : 'border-transparent text-jetcarbon-muted dark:text-gray-400'
             }`}
           >
-            <Sliders size={15} />
-            <span>Ajustes y Texto</span>
+            <Sliders size={14} />
+            <span>Ajustes y Letra</span>
           </button>
           <button
             onClick={() => setActiveMobileTab('preview')}
@@ -171,8 +170,8 @@ export const PdfStudioModal: React.FC<PdfStudioModalProps> = ({
                 : 'border-transparent text-jetcarbon-muted dark:text-gray-400'
             }`}
           >
-            <Eye size={15} />
-            <span>Vista Previa ({pages.length} {pages.length === 1 ? 'Hoja' : 'Hojas'})</span>
+            <Eye size={14} />
+            <span>Vista Previa ({pages.length})</span>
           </button>
         </div>
 
@@ -181,16 +180,15 @@ export const PdfStudioModal: React.FC<PdfStudioModalProps> = ({
           
           {/* Columna Izquierda: Opciones y Editor de Texto */}
           <div
-            className={`w-full lg:w-[440px] xl:w-[480px] p-4 sm:p-5 overflow-y-auto space-y-4 border-r border-parchment-border dark:border-jetcarbon-border bg-parchment/50 dark:bg-darkbg/40 shrink-0 ${
+            className={`w-full lg:w-[420px] xl:w-[450px] p-4 sm:p-5 overflow-y-auto space-y-3.5 border-r border-parchment-border dark:border-jetcarbon-border bg-parchment/60 dark:bg-darkbg/50 shrink-0 ${
               activeMobileTab === 'preview' ? 'hidden lg:block' : 'block'
             }`}
           >
             {/* 1. Tipografía */}
-            <div className="bg-white dark:bg-darkcard border border-parchment-border dark:border-jetcarbon-border p-3.5 rounded-xl shadow-2xs space-y-2">
-              <label className="text-xs font-bold uppercase tracking-wider text-jetcarbon-muted dark:text-gray-400 flex items-center gap-1.5">
-                <Type size={14} className="text-golden" />
-                <span>Tipografía del Documento</span>
-              </label>
+            <div className="bg-white dark:bg-darkcard border border-parchment-border dark:border-jetcarbon-border p-3 rounded-xl shadow-2xs space-y-2">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-jetcarbon-muted dark:text-gray-400 block">
+                Fuente
+              </span>
               <div className="grid grid-cols-3 gap-1.5 text-xs">
                 {(['serif', 'sans', 'mono'] as TypographyType[]).map(t => (
                   <button
@@ -202,26 +200,26 @@ export const PdfStudioModal: React.FC<PdfStudioModalProps> = ({
                         : 'border-parchment-border dark:border-jetcarbon-border text-jetcarbon dark:text-gray-300 hover:bg-parchment/60'
                     }`}
                   >
-                    {t === 'serif' ? 'Serif (Libro)' : t === 'sans' ? 'Sans (Limpio)' : 'Mono'}
+                    {t === 'serif' ? 'Serif' : t === 'sans' ? 'Sans' : 'Mono'}
                   </button>
                 ))}
               </div>
             </div>
 
             {/* 2. Tamaño de Letra */}
-            <div className="bg-white dark:bg-darkcard border border-parchment-border dark:border-jetcarbon-border p-3.5 rounded-xl shadow-2xs space-y-2.5">
+            <div className="bg-white dark:bg-darkcard border border-parchment-border dark:border-jetcarbon-border p-3 rounded-xl shadow-2xs space-y-2">
               <div className="flex items-center justify-between">
-                <label className="text-xs font-bold uppercase tracking-wider text-jetcarbon-muted dark:text-gray-400">
-                  Tamaño de Letra
-                </label>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-jetcarbon-muted dark:text-gray-400">
+                  Tamaño de letra
+                </span>
                 <span className="text-xs font-bold px-2 py-0.5 rounded bg-golden/15 text-golden-dark dark:text-golden">
                   {config.fontSize} pt
                 </span>
               </div>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2.5">
                 <button
                   onClick={() => setConfig(prev => ({ ...prev, fontSize: Math.max(8, prev.fontSize - 0.5) }))}
-                  className="w-8 h-8 rounded-lg border border-parchment-border dark:border-jetcarbon-border font-bold text-jetcarbon dark:text-gray-200 hover:bg-golden/10 transition-colors"
+                  className="w-7 h-7 rounded-lg border border-parchment-border dark:border-jetcarbon-border font-bold text-xs text-jetcarbon dark:text-gray-200 hover:bg-golden/10 transition-colors"
                 >
                   -
                 </button>
@@ -236,26 +234,25 @@ export const PdfStudioModal: React.FC<PdfStudioModalProps> = ({
                 />
                 <button
                   onClick={() => setConfig(prev => ({ ...prev, fontSize: Math.min(18, prev.fontSize + 0.5) }))}
-                  className="w-8 h-8 rounded-lg border border-parchment-border dark:border-jetcarbon-border font-bold text-jetcarbon dark:text-gray-200 hover:bg-golden/10 transition-colors"
+                  className="w-7 h-7 rounded-lg border border-parchment-border dark:border-jetcarbon-border font-bold text-xs text-jetcarbon dark:text-gray-200 hover:bg-golden/10 transition-colors"
                 >
                   +
                 </button>
               </div>
             </div>
 
-            {/* 3. Interruptores de Elementos Visuales */}
-            <div className="bg-white dark:bg-darkcard border border-parchment-border dark:border-jetcarbon-border p-3.5 rounded-xl shadow-2xs space-y-3">
-              <label className="text-xs font-bold uppercase tracking-wider text-jetcarbon-muted dark:text-gray-400 block">
-                Secciones y Elementos
-              </label>
+            {/* 3. Opciones del Documento */}
+            <div className="bg-white dark:bg-darkcard border border-parchment-border dark:border-jetcarbon-border p-3 rounded-xl shadow-2xs space-y-2">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-jetcarbon-muted dark:text-gray-400 block">
+                Opciones
+              </span>
 
-              <div className="space-y-2 text-xs">
+              <div className="space-y-1.5 text-xs">
                 {/* Encabezado */}
-                <label className="flex items-center justify-between p-2 rounded-lg hover:bg-parchment dark:hover:bg-darkbg cursor-pointer transition-colors">
-                  <div>
-                    <span className="font-semibold text-jetcarbon dark:text-gray-200 block">Encabezado ornamental</span>
-                    <span className="text-[10px] text-jetcarbon-muted dark:text-gray-400">Título superior y divisor geométrico</span>
-                  </div>
+                <label className="flex items-center justify-between p-2 rounded-lg hover:bg-parchment/60 dark:hover:bg-darkbg cursor-pointer transition-colors">
+                  <span className="font-medium text-jetcarbon dark:text-gray-200">
+                    Título y encabezado
+                  </span>
                   <input
                     type="checkbox"
                     checked={config.showHeader}
@@ -265,11 +262,10 @@ export const PdfStudioModal: React.FC<PdfStudioModalProps> = ({
                 </label>
 
                 {/* Pie de página */}
-                <label className="flex items-center justify-between p-2 rounded-lg hover:bg-parchment dark:hover:bg-darkbg cursor-pointer transition-colors">
-                  <div>
-                    <span className="font-semibold text-jetcarbon dark:text-gray-200 block">Pie de página</span>
-                    <span className="text-[10px] text-jetcarbon-muted dark:text-gray-400">Numeración de páginas y divisor</span>
-                  </div>
+                <label className="flex items-center justify-between p-2 rounded-lg hover:bg-parchment/60 dark:hover:bg-darkbg cursor-pointer transition-colors">
+                  <span className="font-medium text-jetcarbon dark:text-gray-200">
+                    Número de página
+                  </span>
                   <input
                     type="checkbox"
                     checked={config.showFooter}
@@ -281,17 +277,9 @@ export const PdfStudioModal: React.FC<PdfStudioModalProps> = ({
                 {/* Acordes Musicales */}
                 <div className="p-2 rounded-lg bg-golden/5 border border-golden/20 space-y-2">
                   <label className="flex items-center justify-between cursor-pointer">
-                    <div className="flex items-center gap-1.5">
-                      <Music size={14} className="text-golden" />
-                      <div>
-                        <span className="font-semibold text-jetcarbon dark:text-gray-200 block">Acordes Musicales</span>
-                        <span className="text-[10px] text-jetcarbon-muted dark:text-gray-400">
-                          {hasStoredChords
-                            ? 'Incluir notas flotantes sobre las sílabas'
-                            : 'Sin acordes registrados para esta alabanza'}
-                        </span>
-                      </div>
-                    </div>
+                    <span className="font-medium text-jetcarbon dark:text-gray-200">
+                      Acordes musicales
+                    </span>
                     <input
                       type="checkbox"
                       disabled={!hasStoredChords}
@@ -301,13 +289,15 @@ export const PdfStudioModal: React.FC<PdfStudioModalProps> = ({
                     />
                   </label>
 
-                  {hasStoredChords && config.showChords && (
-                    <div className="pt-2 border-t border-golden/15 flex items-center justify-between gap-2">
-                      <span className="text-[10px] text-jetcarbon-muted dark:text-gray-400 uppercase font-semibold">Notación:</span>
+                  {hasStoredChords && config.showChords ? (
+                    <div className="pt-1.5 border-t border-golden/15 flex items-center justify-between gap-2">
+                      <span className="text-[10px] text-jetcarbon-muted dark:text-gray-400 uppercase font-semibold">
+                        Notación:
+                      </span>
                       <div className="flex gap-1">
                         <button
                           onClick={() => setConfig(prev => ({ ...prev, chordNotation: 'latin' }))}
-                          className={`px-2 py-0.5 rounded text-[10px] font-bold ${
+                          className={`px-2 py-0.5 rounded text-[10px] font-bold transition-colors ${
                             config.chordNotation === 'latin'
                               ? 'bg-golden text-white'
                               : 'bg-white dark:bg-darkcard text-jetcarbon dark:text-gray-300 border border-golden/30'
@@ -317,7 +307,7 @@ export const PdfStudioModal: React.FC<PdfStudioModalProps> = ({
                         </button>
                         <button
                           onClick={() => setConfig(prev => ({ ...prev, chordNotation: 'anglo' }))}
-                          className={`px-2 py-0.5 rounded text-[10px] font-bold ${
+                          className={`px-2 py-0.5 rounded text-[10px] font-bold transition-colors ${
                             config.chordNotation === 'anglo'
                               ? 'bg-golden text-white'
                               : 'bg-white dark:bg-darkcard text-jetcarbon dark:text-gray-300 border border-golden/30'
@@ -327,38 +317,38 @@ export const PdfStudioModal: React.FC<PdfStudioModalProps> = ({
                         </button>
                       </div>
                     </div>
-                  )}
+                  ) : !hasStoredChords ? (
+                    <span className="text-[10px] text-jetcarbon-muted dark:text-gray-400 block italic">
+                      Sin acordes guardados para este himno
+                    </span>
+                  ) : null}
                 </div>
               </div>
             </div>
 
-            {/* 4. Editor Libre de Texto */}
-            <div className="bg-white dark:bg-darkcard border border-parchment-border dark:border-jetcarbon-border p-3.5 rounded-xl shadow-2xs space-y-2">
+            {/* 4. Letra Editable */}
+            <div className="bg-white dark:bg-darkcard border border-parchment-border dark:border-jetcarbon-border p-3 rounded-xl shadow-2xs space-y-2">
               <div className="flex items-center justify-between">
-                <label className="text-xs font-bold uppercase tracking-wider text-jetcarbon-muted dark:text-gray-400 flex items-center gap-1.5">
-                  <FileText size={14} className="text-golden" />
-                  <span>Editor de Texto de Alabanza</span>
-                </label>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-jetcarbon-muted dark:text-gray-400">
+                  Letra (editable)
+                </span>
                 {isContentModified && (
                   <button
                     onClick={handleResetContent}
                     className="text-[11px] font-semibold text-golden hover:underline flex items-center gap-1"
                     title="Restaurar letra original"
                   >
-                    <RotateCcw size={12} />
+                    <RotateCcw size={11} />
                     Restaurar original
                   </button>
                 )}
               </div>
-              <p className="text-[11px] text-jetcarbon-muted dark:text-gray-400">
-                Puedes agregar saltos de línea (Enter), borrar estrofas o corregir palabras antes de imprimir.
-              </p>
               <textarea
                 value={config.content}
                 onChange={e => setConfig(prev => ({ ...prev, content: e.target.value }))}
                 rows={9}
                 className="w-full p-2.5 rounded-lg border border-parchment-border dark:border-jetcarbon-border bg-parchment/30 dark:bg-darkbg text-jetcarbon dark:text-gray-100 text-xs font-mono leading-relaxed focus:outline-none focus:border-golden resize-y"
-                placeholder="Escribe o edita el texto aquí..."
+                placeholder="Edita la letra aquí..."
               />
             </div>
 
@@ -366,19 +356,16 @@ export const PdfStudioModal: React.FC<PdfStudioModalProps> = ({
 
           {/* Columna Derecha: Vista Previa Fiel en Vivo */}
           <div
-            className={`flex-1 p-4 sm:p-6 overflow-y-auto bg-neutral-100/90 dark:bg-black/30 flex flex-col items-center ${
+            className={`flex-1 p-4 sm:p-6 overflow-y-auto bg-neutral-100/90 dark:bg-black/40 flex flex-col items-center ${
               activeMobileTab === 'editor' ? 'hidden lg:flex' : 'flex'
             }`}
           >
             <div className="w-full max-w-[560px] flex items-center justify-between mb-3 text-xs">
-              <div className="flex items-center gap-2">
-                <span className="font-bold text-jetcarbon dark:text-gray-200">Previsualización Fiel</span>
-                <span className="px-2 py-0.5 rounded-full bg-white dark:bg-darkcard border border-parchment-border dark:border-jetcarbon-border text-[11px] font-semibold text-jetcarbon-muted dark:text-gray-300">
-                  {pages.length} {pages.length === 1 ? 'Página generada' : 'Páginas generadas'}
-                </span>
-              </div>
-              <span className="text-[11px] text-jetcarbon-muted dark:text-gray-400 hidden sm:inline">
-                Se actualiza en tiempo real
+              <span className="font-bold text-jetcarbon dark:text-gray-200">
+                Vista previa
+              </span>
+              <span className="px-2 py-0.5 rounded-full bg-white dark:bg-darkcard border border-parchment-border dark:border-jetcarbon-border text-[11px] font-semibold text-jetcarbon-muted dark:text-gray-300">
+                {pages.length} {pages.length === 1 ? 'página' : 'páginas'}
               </span>
             </div>
 
@@ -396,12 +383,10 @@ export const PdfStudioModal: React.FC<PdfStudioModalProps> = ({
 
         </div>
 
-        {/* Barra Inferior Footer con Botones de Acción */}
+        {/* Barra Inferior Footer */}
         <footer className="px-5 py-3 border-t border-parchment-border dark:border-jetcarbon-border bg-white dark:bg-darkbg flex items-center justify-between shrink-0">
-          <div className="text-xs text-jetcarbon-muted dark:text-gray-400 flex items-center gap-2">
-            <span>Total: <strong>{pages.length}</strong> {pages.length === 1 ? 'hoja A4' : 'hojas A4'}</span>
-            <span className="hidden sm:inline">•</span>
-            <span className="hidden sm:inline">Tipografía: <strong className="capitalize">{config.typography}</strong> ({config.fontSize}pt)</span>
+          <div className="text-xs text-jetcarbon-muted dark:text-gray-400">
+            <span>{pages.length} {pages.length === 1 ? 'hoja A4' : 'hojas A4'} • {config.fontSize} pt</span>
           </div>
 
           <div className="flex items-center gap-2">
@@ -418,12 +403,12 @@ export const PdfStudioModal: React.FC<PdfStudioModalProps> = ({
             >
               {downloadSuccess ? (
                 <>
-                  <Check size={16} />
+                  <Check size={15} />
                   <span>¡PDF Guardado!</span>
                 </>
               ) : (
                 <>
-                  <Download size={16} />
+                  <Download size={15} />
                   <span>{isGenerating ? 'Generando...' : 'Descargar PDF'}</span>
                 </>
               )}
