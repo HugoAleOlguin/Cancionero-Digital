@@ -8,16 +8,19 @@ import { HymnCard } from './components/HymnCard';
 import { AppDrawer } from './components/AppDrawer';
 import { ShareModal } from './components/ShareModal';
 import { PdfStudioModal } from './components/PdfStudioModal';
+import { YouTubeLinksModal } from './components/YouTubeLinksModal';
 import { InstrumentCompanionPanel } from './components/InstrumentCompanionPanel';
 import { Toast } from './components/Toast';
 import { ArrowUp, BookX, Star } from 'lucide-react';
 import { ChordNotationType } from './util/chordNotation';
+import { filterHymnsWithYouTube } from './utils/youtubeLinks';
 
 export function App() {
   const [catalog, setCatalog] = useState<HymnCatalog | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [query, setQuery] = useState<string>('');
   const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
+  const [isYouTubeModalOpen, setIsYouTubeModalOpen] = useState<boolean>(false);
   const [showOnlyFavorites, setShowOnlyFavorites] = useState<boolean>(false);
   const [selectedAuthor, setSelectedAuthor] = useState<string | null>(null);
   const [currentMatchIndex, setCurrentMatchIndex] = useState<number>(0);
@@ -143,6 +146,12 @@ export function App() {
   const searchables = useMemo(() => {
     if (!catalog?.hymns) return [];
     return createSearchableHymns(catalog.hymns);
+  }, [catalog]);
+
+  // Alabanzas con enlace de YouTube
+  const youtubeHymns = useMemo(() => {
+    if (!catalog?.hymns) return [];
+    return filterHymnsWithYouTube(catalog.hymns);
   }, [catalog]);
 
   // Deep linking or restoring last read position on initial load
@@ -429,6 +438,8 @@ export function App() {
         catalogVersion={catalog?.version || 1}
         chordNotation={chordNotation}
         onChangeChordNotation={setChordNotation}
+        youtubeHymnsCount={youtubeHymns.length}
+        onOpenYouTubeLinks={() => setIsYouTubeModalOpen(true)}
       />
 
       {/* Share & PDF Export Modal */}
@@ -447,6 +458,14 @@ export function App() {
         hymn={pdfStudioHymn?.hymn || null}
         activeVersionIndex={pdfStudioHymn?.versionIndex || 0}
         initialChordNotation={chordNotation}
+      />
+
+      {/* Modal de Alabanzas con Enlace de YouTube */}
+      <YouTubeLinksModal
+        isOpen={isYouTubeModalOpen}
+        onClose={() => setIsYouTubeModalOpen(false)}
+        hymns={youtubeHymns}
+        onNotify={showToast}
       />
 
       {/* Notificación Toast Flotante */}

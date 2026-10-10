@@ -21,6 +21,8 @@ interface AppDrawerProps {
   catalogVersion: number;
   chordNotation: ChordNotationType;
   onChangeChordNotation: (n: ChordNotationType) => void;
+  youtubeHymnsCount: number;
+  onOpenYouTubeLinks: () => void;
 }
 
 export const AppDrawer: React.FC<AppDrawerProps> = ({
@@ -41,7 +43,9 @@ export const AppDrawer: React.FC<AppDrawerProps> = ({
   onToggleTheme,
   catalogVersion,
   chordNotation,
-  onChangeChordNotation
+  onChangeChordNotation,
+  youtubeHymnsCount,
+  onOpenYouTubeLinks
 }) => {
   if (!isOpen) return null;
 
@@ -120,6 +124,26 @@ export const AppDrawer: React.FC<AppDrawerProps> = ({
                   <span>Favoritos</span>
                 </div>
                 <span className="text-xs opacity-80">{favoritesCount}</span>
+              </button>
+
+              <button
+                onClick={() => {
+                  onOpenYouTubeLinks();
+                  onClose();
+                }}
+                className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all text-jetcarbon dark:text-gray-200 hover:bg-parchment dark:hover:bg-jetcarbon-light group"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-5 h-5 flex items-center justify-center text-red-600 group-hover:scale-110 transition-transform">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                  </div>
+                  <span>Alabanzas con YouTube</span>
+                </div>
+                <span className="text-xs opacity-80 px-2 py-0.5 rounded-full bg-red-600/10 text-red-600 dark:text-red-400 font-semibold">
+                  {youtubeHymnsCount}
+                </span>
               </button>
             </div>
           </section>
