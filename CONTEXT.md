@@ -152,5 +152,11 @@ La suite de pruebas unitarias cuenta con **60/60 tests aprobados en Vitest (100%
   - Botón "Quitar todos los filtros" en estado vacío y píldora rápida de salto a la última lectura en `SearchHeader.tsx`.
 - **Verificación:** 60/60 tests en Vitest (100%), 14/14 tests en Python (100%), catálogo íntegro validado (1,009 cantos) y `tsc && vite build` completado con 0 errores.
 - **Despliegue a Producción:** Push exitoso a `origin/main` (`commit 1c36f2b`), disparando el build y despliegue automático en Vercel (`https://cancionero-cristiano.vercel.app/`).
+- **Rediseño Docked & Rendimiento Instantáneo (`commit 9568bd1`):**
+  - Eliminados todos los modales oscuros con `backdrop-blur` en la navegación y acompañamiento.
+  - Arquitectura acoplada (Docked) de 3 columnas: Barra lateral izquierda, feed de alabanzas central auto-ajustable y panel de instrumentos derecho, utilizables simultáneamente con interactividad 100% activa.
+  - Cambio de tema instantáneo (0ms) con mutación síncrona en DOM, eliminación de transiciones lentas de color y `React.memo` en `HymnCard`.
+  - 62/62 pruebas unitarias en verde.
+
 
 
