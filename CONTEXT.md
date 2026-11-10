@@ -1,18 +1,14 @@
 # Contexto del proyecto - Cancionero Digital Android
 
 ## Última actualización
-2026-09-25 02:34
+2026-11-10 17:40
 
 ## Estado actual
-La aplicación cuenta con arquitectura **v3.0 Modular & Serverless ($0.00 Perpetuo)** con soporte **Multiversión integrado** (Room SQLite v3 con `versionsJson` y selector UI numérico minimalista `[ 1 ] [ 2 ] ...` sin alterar títulos), catálogo base pre-cargado offline en assets, enlaces multimedia directos a YouTube (`link`), sincronización inteligente en segundo plano sobre Wi-Fi con GitHub Raw, motor de búsqueda fuzzy Damerau-Levenshtein tolerante a errores tipográficos y de transposición de teclas, y un asistente CLI todo-en-uno para gestión de alabanzas con validación automática de duplicados.
+La aplicación web y PWA oficial (`https://cancionero-cristiano.vercel.app/`) ha sido actualizada y desplegada a producción con **Soporte PWA 100% Offline Real** (Service Worker nativo particionado en `cancionero-static`, `cancionero-data` y `cancionero-fonts`), accesibilidad visual WCAG 2.2 (zoom móvil desbloqueado), navegación completa por teclado con tecla `Escape` y atributos WAI-ARIA en todos los modales y el cajón lateral, previsualizador interactivo de fuentes en tiempo real, panel de instrumentos convertido en slide-over bajo demanda, persistencia segura centralizada con `storage.ts` y botón de desatasco en estado vacío ("Quitar todos los filtros"). 
 
-MainActivity se redujo de **2,135 líneas monolíticas a 44 líneas limpias**. Todos los componentes de UI, pantallas, ViewModels y algoritmos de búsqueda se encuentran modularizados y desacoplados.
+Se corrigieron además 4 bombas de tiempo críticas en el backend de herramientas (aislamiento estricto de pruebas en Python sin tocar el catálogo web de 1,009 alabanzas), orden de hooks de React en `PdfStudioModal`, asincronía y desconexión de nodos en Web Audio API, y partición ordenada de estrofas en el generador de PDF.
 
-El catálogo base ha superado el hito histórico de las **1,000 alabanzas**, ubicándose en la **Versión 7 (1,009 alabanzas activas)**:
-- **1,009 alabanzas únicas e íntegras** (Catálogo v7).
-- **87 alabanzas con multiversión conmutable** (`extraVersions` / `versionsJson`) con botones numéricos `[ 1 ] [ 2 ] ...`.
-- **Integración del cantautor Polo Negrete**: 2 alabanzas existentes enriquecidas (#312 'Mi Dios es Real' y #852 'Hijo no Temas') y 17 canciones nuevas incorporadas (#993 al #1009), todas con sus enlaces oficiales a YouTube verificados.
-- **Pre-población offline de fábrica actualizada** en `app/src/main/assets/catalog.json` con las 1,009 alabanzas.
+La suite de pruebas unitarias cuenta con **60/60 tests aprobados en Vitest (100%)** y **14/14 tests aprobados en Python (100%)**.
 
 ## Decisiones técnicas
 1. **Sincronización Serverless sin costo ($0.00)**: Se utiliza GitHub Raw como CDN estático para la sincronización de catálogos (`data/catalog.json` y `data/catalog_version.json`), eliminando la necesidad de servidores dedicados de pago (Firebase/Supabase) y evitando la necesidad de compilar un nuevo APK por cada nueva alabanza agregada.
@@ -134,4 +130,27 @@ El catálogo base ha superado el hito histórico de las **1,000 alabanzas**, ubi
   - Notación lírica alineada (`HymnLyricsWithChords.tsx`): en modo lectura el texto es fluido y las notas flotan sobre la sílaba; al tocarlas suenan.
   - Barra de herramientas en `HymnCard.tsx`: activación/desactivación de acordes, selector de tono base, transporte armónico (+1 / -1 semitono) y persistencia offline en `localStorage`.
 - Suite de pruebas de Vitest: 35 pruebas unitarias pasando en verde (100% éxito) y compilación `vite build` en producción limpia.
+
+### Sesión 2026-11-10 (Auditoría Forense, Accesibilidad WCAG, PWA Offline y Despliegue)
+
+**Completado:**
+- Diagnóstico forense exhaustivo mediante OpenAI Codex persistido en `web_forensic_audit.md`.
+- Despliegue de 5 subagentes especializados para resolución en paralelo de todas las prioridades (P0, P1, P2, P3).
+- **P0 Resuelto:** Erradicada la violación de reglas de hooks de React en `PdfStudioModal.tsx`.
+- **P1-A Resuelto:** Reanudación asíncrona de `AudioContext` en móviles (`await audioCtx.resume()`), desconexión explícita de nodos en `onended` y validación estricta de trastes.
+- **P1-B Resuelto:** Unificación y migración completa de `web/src/util/` a `web/src/utils/`, eliminando la carpeta redundante y actualizando todos los imports.
+- **P1-C Resuelto:** Aislamiento total de pruebas de Python en `tools/test_manage_hymns.py` y soporte de rutas opcionales en `tools/manage_hymns.py`, protegiendo el catálogo de producción de sobreescrituras accidentales.
+- **P2-B Resuelto:** Partición ordenada de estrofas (`fitCount`) y estimación dinámica de altura de títulos en `pdfGenerator.ts`, unificando métricas con `PdfPagePreview.tsx`.
+- **P2-C & P3-A Resueltos:** Scroll de alta velocidad con `IntersectionObserver` O(1) en `App.tsx` y creación de `web/src/utils/storage.ts` para persistencia tipada con protección contra cuota excedida.
+- **Accesibilidad y QoL (Auditoría de Usabilidad):**
+  - Desbloqueo de zoom móvil en `web/index.html` (WCAG 2.2).
+  - Atajo de cierre con tecla `Escape` y WAI-ARIA en todos los modales y el menú lateral.
+  - Creación de Service Worker nativo en `web/public/sw.js` registrado en `main.tsx` para soporte PWA 100% Offline Real.
+  - Eliminación de botones redundantes de copiado en `HymnCard.tsx`.
+  - Panel instrumental transformado en slide-over bajo demanda con backdrop flotante.
+  - Previsualizador interactivo de fuentes en tiempo real dentro de `AppDrawer.tsx`.
+  - Botón "Quitar todos los filtros" en estado vacío y píldora rápida de salto a la última lectura en `SearchHeader.tsx`.
+- **Verificación:** 60/60 tests en Vitest (100%), 14/14 tests en Python (100%), catálogo íntegro validado (1,009 cantos) y `tsc && vite build` completado con 0 errores.
+- **Despliegue a Producción:** Push exitoso a `origin/main` (`commit 1c36f2b`), disparando el build y despliegue automático en Vercel (`https://cancionero-cristiano.vercel.app/`).
+
 
