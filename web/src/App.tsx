@@ -30,6 +30,50 @@ export function App() {
   const [pdfStudioHymn, setPdfStudioHymn] = useState<{ hymn: Hymn; versionIndex: number } | null>(null);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const showToast = useCallback((msg: string) => setToastMessage(msg), []);
+
+  const handleOpenShare = useCallback((hymn: Hymn, versionIndex: number) => {
+    setSharingHymn({ hymn, versionIndex });
+  }, []);
+
+  const handleCloseShare = useCallback(() => {
+    setSharingHymn(null);
+  }, []);
+
+  const handleOpenPdfStudio = useCallback((hymn: Hymn, versionIndex: number) => {
+    setPdfStudioHymn({ hymn, versionIndex });
+  }, []);
+
+  const handleClosePdfStudio = useCallback(() => {
+    setPdfStudioHymn(null);
+  }, []);
+
+  const handleOpenYouTubeModal = useCallback(() => {
+    setIsYouTubeModalOpen(true);
+  }, []);
+
+  const handleCloseYouTubeModal = useCallback(() => {
+    setIsYouTubeModalOpen(false);
+  }, []);
+
+  const handleCloseDrawer = useCallback(() => {
+    setIsDrawerOpen(false);
+  }, []);
+
+  const handleToggleDrawer = useCallback(() => {
+    setIsDrawerOpen(prev => !prev);
+  }, []);
+
+  const handleCloseUkulele = useCallback(() => {
+    setIsUkuleleOpen(false);
+  }, []);
+
+  const handleToggleUkulele = useCallback(() => {
+    setIsUkuleleOpen(prev => !prev);
+  }, []);
+
+  const handleToggleFavoritesFilter = useCallback(() => {
+    setShowOnlyFavorites(prev => !prev);
+  }, []);
   const [chordNotation, setChordNotation] = useState<ChordNotationType>(() => {
     const stored = safeGetItem<ChordNotationType>('cancionero_chord_notation', 'latin');
     return stored === 'latin' || stored === 'anglo' ? stored : 'latin';
@@ -53,6 +97,9 @@ export function App() {
   }, [chordNotation]);
 
   const { favorites, toggleFavorite, isFavorite, favoritesCount } = useFavorites();
+  const handleToggleFavorite = useCallback((id: number) => {
+    toggleFavorite(id);
+  }, [toggleFavorite]);
   const { theme, toggleTheme, typography, setTypography, fontSize, setFontSize } = useSettings();
 
   // Load catalog on start with offline fallback
@@ -352,7 +399,7 @@ export function App() {
   }, [lastReadHymnId, searchables, visibleLimit, showToast]);
 
   return (
-    <div className="min-h-screen bg-parchment dark:bg-darkbg text-jetcarbon dark:text-gray-100 flex flex-col font-sans transition-colors duration-200">
+    <div className="min-h-screen bg-parchment dark:bg-darkbg text-jetcarbon dark:text-gray-100 flex flex-col font-sans">
       {/* Sticky Navigation & Search Header */}
       <SearchHeader
         query={query}
@@ -362,18 +409,46 @@ export function App() {
         currentMatchIndex={currentMatchIndex}
         onNextMatch={handleNextMatch}
         onPrevMatch={handlePrevMatch}
-        onOpenDrawer={() => setIsDrawerOpen(true)}
+        onOpenDrawer={handleToggleDrawer}
+        isDrawerOpen={isDrawerOpen}
         theme={theme}
         onToggleTheme={toggleTheme}
         isUkuleleOpen={isUkuleleOpen}
-        onToggleUkulele={() => setIsUkuleleOpen(prev => !prev)}
+        onToggleUkulele={handleToggleUkulele}
         lastReadId={lastReadHymnId}
         onJumpToLastRead={handleJumpToLastRead}
       />
 
-      {/* Central Area: Feed + Desktop Ukulele Companion */}
-      <div className="flex-1 flex max-w-7xl w-full mx-auto justify-center">
-        <main className="flex-1 max-w-4xl w-full px-4 py-6 min-w-0">
+      {/* Central Area: Clean 3-Column Docked Layout */}
+      <div className="flex-1 flex w-full max-w-[1600px] mx-auto justify-center items-start min-h-[calc(100vh-4rem)]">
+        {/* Barra Lateral Izquierda (si isDrawerOpen) */}
+        {isDrawerOpen && (
+          <AppDrawer
+            isOpen={isDrawerOpen}
+            onClose={handleCloseDrawer}
+            totalHymns={searchables.length}
+            favoritesCount={favoritesCount}
+            showOnlyFavorites={showOnlyFavorites}
+            onToggleFavoritesFilter={handleToggleFavoritesFilter}
+            selectedAuthor={selectedAuthor}
+            onSelectAuthor={setSelectedAuthor}
+            authors={authorsList}
+            typography={typography}
+            onChangeTypography={setTypography}
+            fontSize={fontSize}
+            onChangeFontSize={setFontSize}
+            theme={theme}
+            onToggleTheme={toggleTheme}
+            catalogVersion={catalog?.version || 1}
+            chordNotation={chordNotation}
+            onChangeChordNotation={setChordNotation}
+            youtubeHymnsCount={youtubeHymns.length}
+            onOpenYouTubeLinks={handleOpenYouTubeModal}
+          />
+        )}
+
+        {/* Feed Central de Alabanzas (flex-1) */}
+        <main className="flex-1 max-w-4xl w-full px-4 sm:px-6 py-6 min-w-0">
         {/* Active Filters Badges */}
         {(selectedAuthor || showOnlyFavorites) && (
           <div className="flex items-center gap-2 mb-6 flex-wrap">
@@ -451,9 +526,9 @@ export function App() {
                 hymn={item.hymn}
                 query={query}
                 isFavorite={isFavorite(item.hymn.id)}
-                onToggleFavorite={toggleFavorite}
-                onOpenShare={(hymn, vIdx) => setSharingHymn({ hymn, versionIndex: vIdx })}
-                onOpenPdfStudio={(hymn, vIdx) => setPdfStudioHymn({ hymn, versionIndex: vIdx })}
+                onToggleFavorite={handleToggleFavorite}
+                onOpenShare={handleOpenShare}
+                onOpenPdfStudio={handleOpenPdfStudio}
                 onNotify={showToast}
                 typography={typography}
                 fontSize={fontSize}
@@ -474,6 +549,14 @@ export function App() {
           </div>
         )}
         </main>
+
+        {/* Panel de Instrumentos Derecho (si isUkuleleOpen) */}
+        {isUkuleleOpen && (
+          <InstrumentCompanionPanel
+            isOpen={isUkuleleOpen}
+            onClose={handleCloseUkulele}
+          />
+        )}
       </div>
 
       {/* Floating Back to Top Button */}
@@ -481,49 +564,25 @@ export function App() {
         <button
           onClick={scrollToTop}
           title="Volver arriba"
-          className="fixed bottom-6 right-6 p-3.5 rounded-full bg-golden text-white shadow-xl hover:bg-golden-dark transition-all transform hover:scale-105 z-40 active:scale-95"
+          className={`fixed bottom-6 ${isUkuleleOpen ? 'right-6 md:right-88 lg:right-104' : 'right-6'} p-3.5 rounded-full bg-golden text-white shadow-xl hover:bg-golden-dark transition-all transform hover:scale-105 z-30 active:scale-95`}
         >
           <ArrowUp size={22} />
         </button>
       )}
 
-      {/* Slide-out Settings & Filters Drawer */}
-      <AppDrawer
-        isOpen={isDrawerOpen}
-        onClose={() => setIsDrawerOpen(false)}
-        totalHymns={searchables.length}
-        favoritesCount={favoritesCount}
-        showOnlyFavorites={showOnlyFavorites}
-        onToggleFavoritesFilter={() => setShowOnlyFavorites(prev => !prev)}
-        selectedAuthor={selectedAuthor}
-        onSelectAuthor={setSelectedAuthor}
-        authors={authorsList}
-        typography={typography}
-        onChangeTypography={setTypography}
-        fontSize={fontSize}
-        onChangeFontSize={setFontSize}
-        theme={theme}
-        onToggleTheme={toggleTheme}
-        catalogVersion={catalog?.version || 1}
-        chordNotation={chordNotation}
-        onChangeChordNotation={setChordNotation}
-        youtubeHymnsCount={youtubeHymns.length}
-        onOpenYouTubeLinks={() => setIsYouTubeModalOpen(true)}
-      />
-
       {/* Share & PDF Export Modal */}
       <ShareModal
         isOpen={!!sharingHymn}
-        onClose={() => setSharingHymn(null)}
+        onClose={handleCloseShare}
         hymn={sharingHymn?.hymn || null}
         activeVersionIndex={sharingHymn?.versionIndex || 0}
-        onOpenPdfStudio={(hymn, vIdx) => setPdfStudioHymn({ hymn, versionIndex: vIdx })}
+        onOpenPdfStudio={handleOpenPdfStudio}
       />
 
       {/* Estudio Interactivo de Edición e Impresión PDF */}
       <PdfStudioModal
         isOpen={!!pdfStudioHymn}
-        onClose={() => setPdfStudioHymn(null)}
+        onClose={handleClosePdfStudio}
         hymn={pdfStudioHymn?.hymn || null}
         activeVersionIndex={pdfStudioHymn?.versionIndex || 0}
         initialChordNotation={chordNotation}
@@ -532,15 +591,9 @@ export function App() {
       {/* Modal de Alabanzas con Enlace de YouTube */}
       <YouTubeLinksModal
         isOpen={isYouTubeModalOpen}
-        onClose={() => setIsYouTubeModalOpen(false)}
+        onClose={handleCloseYouTubeModal}
         hymns={youtubeHymns}
         onNotify={showToast}
-      />
-
-      {/* Slide-Over / Companion de Instrumentos Flotante Global */}
-      <InstrumentCompanionPanel
-        isOpen={isUkuleleOpen}
-        onClose={() => setIsUkuleleOpen(false)}
       />
 
       {/* Notificación Toast Flotante */}

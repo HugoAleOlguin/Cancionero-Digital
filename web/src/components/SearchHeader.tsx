@@ -11,6 +11,7 @@ interface SearchHeaderProps {
   onNextMatch: () => void;
   onPrevMatch: () => void;
   onOpenDrawer: () => void;
+  isDrawerOpen?: boolean;
   theme: ThemeMode;
   onToggleTheme: () => void;
   isUkuleleOpen?: boolean;
@@ -28,6 +29,7 @@ export const SearchHeader: React.FC<SearchHeaderProps> = ({
   onNextMatch,
   onPrevMatch,
   onOpenDrawer,
+  isDrawerOpen = false,
   theme,
   onToggleTheme,
   isUkuleleOpen,
@@ -45,14 +47,19 @@ export const SearchHeader: React.FC<SearchHeaderProps> = ({
   };
 
   return (
-    <header className="sticky top-0 z-30 bg-parchment/90 dark:bg-darkbg/90 backdrop-blur-md border-b border-parchment-border dark:border-jetcarbon-border transition-colors">
-      <div className="max-w-4xl mx-auto px-4 py-3 flex items-center gap-3">
+    <header className="sticky top-0 z-30 bg-parchment/90 dark:bg-darkbg/90 backdrop-blur-md border-b border-parchment-border dark:border-jetcarbon-border">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 py-3 flex items-center gap-3">
         {/* Drawer button */}
         <button
           onClick={onOpenDrawer}
-          title="Abrir menú"
-          aria-label="Abrir menú lateral de navegación y filtros"
-          className="p-2.5 rounded-xl text-jetcarbon dark:text-gray-200 hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
+          title={isDrawerOpen ? 'Cerrar menú' : 'Abrir menú'}
+          aria-label={isDrawerOpen ? 'Cerrar menú lateral' : 'Abrir menú lateral de navegación y filtros'}
+          aria-pressed={isDrawerOpen}
+          className={`p-2.5 rounded-xl transition-colors ${
+            isDrawerOpen
+              ? 'bg-golden/15 text-golden-dark dark:text-golden border border-golden/40'
+              : 'text-jetcarbon dark:text-gray-200 hover:bg-black/5 dark:hover:bg-white/10'
+          }`}
         >
           <Menu size={22} />
         </button>
@@ -125,21 +132,21 @@ export const SearchHeader: React.FC<SearchHeaderProps> = ({
           </div>
         )}
 
-        {/* Desktop Instrument Button */}
+        {/* Instrument Button */}
         {onToggleUkulele && (
           <button
             onClick={onToggleUkulele}
             title={isUkuleleOpen ? 'Ocultar guía de instrumentos' : 'Mostrar guía de instrumentos'}
             aria-label={isUkuleleOpen ? 'Ocultar panel de acordes de instrumento' : 'Mostrar panel de acordes de instrumento'}
             aria-pressed={isUkuleleOpen}
-            className={`hidden lg:flex items-center gap-1.5 px-3 py-2 rounded-xl border text-xs font-bold transition-all ${
+            className={`flex items-center gap-1.5 p-2 sm:px-3 sm:py-2 rounded-xl border text-xs font-bold transition-all ${
               isUkuleleOpen
                 ? 'bg-golden/15 border-golden text-golden-dark dark:text-golden'
                 : 'border-parchment-border dark:border-jetcarbon-border text-jetcarbon-muted hover:text-jetcarbon dark:text-gray-300 hover:bg-black/5 dark:hover:bg-white/5'
             }`}
           >
             <Music2 size={16} />
-            <span>Instrumento</span>
+            <span className="hidden sm:inline">Instrumento</span>
           </button>
         )}
 

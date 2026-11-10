@@ -6,14 +6,28 @@ const THEME_KEY = 'cancionero_theme';
 const TYPO_KEY = 'cancionero_typography';
 const FONT_SIZE_KEY = 'cancionero_font_size';
 
+function applyThemeSync(next: ThemeMode) {
+  if (typeof document !== 'undefined') {
+    const root = document.documentElement;
+    if (next === 'dark') {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
+  }
+  safeSetItem(THEME_KEY, next);
+}
+
 export function useSettings() {
-  const [theme, setTheme] = useState<ThemeMode>(() => {
+  const [theme, setThemeState] = useState<ThemeMode>(() => {
     const systemDefault: ThemeMode =
       typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches
         ? 'dark'
         : 'light';
     const stored = safeGetItem<ThemeMode>(THEME_KEY, systemDefault);
-    return stored === 'light' || stored === 'dark' ? stored : systemDefault;
+    const initial = stored === 'light' || stored === 'dark' ? stored : systemDefault;
+    applyThemeSync(initial);
+    return initial;
   });
 
   const [typography, setTypography] = useState<TypographyType>(() => {
@@ -29,13 +43,7 @@ export function useSettings() {
   });
 
   useEffect(() => {
-    const root = document.documentElement;
-    if (theme === 'dark') {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
-    }
-    safeSetItem(THEME_KEY, theme);
+    applyThemeSync(theme);
   }, [theme]);
 
   useEffect(() => {
@@ -46,7 +54,17 @@ export function useSettings() {
     safeSetItem(FONT_SIZE_KEY, fontSize);
   }, [fontSize]);
 
-  const toggleTheme = () => setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
+  const setTheme = (action: ThemeMode | ((prev: ThemeMode) => ThemeMode)) => {
+    const next = typeof action === 'function' ? action(theme) : action;
+    applyThemeSync(next);
+    setThemeState(next);
+  };
+
+  const toggleTheme = () => {
+    const next: ThemeMode = theme === 'light' ? 'dark' : 'light';
+    applyThemeSync(next);
+    setThemeState(next);
+  };
 
   return {
     theme,

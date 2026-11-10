@@ -45,7 +45,7 @@ interface HymnCardProps {
   chordNotation?: ChordNotationType;
 }
 
-export const HymnCard: React.FC<HymnCardProps> = ({
+export const HymnCard = React.memo<HymnCardProps>(({
   hymn,
   query,
   isFavorite,
@@ -378,4 +378,6 @@ export const HymnCard: React.FC<HymnCardProps> = ({
       </div>
     </article>
   );
-};
+});
+
+HymnCard.displayName = 'HymnCard';

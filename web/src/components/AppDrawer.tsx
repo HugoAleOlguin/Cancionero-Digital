@@ -63,6 +63,30 @@ export const AppDrawer: React.FC<AppDrawerProps> = ({
 
   if (!isOpen) return null;
 
+  const isMobile = () => typeof window !== 'undefined' && window.innerWidth < 768;
+
+  const handleSelectAll = () => {
+    if (showOnlyFavorites) onToggleFavoritesFilter();
+    onSelectAuthor(null);
+    if (isMobile()) onClose();
+  };
+
+  const handleSelectFavorites = () => {
+    if (!showOnlyFavorites) onToggleFavoritesFilter();
+    onSelectAuthor(null);
+    if (isMobile()) onClose();
+  };
+
+  const handleSelectYouTube = () => {
+    onOpenYouTubeLinks();
+    if (isMobile()) onClose();
+  };
+
+  const handleSelectAuthor = (authorName: string) => {
+    onSelectAuthor(selectedAuthor === authorName ? null : authorName);
+    if (isMobile()) onClose();
+  };
+
   const fontClass = {
     serif: 'font-serif',
     sans: 'font-sans',
@@ -70,23 +94,22 @@ export const AppDrawer: React.FC<AppDrawerProps> = ({
   }[typography];
 
   return (
-    <div className="fixed inset-0 z-50 overflow-hidden">
-      {/* Backdrop */}
+    <>
+      {/* Backdrop solo en móviles para cerrar al pulsar fuera, limpio y sin blur */}
       <div
-        className="absolute inset-0 bg-black/50 backdrop-blur-xs transition-opacity"
+        className="md:hidden fixed inset-0 bg-black/30 z-30 transition-opacity"
         onClick={onClose}
         aria-hidden="true"
       />
 
-      {/* Drawer Panel */}
+      {/* Drawer Panel / Barra Lateral Acoplada */}
       <aside
-        role="dialog"
-        aria-modal="true"
+        role="complementary"
         aria-label="Menú principal y ajustes de lectura"
-        className="absolute inset-y-0 left-0 max-w-xs sm:max-w-sm w-full bg-parchment-paper dark:bg-darkcard shadow-2xl flex flex-col z-10 transition-transform transform duration-300 border-r border-parchment-border dark:border-jetcarbon-border"
+        className="w-72 sm:w-80 shrink-0 border-r border-parchment-border dark:border-jetcarbon-border bg-parchment-paper dark:bg-darkcard sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto flex flex-col z-20 max-md:fixed max-md:inset-y-0 max-md:left-0 max-md:z-40 max-md:shadow-2xl max-md:w-72 max-md:max-w-[85vw] max-md:h-full animate-in slide-in-from-left duration-200"
       >
         {/* Header */}
-        <div className="p-5 border-b border-parchment-border dark:border-jetcarbon-border flex items-center justify-between bg-white dark:bg-darkbg">
+        <div className="p-5 border-b border-parchment-border dark:border-jetcarbon-border flex items-center justify-between bg-white dark:bg-darkbg shrink-0">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-jetcarbon flex items-center justify-center border border-golden/40 shadow-sm">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -116,11 +139,7 @@ export const AppDrawer: React.FC<AppDrawerProps> = ({
             </h2>
             <div className="space-y-1">
               <button
-                onClick={() => {
-                  if (showOnlyFavorites) onToggleFavoritesFilter();
-                  onSelectAuthor(null);
-                  onClose();
-                }}
+                onClick={handleSelectAll}
                 className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all ${
                   !showOnlyFavorites && selectedAuthor === null
                     ? 'bg-golden text-white shadow-sm'
@@ -135,11 +154,7 @@ export const AppDrawer: React.FC<AppDrawerProps> = ({
               </button>
 
               <button
-                onClick={() => {
-                  if (!showOnlyFavorites) onToggleFavoritesFilter();
-                  onSelectAuthor(null);
-                  onClose();
-                }}
+                onClick={handleSelectFavorites}
                 className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all ${
                   showOnlyFavorites
                     ? 'bg-golden text-white shadow-sm'
@@ -154,10 +169,7 @@ export const AppDrawer: React.FC<AppDrawerProps> = ({
               </button>
 
               <button
-                onClick={() => {
-                  onOpenYouTubeLinks();
-                  onClose();
-                }}
+                onClick={handleSelectYouTube}
                 className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all text-jetcarbon dark:text-gray-200 hover:bg-parchment dark:hover:bg-jetcarbon-light group"
               >
                 <div className="flex items-center gap-3">
@@ -318,10 +330,7 @@ export const AppDrawer: React.FC<AppDrawerProps> = ({
                 {authors.map(({ name, count }) => (
                   <button
                     key={name}
-                    onClick={() => {
-                      onSelectAuthor(selectedAuthor === name ? null : name);
-                      onClose();
-                    }}
+                    onClick={() => handleSelectAuthor(name)}
                     className={`w-full flex items-center justify-between px-3 py-1.5 rounded-lg text-xs transition-colors ${
                       selectedAuthor === name
                         ? 'bg-golden/15 text-golden-dark dark:text-golden font-bold'
@@ -338,13 +347,13 @@ export const AppDrawer: React.FC<AppDrawerProps> = ({
         </div>
 
         {/* Footer */}
-        <div className="p-4 border-t border-parchment-border dark:border-jetcarbon-border text-center text-xs text-jetcarbon-muted dark:text-gray-400 bg-white/50 dark:bg-darkbg/50">
+        <div className="p-4 border-t border-parchment-border dark:border-jetcarbon-border text-center text-xs text-jetcarbon-muted dark:text-gray-400 bg-white/50 dark:bg-darkbg/50 shrink-0">
           <p className="flex items-center justify-center gap-1.5 font-medium">
             <span className="w-2 h-2 rounded-full bg-green-500 inline-block animate-pulse"></span>
             100% Offline • PWA Ready
           </p>
         </div>
       </aside>
-    </div>
+    </>
   );
 };

@@ -156,74 +156,72 @@ export const InstrumentCompanionPanel: React.FC<InstrumentCompanionPanelProps> =
   });
 
   return (
-    <div className="fixed inset-0 z-50 overflow-hidden">
-      {/* Backdrop suave con cierre al hacer clic */}
+    <>
+      {/* Backdrop solo en móviles para cerrar al tocar fuera, sin backdrop-blur */}
       <div
-        className="fixed inset-0 bg-black/40 backdrop-blur-xs transition-opacity duration-300 animate-in fade-in"
+        className="md:hidden fixed inset-0 bg-black/30 z-30 transition-opacity"
         onClick={onClose}
         aria-hidden="true"
       />
 
-      {/* Contenedor del Slide-over Drawer lateral desde la derecha */}
-      <div className="fixed inset-y-0 right-0 max-w-full flex pl-6 sm:pl-10 pointer-events-none">
-        <aside
-          role="dialog"
-          aria-modal="true"
-          aria-label="Acompañamiento Musical e Instrumentos"
-          className="pointer-events-auto w-screen max-w-sm sm:max-w-md xl:max-w-lg bg-parchment-paper dark:bg-darkcard border-l border-parchment-border dark:border-jetcarbon-border shadow-2xl flex flex-col h-full overflow-hidden transition-all duration-300 transform animate-in slide-in-from-right"
-        >
-          {/* Header del Panel */}
-          <div className="p-4 border-b border-parchment-border dark:border-jetcarbon-border bg-white dark:bg-darkbg">
-            <div className="flex items-center justify-between mb-3">
-              <div>
-                <h3 className="font-bold text-sm text-jetcarbon dark:text-gray-100 flex items-center gap-1.5">
-                  <Music size={15} className="text-golden" />
-                  <span>Acompañamiento Musical</span>
-                </h3>
-                <p className="text-[11px] text-jetcarbon-muted dark:text-gray-400">
-                  {isGuitar ? 'Guitarra • Afinación E-A-D-G-B-E' : 'Ukelele • Afinación G-C-E-A'}
-                </p>
-              </div>
-
-              <button
-                onClick={onClose}
-                aria-label="Cerrar panel de instrumentos"
-                title="Cerrar panel de instrumentos (Escape)"
-                className="p-2 rounded-xl text-jetcarbon-muted hover:text-jetcarbon dark:text-gray-400 dark:hover:text-white hover:bg-parchment dark:hover:bg-jetcarbon-light transition-colors"
-              >
-                <X size={18} />
-              </button>
+      {/* Panel acoplable / docked a la derecha sin bloquear clics ni desenfocar */}
+      <aside
+        role="complementary"
+        aria-label="Acompañamiento Musical e Instrumentos"
+        className="w-80 sm:w-96 shrink-0 border-l border-parchment-border dark:border-jetcarbon-border bg-parchment-paper dark:bg-darkcard sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto flex flex-col z-20 max-md:fixed max-md:inset-y-0 max-md:right-0 max-md:z-40 max-md:shadow-2xl max-md:w-80 max-md:max-w-[85vw] max-md:h-full animate-in slide-in-from-right duration-200"
+      >
+        {/* Header del Panel */}
+        <div className="p-4 border-b border-parchment-border dark:border-jetcarbon-border bg-white dark:bg-darkbg shrink-0">
+          <div className="flex items-center justify-between mb-3">
+            <div>
+              <h3 className="font-bold text-sm text-jetcarbon dark:text-gray-100 flex items-center gap-1.5">
+                <Music size={15} className="text-golden" />
+                <span>Acompañamiento Musical</span>
+              </h3>
+              <p className="text-[11px] text-jetcarbon-muted dark:text-gray-400">
+                {isGuitar ? 'Guitarra • Afinación E-A-D-G-B-E' : 'Ukelele • Afinación G-C-E-A'}
+              </p>
             </div>
 
-        {/* Conmutador Simple y Directo: Ukelele vs Guitarra */}
-        <div className="grid grid-cols-2 p-1 bg-parchment-border/40 dark:bg-darkbg/80 rounded-xl gap-1">
-          <button
-            onClick={() => handleInstrumentChange('ukulele')}
-            className={`flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-bold transition-all ${
-              instrument === 'ukulele'
-                ? 'bg-golden text-white shadow-xs'
-                : 'text-jetcarbon-muted dark:text-gray-400 hover:text-jetcarbon dark:hover:text-gray-200'
-            }`}
-          >
-            <UkuleleIcon size={16} />
-            <span>Ukelele</span>
-          </button>
-          <button
-            onClick={() => handleInstrumentChange('guitar')}
-            className={`flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-bold transition-all ${
-              instrument === 'guitar'
-                ? 'bg-golden text-white shadow-xs'
-                : 'text-jetcarbon-muted dark:text-gray-400 hover:text-jetcarbon dark:hover:text-gray-200'
-            }`}
-          >
-            <GuitarIcon size={16} />
-            <span>Guitarra</span>
-          </button>
-        </div>
-      </div>
+            <button
+              onClick={onClose}
+              aria-label="Cerrar panel de instrumentos"
+              title="Cerrar panel de instrumentos (Escape)"
+              className="p-2 rounded-xl text-jetcarbon-muted hover:text-jetcarbon dark:text-gray-400 dark:hover:text-white hover:bg-parchment dark:hover:bg-jetcarbon-light transition-colors"
+            >
+              <X size={18} />
+            </button>
+          </div>
 
-      {/* Tabs: Familia Armónica vs Diccionario Completo */}
-      <div className="flex border-b border-parchment-border dark:border-jetcarbon-border px-3 pt-2 bg-parchment/30 dark:bg-darkbg/30">
+          {/* Conmutador Simple y Directo: Ukelele vs Guitarra */}
+          <div className="grid grid-cols-2 p-1 bg-parchment-border/40 dark:bg-darkbg/80 rounded-xl gap-1">
+            <button
+              onClick={() => handleInstrumentChange('ukulele')}
+              className={`flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-bold transition-all ${
+                instrument === 'ukulele'
+                  ? 'bg-golden text-white shadow-xs'
+                  : 'text-jetcarbon-muted dark:text-gray-400 hover:text-jetcarbon dark:hover:text-gray-200'
+              }`}
+            >
+              <UkuleleIcon size={16} />
+              <span>Ukelele</span>
+            </button>
+            <button
+              onClick={() => handleInstrumentChange('guitar')}
+              className={`flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-bold transition-all ${
+                instrument === 'guitar'
+                  ? 'bg-golden text-white shadow-xs'
+                  : 'text-jetcarbon-muted dark:text-gray-400 hover:text-jetcarbon dark:hover:text-gray-200'
+              }`}
+            >
+              <GuitarIcon size={16} />
+              <span>Guitarra</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Tabs: Familia Armónica vs Diccionario Completo */}
+        <div className="flex border-b border-parchment-border dark:border-jetcarbon-border px-3 pt-2 bg-parchment/30 dark:bg-darkbg/30 shrink-0">
         <button
           onClick={() => {
             setActiveTab('family');
@@ -490,13 +488,12 @@ export const InstrumentCompanionPanel: React.FC<InstrumentCompanionPanelProps> =
       </div>
 
       {/* Pie del Panel */}
-      <div className="p-3 border-t border-parchment-border dark:border-jetcarbon-border bg-white/50 dark:bg-darkbg/50 text-center text-[10px] text-jetcarbon-muted dark:text-gray-400">
+      <div className="p-3 border-t border-parchment-border dark:border-jetcarbon-border bg-white/50 dark:bg-darkbg/50 text-center text-[10px] text-jetcarbon-muted dark:text-gray-400 shrink-0">
         {activeTab === 'family'
           ? 'Toca cualquier acorde para escucharlo al instante'
           : 'Toca un acorde para ver sus notas y familias'}
       </div>
-        </aside>
-      </div>
-    </div>
+      </aside>
+    </>
   );
 };
