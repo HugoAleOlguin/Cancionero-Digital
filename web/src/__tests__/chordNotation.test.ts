@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { formatChordNotation, getChordDisplayName } from '../util/chordNotation';
+import { formatChordNotation, getChordDisplayName } from '../utils/chordNotation';
 
 describe('Chord Notation Engine (DO-RE-MI Default vs C-D-E)', () => {
   it('converts Anglo symbols to Latin solfege (DO-RE-MI) by default', () => {

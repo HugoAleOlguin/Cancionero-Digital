@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ThemeMode, TypographyType } from '../types/hymn';
+import { safeGetItem, safeSetItem } from '../utils/storage';
 
 const THEME_KEY = 'cancionero_theme';
 const TYPO_KEY = 'cancionero_typography';
@@ -7,36 +8,24 @@ const FONT_SIZE_KEY = 'cancionero_font_size';
 
 export function useSettings() {
   const [theme, setTheme] = useState<ThemeMode>(() => {
-    try {
-      const stored = localStorage.getItem(THEME_KEY) as ThemeMode;
-      if (stored === 'light' || stored === 'dark') return stored;
-    } catch {
-      // fallback
-    }
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    const systemDefault: ThemeMode =
+      typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light';
+    const stored = safeGetItem<ThemeMode>(THEME_KEY, systemDefault);
+    return stored === 'light' || stored === 'dark' ? stored : systemDefault;
   });
 
   const [typography, setTypography] = useState<TypographyType>(() => {
-    try {
-      const stored = localStorage.getItem(TYPO_KEY) as TypographyType;
-      if (stored === 'serif' || stored === 'sans' || stored === 'mono') return stored;
-    } catch {
-      // fallback
-    }
-    return 'serif';
+    const stored = safeGetItem<TypographyType>(TYPO_KEY, 'serif');
+    return stored === 'serif' || stored === 'sans' || stored === 'mono' ? stored : 'serif';
   });
 
   const [fontSize, setFontSize] = useState<number>(() => {
-    try {
-      const stored = localStorage.getItem(FONT_SIZE_KEY);
-      if (stored) {
-        const val = parseInt(stored, 10);
-        if (!isNaN(val) && val >= 14 && val <= 32) return val;
-      }
-    } catch {
-      // fallback
-    }
-    return 18;
+    const stored = safeGetItem<number>(FONT_SIZE_KEY, 18);
+    return typeof stored === 'number' && !Number.isNaN(stored) && stored >= 14 && stored <= 32
+      ? stored
+      : 18;
   });
 
   useEffect(() => {
@@ -46,27 +35,15 @@ export function useSettings() {
     } else {
       root.classList.remove('dark');
     }
-    try {
-      localStorage.setItem(THEME_KEY, theme);
-    } catch {
-      // fallback
-    }
+    safeSetItem(THEME_KEY, theme);
   }, [theme]);
 
   useEffect(() => {
-    try {
-      localStorage.setItem(TYPO_KEY, typography);
-    } catch {
-      // fallback
-    }
+    safeSetItem(TYPO_KEY, typography);
   }, [typography]);
 
   useEffect(() => {
-    try {
-      localStorage.setItem(FONT_SIZE_KEY, fontSize.toString());
-    } catch {
-      // fallback
-    }
+    safeSetItem(FONT_SIZE_KEY, fontSize);
   }, [fontSize]);
 
   const toggleTheme = () => setTheme(prev => (prev === 'light' ? 'dark' : 'light'));

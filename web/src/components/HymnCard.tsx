@@ -9,10 +9,11 @@ import {
   UKULELE_CHORDS_DB
 } from '../data/ukuleleChords';
 import { GUITAR_CHORDS_DB } from '../data/guitarChords';
-import { transposeHymnChords, transposeKey } from '../util/chordTransposer';
-import { playAcousticChord } from '../util/chordAudio';
-import { ChordNotationType, formatChordNotation } from '../util/chordNotation';
-import { Star, Share2, Check, Copy, Music, RotateCcw, FileDown } from 'lucide-react';
+import { transposeHymnChords, transposeKey } from '../utils/chordTransposer';
+import { playAcousticChord } from '../utils/chordAudio';
+import { ChordNotationType, formatChordNotation } from '../utils/chordNotation';
+import { safeGetItem, safeSetItem, safeRemoveItem } from '../utils/storage';
+import { Star, Share2, Music, RotateCcw, FileDown } from 'lucide-react';
 
 const YouTubeIcon = ({ size = 20, className = '' }: { size?: number; className?: string }) => (
   <svg
@@ -57,34 +58,21 @@ export const HymnCard: React.FC<HymnCardProps> = ({
   chordNotation = 'latin'
 }) => {
   const [selectedVersion, setSelectedVersion] = useState<number>(0);
-  const [copied, setCopied] = useState<boolean>(false);
 
   // Estado del editor de acordes
   const [showChords, setShowChords] = useState<boolean>(false);
   const [isEditingChords, setIsEditingChords] = useState<boolean>(false);
 
   const [chordsData, setChordsData] = useState<HymnChordsData>(() => {
-    try {
-      const stored = localStorage.getItem(`cancionero_chords_${hymn.id}`);
-      if (stored) {
-        return JSON.parse(stored);
-      }
-    } catch {
-      // fallback
-    }
-    return { key: 'C', chords: {} };
+    return safeGetItem<HymnChordsData>(`cancionero_chords_${hymn.id}`, { key: 'C', chords: {} });
   });
 
   // Guardar en localStorage cuando cambien los acordes
   useEffect(() => {
-    try {
-      if (Object.keys(chordsData.chords).length > 0) {
-        localStorage.setItem(`cancionero_chords_${hymn.id}`, JSON.stringify(chordsData));
-      } else {
-        localStorage.removeItem(`cancionero_chords_${hymn.id}`);
-      }
-    } catch {
-      // fallback
+    if (Object.keys(chordsData.chords).length > 0) {
+      safeSetItem(`cancionero_chords_${hymn.id}`, chordsData);
+    } else {
+      safeRemoveItem(`cancionero_chords_${hymn.id}`);
     }
   }, [chordsData, hymn.id]);
 
@@ -97,18 +85,6 @@ export const HymnCard: React.FC<HymnCardProps> = ({
     sans: 'font-sans',
     mono: 'font-mono'
   }[typography];
-
-  const handleCopy = async () => {
-    try {
-      const textToCopy = `${hymn.id} - ${hymn.title}\n${hymn.author ? `Autor: ${hymn.author}\n` : ''}\n${activeContent}`;
-      await navigator.clipboard.writeText(textToCopy);
-      setCopied(true);
-      onNotify?.('Letra copiada al portapapeles');
-      setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
-      console.error('Failed to copy', err);
-    }
-  };
 
   const handleAssignChord = (syllableId: string, chordSymbol: string) => {
     setChordsData(prev => ({
@@ -151,12 +127,16 @@ export const HymnCard: React.FC<HymnCardProps> = ({
     }
   };
 
-  const handlePlayChord = (chordSymbol: string) => {
-    const inst = (localStorage.getItem('cancionero_instrument') as 'ukulele' | 'guitar') || 'guitar';
-    const db = inst === 'guitar' ? GUITAR_CHORDS_DB : UKULELE_CHORDS_DB;
-    const chord = db[chordSymbol];
-    if (chord) {
-      playAcousticChord(chord, inst).catch(() => {});
+  const handlePlayChord = async (chordSymbol: string) => {
+    try {
+      const inst = safeGetItem<'ukulele' | 'guitar'>('cancionero_instrument', 'guitar');
+      const db = inst === 'guitar' ? GUITAR_CHORDS_DB : UKULELE_CHORDS_DB;
+      const chord = db[chordSymbol];
+      if (chord) {
+        await playAcousticChord(chord, inst);
+      }
+    } catch (err) {
+      console.warn('Audio playback error:', err);
     }
   };
 
@@ -191,6 +171,8 @@ export const HymnCard: React.FC<HymnCardProps> = ({
               if (showChords) setIsEditingChords(false);
             }}
             title={showChords ? 'Ocultar acordes' : 'Ver y editar acordes musicales'}
+            aria-label={showChords ? `Ocultar acordes de ${hymn.title}` : `Ver y editar acordes musicales de ${hymn.title}`}
+            aria-expanded={showChords}
             className={`p-2 rounded-xl transition-all relative ${
               showChords || hasChords
                 ? 'bg-golden/10 text-golden-dark dark:text-golden border border-golden/30'
@@ -209,24 +191,18 @@ export const HymnCard: React.FC<HymnCardProps> = ({
               target="_blank"
               rel="noopener noreferrer"
               title="Escuchar en YouTube"
+              aria-label={`Escuchar ${hymn.title} en YouTube`}
               className="p-2 rounded-xl text-red-600 hover:bg-red-50 dark:hover:bg-red-950/30 transition-colors"
             >
               <YouTubeIcon size={20} />
             </a>
           )}
 
-          <button
-            onClick={handleCopy}
-            title={copied ? '¡Copiado!' : 'Copiar alabanza'}
-            className="p-2 rounded-xl text-jetcarbon-muted hover:text-jetcarbon dark:text-gray-400 dark:hover:text-gray-200 hover:bg-parchment dark:hover:bg-jetcarbon-light transition-colors relative"
-          >
-            {copied ? <Check size={20} className="text-green-600" /> : <Copy size={20} />}
-          </button>
-
           {onOpenPdfStudio && (
             <button
               onClick={() => onOpenPdfStudio(hymn, selectedVersion)}
               title="Estudio de impresión y PDF"
+              aria-label={`Abrir estudio de impresión y PDF para ${hymn.title}`}
               className="p-2 rounded-xl text-jetcarbon-muted hover:text-jetcarbon dark:text-gray-400 dark:hover:text-gray-200 hover:bg-parchment dark:hover:bg-jetcarbon-light transition-colors"
             >
               <FileDown size={20} />
@@ -236,6 +212,7 @@ export const HymnCard: React.FC<HymnCardProps> = ({
           <button
             onClick={() => onOpenShare(hymn, selectedVersion)}
             title="Compartir o descargar alabanza"
+            aria-label={`Compartir o exportar ${hymn.title}`}
             className="p-2 rounded-xl text-jetcarbon-muted hover:text-jetcarbon dark:text-gray-400 dark:hover:text-gray-200 hover:bg-parchment dark:hover:bg-jetcarbon-light transition-colors"
           >
             <Share2 size={20} />
@@ -247,6 +224,8 @@ export const HymnCard: React.FC<HymnCardProps> = ({
               onNotify?.(isFavorite ? 'Quitado de favoritos' : 'Agregado a favoritos');
             }}
             title={isFavorite ? 'Quitar de favoritos' : 'Agregar a favoritos'}
+            aria-label={isFavorite ? `Quitar ${hymn.title} de favoritos` : `Agregar ${hymn.title} a favoritos`}
+            aria-pressed={isFavorite}
             className="p-2 rounded-xl text-golden hover:bg-golden-subtle dark:hover:bg-golden-darkSubtle transition-all transform active:scale-75 hover:scale-110 duration-200"
           >
             <Star
@@ -263,10 +242,13 @@ export const HymnCard: React.FC<HymnCardProps> = ({
 
       {/* Version Tabs (if extraVersions exists) */}
       {versions.length > 1 && (
-        <div className="flex gap-2 mt-4 pb-2 border-b border-parchment-border/40 dark:border-jetcarbon-border/40 overflow-x-auto">
+        <div className="flex gap-2 mt-4 pb-2 border-b border-parchment-border/40 dark:border-jetcarbon-border/40 overflow-x-auto" role="tablist" aria-label="Versiones de la alabanza">
           {versions.map((_, idx) => (
             <button
               key={idx}
+              role="tab"
+              aria-selected={selectedVersion === idx}
+              aria-label={idx === 0 ? 'Ver versión original' : `Ver versión alternativa ${idx + 1}`}
               onClick={() => setSelectedVersion(idx)}
               className={`px-3 py-1 rounded-full text-xs font-semibold transition-all ${
                 selectedVersion === idx
@@ -290,6 +272,7 @@ export const HymnCard: React.FC<HymnCardProps> = ({
             <select
               value={chordsData.key}
               onChange={e => handleChangeKey(e.target.value)}
+              aria-label="Seleccionar tonalidad musical"
               className="py-1 px-2 rounded-lg bg-white dark:bg-darkcard border border-golden/30 text-golden-dark dark:text-golden font-bold text-xs focus:outline-none cursor-pointer"
             >
               <optgroup label="Tonalidades Mayores">
@@ -319,6 +302,7 @@ export const HymnCard: React.FC<HymnCardProps> = ({
               <button
                 onClick={() => handleTranspose(-1)}
                 title="Bajar 1 semitono (-1)"
+                aria-label="Bajar tonalidad 1 semitono"
                 className="px-2 py-0.5 font-bold hover:bg-golden/10 text-jetcarbon dark:text-gray-200 transition-colors"
               >
                 -1
@@ -329,6 +313,7 @@ export const HymnCard: React.FC<HymnCardProps> = ({
               <button
                 onClick={() => handleTranspose(1)}
                 title="Subir 1 semitono (+1)"
+                aria-label="Subir tonalidad 1 semitono"
                 className="px-2 py-0.5 font-bold hover:bg-golden/10 text-jetcarbon dark:text-gray-200 transition-colors"
               >
                 +1
@@ -338,6 +323,8 @@ export const HymnCard: React.FC<HymnCardProps> = ({
             {/* Alternar Modo Edición / Lectura */}
             <button
               onClick={() => setIsEditingChords(!isEditingChords)}
+              aria-label={isEditingChords ? 'Guardar edición de acordes' : 'Editar acordes en la letra'}
+              aria-pressed={isEditingChords}
               className={`px-3 py-1 rounded-lg font-bold text-xs transition-all ${
                 isEditingChords
                   ? 'bg-golden text-white shadow-xs'
@@ -352,6 +339,7 @@ export const HymnCard: React.FC<HymnCardProps> = ({
               <button
                 onClick={handleResetChords}
                 title="Borrar todos los acordes de esta alabanza"
+                aria-label="Borrar todos los acordes asignados a esta alabanza"
                 className="p-1 rounded-lg text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/30 transition-colors"
               >
                 <RotateCcw size={14} />

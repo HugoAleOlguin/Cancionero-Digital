@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import {
   buildHymnPdfDocument,
   paginateHymnContent,
+  estimateTitleLineCount,
   PdfStudioConfig
 } from '../utils/pdfGenerator';
 import { Hymn } from '../types/hymn';
@@ -136,5 +137,91 @@ describe('PDF Studio & Generator Engine', () => {
     const firstLine = pages[0].stanzas[0].lines[0];
     const wordEndSyllables = firstLine.syllables.filter(s => s.isWordEnd);
     expect(wordEndSyllables.length).toBeGreaterThan(0);
+  });
+
+  it('subdivides a huge stanza that exceeds page space into multiple pages without dropping lines', () => {
+    // 50 líneas dentro de una única estrofa (sin doble salto de línea)
+    const giantStanzaLines = Array.from({ length: 50 }, (_, i) => `Línea número ${i + 1} de la estrofa gigante de prueba.`);
+    const singleGiantStanza = giantStanzaLines.join('\n');
+
+    const config: PdfStudioConfig = {
+      fontSize: 14,
+      typography: 'serif',
+      showHeader: true,
+      showFooter: true,
+      showChords: false,
+      chordNotation: 'latin',
+      content: singleGiantStanza
+    };
+
+    const pages = paginateHymnContent(sampleHymn, config);
+    expect(pages.length).toBeGreaterThanOrEqual(2);
+
+    // Comprobar que en la página 2 la primera estrofa está marcada como continuación
+    expect(pages[1].stanzas[0].isContinuation).toBe(true);
+
+    // Verificar que todas las 50 líneas fueron preservadas en su orden original
+    const totalLinesAcrossPages = pages.flatMap(p => p.stanzas.flatMap(s => s.lines));
+    expect(totalLinesAcrossPages.length).toBe(50);
+    expect(totalLinesAcrossPages[0].text).toBe('Línea número 1 de la estrofa gigante de prueba.');
+    expect(totalLinesAcrossPages[49].text).toBe('Línea número 50 de la estrofa gigante de prueba.');
+
+    // Verificar que el documento PDF se genera correctamente
+    const doc = buildHymnPdfDocument(sampleHymn, 0, config);
+    expect((doc as any).internal.getNumberOfPages()).toBe(pages.length);
+  });
+
+  it('dynamically estimates titleBlockHeight based on character length', () => {
+    // Título corto cabe en 1 línea
+    expect(estimateTitleLineCount('27. El Camino a Emaús')).toBe(1);
+
+    // Título muy largo se divide en 2 o más líneas
+    const longTitle = '150. Alabanza solemne con un título sumamente extenso que excede con creces el ancho imprimible de una sola línea';
+    const estimatedLines = estimateTitleLineCount(longTitle, 38);
+    expect(estimatedLines).toBeGreaterThanOrEqual(2);
+
+    const config: PdfStudioConfig = {
+      fontSize: 12,
+      typography: 'sans',
+      showHeader: true,
+      showFooter: true,
+      showChords: false,
+      chordNotation: 'latin',
+      customTitle: longTitle,
+      content: sampleHymn.content
+    };
+
+    const pages = paginateHymnContent(sampleHymn, config);
+    expect(pages.length).toBe(1);
+    expect(pages[0].title).toContain(longTitle);
+  });
+
+  it('safely handles lines with chords that exceed printable width without error', () => {
+    const longLineWithChords = 'Esta es una frase musical sumamente larga con muchas sílabas y acordes que llenan todo el ancho imprimible útil';
+    const sampleLongChords: Record<string, string> = {
+      'l0_s0': 'Cmaj7',
+      'l0_s5': 'F#m7b5',
+      'l0_s10': 'B7alt',
+      'l0_s15': 'Em9'
+    };
+
+    const config: PdfStudioConfig = {
+      fontSize: 16,
+      typography: 'mono',
+      showHeader: true,
+      showFooter: true,
+      showChords: true,
+      chordNotation: 'latin',
+      content: longLineWithChords
+    };
+
+    const pages = paginateHymnContent(sampleHymn, config, sampleLongChords);
+    expect(pages.length).toBe(1);
+    expect(pages[0].stanzas[0].lines[0].hasChords).toBe(true);
+
+    // buildHymnPdfDocument debe escalar y acotar el ancho sin lanzar errores
+    const doc = buildHymnPdfDocument(sampleHymn, 0, config, sampleLongChords);
+    expect(doc).toBeDefined();
+    expect((doc as any).internal.getNumberOfPages()).toBe(1);
   });
 });

@@ -1,7 +1,7 @@
 import { jsPDF } from 'jspdf';
 import { Hymn, TypographyType } from '../types/hymn';
-import { ChordNotationType, formatChordNotation } from '../util/chordNotation';
-import { splitLineIntoSyllables } from '../util/syllabifier';
+import { ChordNotationType, formatChordNotation } from './chordNotation';
+import { splitLineIntoSyllables } from './syllabifier';
 
 export interface PdfStudioConfig {
   fontSize: number;          // en pt (ej: 8 a 18, default: 12)
@@ -34,6 +34,7 @@ export interface PdfLineLayout {
 export interface PdfStanzaLayout {
   stanzaIndex: number;
   lines: PdfLineLayout[];
+  isContinuation?: boolean;
 }
 
 export interface PdfPageLayout {
@@ -127,6 +128,33 @@ export function drawShapedDivider(doc: jsPDF, y: number, pageWidth: number, marg
 }
 
 /**
+ * Estima dinámicamente cuántas líneas ocupará el título en el encabezado (fuente 18pt bold)
+ * considerando un ancho imprimible de ~156 mm (aprox. 38 caracteres por línea).
+ */
+export function estimateTitleLineCount(title: string, maxCharsPerLine: number = 38): number {
+  const cleanTitle = title.trim();
+  if (!cleanTitle) return 1;
+  if (cleanTitle.length <= maxCharsPerLine) return 1;
+
+  const words = cleanTitle.split(/\s+/);
+  let lines = 1;
+  let currentLen = 0;
+
+  for (const word of words) {
+    if (currentLen === 0) {
+      currentLen = word.length;
+    } else if (currentLen + 1 + word.length <= maxCharsPerLine) {
+      currentLen += 1 + word.length;
+    } else {
+      lines++;
+      currentLen = word.length;
+    }
+  }
+
+  return Math.max(1, lines);
+}
+
+/**
  * Paginador inteligente de alabanzas para A4 (210 x 297 mm).
  * Descompone el contenido en páginas virtuales respetando márgenes,
  * encabezado, pie de página, tamaño de letra y presencia de acordes.
@@ -142,14 +170,33 @@ export function paginateHymnContent(
     .map(s => s.trim())
     .filter(s => s.length > 0);
 
-  // Dimensiones en mm (A4 vertical)
-  const headerTopY = config.showHeader ? 24 : 16;
+  // Dimensiones y márgenes en mm (A4 vertical: 210 x 297 mm, márgenes 22 mm)
+  // El encabezado ubica su divisor en Y=22. Los textos comienzan en Y=38 si showHeader es true, o Y=20 si es false.
+  const startYHeader = config.showHeader ? 38 : 20;
   const footerBottomY = config.showFooter ? 276 : 286;
-  const titleBlockHeight = 26; // Título + autor en página 1
+  const maxY = footerBottomY - 6; // 270mm con footer, 280mm sin footer
 
-  const lineHeight = config.fontSize * 0.46;
-  const chordExtraHeight = config.showChords ? config.fontSize * 0.32 : 0;
+  // Estimación dinámica de la altura del bloque de título en la primera página
+  const displayTitle = `${hymn.id}. ${config.customTitle || hymn.title || ''}`;
+  const titleLinesCount = estimateTitleLineCount(displayTitle, 38);
+  const authorText = config.customAuthor || hymn.author;
+  const hasAuthor = Boolean(authorText && authorText.trim());
+  // Cada línea de título suma 8mm; autor suma 9mm (1+8) si existe o 6mm si no
+  const titleBlockHeight = (titleLinesCount * 8) + (hasAuthor ? 9 : 6);
+
+  const startYFirstPage = startYHeader + titleBlockHeight;
+  const startYSubsequent = startYHeader;
+  const emptyPageAvailableHeight = maxY - startYSubsequent;
+
+  const baseLineHeight = config.fontSize * 0.46;
+  const chordOffset = config.showChords ? config.fontSize * 0.30 : 0;
   const stanzaGap = config.fontSize * 0.52;
+
+  const getLineHeight = (line: PdfLineLayout) =>
+    baseLineHeight + (line.hasChords ? chordOffset : 0);
+
+  const getStanzaHeight = (lines: PdfLineLayout[]) =>
+    lines.reduce((acc, l) => acc + getLineHeight(l), 0);
 
   let globalLineCounter = 0;
 
@@ -197,38 +244,98 @@ export function paginateHymnContent(
 
   let currentPageStanzas: PdfStanzaLayout[] = [];
   let isFirstPage = true;
-  let currentY = isFirstPage ? (headerTopY + titleBlockHeight) : (headerTopY + 12);
-  let maxY = footerBottomY - 6;
+  let currentY = startYFirstPage;
+
+  const flushPage = () => {
+    pages.push({
+      title: isFirstPage ? `${hymn.id}. ${config.customTitle || hymn.title}` : undefined,
+      author: isFirstPage ? (config.customAuthor || hymn.author) : undefined,
+      stanzas: currentPageStanzas
+    });
+    isFirstPage = false;
+    currentPageStanzas = [];
+    currentY = startYSubsequent;
+  };
 
   for (const stanza of processedStanzas) {
-    // Calcular altura de esta estrofa
-    let stanzaHeight = 0;
-    for (const line of stanza.lines) {
-      stanzaHeight += lineHeight + (line.hasChords ? chordExtraHeight : 0);
+    const stanzaHeight = getStanzaHeight(stanza.lines);
+    const gapNeeded = currentPageStanzas.length > 0 ? stanzaGap : 0;
+
+    // Caso 1: La estrofa cabe completa en la página actual
+    if (currentY + gapNeeded + stanzaHeight <= maxY) {
+      currentPageStanzas.push(stanza);
+      currentY += gapNeeded + stanzaHeight;
+      continue;
     }
 
-    // Verificar si cabe en la página actual
-    const willFit = (currentY + stanzaHeight) <= maxY;
-
-    if (willFit || currentPageStanzas.length === 0) {
+    // Caso 2: No cabe completa en la página actual, pero sí cabe entera en una página limpia posterior.
+    // Si la página actual ya tiene estrofas, la cerramos limpiamente para no romper la estrofa innecesariamente.
+    if (currentPageStanzas.length > 0 && stanzaHeight <= emptyPageAvailableHeight) {
+      flushPage();
       currentPageStanzas.push(stanza);
-      currentY += stanzaHeight + stanzaGap;
-    } else {
-      // Cerrar página actual y abrir una nueva
-      pages.push({
-        title: isFirstPage ? `${hymn.id}. ${config.customTitle || hymn.title}` : undefined,
-        author: isFirstPage ? (config.customAuthor || hymn.author) : undefined,
-        stanzas: currentPageStanzas
+      currentY = startYSubsequent + stanzaHeight;
+      continue;
+    }
+
+    // Caso 3: La estrofa supera el espacio restante de la página o la altura total disponible de una página vacía.
+    // Subdividimos por líneas de manera que quepan las que entren en la página actual y el resto continúe en la siguiente.
+    let remainingLines = [...stanza.lines];
+    let isContinuation = false;
+
+    while (remainingLines.length > 0) {
+      const currentGap = currentPageStanzas.length > 0 ? stanzaGap : 0;
+      const availableSpace = maxY - (currentY + currentGap);
+
+      // Calcular cuántas líneas caben en el espacio restante de la página actual
+      let fitCount = 0;
+      let usedHeight = 0;
+
+      for (let i = 0; i < remainingLines.length; i++) {
+        const lineH = getLineHeight(remainingLines[i]);
+        if (usedHeight + lineH <= availableSpace) {
+          usedHeight += lineH;
+          fitCount++;
+        } else {
+          break;
+        }
+      }
+
+      // Si no cabe ninguna línea y la página ya tiene contenido, cerramos la página y abrimos una nueva
+      if (fitCount === 0) {
+        if (currentPageStanzas.length > 0) {
+          flushPage();
+          continue;
+        } else {
+          // Si la página ya está vacía pero ni 1 sola línea cabe (por tamaño extremo), forzamos al menos 1 línea
+          fitCount = 1;
+          usedHeight = getLineHeight(remainingLines[0]);
+        }
+      }
+
+      const chunkLines = remainingLines.slice(0, fitCount);
+      remainingLines = remainingLines.slice(fitCount);
+
+      if (currentPageStanzas.length > 0) {
+        currentY += stanzaGap;
+      }
+
+      currentPageStanzas.push({
+        stanzaIndex: stanza.stanzaIndex,
+        lines: chunkLines,
+        isContinuation
       });
 
-      isFirstPage = false;
-      currentPageStanzas = [stanza];
-      currentY = headerTopY + 12 + stanzaHeight + stanzaGap;
-      maxY = footerBottomY - 6;
+      currentY += usedHeight;
+      isContinuation = true;
+
+      // Si aún quedan líneas por ubicar, cerramos esta página para continuar en la siguiente
+      if (remainingLines.length > 0) {
+        flushPage();
+      }
     }
   }
 
-  // Guardar última página
+  // Guardar última página si contiene estrofas o si el documento quedó vacío
   if (currentPageStanzas.length > 0 || pages.length === 0) {
     pages.push({
       title: isFirstPage ? `${hymn.id}. ${config.customTitle || hymn.title}` : undefined,
@@ -373,7 +480,7 @@ export function buildHymnPdfDocument(
           // Renderizar sílabas y acordes centrados armónicamente
           doc.setFont(fontName, 'normal');
           doc.setFontSize(config.fontSize);
-          const spaceWidth = doc.getTextWidth(' ');
+          let spaceWidth = doc.getTextWidth(' ');
 
           // Medir el ancho total considerando texto y espacios de palabras
           let totalLineWidth = 0;
@@ -385,23 +492,64 @@ export function buildHymnPdfDocument(
             }
           });
 
-          let currentX = (pageWidth - totalLineWidth) / 2;
+          // Verificar si excede el ancho imprimible útil (contentWidth)
+          let effectiveFontSize = config.fontSize;
+          if (totalLineWidth > contentWidth && totalLineWidth > 0) {
+            const scale = contentWidth / totalLineWidth;
+            effectiveFontSize = Math.max(7.5, config.fontSize * scale);
+            doc.setFontSize(effectiveFontSize);
+            spaceWidth = doc.getTextWidth(' ');
+
+            totalLineWidth = 0;
+            line.syllables.forEach((syl, sIdx) => {
+              const sylText = `${syl.leadingPunct || ''}${syl.text}${syl.trailingPunct || ''}`;
+              totalLineWidth += doc.getTextWidth(sylText);
+              if (syl.isWordEnd && sIdx < line.syllables.length - 1) {
+                totalLineWidth += spaceWidth;
+              }
+            });
+          }
+
+          const chordFontSize = Math.max(7.0, effectiveFontSize * 0.72);
+
+          // Verificar si el acorde de la primera sílaba sobresale a la izquierda
+          let leftOverhang = 0;
+          const firstSyl = line.syllables[0];
+          if (firstSyl?.chord) {
+            doc.setFont(fontName, 'bold');
+            doc.setFontSize(chordFontSize);
+            const firstChordWidth = doc.getTextWidth(firstSyl.chord);
+            doc.setFont(fontName, 'normal');
+            doc.setFontSize(effectiveFontSize);
+            const firstSylText = `${firstSyl.leadingPunct || ''}${firstSyl.text}${firstSyl.trailingPunct || ''}`;
+            const firstSylWidth = doc.getTextWidth(firstSylText);
+            if (firstChordWidth > firstSylWidth) {
+              leftOverhang = (firstChordWidth - firstSylWidth) / 2;
+            }
+          }
+
+          let currentX = Math.max(margin + leftOverhang, (pageWidth - totalLineWidth) / 2);
+          if (currentX + totalLineWidth > pageWidth - margin) {
+            currentX = Math.max(margin + leftOverhang, pageWidth - margin - totalLineWidth);
+          }
 
           line.syllables.forEach((syl, sIdx) => {
             const sylText = `${syl.leadingPunct || ''}${syl.text}${syl.trailingPunct || ''}`;
+            doc.setFont(fontName, 'normal');
+            doc.setFontSize(effectiveFontSize);
             const sylWidth = doc.getTextWidth(sylText);
 
             // Si la sílaba tiene acorde, dibujarlo arriba centrado en dorado
             if (syl.chord) {
               doc.setFont(fontName, 'bold');
-              doc.setFontSize(Math.max(7.5, config.fontSize * 0.72));
+              doc.setFontSize(chordFontSize);
               doc.setTextColor(165, 120, 20); // GoldenMain imprimible
               doc.text(syl.chord, currentX + sylWidth / 2, currentY - 3.8, { align: 'center' });
             }
 
             // Dibujar texto de la sílaba
             doc.setFont(fontName, 'normal');
-            doc.setFontSize(config.fontSize);
+            doc.setFontSize(effectiveFontSize);
             doc.setTextColor(45, 52, 60);
             doc.text(sylText, currentX, currentY);
 
@@ -415,9 +563,14 @@ export function buildHymnPdfDocument(
 
           currentY += baseLineHeight;
         } else {
-          // Línea regular sin acordes: texto centrado nítido
+          // Línea regular sin acordes: texto centrado nítido, ajustando escala si excede contentWidth
           doc.setFont(fontName, 'normal');
           doc.setFontSize(config.fontSize);
+          const textW = doc.getTextWidth(line.text);
+          if (textW > contentWidth && textW > 0) {
+            const scale = contentWidth / textW;
+            doc.setFontSize(Math.max(7.5, config.fontSize * scale));
+          }
           doc.setTextColor(45, 52, 60);
           doc.text(line.text, pageWidth / 2, currentY, { align: 'center' });
           currentY += baseLineHeight;

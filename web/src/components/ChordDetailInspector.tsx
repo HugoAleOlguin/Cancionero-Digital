@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { UkuleleChord, HarmonicFamily } from '../data/ukuleleChords';
 import { ChordDiagram } from './ChordDiagram';
-import { playAcousticChord } from '../util/chordAudio';
+import { playAcousticChord } from '../utils/chordAudio';
 import { Volume2, ArrowLeft, Music, Sparkles, BookMarked } from 'lucide-react';
 
 interface ChordDetailInspectorProps {

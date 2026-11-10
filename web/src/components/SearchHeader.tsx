@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Search, X, ChevronLeft, ChevronRight, Menu, Moon, Sun, Music2 } from 'lucide-react';
+import { Search, X, ChevronLeft, ChevronRight, Menu, Moon, Sun, Music2, Bookmark } from 'lucide-react';
 import { ThemeMode } from '../types/hymn';
 
 interface SearchHeaderProps {
@@ -15,6 +15,8 @@ interface SearchHeaderProps {
   onToggleTheme: () => void;
   isUkuleleOpen?: boolean;
   onToggleUkulele?: () => void;
+  lastReadId?: number | null;
+  onJumpToLastRead?: () => void;
 }
 
 export const SearchHeader: React.FC<SearchHeaderProps> = ({
@@ -29,7 +31,9 @@ export const SearchHeader: React.FC<SearchHeaderProps> = ({
   theme,
   onToggleTheme,
   isUkuleleOpen,
-  onToggleUkulele
+  onToggleUkulele,
+  lastReadId,
+  onJumpToLastRead
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -47,6 +51,7 @@ export const SearchHeader: React.FC<SearchHeaderProps> = ({
         <button
           onClick={onOpenDrawer}
           title="Abrir menú"
+          aria-label="Abrir menú lateral de navegación y filtros"
           className="p-2.5 rounded-xl text-jetcarbon dark:text-gray-200 hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
         >
           <Menu size={22} />
@@ -72,6 +77,7 @@ export const SearchHeader: React.FC<SearchHeaderProps> = ({
               <button
                 onClick={handleClear}
                 title="Limpiar búsqueda"
+                aria-label="Limpiar texto de búsqueda"
                 className="p-1 rounded-lg text-jetcarbon-muted hover:text-jetcarbon dark:text-gray-400 dark:hover:text-white"
               >
                 <X size={16} />
@@ -80,22 +86,38 @@ export const SearchHeader: React.FC<SearchHeaderProps> = ({
           </div>
         </div>
 
+        {/* Jump to Last Read Pill */}
+        {!query.trim() && lastReadId && onJumpToLastRead && (
+          <button
+            onClick={onJumpToLastRead}
+            title={`Continuar lectura en el himno #${lastReadId}`}
+            aria-label={`Saltar al último himno leído: número ${lastReadId}`}
+            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-golden/10 dark:bg-golden/15 hover:bg-golden/20 dark:hover:bg-golden/25 text-golden-dark dark:text-golden border border-golden/30 text-xs font-semibold shadow-2xs transition-all active:scale-95 shrink-0"
+          >
+            <Bookmark size={14} className="fill-golden/40" />
+            <span className="hidden sm:inline">Último:</span>
+            <span>#{lastReadId}</span>
+          </button>
+        )}
+
         {/* Match Navigation (when search has results) */}
         {matchesCount > 0 && query.trim() !== '' && (
           <div className="hidden sm:flex items-center gap-1 bg-white dark:bg-darkcard border border-parchment-border dark:border-jetcarbon-border rounded-xl px-2 py-1 shadow-sm text-xs font-semibold">
             <button
               onClick={onPrevMatch}
               title="Coincidencia anterior"
+              aria-label="Ir a la coincidencia anterior"
               className="p-1 rounded hover:bg-parchment dark:hover:bg-jetcarbon-light text-jetcarbon dark:text-gray-200"
             >
               <ChevronLeft size={16} />
             </button>
-            <span className="px-1 text-jetcarbon dark:text-gray-300 min-w-[50px] text-center">
+            <span className="px-1 text-jetcarbon dark:text-gray-300 min-w-[50px] text-center" aria-live="polite">
               {currentMatchIndex + 1} / {matchesCount}
             </span>
             <button
               onClick={onNextMatch}
               title="Siguiente coincidencia"
+              aria-label="Ir a la siguiente coincidencia"
               className="p-1 rounded hover:bg-parchment dark:hover:bg-jetcarbon-light text-jetcarbon dark:text-gray-200"
             >
               <ChevronRight size={16} />
@@ -108,6 +130,8 @@ export const SearchHeader: React.FC<SearchHeaderProps> = ({
           <button
             onClick={onToggleUkulele}
             title={isUkuleleOpen ? 'Ocultar guía de instrumentos' : 'Mostrar guía de instrumentos'}
+            aria-label={isUkuleleOpen ? 'Ocultar panel de acordes de instrumento' : 'Mostrar panel de acordes de instrumento'}
+            aria-pressed={isUkuleleOpen}
             className={`hidden lg:flex items-center gap-1.5 px-3 py-2 rounded-xl border text-xs font-bold transition-all ${
               isUkuleleOpen
                 ? 'bg-golden/15 border-golden text-golden-dark dark:text-golden'
@@ -123,6 +147,7 @@ export const SearchHeader: React.FC<SearchHeaderProps> = ({
         <button
           onClick={onToggleTheme}
           title={theme === 'dark' ? 'Modo claro' : 'Modo oscuro'}
+          aria-label={theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
           className="p-2.5 rounded-xl text-jetcarbon dark:text-golden-light hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
         >
           {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
@@ -138,15 +163,19 @@ export const SearchHeader: React.FC<SearchHeaderProps> = ({
           <div className="flex items-center gap-2">
             <button
               onClick={onPrevMatch}
+              title="Coincidencia anterior"
+              aria-label="Ir a la coincidencia anterior"
               className="p-1 rounded bg-white dark:bg-darkcard shadow-xs text-jetcarbon dark:text-gray-200"
             >
               <ChevronLeft size={16} />
             </button>
-            <span className="text-jetcarbon dark:text-gray-200">
+            <span className="text-jetcarbon dark:text-gray-200" aria-live="polite">
               {currentMatchIndex + 1} de {matchesCount}
             </span>
             <button
               onClick={onNextMatch}
+              title="Siguiente coincidencia"
+              aria-label="Ir a la siguiente coincidencia"
               className="p-1 rounded bg-white dark:bg-darkcard shadow-xs text-jetcarbon dark:text-gray-200"
             >
               <ChevronRight size={16} />

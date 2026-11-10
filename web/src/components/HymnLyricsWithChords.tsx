@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { HarmonicFamily } from '../data/ukuleleChords';
-import { splitLineIntoSyllables, SyllableToken } from '../util/syllabifier';
+import { splitLineIntoSyllables, SyllableToken } from '../utils/syllabifier';
 import { SyllableChordPopover } from './SyllableChordPopover';
-import { ChordNotationType, formatChordNotation } from '../util/chordNotation';
+import { ChordNotationType, formatChordNotation } from '../utils/chordNotation';
 
 interface HymnLyricsWithChordsProps {
   verses: string[];

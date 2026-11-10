@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { Hymn, TypographyType } from '../types/hymn';
-import { ChordNotationType } from '../util/chordNotation';
+import { ChordNotationType } from '../utils/chordNotation';
+import { safeGetItem } from '../utils/storage';
 import {
   PdfStudioConfig,
   paginateHymnContent,
@@ -31,30 +32,29 @@ export const PdfStudioModal: React.FC<PdfStudioModalProps> = ({
   activeVersionIndex = 0,
   initialChordNotation = 'latin'
 }) => {
-  if (!isOpen || !hymn) return null;
+  // Valores seguros por defecto cuando hymn es null o el modal no está abierto
+  const versions = hymn ? [hymn.content, ...(hymn.extraVersions || [])] : [];
+  const initialContent = hymn ? (versions[activeVersionIndex] || hymn.content) : '';
 
-  const versions = [hymn.content, ...(hymn.extraVersions || [])];
-  const initialContent = versions[activeVersionIndex] || hymn.content;
-
-  // Cargar acordes guardados si existen
+  // 1. Cargar / limpiar acordes guardados si existen
   const [storedChords, setStoredChords] = useState<Record<string, string>>({});
   const hasStoredChords = Object.keys(storedChords).length > 0;
 
   useEffect(() => {
-    try {
-      const stored = localStorage.getItem(`cancionero_chords_${hymn.id}`);
-      if (stored) {
-        const parsed = JSON.parse(stored);
-        if (parsed.chords) {
-          setStoredChords(parsed.chords);
-        }
-      }
-    } catch {
-      // fallback
+    if (!isOpen || !hymn?.id) {
+      setStoredChords({});
+      return;
     }
-  }, [hymn.id]);
 
-  // Configuración del Estudio PDF
+    const parsed = safeGetItem<{ chords?: Record<string, string> } | null>(`cancionero_chords_${hymn.id}`, null);
+    if (parsed && typeof parsed.chords === 'object' && parsed.chords !== null) {
+      setStoredChords(parsed.chords);
+    } else {
+      setStoredChords({});
+    }
+  }, [hymn?.id, isOpen]);
+
+  // 2. Configuración del Estudio PDF
   const [config, setConfig] = useState<PdfStudioConfig>(() => ({
     fontSize: 12,
     typography: 'serif',
@@ -65,21 +65,66 @@ export const PdfStudioModal: React.FC<PdfStudioModalProps> = ({
     content: initialContent
   }));
 
-  // Actualizar contenido cuando cambia de versión o de notación
+  // Sincronizar contenido y notación cuando cambia el himno o la versión activa
   useEffect(() => {
+    if (!hymn) {
+      setConfig(prev => ({ ...prev, content: '' }));
+      return;
+    }
     setConfig(prev => ({
       ...prev,
       content: initialContent,
       chordNotation: initialChordNotation
     }));
-  }, [initialContent, initialChordNotation]);
+  }, [hymn?.id, initialContent, initialChordNotation]);
 
   const [activeMobileTab, setActiveMobileTab] = useState<'editor' | 'preview'>('editor');
   const [isGenerating, setIsGenerating] = useState<boolean>(false);
   const [downloadSuccess, setDownloadSuccess] = useState<boolean>(false);
 
-  // Paginación reactiva en tiempo real
+  // Ref y limpieza estricta del temporizador de descarga
+  const downloadTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (downloadTimerRef.current) {
+        clearTimeout(downloadTimerRef.current);
+      }
+    };
+  }, []);
+
+  // Limpiar temporizador y resetear estados cuando se cierra el modal
+  useEffect(() => {
+    if (!isOpen) {
+      if (downloadTimerRef.current) {
+        clearTimeout(downloadTimerRef.current);
+        downloadTimerRef.current = null;
+      }
+      setIsGenerating(false);
+      setDownloadSuccess(false);
+      setActiveMobileTab('editor');
+    }
+  }, [isOpen]);
+
+  // Manejador accesible para cerrar modal con tecla Escape
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen, onClose]);
+
+  // 3. Paginación reactiva en tiempo real (incondicional y segura si hymn es null)
   const pages = useMemo(() => {
+    if (!hymn) return [];
     return paginateHymnContent(
       hymn,
       config,
@@ -87,13 +132,15 @@ export const PdfStudioModal: React.FC<PdfStudioModalProps> = ({
     );
   }, [hymn, config, storedChords, hasStoredChords]);
 
-  const isContentModified = config.content.trim() !== initialContent.trim();
+  const isContentModified = Boolean(hymn && config.content.trim() !== initialContent.trim());
 
   const handleResetContent = () => {
+    if (!hymn) return;
     setConfig(prev => ({ ...prev, content: initialContent }));
   };
 
   const handleDownload = () => {
+    if (!hymn) return;
     try {
       setIsGenerating(true);
       generateHymnPdf(
@@ -103,7 +150,10 @@ export const PdfStudioModal: React.FC<PdfStudioModalProps> = ({
         hasStoredChords && config.showChords ? storedChords : undefined
       );
       setDownloadSuccess(true);
-      setTimeout(() => {
+      if (downloadTimerRef.current) {
+        clearTimeout(downloadTimerRef.current);
+      }
+      downloadTimerRef.current = setTimeout(() => {
         setDownloadSuccess(false);
         setIsGenerating(false);
         onClose();
@@ -114,10 +164,18 @@ export const PdfStudioModal: React.FC<PdfStudioModalProps> = ({
     }
   };
 
+  // Retorno condicional seguro JUSTO antes del JSX principal
+  if (!isOpen || !hymn) return null;
+
   return (
     <div className="fixed inset-0 z-50 overflow-hidden flex items-center justify-center p-0 sm:p-4 bg-black/70 backdrop-blur-xs animate-in fade-in duration-200">
       {/* Contenedor Principal del Modal */}
-      <div className="bg-parchment dark:bg-darkcard border border-parchment-border dark:border-jetcarbon-border rounded-none sm:rounded-2xl shadow-2xl flex flex-col w-full max-w-6xl h-full sm:h-[92vh] overflow-hidden">
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="pdf-studio-modal-title"
+        className="bg-parchment dark:bg-darkcard border border-parchment-border dark:border-jetcarbon-border rounded-none sm:rounded-2xl shadow-2xl flex flex-col w-full max-w-6xl h-full sm:h-[92vh] overflow-hidden"
+      >
         
         {/* Barra Superior Header */}
         <header className="px-5 py-3 border-b border-parchment-border dark:border-jetcarbon-border bg-white dark:bg-darkbg flex items-center justify-between shrink-0">
@@ -127,7 +185,7 @@ export const PdfStudioModal: React.FC<PdfStudioModalProps> = ({
             </span>
             <div>
               <div className="flex items-center gap-2">
-                <h2 className="text-sm sm:text-base font-bold text-jetcarbon dark:text-gray-100">
+                <h2 id="pdf-studio-modal-title" className="text-sm sm:text-base font-bold text-jetcarbon dark:text-gray-100">
                   Estudio de Impresión PDF
                 </h2>
                 <span className="text-xs px-2 py-0.5 rounded-full bg-golden/15 text-golden-dark dark:text-golden font-semibold">
@@ -144,6 +202,7 @@ export const PdfStudioModal: React.FC<PdfStudioModalProps> = ({
             onClick={onClose}
             className="p-2 rounded-xl text-jetcarbon-muted hover:text-jetcarbon dark:text-gray-400 dark:hover:text-gray-200 hover:bg-parchment dark:hover:bg-jetcarbon-light transition-colors"
             title="Cerrar"
+            aria-label="Cerrar estudio de impresión PDF"
           >
             <X size={18} />
           </button>

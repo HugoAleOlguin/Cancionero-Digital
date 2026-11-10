@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { transposeChord, transposeKey, transposeHymnChords } from '../util/chordTransposer';
+import { transposeChord, transposeKey, transposeHymnChords } from '../utils/chordTransposer';
 
 describe('Chord Transposer Engine', () => {
   it('transposes major and minor chords correctly by semitones', () => {

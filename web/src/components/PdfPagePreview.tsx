@@ -66,9 +66,16 @@ export const PdfPagePreview: React.FC<PdfPagePreviewProps> = ({ page, config }) 
           )}
 
           {/* Estrofas de la página actual */}
-          <div className="space-y-4">
+          <div
+            className="flex flex-col"
+            style={{ gap: `${Math.max(8, config.fontSize * 0.52 * 0.9)}px` }}
+          >
             {page.stanzas.map((stanza, sIdx) => (
-              <div key={`page-${page.pageNumber}-s-${sIdx}`} className="text-center space-y-1">
+              <div
+                key={`page-${page.pageNumber}-s-${stanza.stanzaIndex}-${sIdx}`}
+                className="text-center flex flex-col items-center"
+                style={{ gap: `${Math.max(2, config.fontSize * 0.12 * 0.9)}px` }}
+              >
                 {stanza.lines.map((line, lIdx) => {
                   if (!line.text) {
                     return <div key={`empty-${lIdx}`} className="h-2" />;
@@ -78,28 +85,33 @@ export const PdfPagePreview: React.FC<PdfPagePreviewProps> = ({ page, config }) 
                     return (
                       <div
                         key={`line-${lIdx}`}
-                        className="inline-flex flex-wrap justify-center items-end leading-none relative pt-4"
+                        className="w-full flex justify-center items-end leading-none relative pt-4"
                       >
-                        {line.syllables.map((syl, sylIdx) => (
-                          <span
-                            key={`syl-${sylIdx}-${syl.id}`}
-                            className={`inline-block relative px-[0.5px] leading-tight ${
-                              syl.isWordEnd && sylIdx < line.syllables.length - 1 ? 'mr-1.5 sm:mr-2' : ''
-                            }`}
-                          >
-                            {/* Acorde flotante arriba */}
-                            {syl.chord && (
-                              <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 text-[10px] font-bold text-golden-dark dark:text-golden font-sans whitespace-nowrap">
-                                {syl.chord}
+                        <div className="inline-flex flex-nowrap justify-center items-end max-w-full">
+                          {line.syllables.map((syl, sylIdx) => (
+                            <span
+                              key={`syl-${sylIdx}-${syl.id}`}
+                              className={`inline-block relative px-[0.5px] leading-tight shrink-0 ${
+                                syl.isWordEnd && sylIdx < line.syllables.length - 1 ? 'mr-1.5 sm:mr-2' : ''
+                              }`}
+                            >
+                              {/* Acorde flotante arriba */}
+                              {syl.chord && (
+                                <span
+                                  className="absolute -top-3.5 left-1/2 -translate-x-1/2 font-bold text-golden-dark dark:text-golden font-sans whitespace-nowrap"
+                                  style={{ fontSize: `${Math.max(7.5, config.fontSize * 0.72 * 0.9)}px` }}
+                                >
+                                  {syl.chord}
+                                </span>
+                              )}
+                              <span className="text-neutral-800">
+                                {syl.leadingPunct}
+                                {syl.text}
+                                {syl.trailingPunct}
                               </span>
-                            )}
-                            <span className="text-neutral-800">
-                              {syl.leadingPunct}
-                              {syl.text}
-                              {syl.trailingPunct}
                             </span>
-                          </span>
-                        ))}
+                          ))}
+                        </div>
                       </div>
                     );
                   }
@@ -107,7 +119,7 @@ export const PdfPagePreview: React.FC<PdfPagePreviewProps> = ({ page, config }) 
                   return (
                     <div
                       key={`line-${lIdx}`}
-                      className="leading-snug text-neutral-800 whitespace-pre-wrap"
+                      className="w-full leading-snug text-neutral-800 whitespace-nowrap"
                     >
                       {line.text}
                     </div>

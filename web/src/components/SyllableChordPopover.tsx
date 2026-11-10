@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { HarmonicFamily, UKULELE_CHORDS_DB, ALL_MAJOR_KEYS, ALL_MINOR_KEYS } from '../data/ukuleleChords';
-import { ChordNotationType, formatChordNotation } from '../util/chordNotation';
+import { ChordNotationType, formatChordNotation } from '../utils/chordNotation';
 import { X, Trash2, ChevronDown, Plus } from 'lucide-react';
 
 interface SyllableChordPopoverProps {

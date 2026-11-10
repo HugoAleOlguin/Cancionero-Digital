@@ -19,15 +19,16 @@ export const GUITAR_BASE_FREQS = [
 
 /**
  * Calcula las frecuencias sonoras (Hz) de cada cuerda pisada en el acorde.
- * Omite las cuerdas silenciadas (-1).
+ * Omite las cuerdas silenciadas (-1) y valida que los trastes sean enteros válidos >= 0.
  */
 export function getChordFrequencies(chord: UkuleleChord, instrument: 'ukulele' | 'guitar'): number[] {
+  if (!chord || !Array.isArray(chord.frets)) return [];
   const isGuitar = instrument === 'guitar' || chord.frets.length === 6;
   const baseFreqs = isGuitar ? GUITAR_BASE_FREQS : UKULELE_BASE_FREQS;
   const freqs: number[] = [];
 
   chord.frets.forEach((fret, idx) => {
-    if (fret >= 0 && idx < baseFreqs.length) {
+    if (typeof fret === 'number' && Number.isInteger(fret) && fret >= 0 && idx < baseFreqs.length) {
       // f = f0 * 2^(traste / 12)
       const freq = baseFreqs[idx] * Math.pow(2, fret / 12);
       freqs.push(freq);
@@ -39,27 +40,45 @@ export function getChordFrequencies(chord: UkuleleChord, instrument: 'ukulele' |
 
 let sharedAudioCtx: AudioContext | null = null;
 
-function getAudioContext(): AudioContext | null {
+/**
+ * Obtiene o inicializa la instancia singleton de AudioContext.
+ * Si el contexto se encuentra en estado 'suspended' (política de autoplay en navegadores móviles),
+ * espera de forma asíncrona su reanudación antes de retornar.
+ */
+export async function getAudioContext(): Promise<AudioContext | null> {
   if (typeof window === 'undefined') return null;
   const AudioCtxClass = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
   if (!AudioCtxClass) return null;
 
-  if (!sharedAudioCtx) {
+  if (!sharedAudioCtx || sharedAudioCtx.state === 'closed') {
     sharedAudioCtx = new AudioCtxClass();
   }
   if (sharedAudioCtx.state === 'suspended') {
-    sharedAudioCtx.resume().catch(() => {});
+    await sharedAudioCtx.resume();
   }
   return sharedAudioCtx;
 }
 
 /**
+ * Resetea el singleton de AudioContext (útil para pruebas unitarias).
+ */
+export function resetAudioContextForTesting(): void {
+  sharedAudioCtx = null;
+}
+
+/**
  * Sintetiza un rasgueo acústico cálido del acorde usando Web Audio API nativo.
  * Cero dependencias externas, latencia ultra-baja y sonido orgánico.
+ * Maneja asíncronamente el estado suspended y desconecta explícitamente los nodos
+ * al finalizar la reproducción para evitar fugas de memoria en el grafo de Web Audio.
  */
 export async function playAcousticChord(chord: UkuleleChord, instrument: 'ukulele' | 'guitar'): Promise<void> {
-  const ctx = getAudioContext();
+  const ctx = await getAudioContext();
   if (!ctx) return;
+
+  if (ctx.state === 'suspended') {
+    await ctx.resume();
+  }
 
   const freqs = getChordFrequencies(chord, instrument);
   if (freqs.length === 0) return;
@@ -78,10 +97,54 @@ export async function playAcousticChord(chord: UkuleleChord, instrument: 'ukulel
   filter.connect(masterGain);
   masterGain.connect(ctx.destination);
 
+  let endedCount = 0;
+  const totalStrings = freqs.length;
+  const totalDuration = (totalStrings - 1) * strumSpeed + 1.45;
+
+  const oscillators: { osc: OscillatorNode; stringGain: GainNode }[] = [];
+  let isCleanedUp = false;
+
+  const cleanupAll = () => {
+    if (isCleanedUp) return;
+    isCleanedUp = true;
+    clearTimeout(fallbackTimer);
+
+    oscillators.forEach(({ osc, stringGain }) => {
+      try {
+        osc.disconnect();
+      } catch {
+        // Ignorar si ya fue desconectado
+      }
+      try {
+        stringGain.disconnect();
+      } catch {
+        // Ignorar si ya fue desconectado
+      }
+    });
+
+    try {
+      filter.disconnect();
+    } catch {
+      // Ignorar si ya fue desconectado
+    }
+    try {
+      masterGain.disconnect();
+    } catch {
+      // Ignorar si ya fue desconectado
+    }
+  };
+
+  // Temporizador de respaldo por si onended no se dispara (ej. pestañas en segundo plano)
+  const fallbackTimer = setTimeout(() => {
+    cleanupAll();
+  }, Math.ceil((totalDuration + 0.2) * 1000));
+
   freqs.forEach((freq, i) => {
     const stringTime = now + i * strumSpeed;
     const osc = ctx.createOscillator();
     const stringGain = ctx.createGain();
+
+    oscillators.push({ osc, stringGain });
 
     // Timbre tipo cuerda pulsada (triangular rica en armónicos)
     osc.type = 'triangle';
@@ -94,6 +157,24 @@ export async function playAcousticChord(chord: UkuleleChord, instrument: 'ukulel
 
     osc.connect(stringGain);
     stringGain.connect(filter);
+
+    // Desconexión individual al terminar la reproducción del oscilador
+    osc.onended = () => {
+      try {
+        osc.disconnect();
+      } catch {
+        // Ignorar si ya fue desconectado
+      }
+      try {
+        stringGain.disconnect();
+      } catch {
+        // Ignorar si ya fue desconectado
+      }
+      endedCount++;
+      if (endedCount >= totalStrings) {
+        cleanupAll();
+      }
+    };
 
     osc.start(stringTime);
     osc.stop(stringTime + 1.45);

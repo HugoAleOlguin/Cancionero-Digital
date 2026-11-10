@@ -183,15 +183,36 @@ class TestManageHymns(unittest.TestCase):
             tmp_cat = Path(tmpdir) / "catalog.json"
             tmp_ver = Path(tmpdir) / "version.json"
             tmp_ast = Path(tmpdir) / "assets.json"
+            tmp_web_cat = Path(tmpdir) / "web_catalog.json"
+            tmp_web_ver = Path(tmpdir) / "web_version.json"
 
-            save_catalog(self.sample_catalog, catalog_path=tmp_cat, version_path=tmp_ver, assets_path=tmp_ast)
+            save_catalog(
+                self.sample_catalog,
+                catalog_path=tmp_cat,
+                version_path=tmp_ver,
+                assets_path=tmp_ast,
+                web_catalog_path=tmp_web_cat,
+                web_version_path=tmp_web_ver
+            )
             self.assertTrue(tmp_cat.exists())
             self.assertTrue(tmp_ver.exists())
             self.assertTrue(tmp_ast.exists())
+            self.assertTrue(tmp_web_cat.exists())
+            self.assertTrue(tmp_web_ver.exists())
 
             loaded = load_catalog(tmp_cat)
             self.assertEqual(loaded["totalHymns"], 2)
             self.assertEqual(len(loaded["hymns"]), 2)
+
+            # Probar también pasando None para web_catalog_path y web_version_path para aislamiento total
+            save_catalog(
+                self.sample_catalog,
+                catalog_path=tmp_cat,
+                version_path=tmp_ver,
+                assets_path=tmp_ast,
+                web_catalog_path=None,
+                web_version_path=None
+            )
 
     def test_parse_plain_text(self):
         raw = """Título: Canto de Esperanza

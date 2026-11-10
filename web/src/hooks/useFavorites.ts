@@ -1,26 +1,16 @@
 import { useState, useEffect, useCallback } from 'react';
+import { safeGetItem, safeSetItem } from '../utils/storage';
 
 const STORAGE_KEY = 'cancionero_favorites';
 
 export function useFavorites() {
   const [favorites, setFavorites] = useState<Set<number>>(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) {
-        return new Set<number>(JSON.parse(stored));
-      }
-    } catch (e) {
-      console.error('Error reading favorites from localStorage', e);
-    }
-    return new Set<number>();
+    const stored = safeGetItem<number[]>(STORAGE_KEY, []);
+    return new Set<number>(stored);
   });
 
   useEffect(() => {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(Array.from(favorites)));
-    } catch (e) {
-      console.error('Error saving favorites to localStorage', e);
-    }
+    safeSetItem(STORAGE_KEY, Array.from(favorites));
   }, [favorites]);
 
   const toggleFavorite = useCallback((id: number) => {

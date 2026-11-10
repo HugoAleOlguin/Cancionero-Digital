@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { syllabifyWord, splitLineIntoSyllables } from '../util/syllabifier';
+import { syllabifyWord, splitLineIntoSyllables } from '../utils/syllabifier';
 
 describe('Spanish Syllabifier Engine', () => {
   it('correctly syllabifies standard Spanish words', () => {

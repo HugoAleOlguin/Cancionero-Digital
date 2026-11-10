@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { Hymn } from '../types/hymn';
 import { formatYouTubeListToClipboard } from '../utils/youtubeLinks';
 import { X, Search, Copy, Check, ExternalLink } from 'lucide-react';
@@ -27,6 +27,49 @@ export const YouTubeLinksModal: React.FC<YouTubeLinksModalProps> = ({
   const [copiedAll, setCopiedAll] = useState<boolean>(false);
   const [copiedId, setCopiedId] = useState<number | null>(null);
 
+  // Refs de temporizadores y limpieza estricta al desmontar
+  const copyAllTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const copySingleTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (copyAllTimerRef.current) clearTimeout(copyAllTimerRef.current);
+      if (copySingleTimerRef.current) clearTimeout(copySingleTimerRef.current);
+    };
+  }, []);
+
+  // Limpiar temporizadores y estados cuando se cierra el modal
+  useEffect(() => {
+    if (!isOpen) {
+      if (copyAllTimerRef.current) {
+        clearTimeout(copyAllTimerRef.current);
+        copyAllTimerRef.current = null;
+      }
+      if (copySingleTimerRef.current) {
+        clearTimeout(copySingleTimerRef.current);
+        copySingleTimerRef.current = null;
+      }
+      setCopiedAll(false);
+      setCopiedId(null);
+    }
+  }, [isOpen]);
+
+  // Manejador accesible para cerrar modal con tecla Escape
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen, onClose]);
+
   const filteredHymns = useMemo(() => {
     if (!search.trim()) return hymns;
     const q = search.trim().toLowerCase();
@@ -37,15 +80,14 @@ export const YouTubeLinksModal: React.FC<YouTubeLinksModalProps> = ({
     );
   }, [hymns, search]);
 
-  if (!isOpen) return null;
-
   const handleCopyAll = async () => {
     try {
       const fullText = formatYouTubeListToClipboard(filteredHymns);
       await navigator.clipboard.writeText(fullText);
       setCopiedAll(true);
       onNotify?.(`${filteredHymns.length} enlaces copiados al portapapeles`);
-      setTimeout(() => setCopiedAll(false), 2200);
+      if (copyAllTimerRef.current) clearTimeout(copyAllTimerRef.current);
+      copyAllTimerRef.current = setTimeout(() => setCopiedAll(false), 2200);
     } catch (err) {
       console.error('Error al copiar enlaces', err);
     }
@@ -58,16 +100,25 @@ export const YouTubeLinksModal: React.FC<YouTubeLinksModalProps> = ({
       await navigator.clipboard.writeText(line);
       setCopiedId(hymn.id);
       onNotify?.(`Enlace de "${hymn.title}" copiado`);
-      setTimeout(() => setCopiedId(null), 2000);
+      if (copySingleTimerRef.current) clearTimeout(copySingleTimerRef.current);
+      copySingleTimerRef.current = setTimeout(() => setCopiedId(null), 2000);
     } catch (err) {
       console.error('Error al copiar enlace individual', err);
     }
   };
 
+  // Retorno condicional seguro JUSTO antes del JSX
+  if (!isOpen) return null;
+
   return (
     <div className="fixed inset-0 z-50 overflow-hidden flex items-center justify-center p-0 sm:p-4 bg-black/70 backdrop-blur-xs animate-in fade-in duration-200">
       {/* Contenedor Principal */}
-      <div className="bg-parchment dark:bg-darkcard border border-parchment-border dark:border-jetcarbon-border rounded-none sm:rounded-2xl shadow-2xl flex flex-col w-full max-w-2xl h-full sm:h-[88vh] overflow-hidden">
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="youtube-links-modal-title"
+        className="bg-parchment dark:bg-darkcard border border-parchment-border dark:border-jetcarbon-border rounded-none sm:rounded-2xl shadow-2xl flex flex-col w-full max-w-2xl h-full sm:h-[88vh] overflow-hidden"
+      >
         
         {/* Cabecera */}
         <header className="px-5 py-3.5 border-b border-parchment-border dark:border-jetcarbon-border bg-white dark:bg-darkbg flex items-center justify-between shrink-0">
@@ -77,7 +128,7 @@ export const YouTubeLinksModal: React.FC<YouTubeLinksModalProps> = ({
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h2 className="text-sm sm:text-base font-bold text-jetcarbon dark:text-gray-100">
+                <h2 id="youtube-links-modal-title" className="text-sm sm:text-base font-bold text-jetcarbon dark:text-gray-100">
                   Alabanzas con Enlace de YouTube
                 </h2>
                 <span className="text-xs px-2 py-0.5 rounded-full bg-golden/15 text-golden-dark dark:text-golden font-semibold">
@@ -94,6 +145,7 @@ export const YouTubeLinksModal: React.FC<YouTubeLinksModalProps> = ({
             onClick={onClose}
             className="p-2 rounded-xl text-jetcarbon-muted hover:text-jetcarbon dark:text-gray-400 dark:hover:text-white hover:bg-parchment dark:hover:bg-jetcarbon-light transition-colors"
             title="Cerrar"
+            aria-label="Cerrar modal de enlaces de YouTube"
           >
             <X size={18} />
           </button>

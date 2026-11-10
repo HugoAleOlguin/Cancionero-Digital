@@ -16,6 +16,7 @@ import subprocess
 import unicodedata
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Optional
 
 DEFAULT_CATALOG_PATH = Path("data/catalog.json")
 DEFAULT_VERSION_PATH = Path("data/catalog_version.json")
@@ -58,10 +59,10 @@ def load_catalog(catalog_path: Path = DEFAULT_CATALOG_PATH) -> dict:
 
 def save_catalog(catalog: dict,
                  catalog_path: Path = DEFAULT_CATALOG_PATH,
-                 version_path: Path = DEFAULT_VERSION_PATH,
-                 assets_path: Path = DEFAULT_ASSETS_PATH,
-                 web_catalog_path: Path = DEFAULT_WEB_CATALOG_PATH,
-                 web_version_path: Path = DEFAULT_WEB_VERSION_PATH) -> None:
+                 version_path: Optional[Path] = DEFAULT_VERSION_PATH,
+                 assets_path: Optional[Path] = DEFAULT_ASSETS_PATH,
+                 web_catalog_path: Optional[Path] = DEFAULT_WEB_CATALOG_PATH,
+                 web_version_path: Optional[Path] = DEFAULT_WEB_VERSION_PATH) -> None:
     """Guarda el catálogo actualizado en disco y actualiza los metadatos."""
     now_iso = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     catalog["updatedAt"] = now_iso
@@ -74,14 +75,15 @@ def save_catalog(catalog: dict,
     with open(catalog_path, "w", encoding="utf-8") as f:
         f.write(catalog_str)
 
+    version_info = {
+        "version": catalog.get("version", 1),
+        "updatedAt": now_iso,
+        "totalHymns": catalog["totalHymns"]
+    }
+
     if version_path:
         version_dir = version_path.parent
         version_dir.mkdir(parents=True, exist_ok=True)
-        version_info = {
-            "version": catalog.get("version", 1),
-            "updatedAt": now_iso,
-            "totalHymns": catalog["totalHymns"]
-        }
         with open(version_path, "w", encoding="utf-8") as f:
             json.dump(version_info, f, indent=2, ensure_ascii=False)
 
@@ -91,11 +93,11 @@ def save_catalog(catalog: dict,
         with open(assets_path, "w", encoding="utf-8") as f:
             f.write(catalog_str)
 
-    if web_catalog_path and web_catalog_path.parent.exists():
+    if web_catalog_path is not None and web_catalog_path.parent.exists():
         with open(web_catalog_path, "w", encoding="utf-8") as f:
             f.write(catalog_str)
 
-    if web_version_path and web_version_path.parent.exists():
+    if web_version_path is not None and web_version_path.parent.exists():
         with open(web_version_path, "w", encoding="utf-8") as f:
             json.dump(version_info, f, indent=2, ensure_ascii=False)
 

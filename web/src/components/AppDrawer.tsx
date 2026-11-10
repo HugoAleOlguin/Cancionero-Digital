@@ -1,6 +1,7 @@
+import React, { useEffect } from 'react';
 import { X, Star, BookOpen, User, Type, Moon, Sun, Sliders, Music } from 'lucide-react';
 import { TypographyType, ThemeMode } from '../types/hymn';
-import { ChordNotationType } from '../util/chordNotation';
+import { ChordNotationType } from '../utils/chordNotation';
 
 interface AppDrawerProps {
   isOpen: boolean;
@@ -47,7 +48,26 @@ export const AppDrawer: React.FC<AppDrawerProps> = ({
   youtubeHymnsCount,
   onOpenYouTubeLinks
 }) => {
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
+
+  const fontClass = {
+    serif: 'font-serif',
+    sans: 'font-sans',
+    mono: 'font-mono'
+  }[typography];
 
   return (
     <div className="fixed inset-0 z-50 overflow-hidden">
@@ -55,10 +75,16 @@ export const AppDrawer: React.FC<AppDrawerProps> = ({
       <div
         className="absolute inset-0 bg-black/50 backdrop-blur-xs transition-opacity"
         onClick={onClose}
+        aria-hidden="true"
       />
 
       {/* Drawer Panel */}
-      <aside className="absolute inset-y-0 left-0 max-w-xs sm:max-w-sm w-full bg-parchment-paper dark:bg-darkcard shadow-2xl flex flex-col z-10 transition-transform transform duration-300 border-r border-parchment-border dark:border-jetcarbon-border">
+      <aside
+        role="dialog"
+        aria-modal="true"
+        aria-label="Menú principal y ajustes de lectura"
+        className="absolute inset-y-0 left-0 max-w-xs sm:max-w-sm w-full bg-parchment-paper dark:bg-darkcard shadow-2xl flex flex-col z-10 transition-transform transform duration-300 border-r border-parchment-border dark:border-jetcarbon-border"
+      >
         {/* Header */}
         <div className="p-5 border-b border-parchment-border dark:border-jetcarbon-border flex items-center justify-between bg-white dark:bg-darkbg">
           <div className="flex items-center gap-3">
@@ -74,6 +100,7 @@ export const AppDrawer: React.FC<AppDrawerProps> = ({
           </div>
           <button
             onClick={onClose}
+            aria-label="Cerrar menú"
             className="p-2 rounded-xl text-jetcarbon-muted hover:text-jetcarbon dark:text-gray-400 dark:hover:text-white hover:bg-parchment dark:hover:bg-jetcarbon-light"
           >
             <X size={20} />
@@ -203,6 +230,24 @@ export const AppDrawer: React.FC<AppDrawerProps> = ({
                 +
               </button>
             </div>
+          </section>
+
+          {/* Previsualización en Vivo de Tipografía y Tamaño */}
+          <section className="p-3.5 rounded-xl border border-parchment-border dark:border-jetcarbon-border bg-white dark:bg-darkbg shadow-2xs">
+            <div className="flex items-center justify-between mb-2 pb-1.5 border-b border-parchment-border/60 dark:border-jetcarbon-border/60">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-golden flex items-center gap-1">
+                <span>Vista Previa en Vivo</span>
+              </span>
+              <span className="text-[10px] font-mono text-jetcarbon-muted dark:text-gray-400 capitalize">
+                {typography} • {fontSize}px
+              </span>
+            </div>
+            <p
+              className={`${fontClass} text-jetcarbon dark:text-gray-100 text-center leading-relaxed break-words transition-all duration-150 select-none py-1`}
+              style={{ fontSize: `${fontSize}px` }}
+            >
+              «¡Cuán grande es Él! Mi corazón entona la canción...»
+            </p>
           </section>
 
           {/* Theme Toggle Button */}

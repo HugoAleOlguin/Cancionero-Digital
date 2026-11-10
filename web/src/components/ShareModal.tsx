@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Hymn } from '../types/hymn';
 import { generateHymnPdf } from '../utils/pdfGenerator';
 import { X, Download, Link2, Copy, Check, Share2 } from 'lucide-react';
@@ -29,11 +29,59 @@ export const ShareModal: React.FC<ShareModalProps> = ({
   const [copiedLyrics, setCopiedLyrics] = useState(false);
   const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
 
-  if (!isOpen || !hymn) return null;
+  // Refs para temporizadores y limpieza estricta al desmontar
+  const pdfTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const copyLinkTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const copyLyricsTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const versions = [hymn.content, ...(hymn.extraVersions || [])];
-  const activeContent = versions[activeVersionIndex] || hymn.content;
-  const directUrl = `${window.location.origin}/?id=${hymn.id}`;
+  useEffect(() => {
+    return () => {
+      if (pdfTimerRef.current) clearTimeout(pdfTimerRef.current);
+      if (copyLinkTimerRef.current) clearTimeout(copyLinkTimerRef.current);
+      if (copyLyricsTimerRef.current) clearTimeout(copyLyricsTimerRef.current);
+    };
+  }, []);
+
+  // Limpiar temporizadores y estados cuando se cierra el modal
+  useEffect(() => {
+    if (!isOpen) {
+      if (pdfTimerRef.current) {
+        clearTimeout(pdfTimerRef.current);
+        pdfTimerRef.current = null;
+      }
+      if (copyLinkTimerRef.current) {
+        clearTimeout(copyLinkTimerRef.current);
+        copyLinkTimerRef.current = null;
+      }
+      if (copyLyricsTimerRef.current) {
+        clearTimeout(copyLyricsTimerRef.current);
+        copyLyricsTimerRef.current = null;
+      }
+      setCopiedLink(false);
+      setCopiedLyrics(false);
+      setIsGeneratingPdf(false);
+    }
+  }, [isOpen]);
+
+  // Manejador accesible para cerrar modal con tecla Escape
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen, onClose]);
+
+  const versions = hymn ? [hymn.content, ...(hymn.extraVersions || [])] : [];
+  const activeContent = hymn ? (versions[activeVersionIndex] || hymn.content) : '';
+  const directUrl = hymn ? `${window.location.origin}/?id=${hymn.id}` : '';
 
   const handleDownloadPdf = () => {
     if (onOpenPdfStudio && hymn) {
@@ -42,10 +90,13 @@ export const ShareModal: React.FC<ShareModalProps> = ({
       return;
     }
 
+    if (!hymn) return;
+
     try {
       setIsGeneratingPdf(true);
       generateHymnPdf(hymn, activeVersionIndex);
-      setTimeout(() => {
+      if (pdfTimerRef.current) clearTimeout(pdfTimerRef.current);
+      pdfTimerRef.current = setTimeout(() => {
         setIsGeneratingPdf(false);
         onClose();
       }, 500);
@@ -59,24 +110,28 @@ export const ShareModal: React.FC<ShareModalProps> = ({
     try {
       await navigator.clipboard.writeText(directUrl);
       setCopiedLink(true);
-      setTimeout(() => setCopiedLink(false), 2000);
+      if (copyLinkTimerRef.current) clearTimeout(copyLinkTimerRef.current);
+      copyLinkTimerRef.current = setTimeout(() => setCopiedLink(false), 2000);
     } catch (err) {
       console.error('Error copying link', err);
     }
   };
 
   const handleCopyLyrics = async () => {
+    if (!hymn) return;
     try {
       const fullText = `${hymn.id}. ${hymn.title}\n${hymn.author ? `Autor: ${hymn.author}\n` : ''}\n${activeContent}`;
       await navigator.clipboard.writeText(fullText);
       setCopiedLyrics(true);
-      setTimeout(() => setCopiedLyrics(false), 2000);
+      if (copyLyricsTimerRef.current) clearTimeout(copyLyricsTimerRef.current);
+      copyLyricsTimerRef.current = setTimeout(() => setCopiedLyrics(false), 2000);
     } catch (err) {
       console.error('Error copying lyrics', err);
     }
   };
 
   const handleWhatsApp = () => {
+    if (!hymn) return;
     const message = `${hymn.id}. ${hymn.title}\n\nPuedes leer este canto aquí:\n${directUrl}`;
     const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
@@ -84,6 +139,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({
   };
 
   const handleNativeShare = async () => {
+    if (!hymn) return;
     if (navigator.share) {
       try {
         await navigator.share({
@@ -98,28 +154,38 @@ export const ShareModal: React.FC<ShareModalProps> = ({
     }
   };
 
+  // Retorno condicional seguro JUSTO antes del JSX
+  if (!isOpen || !hymn) return null;
+
   return (
     <div className="fixed inset-0 z-50 overflow-hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
       {/* Backdrop */}
       <div
         className="fixed inset-0 bg-black/60 backdrop-blur-xs transition-opacity"
         onClick={onClose}
+        aria-hidden="true"
       />
 
       {/* Modal / Bottom Sheet Panel */}
-      <div className="relative w-full sm:max-w-md bg-white dark:bg-darkcard rounded-t-3xl sm:rounded-2xl border border-parchment-border dark:border-jetcarbon-border shadow-2xl overflow-hidden z-10 animate-in fade-in slide-in-from-bottom-6 sm:slide-in-from-bottom-2 duration-200">
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="share-modal-title"
+        className="relative w-full sm:max-w-md bg-white dark:bg-darkcard rounded-t-3xl sm:rounded-2xl border border-parchment-border dark:border-jetcarbon-border shadow-2xl overflow-hidden z-10 animate-in fade-in slide-in-from-bottom-6 sm:slide-in-from-bottom-2 duration-200"
+      >
         {/* Header */}
         <div className="p-5 border-b border-parchment-border dark:border-jetcarbon-border flex items-center justify-between">
           <div className="pr-4">
             <span className="text-xs font-bold uppercase tracking-wider text-golden">
               Compartir Alabanza
             </span>
-            <h3 className="text-base sm:text-lg font-bold text-jetcarbon dark:text-gray-100 truncate mt-0.5">
+            <h3 id="share-modal-title" className="text-base sm:text-lg font-bold text-jetcarbon dark:text-gray-100 truncate mt-0.5">
               {hymn.id}. {hymn.title}
             </h3>
           </div>
           <button
             onClick={onClose}
+            aria-label="Cerrar modal de compartir"
             className="p-2 rounded-xl text-jetcarbon-muted hover:text-jetcarbon dark:text-gray-400 dark:hover:text-white hover:bg-parchment dark:hover:bg-jetcarbon-light transition-colors"
           >
             <X size={18} />
